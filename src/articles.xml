@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<articles>
+
+  <article>
+    <date>2014-3-01</date>
+    <title>Erster Eintrag</title>
+    <subtitle>Bob <code>Dylan</code></subtitle>
+    <short>Der allererste Artikel der jemals veröffentlicht wurde ist immer der schwerste. Aber so ist das nunmal.</short>
+    <content>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet ex sit amet nisi condimentum finibus et eu ante. Etiam cursus rhoncus mauris vel blandit. Duis id augue dapibus diam interdum cursus. Mauris id rhoncus ex, eu cursus erat. Proin sollicitudin, nulla id condimentum luctus, massa leo fringilla mi, vel viverra nulla nisl eget ex. Cras lobortis quam in massa luctus, eu viverra lectus sollicitudin. Pellentesque laoreet nibh vel diam venenatis, eu elementum justo iaculis. Sed dui est, elementum et nisl eget, pretium vestibulum nisl. Suspendisse sit amet lectus metus. Vestibulum vestibulum nulla ut dignissim faucibus. Integer tincidunt laoreet metus imperdiet suscipit.</p>
+    </content>
+  </article>
+
+  <article>
+    <date>2015-1-12</date>
+    <title>Zweiter Eintrag</title>
+    <subtitle>noch besser als der erste</subtitle>
+    <short>Beim zweiten Artikel ist vieles einfacher und geht leichter von der Hand.</short>
+    <content>
+      <p>Suspendisse rutrum, augue ut scelerisque lacinia, elit massa lacinia neque, elementum convallis libero elit nec diam. Aenean euismod elementum risus, non iaculis quam maximus et. Nam scelerisque dui vitae turpis ullamcorper euismod. Phasellus lacinia ut diam eu mattis. Sed et nisi convallis, mattis nisi a, sodales nunc. In neque nulla, aliquam ac libero ac, pellentesque ornare sapien. Praesent vestibulum velit tortor, non malesuada arcu sagittis aliquam. Phasellus id ligula ac metus ultricies ornare. In quis varius felis. Vestibulum hendrerit nisi vitae elit fermentum placerat.</p>
+    </content>
+  </article>
+
+  <article>
+    <date>2015-2-27</date>
+    <title>Dritter Eintrag</title>
+    <subtitle>noch besser als der erste</subtitle>
+    <short>Beim zweiten Artikel ist vieles einfacher und geht leichter von der Hand.</short>
+    <content>
+      <p>Donec est risus, auctor eget feugiat a, vulputate at purus. Quisque tristique nulla nisl. Sed ipsum sapien, feugiat quis purus sit amet, rhoncus fringilla velit. Nulla maximus auctor nisi quis varius. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus sapien lorem, aliquam in lacinia sed, posuere et enim. Fusce tempus a ante vel laoreet. Aenean eu enim urna. Duis faucibus metus vel magna suscipit, vel euismod nisi tincidunt. Donec orci dui, blandit nec massa eget, pellentesque rutrum lacus. Mauris luctus, libero non lacinia ultrices, felis odio pretium massa, quis aliquam tellus nibh in risus. Cras vitae lacus fringilla, tempus diam non, vestibulum magna. Sed ut accumsan quam. Praesent tristique libero metus, ut ornare ipsum egestas venenatis. Aenean vulputate nibh in sagittis convallis.</p>
+    </content>
+  </article>
+
+  <article>
+    <date>2015-3-12</date>
+    <title>Vierter Artikel</title>
+    <subtitle>noch besser als der erste</subtitle>
+    <short>Beim zweiten Artikel ist vieles einfacher und geht leichter von der Hand.</short>
+    <content>
+      <p>Nunc eu est in ex vehicula laoreet ut nec lorem. Integer diam est, gravida sit amet nunc a, maximus rhoncus orci. Nulla nec facilisis magna. Aliquam et maximus odio. Nam gravida et elit vel eleifend. Curabitur dignissim facilisis mauris ac tempus. Aenean euismod dictum mi, sed finibus nunc consequat ac.</p>
+    </content>
+  </article>
+
+  <article>
+    <date>2015-3-13</date>
+    <title>Fünfter Artikel</title>
+    <subtitle>noch besser als der erste</subtitle>
+    <short>Beim zweiten Artikel ist vieles einfacher und geht leichter von der Hand.</short>
+    <content>
+      <p>Mauris molestie, velit id faucibus porta, purus dolor cursus nunc, nec faucibus quam orci at odio. Ut eget euismod ligula. Pellentesque et ligula vestibulum, tempor nulla quis, euismod libero. Pellentesque accumsan enim dui. Nullam vulputate mauris ipsum, in viverra tortor dapibus ut. Vestibulum ac cursus metus. Ut at varius lectus. Morbi vulputate vestibulum dui, vel molestie erat pellentesque et. Pellentesque vel enim mattis, rhoncus ligula vel, consectetur neque. Maecenas et tempus erat. Nunc ultrices elementum leo nec pretium.</p>
+    </content>
+  </article>
+  
+</articles>
