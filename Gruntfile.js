@@ -1,15 +1,28 @@
 module.exports = function(grunt) {
 
+  // Includes
+  var path = require('path');
+
+  // Variables
+  var bootstrap_path = '../bootstrap';
+
   // Project configuration
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     clean: {
       main: ['publish/*']
     },
+    copy: {
+      main: {
+        nonull: true,
+        src: path.join(bootstrap_path, 'less/variables.less'),
+        dest: 'less/variables.less'
+      }
+    },
     xsltproc: {
       options: {
         stylesheet: 'styles/main.xsl',
-        xinclude: true,
+        xinclude: true
       },
       main: {
         files: {
@@ -31,10 +44,12 @@ module.exports = function(grunt) {
   });
 
   // Load the plugin(s)
-  grunt.loadNpmTasks('grunt-xsltproc');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-xsltproc');
 
   // Default task(s)
-  grunt.registerTask('default', ['clean', 'xsltproc', 'connect']);
+  grunt.registerTask('default', ['clean', 'copy', 'xsltproc', 'connect']);
 };
