@@ -16,7 +16,7 @@
         <xsl:with-param name="pagetitle"><xsl:value-of select="$title" /></xsl:with-param>
       </xsl:call-template>
 
-      <body style="padding-top: 50px;">
+      <body class="navbar-spacer">
         <div class="container">
 
           <xsl:call-template name="html.navbar" />
@@ -62,7 +62,7 @@
   <!-- HTML5 head elements -->
   <xsl:template name="html.head">
     <xsl:param name="pagetitle" />
-    
+
     <xsl:variable name="sitetitle" select="/site/options/option[@name = 'sitetitle']" />
 
     <head>
@@ -89,8 +89,9 @@
   <xsl:template name="html.head.link">
 
     <xsl:text disable-output-escaping="yes">
-<![CDATA[<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css" />]]></xsl:text>
+<![CDATA[<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+<link rel="stylesheet" href="css/style.css" />]]></xsl:text>
 
   </xsl:template>
 
@@ -100,7 +101,7 @@
     <!-- TODO: remove "http:" for web publishing -->
     <xsl:text disable-output-escaping="yes">
 <![CDATA[<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/headroom/0.7.0/headroom.min.js"></script>]]></xsl:text>
 
   </xsl:template>
