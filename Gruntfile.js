@@ -9,28 +9,21 @@ module.exports = function(grunt) {
   // Project configuration
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+
     clean: {
       main: ['publish/*', 'less/variables.less']
     },
+
     copy: {
-      variables: {
-        nonull: true,
-        src: path.join(bootstrap_path, 'less/variables.less'),
-        dest: 'less/variables.less'
-      },
-      bootstrap_css: {
-        expand: true,
-        nonull: true,
-        cwd: path.join(bootstrap_path, 'dist/css'),
-        src: 'bootstrap*.min.css',
-        dest: 'publish/css/'
-      },
-      bootstrap_js: {
-        nonull: true,
-        src: path.join(bootstrap_path, 'dist/js/bootstrap.min.js'),
-        dest: 'publish/js/bootstrap.min.js'
+      main: {
+        files: [
+          { nonull: true, src: path.join(bootstrap_path, 'less/variables.less'), dest: 'less/variables.less'},
+          { nonull: true, expand: true, cwd: path.join(bootstrap_path, 'dist/css'), src: 'bootstrap*.min.css', dest: 'publish/css/'},
+          { nonull: true, src: path.join(bootstrap_path, 'dist/js/bootstrap.min.js'), dest: 'publish/js/bootstrap.min.js'},
+        ]
       }
     },
+
     xsltproc: {
       options: {
         stylesheet: 'style/main.xsl',
@@ -38,16 +31,22 @@ module.exports = function(grunt) {
       },
       main: {
         files: {
-          'publish/index.html': ['src/main.xml']
+          'publish/index.html': 'src/main.xml'
         }
       }
     },
+
     less: {
       main: {
-        src: 'less/style.less',
-        dest: 'publish/css/style.css'
+        options: {
+          strictMath: true
+        },
+        files: {
+          'publish/css/style.css': 'less/style.less'
+        }
       }
     },
+    
     connect: {
       server: {
         options: {
