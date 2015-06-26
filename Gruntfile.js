@@ -17,9 +17,9 @@ module.exports = function(grunt) {
     copy: {
       main: {
         files: [
-          { nonull: true, src: path.join(bootstrap_path, 'less/variables.less'), dest: 'less/variables.less'},
-          { nonull: true, expand: true, cwd: path.join(bootstrap_path, 'dist/css'), src: 'bootstrap*.min.css', dest: 'publish/css/'},
-          { nonull: true, src: path.join(bootstrap_path, 'dist/js/bootstrap.min.js'), dest: 'publish/js/bootstrap.min.js'},
+//          { nonull: true, src: path.join(bootstrap_path, 'less/variables.less'), dest: 'less/variables.less' },
+          { nonull: true, expand: true, cwd: path.join(bootstrap_path, 'css'), src: 'bootstrap*.min.css', dest: 'publish/css/' },
+          { nonull: true, src: path.join(bootstrap_path, 'js/bootstrap.min.js'), dest: 'publish/js/bootstrap.min.js' },
         ]
       }
     },
@@ -76,8 +76,19 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-xsltproc');
 
+  // Read bootstrap config.json
+  grunt.registerTask('parse_bootstrap_config', function() {
+    var bootstrap_config = grunt.file.readJSON(path.join(bootstrap_path, 'config.json'));
+    var variables = '';
+    for (var key in bootstrap_config.vars) {
+      variables += key + ':\t' + bootstrap_config.vars[key] + ';\n';
+    }
+    grunt.file.write('less/variables.less', variables);
+  });
+
   // Default task(s)
-  grunt.registerTask('default', ['clean', 'copy', 'xsltproc', 'less', 'cssmin', 'connect']);
+//  grunt.registerTask('default', ['clean', 'copy', 'xsltproc', 'less', 'cssmin', 'connect']);
+  grunt.registerTask('default', ['clean', 'copy', 'xsltproc', 'parse_bootstrap_config', 'less', 'cssmin', 'connect']);
   // Everything except minification
   grunt.registerTask('debug', ['clean', 'copy', 'xsltproc', 'less', 'connect']);
 };
