@@ -46,7 +46,15 @@ module.exports = function(grunt) {
         }
       }
     },
-    
+
+    cssmin: {
+      main: {
+        files: {
+          'publish/css/style.css': 'publish/css/style.css'
+        }
+      }
+    },
+
     connect: {
       server: {
         options: {
@@ -64,9 +72,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-xsltproc');
 
   // Default task(s)
-  grunt.registerTask('default', ['clean', 'copy', 'xsltproc', 'less', 'connect']);
+  grunt.registerTask('default', ['clean', 'copy', 'xsltproc', 'less', 'cssmin', 'connect']);
+  // Everything except minification
+  grunt.registerTask('debug', ['clean', 'copy', 'xsltproc', 'less', 'connect']);
 };
