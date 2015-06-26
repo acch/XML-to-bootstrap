@@ -70,7 +70,6 @@
       <xsl:call-template name="html.head.meta" />
       <xsl:call-template name="html.head.link" />
       <xsl:call-template name="html.head.script" />
-      <xsl:call-template name="html.head.css" />
     </head>
 
   </xsl:template>
@@ -100,41 +99,9 @@
 
     <!-- TODO: remove "http:" for web publishing -->
     <xsl:text disable-output-escaping="yes">
-<![CDATA[<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<![CDATA[<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/headroom/0.7.0/headroom.min.js"></script>]]></xsl:text>
-
-  </xsl:template>
-
-  <!-- Custom CSS -->
-  <xsl:template name="html.head.css">
-
-    <!-- TODO: get header size from bootstrap CSS -->
-    <xsl:text disable-output-escaping="yes">
-<![CDATA[<style type="text/css">
-.navbar {
-  top: 10px;
-  border-width: 1px 0px;
-  background-color: #FFF;
-}
-.headroom {
-  -webkit-transition: -webkit-transform 250ms, background-position 0.5s;
-  transition: transform 250ms, background-position 0.5s;
-}
-.headroom--pinned {
-  -ms-transform: translateY(0%);
-  -webkit-transform: translateY(0%);
-  transform: translateY(0%);
-}
-.headroom--unpinned {
-  -ms-transform: translateY(-120%);
-  -webkit-transform: translateY(-120%);
-  transform: translateY(-120%);
-}
-.affix-top { background-position: center 50px; box-shadow: none; }
-.affix { background-position: center 0px; }
-</style>]]>
-    </xsl:text>
+<script src="//cdnjs.cloudflare.com/ajax/libs/headroom/0.7.0/headroom.min.js"></script>]]></xsl:text>
 
   </xsl:template>
 
