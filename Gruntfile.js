@@ -62,19 +62,13 @@ module.exports = function(grunt) {
           base: 'publish',
           keepalive: true,
           //open: 'http://localhost:8000/articles.html',
-          debug: true
         }
       }
     }
   });
 
   // Load the plugin(s)
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-xsltproc');
+  require('load-grunt-tasks')(grunt);
 
   // Read bootstrap config.json
   grunt.registerTask('parse_bootstrap_config', function() {
