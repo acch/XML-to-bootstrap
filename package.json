@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Transforms a generic XML document into Bootstrap HTML pages",
   "author": "Achim Christ",
+  "license": "MIT",
   "repository": "acch/XML-to-bootstrap",
   "devDependencies": {
     "grunt": "~0.4.5",
