@@ -34,8 +34,9 @@
             </div><!-- /main column -->
 
             <!-- sidebar column -->
-            <div class="col-sm-3 col-md-offset-1">
-              <div class="panel panel-default">
+            <div class="hidden-xs col-sm-3 col-md-offset-1">
+              <!-- TODO: data-offset-top should be a variable -->
+              <div class="panel panel-default" data-spy="affix" data-offset-top="85">
                 <div class="panel-body">
                   Nulla facilisi. Pellentesque vulputate sapien risus, eu pulvinar est bibendum at. Nam dictum feugiat nisi ut bibendum. Aliquam ut facilisis ipsum, non blandit libero. Proin lobortis consectetur tortor, sed cursus leo scelerisque non. Nullam rhoncus est libero. In hac habitasse platea dictumst. Nam egestas risus urna, sit amet condimentum massa bibendum ut.
                 </div>
@@ -97,7 +98,6 @@
   <!-- HTML5 scripts -->
   <xsl:template name="html.head.script">
 
-    <!-- TODO: remove "http:" for web publishing -->
     <xsl:text disable-output-escaping="yes">
 <![CDATA[<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

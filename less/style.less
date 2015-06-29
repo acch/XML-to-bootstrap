@@ -1,14 +1,21 @@
 @import "variables.less";
 
 .navbar-spacer {
-  padding-top: @navbar-height;
+  padding-top: (@navbar-height + @padding-large-vertical);
 }
 
 .navbar {
-  top: 10px;
+  top: @padding-large-vertical;
   border-width: 1px 0px;
   background-color: #FFF;
 }
+.navbar.affix-top {
+  background-position: center @navbar-height; box-shadow: none;
+}
+.navbar.affix {
+  background-position: center 0px;
+}
+
 .headroom {
   -webkit-transition: -webkit-transform 250ms, background-position 0.5s;
   transition: transform 250ms, background-position 0.5s;
@@ -23,5 +30,22 @@
   -webkit-transform: translateY(-120%);
   transform: translateY(-120%);
 }
-.affix-top { background-position: center 50px; box-shadow: none; }
-.affix { background-position: center 0px; }
+
+.panel.affix {
+  top: (@navbar-height + 2.5 * @padding-large-vertical);
+}
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+  .panel.affix {
+    width: (@container-sm / 4 - @grid-gutter-width);
+  }
+}
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+  .panel.affix {
+    width: (@container-md / 4 - @grid-gutter-width);
+  }
+}
+@media (min-width: @screen-lg-min) {
+  .panel.affix {
+    width: (@container-lg / 4 - @grid-gutter-width);
+  }
+}
