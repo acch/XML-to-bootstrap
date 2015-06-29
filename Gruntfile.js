@@ -94,6 +94,20 @@ module.exports = function(grunt) {
   // Load the plugin(s)
   require('load-grunt-tasks')(grunt);
 
+  // Copy sample files
+  grunt.registerTask('copy_samples', function() {
+    // Recurse samples directory
+    grunt.file.recurse('src/sample', function(abspath, rootdir, subdir, filename) {
+      var destfile = path.join('src', filename);
+      // Check if destination file exists
+      if (! grunt.file.exists(destfile)) {
+        grunt.log.writeln('Copying sample: ' + filename);
+        // Copy sample to destination
+        grunt.file.copy(abspath, destfile);
+      }
+    });
+  });
+
   // Read bootstrap config.json
   grunt.registerTask('parse_bootstrap_config', function() {
     var bootstrap_config = grunt.file.readJSON(path.join(bootstrap_path, 'config.json'));
@@ -105,8 +119,7 @@ module.exports = function(grunt) {
   });
 
   // Default task including everything
-//  grunt.registerTask('default', ['clean', 'copy', 'xsltproc', 'less', 'cssmin', 'connect']);
-  grunt.registerTask('default', ['clean', 'copy', 'xsltproc', 'parse_bootstrap_config', 'less', 'cssmin', 'htmlmin', 'connect']);
+  grunt.registerTask('default', ['clean', 'copy', 'copy_samples', 'xsltproc', 'parse_bootstrap_config', 'less', 'cssmin', 'htmlmin', 'connect']);
   // Everything except minification
-  grunt.registerTask('debug', ['clean', 'copy', 'xsltproc', 'parse_bootstrap_config', 'less', 'connect']);
+  grunt.registerTask('debug', ['clean', 'copy', 'copy_samples', 'xsltproc', 'parse_bootstrap_config', 'less', 'connect']);
 };

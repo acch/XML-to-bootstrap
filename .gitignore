@@ -1,3 +1,4 @@
 node_modules
-publish
+src/*.xml
+publish/*
 less/variables.less
