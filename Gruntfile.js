@@ -57,6 +57,15 @@ module.exports = function(grunt) {
       }
     },
 
+    csslint: {
+      options: {
+        'adjoining-classes': false
+      },
+      main: {
+        src: ['publish/css/style.css']
+      }
+    },
+
     cssmin: {
       main: {
         files: {
@@ -119,7 +128,7 @@ module.exports = function(grunt) {
   });
 
   // Default task including everything
-  grunt.registerTask('default', ['clean', 'copy', 'copy_samples', 'xsltproc', 'parse_bootstrap_config', 'less', 'cssmin', 'htmlmin', 'connect']);
+  grunt.registerTask('default', ['clean', 'copy', 'copy_samples', 'xsltproc', 'parse_bootstrap_config', 'less', 'csslint', 'cssmin', 'htmlmin', 'connect']);
   // Everything except minification
-  grunt.registerTask('debug', ['clean', 'copy', 'copy_samples', 'xsltproc', 'parse_bootstrap_config', 'less', 'connect']);
+  grunt.registerTask('debug', ['clean', 'copy', 'copy_samples', 'xsltproc', 'parse_bootstrap_config', 'less', 'csslint', 'connect']);
 };
