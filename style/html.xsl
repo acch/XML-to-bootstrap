@@ -36,7 +36,7 @@
             </div><!-- /main column -->
 
             <!-- sidebar column -->
-            <div class="hidden-xs col-sm-3 col-md-offset-1">
+            <div class="hidden-xs [ col-sm-3 col-md-offset-1 ]">
               <div class="panel panel-default" data-spy="affix">
                 <xsl:attribute name="data-offset-top"><xsl:value-of select="$sidebaroffset" /></xsl:attribute>
                 <div class="panel-body">
@@ -117,7 +117,7 @@
     <xsl:variable name="sitetitle" select="/site/options/option[@name = 'sitetitle']" />
     <xsl:variable name="siteauthor" select="/site/options/option[@name = 'siteauthor']" />
 
-    <nav class="navbar navbar-default navbar-fixed-top affix-top" data-spy="affix" data-offset-top="0">
+    <nav class="[ navbar navbar-default navbar-fixed-top ] affix-top" data-spy="affix" data-offset-top="0">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -146,7 +146,7 @@
               </ul>
             </li>
           </ul>
-          <p class="navbar-text navbar-right hidden-xs">by <xsl:value-of select="$siteauthor" /></p>
+          <p class="[ navbar-text navbar-right ] hidden-xs">by <xsl:value-of select="$siteauthor" /></p>
         </div>
       </div>
     </nav>
