@@ -78,9 +78,13 @@
   <!-- HTML5 meta elements -->
   <xsl:template name="html.head.meta">
 
+    <xsl:variable name="siteauthor" select="/site/options/option[@name = 'siteauthor']" />
+
     <xsl:text disable-output-escaping="yes">
 <![CDATA[<meta charset="utf-8" />
-<meta name="author" content="Achim Christ" />
+<meta name="author" content="]]></xsl:text>
+    <xsl:value-of select="$siteauthor" />
+    <xsl:text disable-output-escaping="yes"><![CDATA[" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />]]></xsl:text>
 
   </xsl:template>
@@ -108,6 +112,9 @@
   <!-- Responsive navigation bar -->
   <xsl:template name="html.navbar">
 
+    <xsl:variable name="sitetitle" select="/site/options/option[@name = 'sitetitle']" />
+    <xsl:variable name="siteauthor" select="/site/options/option[@name = 'siteauthor']" />
+
     <nav class="navbar navbar-default navbar-fixed-top affix-top" data-spy="affix" data-offset-top="1">
       <div class="container">
         <div class="navbar-header">
@@ -117,7 +124,7 @@
             <span class="icon-bar"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></span>
             <span class="icon-bar"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></span>
           </button>
-          <a class="navbar-brand" href="#">Byteshell</a>
+          <a class="navbar-brand" href="#"><xsl:value-of select="$sitetitle" /></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -137,7 +144,7 @@
               </ul>
             </li>
           </ul>
-          <p class="navbar-text navbar-right hidden-xs" style="padding-right: 15px;">by Achim Christ</p>
+          <p class="navbar-text navbar-right hidden-xs">by <xsl:value-of select="$siteauthor" /></p>
         </div>
       </div>
     </nav>
