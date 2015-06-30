@@ -4,10 +4,11 @@
   padding-top: (@navbar-height + @padding-large-vertical);
 }
 
+// Navbar styles
 .navbar {
   top: @padding-large-vertical;
   border-width: 1px 0px;
-  background-color: #FFF;
+  background-color: @body-bg;
 }
 .navbar.affix-top {
   background-position: center @navbar-height; box-shadow: none;
@@ -15,7 +16,11 @@
 .navbar.affix {
   background-position: center 0px;
 }
+.navbar-text.navbar-right {
+  padding-right: @padding-large-horizontal;
+}
 
+// Navbar animation (Headroom.js)
 .headroom {
   -webkit-transition: -webkit-transform 250ms, background-position 0.5s;
   transition: transform 250ms, background-position 0.5s;
@@ -31,6 +36,7 @@
   transform: translateY(-120%);
 }
 
+// Sidebar panel styles
 .panel.affix {
   top: (@navbar-height + 2.5 * @padding-large-vertical);
 }
