@@ -31,9 +31,9 @@
   transform: translateY(0%);
 }
 .headroom--unpinned {
-  -ms-transform: translateY(-120%);
-  -webkit-transform: translateY(-120%);
-  transform: translateY(-120%);
+  -ms-transform: translateY(percentage((0 - (@navbar-height + @padding-large-vertical) / @navbar-height)));
+  -webkit-transform: translateY(percentage((0 - (@navbar-height + @padding-large-vertical) / @navbar-height)));
+  transform: translateY(percentage((0 - (@navbar-height + @padding-large-vertical) / @navbar-height)));
 }
 
 // Sidebar panel styles
