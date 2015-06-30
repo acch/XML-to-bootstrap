@@ -9,6 +9,8 @@
     <xsl:param name="title" />
     <xsl:param name="content" />
 
+    <xsl:variable name="sidebaroffset" select="/site/options/option[@name = 'sidebaroffset']" />
+
     <xsl:call-template name="html.doctype" />
     <html lang="en">
 
@@ -35,8 +37,8 @@
 
             <!-- sidebar column -->
             <div class="hidden-xs col-sm-3 col-md-offset-1">
-              <!-- TODO: data-offset-top should be a variable -->
-              <div class="panel panel-default" data-spy="affix" data-offset-top="85">
+              <div class="panel panel-default" data-spy="affix">
+                <xsl:attribute name="data-offset-top"><xsl:value-of select="$sidebaroffset" /></xsl:attribute>
                 <div class="panel-body">
                   Nulla facilisi. Pellentesque vulputate sapien risus, eu pulvinar est bibendum at. Nam dictum feugiat nisi ut bibendum. Aliquam ut facilisis ipsum, non blandit libero. Proin lobortis consectetur tortor, sed cursus leo scelerisque non. Nullam rhoncus est libero. In hac habitasse platea dictumst. Nam egestas risus urna, sit amet condimentum massa bibendum ut.
                 </div>
@@ -115,7 +117,7 @@
     <xsl:variable name="sitetitle" select="/site/options/option[@name = 'sitetitle']" />
     <xsl:variable name="siteauthor" select="/site/options/option[@name = 'siteauthor']" />
 
-    <nav class="navbar navbar-default navbar-fixed-top affix-top" data-spy="affix" data-offset-top="1">
+    <nav class="navbar navbar-default navbar-fixed-top affix-top" data-spy="affix" data-offset-top="0">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
