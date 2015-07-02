@@ -22,17 +22,12 @@
 
 // Navbar animation (Headroom.js)
 .headroom {
-  -webkit-transition: -webkit-transform 250ms, background-position 0.5s;
   transition: transform 250ms, background-position 0.5s;
 }
 .headroom--pinned {
-  -ms-transform: translateY(0%);
-  -webkit-transform: translateY(0%);
   transform: translateY(0%);
 }
 .headroom--unpinned {
-  -ms-transform: translateY(percentage((0 - (@navbar-height + @padding-large-vertical) / @navbar-height)));
-  -webkit-transform: translateY(percentage((0 - (@navbar-height + @padding-large-vertical) / @navbar-height)));
   transform: translateY(percentage((0 - (@navbar-height + @padding-large-vertical) / @navbar-height)));
 }
 

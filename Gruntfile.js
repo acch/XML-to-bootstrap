@@ -57,9 +57,19 @@ module.exports = function(grunt) {
       }
     },
 
+    autoprefixer: {
+      options: {
+        'browsers': '> 5%, last 2 versions'
+      },
+      main: {
+        src: ['publish/css/style.css']
+      }
+    },
+
     csslint: {
       options: {
-        'adjoining-classes': false
+        'adjoining-classes': false,
+        'compatible-vendor-prefixes': false
       },
       main: {
         src: ['publish/css/style.css']
@@ -128,7 +138,7 @@ module.exports = function(grunt) {
   });
 
   // Default task including everything
-  grunt.registerTask('default', ['clean', 'copy', 'copy_samples', 'xsltproc', 'parse_bootstrap_config', 'less', 'csslint', 'cssmin', 'htmlmin', 'connect']);
+  grunt.registerTask('default', ['clean', 'copy', 'copy_samples', 'xsltproc', 'parse_bootstrap_config', 'less', 'autoprefixer', 'csslint', 'cssmin', 'htmlmin', 'connect']);
   // Everything except minification
-  grunt.registerTask('debug', ['clean', 'copy', 'copy_samples', 'xsltproc', 'parse_bootstrap_config', 'less', 'csslint', 'connect']);
+  grunt.registerTask('debug', ['clean', 'copy', 'copy_samples', 'xsltproc', 'parse_bootstrap_config', 'less', 'autoprefixer', 'csslint', 'connect']);
 };
