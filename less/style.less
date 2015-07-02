@@ -6,12 +6,13 @@
 
 // Navbar styles
 .navbar {
-  top: @padding-large-vertical;
-  border-width: 1px 0;
   background-color: @body-bg;
+  border-width: 1px 0;
+  top: @padding-large-vertical;
 }
 .navbar.affix-top {
-  background-position: center @navbar-height; box-shadow: none;
+  background-position: center @navbar-height;
+  box-shadow: none;
 }
 .navbar.affix {
   background-position: center 0;
@@ -48,5 +49,18 @@
 @media (min-width: @screen-lg-min) {
   .panel.affix {
     width: (@container-lg / 4 - @grid-gutter-width);
+  }
+}
+
+// Footer styles
+footer {
+  border-top: 1px solid @navbar-default-border;
+  color: @navbar-default-color;
+  margin-top: 100px;
+  padding: 40px 0;
+  text-align: center;
+
+  p {
+    margin: 0;
   }
 }

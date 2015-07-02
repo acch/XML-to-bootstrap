@@ -48,6 +48,14 @@
           </div><!-- /row -->
 
         </div><!-- /container -->
+
+        <footer>
+          <div class="container">
+            <p>Generated using <a href="https://github.com/acch/XML-to-bootstrap">XML-to-Bootstrap</a> for your reading pleasure.</p>
+            <p>This site uses <a href="http://getbootstrap.com">Bootstrap</a> and <a href="http://wicky.nillia.ms/headroom.js/">Headroom.js</a>.</p>
+          </div>
+        </footer>
+
       </body>
 
     </html>
