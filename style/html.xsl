@@ -9,8 +9,6 @@
     <xsl:param name="title" />
     <xsl:param name="content" />
 
-    <xsl:variable name="sidebaroffset" select="/site/options/option[@name = 'sidebaroffset']" />
-
     <xsl:call-template name="html.doctype" />
     <html lang="en">
 
@@ -18,9 +16,11 @@
         <xsl:with-param name="pagetitle"><xsl:value-of select="$title" /></xsl:with-param>
       </xsl:call-template>
 
-      <body class="navbar-spacer">
+      <body class="x2b-bdy">
+
         <div class="container">
 
+          <!-- navbar -->
           <xsl:call-template name="html.navbar" />
 
           <h1>My First Bootstrap Page <small>with some details</small></h1>
@@ -35,29 +35,16 @@
 
             </div><!-- /main column -->
 
-            <!-- sidebar column -->
-            <div class="hidden-xs [ col-sm-3 col-md-offset-1 ]">
-              <div class="panel panel-default" data-spy="affix">
-                <xsl:attribute name="data-offset-top"><xsl:value-of select="$sidebaroffset" /></xsl:attribute>
-                <div class="panel-body">
-                  Nulla facilisi. Pellentesque vulputate sapien risus, eu pulvinar est bibendum at. Nam dictum feugiat nisi ut bibendum. Aliquam ut facilisis ipsum, non blandit libero. Proin lobortis consectetur tortor, sed cursus leo scelerisque non. Nullam rhoncus est libero. In hac habitasse platea dictumst. Nam egestas risus urna, sit amet condimentum massa bibendum ut.
-                </div>
-              </div>
-            </div><!-- /sidebar column -->
+            <!-- sidebar -->
+            <xsl:call-template name="html.sidebar" />
 
           </div><!-- /row -->
-
         </div><!-- /container -->
 
-        <footer>
-          <div class="container">
-            <p>Generated using <a href="https://github.com/acch/XML-to-bootstrap">XML-to-Bootstrap</a> for your reading pleasure.</p>
-            <p>This site uses <a href="http://getbootstrap.com">Bootstrap</a> and <a href="http://wicky.nillia.ms/headroom.js/">Headroom.js</a>.</p>
-          </div>
-        </footer>
+        <!-- footer -->
+        <xsl:call-template name="html.footer" />
 
       </body>
-
     </html>
 
   </xsl:template>
@@ -119,14 +106,15 @@
 
   </xsl:template>
 
-  <!-- Responsive navigation bar -->
+  <!-- Responsive, animated navigation bar -->
   <xsl:template name="html.navbar">
 
     <xsl:variable name="sitetitle" select="/site/options/option[@name = 'sitetitle']" />
     <xsl:variable name="siteauthor" select="/site/options/option[@name = 'siteauthor']" />
 
-    <nav class="[ navbar navbar-default navbar-fixed-top ] affix-top" data-spy="affix" data-offset-top="0">
+    <nav class="[ navbar navbar-default navbar-fixed-top ] x2b-nvbr affix-top" data-spy="affix" data-offset-top="0">
       <div class="container">
+
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -135,7 +123,8 @@
             <span class="icon-bar"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></span>
           </button>
           <a class="navbar-brand" href="#"><xsl:value-of select="$sitetitle" /></a>
-        </div>
+        </div> <!-- /navbar-header -->
+
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
@@ -155,14 +144,47 @@
             </li>
           </ul>
           <p class="[ navbar-text navbar-right ] hidden-xs">by <xsl:value-of select="$siteauthor" /></p>
-        </div>
-      </div>
+        </div> <!-- /navbar-collapse -->
+
+      </div> <!-- /container -->
     </nav>
 
     <script type="application/javascript">
       var headroom  = new Headroom(document.querySelector(".navbar"), {"offset": 205, "tolerance": 5});
       headroom.init();
     </script>
+
+  </xsl:template>
+
+  <!-- Sidebar panel -->
+  <xsl:template name="html.sidebar">
+
+    <xsl:variable name="sidebaroffset" select="/site/options/option[@name = 'sidebaroffset']" />
+
+    <!-- sidebar column -->
+    <div class="hidden-xs [ col-sm-3 col-md-offset-1 ]">
+
+      <div class="[ panel panel-default ] x2b-sdbr affix-top" data-spy="affix">
+        <xsl:attribute name="data-offset-top"><xsl:value-of select="$sidebaroffset" /></xsl:attribute>
+
+        <div class="panel-body">
+          Nulla facilisi. Pellentesque vulputate sapien risus, eu pulvinar est bibendum at. Nam dictum feugiat nisi ut bibendum. Aliquam ut facilisis ipsum, non blandit libero. Proin lobortis consectetur tortor, sed cursus leo scelerisque non. Nullam rhoncus est libero. In hac habitasse platea dictumst. Nam egestas risus urna, sit amet condimentum massa bibendum ut.
+        </div>
+
+      </div> <!-- / panel -->
+    </div> <!-- /sidebar column -->
+
+  </xsl:template>
+
+  <!-- Page footer -->
+  <xsl:template name="html.footer">
+
+    <footer class="x2b-ftr">
+      <div class="container">
+        <p>Generated using <a href="https://github.com/acch/XML-to-bootstrap">XML-to-Bootstrap</a> for your reading pleasure.</p>
+        <p>This site uses <a href="http://getbootstrap.com">Bootstrap</a> and <a href="http://wicky.nillia.ms/headroom.js/">Headroom.js</a>.</p>
+      </div>
+    </footer>
 
   </xsl:template>
 
