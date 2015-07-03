@@ -26,4 +26,10 @@
 
   </xsl:template>
 
+
+  <!-- Helper for copying nodes from XML -->
+  <xsl:template match="node()|@*" priority="-1">
+    <xsl:copy />
+  </xsl:template>
+
 </xsl:stylesheet>

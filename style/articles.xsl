@@ -119,9 +119,10 @@
       <xsl:value-of select="short" />
     </p>
 
+    <!-- Copy content from XML -->
     <xsl:for-each select="content/*">
       <xsl:element name="{name()}">
-        <xsl:value-of select="node()|@*" />
+        <xsl:apply-templates select="node()|@*"/>
       </xsl:element>
     </xsl:for-each>
 
