@@ -8,6 +8,7 @@
   <!-- HTML page -->
   <xsl:template name="html.page">
     <xsl:param name="title" />
+    <xsl:param name="subtitle" />
     <xsl:param name="content" />
 
     <xsl:call-template name="html.doctype" />
@@ -19,10 +20,16 @@
 
       <body class="x2b-bdy">
 
-        <div class="container">
+        <!-- navbar -->
+        <xsl:call-template name="html.navbar" />
 
-          <!-- navbar -->
-          <xsl:call-template name="html.navbar" />
+        <!-- jumbotron -->
+        <xsl:call-template name="html.jumbotron">
+          <xsl:with-param name="title" select="$title" />
+          <xsl:with-param name="subtitle" select="$subtitle" />
+        </xsl:call-template>
+
+        <div class="container">
 
           <!-- content area -->
           <div class="row">
@@ -68,6 +75,7 @@
   <xsl:template name="html.head">
     <xsl:param name="pagetitle" />
 
+    <!-- options -->
     <xsl:variable name="sitetitle" select="/site/options/option[@name = 'sitetitle']" />
 
     <head>
@@ -83,6 +91,7 @@
   <!-- HTML5 meta elements -->
   <xsl:template name="html.head.meta">
 
+    <!-- options -->
     <xsl:variable name="siteauthor" select="/site/options/option[@name = 'siteauthor']" />
 
     <xsl:text disable-output-escaping="yes">
@@ -117,11 +126,33 @@
   </xsl:template>
 
 
+  <!-- introduction -->
+  <xsl:template name="html.jumbotron">
+    <xsl:param name="title" />
+    <xsl:param name="subtitle" />
+
+    <div class="jumbotron">
+      <div class="container">
+        <h1>
+          <xsl:value-of select="$title" />
+        </h1>
+        <p class="x2b-nwrp">
+          <xsl:value-of select="$subtitle" />
+        </p>
+      </div>
+    </div>
+
+  </xsl:template>
+
+
   <!-- Responsive, animated navigation bar -->
   <xsl:template name="html.navbar">
 
+    <!-- options -->
     <xsl:variable name="sitetitle" select="/site/options/option[@name = 'sitetitle']" />
     <xsl:variable name="siteauthor" select="/site/options/option[@name = 'siteauthor']" />
+    <xsl:variable name="navbaroffset" select="/site/options/option[@name = 'navbaroffset']" />
+    <xsl:variable name="navbartolerance" select="/site/options/option[@name = 'navbartolerance']" />
 
     <nav class="[ navbar navbar-default navbar-fixed-top ] x2b-nvbr affix-top" data-spy="affix" data-offset-top="0">
       <div class="container">
@@ -161,7 +192,10 @@
     </nav>
 
     <script type="application/javascript">
-      var headroom  = new Headroom(document.querySelector(".navbar"), {"offset": 205, "tolerance": 5});
+      var headroom  = new Headroom(document.querySelector(".navbar"), {
+        "offset": <xsl:value-of select="$navbaroffset" />,
+        "tolerance": <xsl:value-of select="$navbartolerance" />
+      });
       headroom.init();
     </script>
 
@@ -171,6 +205,7 @@
   <!-- Sidebar panel -->
   <xsl:template name="html.sidebar">
 
+    <!-- options -->
     <xsl:variable name="sidebaroffset" select="/site/options/option[@name = 'sidebaroffset']" />
 
     <div class="[ panel panel-default ] x2b-sdbr affix-top" data-spy="affix">

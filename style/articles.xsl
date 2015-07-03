@@ -4,7 +4,8 @@
   version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:ext="http://exslt.org/common"
-  extension-element-prefixes="ext">
+  extension-element-prefixes="ext"
+  >
 
 
   <!-- Article pages -->
@@ -20,6 +21,7 @@
 
       <xsl:call-template name="html.page">
         <xsl:with-param name="title">Articles</xsl:with-param>
+        <xsl:with-param name="subtitle" select="/site/articles/introduction" />
         <xsl:with-param name="content" select="/site/articles" />
       </xsl:call-template>
 
@@ -44,6 +46,7 @@
 
         <xsl:call-template name="html.page">
           <xsl:with-param name="title" select="title" />
+          <xsl:with-param name="subtitle" select="subtitle" />
           <xsl:with-param name="content" select="." />
         </xsl:call-template>
 
@@ -56,6 +59,9 @@
 
   <!-- Article overview page contents -->
   <xsl:template match="articles">
+
+    <!-- TODO: make this grey-ish -->
+    <p>Click on the title to continue reading.</p>
 
     <xsl:for-each select="article">
       <xsl:sort select="date" order="descending" />
@@ -73,9 +79,9 @@
             <a>
               <xsl:attribute name="href">article.<xsl:value-of select="$filename" />.html</xsl:attribute>
               <xsl:value-of select="title" />
+              <xsl:text> </xsl:text>
+              <small><xsl:value-of select="subtitle" /></small>
             </a>
-            <xsl:text> </xsl:text>
-            <small><xsl:value-of select="subtitle" /></small>
           </h2>
 
           <p class="small">
@@ -105,23 +111,19 @@
   <!-- Article detail page contents -->
   <xsl:template match="article">
 
-    <h1>
-      <xsl:value-of select="title" />
-      <xsl:text> </xsl:text>
-      <small><xsl:value-of select="subtitle" /></small>
-    </h1>
+    <p>// <xsl:call-template name="format.date">
+      <xsl:with-param name="date" select="date" />
+    </xsl:call-template></p>
 
     <p class="small">
       <xsl:value-of select="short" />
     </p>
 
-    <p>
-      <xsl:value-of select="content" />
-    </p>
-
-    <p>// <xsl:call-template name="format.date">
-      <xsl:with-param name="date" select="date" />
-    </xsl:call-template></p>
+    <xsl:for-each select="content/*">
+      <xsl:element name="{name()}">
+        <xsl:value-of select="node()|@*" />
+      </xsl:element>
+    </xsl:for-each>
 
   </xsl:template>
 
