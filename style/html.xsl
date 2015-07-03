@@ -24,9 +24,6 @@
           <!-- navbar -->
           <xsl:call-template name="html.navbar" />
 
-          <h1>My First Bootstrap Page <small>with some details</small></h1>
-          <p>This is some text.</p>
-
           <!-- content area -->
           <div class="row">
 

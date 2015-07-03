@@ -10,7 +10,7 @@
   <!-- Article pages -->
   <xsl:template name="articles">
 
-    <!-- Article overview page -->
+    <!-- Generate article overview page -->
     <ext:document
       href="articles.html"
       method="xml"
@@ -25,9 +25,10 @@
 
     </ext:document>
 
-    <!-- Article detail pages -->
+    <!-- Generate article detail pages -->
     <xsl:for-each select="/site/articles/article">
 
+      <!-- Compute filename -->
       <xsl:variable name="filename">
         <xsl:call-template name="format.filename">
           <xsl:with-param name="string" select="title" />
@@ -42,6 +43,7 @@
         indent="yes">
 
         <xsl:call-template name="html.page">
+          <xsl:with-param name="title" select="title" />
           <xsl:with-param name="content" select="." />
         </xsl:call-template>
 
@@ -52,21 +54,43 @@
   </xsl:template>
 
 
-  <!-- Article overview page -->
+  <!-- Article overview page contents -->
   <xsl:template match="articles">
 
     <xsl:for-each select="article">
       <xsl:sort select="date" order="descending" />
 
+      <!-- Compute filename -->
+      <xsl:variable name="filename">
+        <xsl:call-template name="format.filename">
+          <xsl:with-param name="string" select="title" />
+        </xsl:call-template>
+      </xsl:variable>
+
       <div class="row">
-        <div class="col-sm-12" style="background-color:lavender;">
-          <h2><xsl:value-of select="title" /><xsl:text> </xsl:text><small><xsl:value-of select="subtitle" /></small></h2>
-          <p class="small"><xsl:value-of select="short" /></p>
-          <p><xsl:value-of select="content" /></p>
+        <div class="col-sm-12">
+          <h2>
+            <a>
+              <xsl:attribute name="href">article.<xsl:value-of select="$filename" />.html</xsl:attribute>
+              <xsl:value-of select="title" />
+            </a>
+            <xsl:text> </xsl:text>
+            <small><xsl:value-of select="subtitle" /></small>
+          </h2>
+
+          <p class="small">
+            <xsl:value-of select="short" />
+          </p>
+
+          <p>
+            <xsl:value-of select="content" />
+          </p>
+
           <p>// <xsl:call-template name="format.date">
             <xsl:with-param name="date" select="date" />
           </xsl:call-template></p>
-        </div>
+
+        </div> <!-- /column -->
       </div> <!-- /row -->
 
       <xsl:if test="position()!=last()">
@@ -74,6 +98,30 @@
       </xsl:if>
 
     </xsl:for-each>
+
+  </xsl:template>
+
+
+  <!-- Article detail page contents -->
+  <xsl:template match="article">
+
+    <h1>
+      <xsl:value-of select="title" />
+      <xsl:text> </xsl:text>
+      <small><xsl:value-of select="subtitle" /></small>
+    </h1>
+
+    <p class="small">
+      <xsl:value-of select="short" />
+    </p>
+
+    <p>
+      <xsl:value-of select="content" />
+    </p>
+
+    <p>// <xsl:call-template name="format.date">
+      <xsl:with-param name="date" select="date" />
+    </xsl:call-template></p>
 
   </xsl:template>
 
