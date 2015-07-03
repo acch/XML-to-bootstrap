@@ -6,6 +6,7 @@
   xmlns:ext="http://exslt.org/common"
   extension-element-prefixes="ext">
 
+
   <!-- Article pages -->
   <xsl:template name="articles">
 
@@ -50,7 +51,8 @@
 
   </xsl:template>
 
-  <!-- Article overview content -->
+
+  <!-- Article overview page -->
   <xsl:template match="articles">
 
     <xsl:for-each select="article">
@@ -65,7 +67,7 @@
             <xsl:with-param name="date" select="date" />
           </xsl:call-template></p>
         </div>
-      </div>
+      </div> <!-- /row -->
 
       <xsl:if test="position()!=last()">
         <hr />

@@ -4,6 +4,7 @@
   version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+
   <!-- Date format -->
   <xsl:template name="format.date">
     <xsl:param name="date" />
@@ -15,6 +16,7 @@
     <xsl:value-of select="concat($day, '.', $month, '.', $year)" />
 
   </xsl:template>
+
 
   <!-- Filename format -->
   <xsl:template name="format.filename">

@@ -8,12 +8,14 @@
   <xsl:import href="html.xsl" />
   <xsl:import href="articles.xsl" />
 
+
   <!-- Index page -->
   <xsl:output
     method="xml"
     omit-xml-declaration="yes"
     encoding="utf-8"
     indent="yes" />
+
 
   <!-- Main Template -->
   <xsl:template match="/">

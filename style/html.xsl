@@ -4,7 +4,8 @@
   version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <!-- HTML Page -->
+
+  <!-- HTML page -->
   <xsl:template name="html.page">
     <xsl:param name="title" />
     <xsl:param name="content" />
@@ -26,19 +27,26 @@
           <h1>My First Bootstrap Page <small>with some details</small></h1>
           <p>This is some text.</p>
 
+          <!-- content area -->
           <div class="row">
 
             <!-- main column -->
             <div class="col-sm-9 col-md-8">
 
+              <!-- content -->
               <xsl:apply-templates select="$content" />
 
             </div><!-- /main column -->
 
-            <!-- sidebar -->
-            <xsl:call-template name="html.sidebar" />
+            <!-- sidebar column -->
+            <div class="hidden-xs [ col-sm-3 col-md-offset-1 ]">
 
-          </div><!-- /row -->
+              <!-- sidebar -->
+              <xsl:call-template name="html.sidebar" />
+
+            </div> <!-- /sidebar column -->
+
+          </div><!-- /content area -->
         </div><!-- /container -->
 
         <!-- footer -->
@@ -49,6 +57,7 @@
 
   </xsl:template>
 
+
   <!-- HTML5 doctype -->
   <xsl:template name="html.doctype">
 
@@ -56,6 +65,7 @@
 ]]></xsl:text>
 
   </xsl:template>
+
 
   <!-- HTML5 head elements -->
   <xsl:template name="html.head">
@@ -72,6 +82,7 @@
 
   </xsl:template>
 
+
   <!-- HTML5 meta elements -->
   <xsl:template name="html.head.meta">
 
@@ -86,6 +97,7 @@
 
   </xsl:template>
 
+
   <!-- HTML5 stylesheets -->
   <xsl:template name="html.head.link">
 
@@ -96,6 +108,7 @@
 
   </xsl:template>
 
+
   <!-- HTML5 scripts -->
   <xsl:template name="html.head.script">
 
@@ -105,6 +118,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/headroom/0.7.0/headroom.min.js"></script>]]></xsl:text>
 
   </xsl:template>
+
 
   <!-- Responsive, animated navigation bar -->
   <xsl:template name="html.navbar">
@@ -156,25 +170,23 @@
 
   </xsl:template>
 
+
   <!-- Sidebar panel -->
   <xsl:template name="html.sidebar">
 
     <xsl:variable name="sidebaroffset" select="/site/options/option[@name = 'sidebaroffset']" />
 
-    <!-- sidebar column -->
-    <div class="hidden-xs [ col-sm-3 col-md-offset-1 ]">
+    <div class="[ panel panel-default ] x2b-sdbr affix-top" data-spy="affix">
+      <xsl:attribute name="data-offset-top"><xsl:value-of select="$sidebaroffset" /></xsl:attribute>
 
-      <div class="[ panel panel-default ] x2b-sdbr affix-top" data-spy="affix">
-        <xsl:attribute name="data-offset-top"><xsl:value-of select="$sidebaroffset" /></xsl:attribute>
+      <div class="panel-body">
+        Nulla facilisi. Pellentesque vulputate sapien risus, eu pulvinar est bibendum at. Nam dictum feugiat nisi ut bibendum. Aliquam ut facilisis ipsum, non blandit libero. Proin lobortis consectetur tortor, sed cursus leo scelerisque non. Nullam rhoncus est libero. In hac habitasse platea dictumst. Nam egestas risus urna, sit amet condimentum massa bibendum ut.
+      </div>
 
-        <div class="panel-body">
-          Nulla facilisi. Pellentesque vulputate sapien risus, eu pulvinar est bibendum at. Nam dictum feugiat nisi ut bibendum. Aliquam ut facilisis ipsum, non blandit libero. Proin lobortis consectetur tortor, sed cursus leo scelerisque non. Nullam rhoncus est libero. In hac habitasse platea dictumst. Nam egestas risus urna, sit amet condimentum massa bibendum ut.
-        </div>
-
-      </div> <!-- / panel -->
-    </div> <!-- /sidebar column -->
+    </div> <!-- /panel -->
 
   </xsl:template>
+
 
   <!-- Page footer -->
   <xsl:template name="html.footer">
