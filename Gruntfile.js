@@ -58,9 +58,9 @@ module.exports = function(grunt) {
     },
 
     autoprefixer: {
-      options: {
-        'browsers': '> 5%, last 2 versions'
-      },
+//      options: {
+//        'browsers': '> 1%, last 2 versions'
+//      },
       main: {
         src: ['publish/css/style.css']
       }
