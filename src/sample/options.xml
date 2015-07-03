@@ -3,5 +3,7 @@
 <options>
   <option name="sitetitle">Byteshell</option>
   <option name="siteauthor">Achim Christ</option>
-  <option name="sidebaroffset">85</option>
+  <option name="sidebaroffset">255</option>
+  <option name="navbaroffset">240</option>
+  <option name="navbartolerance">5</option>
 </options>
