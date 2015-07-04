@@ -23,8 +23,8 @@
         <!-- navbar -->
         <xsl:call-template name="html.navbar" />
 
-        <!-- jumbotron -->
-        <xsl:call-template name="html.jumbotron">
+        <!-- banner -->
+        <xsl:call-template name="html.banner">
           <xsl:with-param name="title" select="$title" />
           <xsl:with-param name="subtitle" select="$subtitle" />
         </xsl:call-template>
@@ -126,8 +126,8 @@
   </xsl:template>
 
 
-  <!-- introduction -->
-  <xsl:template name="html.jumbotron">
+  <!-- Banner jumbotron -->
+  <xsl:template name="html.banner">
     <xsl:param name="title" />
     <xsl:param name="subtitle" />
 

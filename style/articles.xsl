@@ -84,12 +84,8 @@
             </a>
           </h2>
 
-          <p class="small">
-            <xsl:value-of select="short" />
-          </p>
-
           <p>
-            <xsl:value-of select="content" />
+            <xsl:value-of select="short" />
           </p>
 
           <p>// <xsl:call-template name="format.date">
@@ -115,16 +111,15 @@
       <xsl:with-param name="date" select="date" />
     </xsl:call-template></p>
 
+    <!-- TODO: make this bold -->
     <p class="small">
       <xsl:value-of select="short" />
     </p>
 
     <!-- Copy content from XML -->
-    <xsl:for-each select="content/*">
-      <xsl:element name="{name()}">
-        <xsl:apply-templates select="node()|@*"/>
-      </xsl:element>
-    </xsl:for-each>
+    <xsl:call-template name="copy.content">
+      <xsl:with-param name="content" select="content" />
+    </xsl:call-template>
 
   </xsl:template>
 

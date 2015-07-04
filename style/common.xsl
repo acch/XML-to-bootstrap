@@ -5,7 +5,7 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 
-  <!-- Date format -->
+  <!-- Date format - 1.01.2001 -->
   <xsl:template name="format.date">
     <xsl:param name="date" />
 
@@ -18,7 +18,7 @@
   </xsl:template>
 
 
-  <!-- Filename format -->
+  <!-- Filename format - make lowercase and mask special characters -->
   <xsl:template name="format.filename">
     <xsl:param name="string" />
 
@@ -27,7 +27,18 @@
   </xsl:template>
 
 
-  <!-- Helper for copying nodes from XML -->
+  <!-- Helper for copying element nodes and attributes (but no namespaces) from XML -->
+  <xsl:template name="copy.content">
+    <xsl:param name="content" />
+
+    <xsl:for-each select="content/*">
+      <xsl:element name="{name()}">
+        <xsl:apply-templates select="node()|@*"/>
+      </xsl:element>
+    </xsl:for-each>
+
+  </xsl:template>
+
   <xsl:template match="node()|@*" priority="-1">
     <xsl:copy />
   </xsl:template>
