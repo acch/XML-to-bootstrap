@@ -69,8 +69,7 @@ module.exports = function(grunt) {
     csslint: {
       options: {
         'adjoining-classes': false,
-        'compatible-vendor-prefixes': false,
-        'important': false
+        'compatible-vendor-prefixes': false
       },
       main: {
         src: ['publish/css/style.css']

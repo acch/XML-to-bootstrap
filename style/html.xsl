@@ -37,6 +37,13 @@
             <!-- main column -->
             <div class="col-sm-9 col-md-8">
 
+              <!-- breadcrumps -->
+              <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Articles</a></li>
+                <li class="active">Data</li>
+              </ol>
+
               <!-- content -->
               <xsl:apply-templates select="$content" />
 
@@ -107,6 +114,7 @@
   <!-- HTML5 stylesheets -->
   <xsl:template name="html.head.link">
 
+    <!-- TODO: these should be (json?) options -->
     <xsl:text disable-output-escaping="yes">
 <![CDATA[<link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
@@ -118,6 +126,7 @@
   <!-- HTML5 scripts -->
   <xsl:template name="html.head.script">
 
+    <!-- TODO: these should be (json?) options -->
     <xsl:text disable-output-escaping="yes">
 <![CDATA[<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -209,7 +218,9 @@
     <xsl:variable name="sidebaroffset" select="/site/options/option[@name = 'sidebaroffset']" />
 
     <div class="[ panel panel-default ] x2b-sdbr affix-top" data-spy="affix">
-      <xsl:attribute name="data-offset-top"><xsl:value-of select="$sidebaroffset" /></xsl:attribute>
+      <xsl:attribute name="data-offset-top">
+        <xsl:value-of select="$sidebaroffset" />
+      </xsl:attribute>
 
       <div class="panel-body">
         Nulla facilisi. Pellentesque vulputate sapien risus, eu pulvinar est bibendum at. Nam dictum feugiat nisi ut bibendum. Aliquam ut facilisis ipsum, non blandit libero. Proin lobortis consectetur tortor, sed cursus leo scelerisque non. Nullam rhoncus est libero. In hac habitasse platea dictumst. Nam egestas risus urna, sit amet condimentum massa bibendum ut.
@@ -225,8 +236,8 @@
 
     <footer class="x2b-ftr">
       <div class="container">
-        <p>Generated using <a href="https://github.com/acch/XML-to-bootstrap">XML-to-Bootstrap</a> for your reading pleasure.</p>
-        <p>This site uses <a href="http://getbootstrap.com">Bootstrap</a> and <a href="http://wicky.nillia.ms/headroom.js/">Headroom.js</a>.</p>
+        <p class="x2b-gry">Generated using <a href="https://github.com/acch/XML-to-bootstrap">XML-to-Bootstrap</a> for your reading pleasure.</p>
+        <p class="x2b-gry">This site uses <a href="http://getbootstrap.com">Bootstrap</a> and <a href="http://wicky.nillia.ms/headroom.js/">Headroom.js</a>.</p>
       </div>
     </footer>
 

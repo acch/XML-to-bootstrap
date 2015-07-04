@@ -60,8 +60,9 @@
   <!-- Article overview page contents -->
   <xsl:template match="articles">
 
-    <!-- TODO: make this grey-ish -->
-    <p>Click on the title to continue reading.</p>
+    <p class="x2b-gry">
+      Click on the title to continue reading.
+    </p>
 
     <xsl:for-each select="article">
       <xsl:sort select="date" order="descending" />
@@ -86,11 +87,13 @@
 
           <p>
             <xsl:value-of select="short" />
-          </p>
 
-          <p>// <xsl:call-template name="format.date">
-            <xsl:with-param name="date" select="date" />
-          </xsl:call-template></p>
+            <br />
+
+            // <xsl:call-template name="format.date">
+              <xsl:with-param name="date" select="date" />
+            </xsl:call-template>
+          </p>
 
         </div> <!-- /column -->
       </div> <!-- /row -->
@@ -107,16 +110,21 @@
   <!-- Article detail page contents -->
   <xsl:template match="article">
 
-    <p>// <xsl:call-template name="format.date">
-      <xsl:with-param name="date" select="date" />
-    </xsl:call-template></p>
+    <p>
+      <strong>
+        <xsl:value-of select="short" />
+      </strong>
 
-    <!-- TODO: make this bold -->
-    <p class="small">
-      <xsl:value-of select="short" />
+      <br />
+
+      // <xsl:call-template name="format.date">
+        <xsl:with-param name="date" select="date" />
+      </xsl:call-template>
     </p>
 
-    <!-- Copy content from XML -->
+    <hr />
+
+    <!-- Copy content from XML directly -->
     <xsl:call-template name="copy.content">
       <xsl:with-param name="content" select="content" />
     </xsl:call-template>
