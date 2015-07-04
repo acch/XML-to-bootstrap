@@ -60,10 +60,16 @@
   <!-- Article overview page contents -->
   <xsl:template match="articles">
 
+    <!-- Navigation breadcrumps -->
+    <xsl:call-template name="element.breadcrumps">
+      <xsl:with-param name="current">Articles</xsl:with-param>
+    </xsl:call-template>
+
     <p class="x2b-gry">
-      Click on the title to continue reading.
+      Click on the title to continue reading...
     </p>
 
+    <!-- Iterate over all articles -->
     <xsl:for-each select="article">
       <xsl:sort select="date" order="descending" />
 
@@ -74,6 +80,7 @@
         </xsl:call-template>
       </xsl:variable>
 
+      <!-- Article short description -->
       <div class="row">
         <div class="col-sm-12">
           <h2>
@@ -90,14 +97,17 @@
 
             <br />
 
-            // <xsl:call-template name="format.date">
-              <xsl:with-param name="date" select="date" />
-            </xsl:call-template>
+            <span class="x2b-gry">
+              // <xsl:call-template name="format.date">
+                <xsl:with-param name="date" select="date" />
+              </xsl:call-template>
+            </span>
           </p>
 
         </div> <!-- /column -->
       </div> <!-- /row -->
 
+      <!-- Divider -->
       <xsl:if test="position()!=last()">
         <hr />
       </xsl:if>
@@ -110,6 +120,14 @@
   <!-- Article detail page contents -->
   <xsl:template match="article">
 
+    <!-- Navigation breadcrumps -->
+    <xsl:call-template name="element.breadcrumps">
+      <xsl:with-param name="parent">Articles</xsl:with-param>
+      <xsl:with-param name="parent.href">/articles.html</xsl:with-param>
+      <xsl:with-param name="current" select="title" />
+    </xsl:call-template>
+
+    <!-- Article introduction -->
     <p>
       <strong>
         <xsl:value-of select="short" />
@@ -117,9 +135,11 @@
 
       <br />
 
-      // <xsl:call-template name="format.date">
-        <xsl:with-param name="date" select="date" />
-      </xsl:call-template>
+      <span class="x2b-gry">
+        // <xsl:call-template name="format.date">
+          <xsl:with-param name="date" select="date" />
+        </xsl:call-template>
+      </span>
     </p>
 
     <hr />

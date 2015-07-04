@@ -37,13 +37,6 @@
             <!-- main column -->
             <div class="col-sm-9 col-md-8">
 
-              <!-- breadcrumps -->
-              <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Articles</a></li>
-                <li class="active">Data</li>
-              </ol>
-
               <!-- content -->
               <xsl:apply-templates select="$content" />
 
