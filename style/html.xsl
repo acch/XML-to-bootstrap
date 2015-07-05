@@ -156,7 +156,7 @@
     <xsl:variable name="navbaroffset" select="/site/options/option[@name = 'navbaroffset']" />
     <xsl:variable name="navbartolerance" select="/site/options/option[@name = 'navbartolerance']" />
 
-    <nav class="[ navbar navbar-default navbar-fixed-top ] x2b-nvbr affix-top" data-spy="affix" data-offset-top="0">
+    <nav class="[ navbar navbar-default navbar-fixed-top ] x2b-nvbr affix-top" data-spy="affix" data-offset-top="1">
       <div class="container">
 
         <div class="navbar-header">
