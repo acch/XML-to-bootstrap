@@ -83,6 +83,7 @@
       <!-- Article short description -->
       <div class="row">
         <div class="col-sm-12">
+
           <h2>
             <a>
               <xsl:attribute name="href">article.<xsl:value-of select="$filename" />.html</xsl:attribute>
@@ -97,11 +98,12 @@
 
             <br />
 
-            <span class="x2b-gry">
+            <a>
+              <xsl:attribute name="href">article.<xsl:value-of select="$filename" />.html</xsl:attribute>
               // <xsl:call-template name="format.date">
                 <xsl:with-param name="date" select="date" />
               </xsl:call-template>
-            </span>
+            </a>
           </p>
 
         </div> <!-- /column -->
@@ -129,17 +131,17 @@
 
     <!-- Article introduction -->
     <p>
-      <strong>
-        <xsl:value-of select="short" />
-      </strong>
-
-      <br />
-
       <span class="x2b-gry">
         // <xsl:call-template name="format.date">
           <xsl:with-param name="date" select="date" />
         </xsl:call-template>
       </span>
+
+      <br />
+
+      <strong>
+        <xsl:value-of select="short" />
+      </strong>
     </p>
 
     <hr />
