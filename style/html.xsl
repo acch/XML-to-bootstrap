@@ -35,20 +35,20 @@
           <div class="row">
 
             <!-- main column -->
-            <div class="col-sm-9 col-md-8">
+            <article class="col-sm-9 col-md-8">
 
               <!-- content -->
               <xsl:apply-templates select="$content" />
 
-            </div><!-- /main column -->
+            </article><!-- /main column -->
 
             <!-- sidebar column -->
-            <div class="hidden-xs [ col-sm-3 col-md-offset-1 ]">
+            <aside class="hidden-xs [ col-sm-3 col-md-offset-1 ]">
 
               <!-- sidebar -->
               <xsl:call-template name="html.sidebar" />
 
-            </div> <!-- /sidebar column -->
+            </aside> <!-- /sidebar column -->
 
           </div><!-- /content area -->
         </div><!-- /container -->
@@ -99,7 +99,7 @@
 <meta name="author" content="]]></xsl:text>
     <xsl:value-of select="$siteauthor" />
     <xsl:text disable-output-escaping="yes"><![CDATA[" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />]]></xsl:text>
+<meta name="viewport" content="width=device-width" />]]></xsl:text>
 
   </xsl:template>
 
@@ -133,7 +133,7 @@
     <xsl:param name="title" />
     <xsl:param name="subtitle" />
 
-    <div class="jumbotron">
+    <header class="jumbotron">
       <div class="container">
         <h1>
           <xsl:value-of select="$title" />
@@ -142,7 +142,7 @@
           <xsl:value-of select="$subtitle" />
         </p>
       </div>
-    </div>
+    </header>
 
   </xsl:template>
 
