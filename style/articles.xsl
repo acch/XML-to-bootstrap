@@ -88,19 +88,17 @@
             <a>
               <xsl:attribute name="href">article.<xsl:value-of select="$filename" />.html</xsl:attribute>
               <xsl:value-of select="title" />
-              <xsl:text> </xsl:text>
+              <br />
               <small><xsl:value-of select="subtitle" /></small>
             </a>
           </h2>
 
           <p>
             <xsl:value-of select="short" />
-
-            <br />
-
+            <xsl:text> </xsl:text>
             <a>
               <xsl:attribute name="href">article.<xsl:value-of select="$filename" />.html</xsl:attribute>
-              // <xsl:call-template name="format.date">
+              //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:call-template name="format.date">
                 <xsl:with-param name="date" select="date" />
               </xsl:call-template>
             </a>
