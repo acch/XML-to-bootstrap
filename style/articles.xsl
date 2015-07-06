@@ -4,8 +4,7 @@
   version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:ext="http://exslt.org/common"
-  extension-element-prefixes="ext"
-  >
+  extension-element-prefixes="ext">
 
 
   <!-- Article pages -->
@@ -87,8 +86,11 @@
           <h2>
             <a>
               <xsl:attribute name="href">article.<xsl:value-of select="$filename" />.html</xsl:attribute>
+
               <xsl:value-of select="title" />
+
               <br />
+
               <small><xsl:value-of select="subtitle" /></small>
             </a>
           </h2>
@@ -98,6 +100,7 @@
             <xsl:text> </xsl:text>
             <a>
               <xsl:attribute name="href">article.<xsl:value-of select="$filename" />.html</xsl:attribute>
+
               //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:call-template name="format.date">
                 <xsl:with-param name="date" select="date" />
               </xsl:call-template>
@@ -122,15 +125,16 @@
 
     <!-- Navigation breadcrumps -->
     <xsl:call-template name="element.breadcrumps">
-      <xsl:with-param name="parent">Articles</xsl:with-param>
-      <xsl:with-param name="parent.href">/articles.html</xsl:with-param>
+      <xsl:with-param name="parent">
+        <page title="Articles" href="/articles.html" />
+      </xsl:with-param>
       <xsl:with-param name="current" select="title" />
     </xsl:call-template>
 
     <!-- Article introduction -->
     <p>
       <span class="x2b-gry">
-        // <xsl:call-template name="format.date">
+        //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:call-template name="format.date">
           <xsl:with-param name="date" select="date" />
         </xsl:call-template>
       </span>
@@ -147,6 +151,38 @@
     <!-- Copy content from XML directly -->
     <xsl:call-template name="copy.content">
       <xsl:with-param name="content" select="content" />
+    </xsl:call-template>
+
+    <!-- Previous and next article -->
+    <xsl:variable name="prev" select="preceding-sibling::article[1]/title" />
+    <xsl:variable name="next" select="following-sibling::article[1]/title" />
+
+    <!-- Pager navigation -->
+    <xsl:call-template name="element.pager">
+      <xsl:with-param name="prev">
+        <xsl:if test="$prev">
+          <page>
+            <xsl:attribute name="title">
+              <xsl:value-of select="$prev" />
+            </xsl:attribute>
+            <xsl:attribute name="href">article.<xsl:call-template name="format.filename">
+              <xsl:with-param name="string" select="$prev" />
+            </xsl:call-template>.html</xsl:attribute>
+          </page>
+        </xsl:if>
+      </xsl:with-param>
+      <xsl:with-param name="next">
+        <xsl:if test="$next">
+          <page>
+            <xsl:attribute name="title">
+              <xsl:value-of select="$next" />
+            </xsl:attribute>
+            <xsl:attribute name="href">article.<xsl:call-template name="format.filename">
+              <xsl:with-param name="string" select="$next" />
+            </xsl:call-template>.html</xsl:attribute>
+          </page>
+        </xsl:if>
+      </xsl:with-param>
     </xsl:call-template>
 
   </xsl:template>
