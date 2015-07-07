@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <options>
-  <option name="sitetitle">Byteshell</option>
-  <option name="siteauthor">Achim Christ</option>
-  <option name="sidebaroffset">255</option>
-  <option name="navbaroffset">240</option>
-  <option name="navbartolerance">5</option>
+  <option name="site.title">Byteshell</option>
+  <option name="site.author">Achim Christ</option>
+  
+  <option name="sidebar.offset">255</option>
+
+  <option name="navbar.offset">240</option>
+  <option name="navbar.tolerance">5</option>
 </options>

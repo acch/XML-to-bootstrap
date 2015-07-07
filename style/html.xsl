@@ -80,7 +80,7 @@
     <xsl:param name="pagetitle" />
 
     <!-- options -->
-    <xsl:variable name="sitetitle" select="/site/options/option[@name = 'sitetitle']" />
+    <xsl:variable name="sitetitle" select="/site/options/option[@name = 'site.title']" />
 
     <head>
       <title>
@@ -102,7 +102,7 @@
   <xsl:template name="html.head.meta">
 
     <!-- options -->
-    <xsl:variable name="siteauthor" select="/site/options/option[@name = 'siteauthor']" />
+    <xsl:variable name="siteauthor" select="/site/options/option[@name = 'site.author']" />
 
     <xsl:text disable-output-escaping="yes">
 <![CDATA[<meta charset="utf-8" />
@@ -176,10 +176,10 @@
   <xsl:template name="html.navbar">
 
     <!-- options -->
-    <xsl:variable name="sitetitle" select="/site/options/option[@name = 'sitetitle']" />
-    <xsl:variable name="siteauthor" select="/site/options/option[@name = 'siteauthor']" />
-    <xsl:variable name="navbaroffset" select="/site/options/option[@name = 'navbaroffset']" />
-    <xsl:variable name="navbartolerance" select="/site/options/option[@name = 'navbartolerance']" />
+    <xsl:variable name="sitetitle" select="/site/options/option[@name = 'site.title']" />
+    <xsl:variable name="siteauthor" select="/site/options/option[@name = 'site.author']" />
+    <xsl:variable name="navbaroffset" select="/site/options/option[@name = 'navbar.offset']" />
+    <xsl:variable name="navbartolerance" select="/site/options/option[@name = 'navbar.tolerance']" />
 
     <nav class="[ navbar navbar-default navbar-fixed-top ] x2b-nvbr affix-top" data-spy="affix" data-offset-top="1">
       <div class="container">
@@ -236,12 +236,12 @@
   <xsl:template name="html.sidebar">
 
     <!-- options -->
-    <xsl:variable name="sidebaroffset" select="/site/options/option[@name = 'sidebaroffset']" />
+    <xsl:variable name="sidebaroffset" select="/site/options/option[@name = 'sidebar.offset']" />
 
     <div class="[ panel panel-default ] x2b-sdbr affix-top" data-spy="affix" data-offset-top="{$sidebaroffset}">
       <div class="panel-body">
         Nulla facilisi. Pellentesque vulputate sapien risus, eu pulvinar est bibendum at. Nam dictum feugiat nisi ut bibendum. Aliquam ut facilisis ipsum, non blandit libero. Proin lobortis consectetur tortor, sed cursus leo scelerisque non. Nullam rhoncus est libero. In hac habitasse platea dictumst. Nam egestas risus urna, sit amet condimentum massa bibendum ut.
-      </div><!-- /panel-body -->
+      </div><!-- /panel-body  -->
     </div> <!-- /panel -->
 
   </xsl:template>
