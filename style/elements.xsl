@@ -25,11 +25,7 @@
       </li>
       <xsl:if test="$parent.page">
         <li>
-          <a>
-            <xsl:attribute name="href">
-              <xsl:value-of select="$parent.page/@href" />
-            </xsl:attribute>
-
+          <a href="{$parent.page/@href}">
             <xsl:value-of select="$parent.page/@title" />
           </a>
         </li>
@@ -67,21 +63,10 @@
     <!-- Bootstrap pager component -->
     <nav>
       <ul class="pager">
-        <li>
-          <xsl:attribute name="class">
-            <xsl:value-of select="concat('previous ', $prev.disabled)" />
-          </xsl:attribute>
-
+        <li class="{concat('previous ', $prev.disabled)}">
           <xsl:choose>
             <xsl:when test="$prev.page">
-              <a>
-                <xsl:attribute name="title">
-                  <xsl:value-of select="$prev.page/@title" />
-                </xsl:attribute>
-                <xsl:attribute name="href">
-                  <xsl:value-of select="$prev.page/@href" />
-                </xsl:attribute>
-
+              <a title="{$prev.page/@title}" href="{$prev.page/@href}">
                 Previous
               </a>
             </xsl:when>
@@ -91,21 +76,10 @@
           </xsl:choose>
         </li>
 
-        <li class="next">
-          <xsl:attribute name="class">
-            <xsl:value-of select="concat('next ', $next.disabled)" />
-          </xsl:attribute>
-
+        <li class="{concat('next ', $next.disabled)}">
           <xsl:choose>
             <xsl:when test="$next.page">
-              <a>
-                <xsl:attribute name="title">
-                  <xsl:value-of select="$next.page/@title" />
-                </xsl:attribute>
-                <xsl:attribute name="href">
-                  <xsl:value-of select="$next.page/@href" />
-                </xsl:attribute>
-
+              <a title="{$next.page/@title}" href="{$next.page/@href}">
                 Next
               </a>
             </xsl:when>

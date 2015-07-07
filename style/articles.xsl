@@ -98,9 +98,7 @@
         <div class="col-sm-12">
 
           <h2>
-            <a>
-              <xsl:attribute name="href">article.<xsl:value-of select="$filename" />.html</xsl:attribute>
-
+            <a href="article.{$filename}.html">
               <xsl:value-of select="title" />
 
               <br />
@@ -112,9 +110,7 @@
           <p>
             <xsl:value-of select="short" />
             <xsl:text> </xsl:text>
-            <a>
-              <xsl:attribute name="href">article.<xsl:value-of select="$filename" />.html</xsl:attribute>
-
+            <a href="article.{$filename}.html">
               //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date" />
             </a>
           </p>
@@ -182,10 +178,7 @@
     <xsl:call-template name="element.pager">
       <xsl:with-param name="prev">
         <xsl:if test="$prev">
-          <page>
-            <xsl:attribute name="title">
-              <xsl:value-of select="$prev" />
-            </xsl:attribute>
+          <page title="{$prev}">
             <xsl:attribute name="href">article.<xsl:call-template name="format.filename">
               <xsl:with-param name="string" select="$prev" />
             </xsl:call-template>.html</xsl:attribute>
@@ -194,10 +187,7 @@
       </xsl:with-param>
       <xsl:with-param name="next">
         <xsl:if test="$next">
-          <page>
-            <xsl:attribute name="title">
-              <xsl:value-of select="$next" />
-            </xsl:attribute>
+          <page title="{$next}">
             <xsl:attribute name="href">article.<xsl:call-template name="format.filename">
               <xsl:with-param name="string" select="$next" />
             </xsl:call-template>.html</xsl:attribute>

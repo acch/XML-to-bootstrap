@@ -88,7 +88,10 @@
     <xsl:variable name="sitetitle" select="/site/options/option[@name = 'sitetitle']" />
 
     <head>
-      <title><xsl:value-of select="$sitetitle" /> · <xsl:value-of select="$pagetitle" /></title>
+      <title>
+        <xsl:value-of select="$sitetitle" /> · <xsl:value-of select="$pagetitle" />
+      </title>
+
       <xsl:call-template name="html.head.meta" />
       <xsl:call-template name="html.head.link" />
       <xsl:call-template name="html.head.script" />
@@ -237,15 +240,10 @@
     <!-- options -->
     <xsl:variable name="sidebaroffset" select="/site/options/option[@name = 'sidebaroffset']" />
 
-    <div class="[ panel panel-default ] x2b-sdbr affix-top" data-spy="affix">
-      <xsl:attribute name="data-offset-top">
-        <xsl:value-of select="$sidebaroffset" />
-      </xsl:attribute>
-
+    <div class="[ panel panel-default ] x2b-sdbr affix-top" data-spy="affix" data-offset-top="{$sidebaroffset}">
       <div class="panel-body">
         Nulla facilisi. Pellentesque vulputate sapien risus, eu pulvinar est bibendum at. Nam dictum feugiat nisi ut bibendum. Aliquam ut facilisis ipsum, non blandit libero. Proin lobortis consectetur tortor, sed cursus leo scelerisque non. Nullam rhoncus est libero. In hac habitasse platea dictumst. Nam egestas risus urna, sit amet condimentum massa bibendum ut.
       </div>
-
     </div> <!-- /panel -->
 
   </xsl:template>
@@ -254,7 +252,7 @@
 <!--~~~~~~~~~~~~~~~~~~~~
          Page footer
     ~~~~~~~~~~~~~~~~~~~~-->
-    
+
   <xsl:template name="html.footer">
 
     <footer class="x2b-ftr">
