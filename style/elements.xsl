@@ -29,6 +29,7 @@
             <xsl:attribute name="href">
               <xsl:value-of select="$parent.page/@href" />
             </xsl:attribute>
+
             <xsl:value-of select="$parent.page/@title" />
           </a>
         </li>
@@ -68,8 +69,9 @@
       <ul class="pager">
         <li>
           <xsl:attribute name="class">
-            <xsl:value-of select="$prev.disabled" />
+            <xsl:value-of select="concat('previous ', $prev.disabled)" />
           </xsl:attribute>
+
           <xsl:choose>
             <xsl:when test="$prev.page">
               <a>
@@ -79,6 +81,7 @@
                 <xsl:attribute name="href">
                   <xsl:value-of select="$prev.page/@href" />
                 </xsl:attribute>
+
                 Previous
               </a>
             </xsl:when>
@@ -87,10 +90,12 @@
             </xsl:otherwise>
           </xsl:choose>
         </li>
-        <li>
+
+        <li class="next">
           <xsl:attribute name="class">
-            <xsl:value-of select="$next.disabled" />
+            <xsl:value-of select="concat('next ', $next.disabled)" />
           </xsl:attribute>
+
           <xsl:choose>
             <xsl:when test="$next.page">
               <a>
@@ -100,6 +105,7 @@
                 <xsl:attribute name="href">
                   <xsl:value-of select="$next.page/@href" />
                 </xsl:attribute>
+
                 Next
               </a>
             </xsl:when>
