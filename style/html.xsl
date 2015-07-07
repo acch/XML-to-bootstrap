@@ -104,12 +104,18 @@
     <!-- options -->
     <xsl:variable name="siteauthor" select="/site/options/option[@name = 'site.author']" />
 
-    <xsl:text disable-output-escaping="yes">
+    <!--xsl:text disable-output-escaping="yes">
 <![CDATA[<meta charset="utf-8" />
 <meta name="author" content="]]></xsl:text>
     <xsl:value-of select="$siteauthor" />
     <xsl:text disable-output-escaping="yes"><![CDATA[" />
-<meta name="viewport" content="width=device-width" />]]></xsl:text>
+<meta name="viewport" content="width=device-width" />]]></xsl:text-->
+    <xsl:text><![CDATA[
+]]></xsl:text>
+
+    <meta charset="utf-8" />
+    <meta name="author" content="{$siteauthor}" />
+    <meta name="viewport" content="width=device-width" />
 
   </xsl:template>
 
@@ -120,11 +126,16 @@
 
   <xsl:template name="html.head.link">
 
-    <!-- TODO: these should be (json?) options -->
-    <xsl:text disable-output-escaping="yes">
-<![CDATA[<link rel="stylesheet" href="css/bootstrap.min.css" />
-<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
-<link rel="stylesheet" href="css/style.css" />]]></xsl:text>
+    <!-- options -->
+    <xsl:variable name="bootstrapcdn" select="/site/options/option[@name = 'cdn.bootstrap']" />
+    <xsl:variable name="bootstrapthemecdn" select="/site/options/option[@name = 'cdn.bootstrap-theme']" />
+
+    <xsl:text><![CDATA[
+]]></xsl:text>
+
+    <link rel="stylesheet" href="{$bootstrapcdn}" />
+    <link rel="stylesheet" href="{$bootstrapthemecdn}" />
+    <link rel="stylesheet" href="css/style.css" />
 
   </xsl:template>
 
@@ -135,7 +146,7 @@
 
   <xsl:template name="html.head.script">
 
-    <!-- TODO: these should be (json?) options -->
+    <!-- TODO: these should be options -->
     <xsl:text disable-output-escaping="yes">
 <![CDATA[<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

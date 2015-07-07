@@ -3,9 +3,12 @@
 <options>
   <option name="site.title">Byteshell</option>
   <option name="site.author">Achim Christ</option>
-  
+
   <option name="sidebar.offset">255</option>
 
   <option name="navbar.offset">240</option>
   <option name="navbar.tolerance">5</option>
+
+  <option name="cdn.bootstrap">css/bootstrap.min.css</option>
+  <option name="cdn.bootstrap-theme">css/bootstrap-theme.min.css</option>
 </options>
