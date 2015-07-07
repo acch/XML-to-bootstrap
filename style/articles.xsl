@@ -86,6 +86,13 @@
         </xsl:call-template>
       </xsl:variable>
 
+      <!-- Compute date -->
+      <xsl:variable name="date">
+        <xsl:call-template name="format.date">
+          <xsl:with-param name="date" select="date" />
+        </xsl:call-template>
+      </xsl:variable>
+
       <!-- Article short description -->
       <div class="row">
         <div class="col-sm-12">
@@ -108,9 +115,7 @@
             <a>
               <xsl:attribute name="href">article.<xsl:value-of select="$filename" />.html</xsl:attribute>
 
-              //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:call-template name="format.date">
-                <xsl:with-param name="date" select="date" />
-              </xsl:call-template>
+              //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date" />
             </a>
           </p>
 
@@ -133,6 +138,13 @@
 
   <xsl:template match="article">
 
+    <!-- Compute date -->
+    <xsl:variable name="date">
+      <xsl:call-template name="format.date">
+        <xsl:with-param name="date" select="date" />
+      </xsl:call-template>
+    </xsl:variable>
+
     <!-- Navigation breadcrumps -->
     <xsl:call-template name="element.breadcrumps">
       <xsl:with-param name="parent">
@@ -144,9 +156,7 @@
     <!-- Article introduction -->
     <p>
       <span class="x2b-gry">
-        //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:call-template name="format.date">
-          <xsl:with-param name="date" select="date" />
-        </xsl:call-template>
+        //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date" />
       </span>
 
       <br />
