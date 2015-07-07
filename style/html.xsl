@@ -33,24 +33,19 @@
         </xsl:call-template>
 
         <div class="container">
-
           <!-- content area -->
           <div class="row">
 
             <!-- main column -->
             <article class="col-sm-9 col-md-8">
-
               <!-- content -->
               <xsl:apply-templates select="$content" />
-
             </article><!-- /main column -->
 
             <!-- sidebar column -->
             <aside class="hidden-xs [ col-sm-3 col-md-offset-1 ]">
-
               <!-- sidebar -->
               <xsl:call-template name="html.sidebar" />
-
             </aside> <!-- /sidebar column -->
 
           </div><!-- /content area -->
@@ -159,12 +154,15 @@
 
     <header class="jumbotron">
       <div class="container">
+
         <h1>
           <xsl:value-of select="$title" />
         </h1>
+
         <p class="x2b-nwrp">
           <xsl:value-of select="$subtitle" />
         </p>
+
       </div>
     </header>
 
@@ -243,7 +241,7 @@
     <div class="[ panel panel-default ] x2b-sdbr affix-top" data-spy="affix" data-offset-top="{$sidebaroffset}">
       <div class="panel-body">
         Nulla facilisi. Pellentesque vulputate sapien risus, eu pulvinar est bibendum at. Nam dictum feugiat nisi ut bibendum. Aliquam ut facilisis ipsum, non blandit libero. Proin lobortis consectetur tortor, sed cursus leo scelerisque non. Nullam rhoncus est libero. In hac habitasse platea dictumst. Nam egestas risus urna, sit amet condimentum massa bibendum ut.
-      </div>
+      </div><!-- /panel-body -->
     </div> <!-- /panel -->
 
   </xsl:template>

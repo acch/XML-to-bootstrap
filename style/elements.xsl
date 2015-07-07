@@ -20,9 +20,11 @@
 
     <!-- Bootstrap breadcrump component -->
     <ol class="breadcrumb">
+
       <li>
         <a href="/">Home</a>
       </li>
+
       <xsl:if test="$parent.page">
         <li>
           <a href="{$parent.page/@href}">
@@ -30,10 +32,12 @@
           </a>
         </li>
       </xsl:if>
+
       <li class="active">
         <xsl:value-of select="$current" />
       </li>
-    </ol>
+
+    </ol><!-- /breadcrump -->
 
   </xsl:template>
 
@@ -63,6 +67,7 @@
     <!-- Bootstrap pager component -->
     <nav>
       <ul class="pager">
+
         <li class="{concat('previous ', $prev.disabled)}">
           <xsl:choose>
             <xsl:when test="$prev.page">
@@ -88,7 +93,8 @@
             </xsl:otherwise>
           </xsl:choose>
         </li>
-      </ul>
+
+      </ul><!-- /pager -->
     </nav>
 
   </xsl:template>

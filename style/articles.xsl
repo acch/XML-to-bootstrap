@@ -176,6 +176,7 @@
 
     <!-- Pager navigation -->
     <xsl:call-template name="element.pager">
+
       <xsl:with-param name="prev">
         <xsl:if test="$prev">
           <page title="{$prev}">
@@ -185,6 +186,7 @@
           </page>
         </xsl:if>
       </xsl:with-param>
+
       <xsl:with-param name="next">
         <xsl:if test="$next">
           <page title="{$next}">
@@ -194,6 +196,7 @@
           </page>
         </xsl:if>
       </xsl:with-param>
+
     </xsl:call-template>
 
   </xsl:template>
