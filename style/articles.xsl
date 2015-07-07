@@ -7,7 +7,10 @@
   extension-element-prefixes="ext">
 
 
-  <!-- Article pages -->
+<!--~~~~~~~~~~~~~~~~~~~~
+       Article pages
+    ~~~~~~~~~~~~~~~~~~~~-->
+
   <xsl:template name="articles">
 
     <!-- Generate article overview page -->
@@ -26,7 +29,7 @@
 
     </ext:document>
 
-    <!-- Generate article detail pages -->
+    <!-- Iterate over all articles -->
     <xsl:for-each select="/site/articles/article">
 
       <!-- Compute filename -->
@@ -36,6 +39,7 @@
         </xsl:call-template>
       </xsl:variable>
 
+      <!-- Generate article detail page -->
       <ext:document
         href="article.{$filename}.html"
         method="xml"
@@ -56,7 +60,10 @@
   </xsl:template>
 
 
-  <!-- Article overview page contents -->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Article overview page contents
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
   <xsl:template match="articles">
 
     <!-- Navigation breadcrumps -->
@@ -120,7 +127,10 @@
   </xsl:template>
 
 
-  <!-- Article detail page contents -->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Article detail page contents
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
   <xsl:template match="article">
 
     <!-- Navigation breadcrumps -->
@@ -146,6 +156,7 @@
       </strong>
     </p>
 
+    <!-- Divider -->
     <hr />
 
     <!-- Copy content from XML directly -->

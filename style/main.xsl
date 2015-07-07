@@ -4,13 +4,17 @@
   version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+  <!-- Import all other templates -->
   <xsl:import href="common.xsl" />
   <xsl:import href="html.xsl" />
   <xsl:import href="elements.xsl" />
   <xsl:import href="articles.xsl" />
 
 
-  <!-- Index page -->
+<!--~~~~~~~~~~~~~~~~~~~~
+         Index page
+    ~~~~~~~~~~~~~~~~~~~~-->
+
   <xsl:output
     method="xml"
     omit-xml-declaration="yes"
@@ -18,7 +22,10 @@
     indent="yes" />
 
 
-  <!-- Main Template -->
+<!--~~~~~~~~~~~~~~~~~~~~
+        Main template
+    ~~~~~~~~~~~~~~~~~~~~-->
+    
   <xsl:template match="/">
 
     <!-- Generate article pages -->

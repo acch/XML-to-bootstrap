@@ -7,7 +7,10 @@
   extension-element-prefixes="ext">
 
 
-  <!-- Breadcrumps for easier navigation -->
+<!--~~~~~~~~~~~~~~~~~~~~
+         Breadcrumps
+    ~~~~~~~~~~~~~~~~~~~~-->
+
   <xsl:template name="element.breadcrumps">
     <xsl:param name="parent" />
     <xsl:param name="current" />
@@ -38,7 +41,10 @@
   </xsl:template>
 
 
-  <!-- Pager for easier navigation -->
+<!--~~~~~~~~~~~~~~~~~~~~
+            Pager
+    ~~~~~~~~~~~~~~~~~~~~-->
+
   <xsl:template name="element.pager">
     <xsl:param name="next" />
     <xsl:param name="prev" />

@@ -5,7 +5,10 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 
-  <!-- HTML page -->
+<!--~~~~~~~~~~~~~~~~~~~~
+          HTML page
+    ~~~~~~~~~~~~~~~~~~~~-->
+
   <xsl:template name="html.page">
     <xsl:param name="title" />
     <xsl:param name="subtitle" />
@@ -62,7 +65,10 @@
   </xsl:template>
 
 
-  <!-- HTML5 doctype -->
+<!--~~~~~~~~~~~~~~~~~~~~
+        HTML5 doctype
+    ~~~~~~~~~~~~~~~~~~~~-->
+
   <xsl:template name="html.doctype">
 
     <xsl:text disable-output-escaping="yes"><![CDATA[<!DOCTYPE html>
@@ -71,7 +77,10 @@
   </xsl:template>
 
 
-  <!-- HTML5 head elements -->
+<!--~~~~~~~~~~~~~~~~~~~~
+     HTML head elements
+    ~~~~~~~~~~~~~~~~~~~~-->
+
   <xsl:template name="html.head">
     <xsl:param name="pagetitle" />
 
@@ -88,7 +97,10 @@
   </xsl:template>
 
 
-  <!-- HTML5 meta elements -->
+<!--~~~~~~~~~~~~~~~~~~~~
+     HTML meta elements
+    ~~~~~~~~~~~~~~~~~~~~-->
+
   <xsl:template name="html.head.meta">
 
     <!-- options -->
@@ -104,7 +116,10 @@
   </xsl:template>
 
 
-  <!-- HTML5 stylesheets -->
+<!--~~~~~~~~~~~~~~~~~~~~
+      HTML stylesheets
+    ~~~~~~~~~~~~~~~~~~~~-->
+
   <xsl:template name="html.head.link">
 
     <!-- TODO: these should be (json?) options -->
@@ -116,7 +131,10 @@
   </xsl:template>
 
 
-  <!-- HTML5 scripts -->
+<!--~~~~~~~~~~~~~~~~~~~~
+        HTML scripts
+    ~~~~~~~~~~~~~~~~~~~~-->
+
   <xsl:template name="html.head.script">
 
     <!-- TODO: these should be (json?) options -->
@@ -128,7 +146,10 @@
   </xsl:template>
 
 
-  <!-- Banner jumbotron -->
+<!--~~~~~~~~~~~~~~~~~~~~
+      Banner jumbotron
+    ~~~~~~~~~~~~~~~~~~~~-->
+
   <xsl:template name="html.banner">
     <xsl:param name="title" />
     <xsl:param name="subtitle" />
@@ -147,7 +168,10 @@
   </xsl:template>
 
 
-  <!-- Responsive, animated navigation bar -->
+<!--~~~~~~~~~~~~~~~~~~~~~~~
+    Animated navigation bar
+    ~~~~~~~~~~~~~~~~~~~~~~~-->
+
   <xsl:template name="html.navbar">
 
     <!-- options -->
@@ -204,7 +228,10 @@
   </xsl:template>
 
 
-  <!-- Sidebar panel -->
+<!--~~~~~~~~~~~~~~~~~~~~
+        Sidebar panel
+    ~~~~~~~~~~~~~~~~~~~~-->
+
   <xsl:template name="html.sidebar">
 
     <!-- options -->
@@ -224,7 +251,10 @@
   </xsl:template>
 
 
-  <!-- Page footer -->
+<!--~~~~~~~~~~~~~~~~~~~~
+         Page footer
+    ~~~~~~~~~~~~~~~~~~~~-->
+    
   <xsl:template name="html.footer">
 
     <footer class="x2b-ftr">
