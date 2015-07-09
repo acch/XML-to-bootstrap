@@ -9,6 +9,13 @@
   <option name="navbar.offset">240</option>
   <option name="navbar.tolerance">5</option>
 
-  <option name="cdn.bootstrap">css/bootstrap.min.css</option>
-  <option name="cdn.bootstrap-theme">css/bootstrap-theme.min.css</option>
+  <option name="cdn.stylesheets">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+  </option>
+  <option name="cdn.scripts">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/headroom/0.7.0/headroom.min.js"></script>
+  </option>
 </options>

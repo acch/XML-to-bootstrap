@@ -104,12 +104,6 @@
     <!-- options -->
     <xsl:variable name="siteauthor" select="/site/options/option[@name = 'site.author']" />
 
-    <!--xsl:text disable-output-escaping="yes">
-<![CDATA[<meta charset="utf-8" />
-<meta name="author" content="]]></xsl:text>
-    <xsl:value-of select="$siteauthor" />
-    <xsl:text disable-output-escaping="yes"><![CDATA[" />
-<meta name="viewport" content="width=device-width" />]]></xsl:text-->
     <xsl:text><![CDATA[
 ]]></xsl:text>
 
@@ -126,15 +120,15 @@
 
   <xsl:template name="html.head.link">
 
-    <!-- options -->
-    <xsl:variable name="bootstrapcdn" select="/site/options/option[@name = 'cdn.bootstrap']" />
-    <xsl:variable name="bootstrapthemecdn" select="/site/options/option[@name = 'cdn.bootstrap-theme']" />
-
     <xsl:text><![CDATA[
 ]]></xsl:text>
 
-    <link rel="stylesheet" href="{$bootstrapcdn}" />
-    <link rel="stylesheet" href="{$bootstrapthemecdn}" />
+    <!-- stylesheets from options (CDN) -->
+    <xsl:call-template name="copy.content">
+      <xsl:with-param name="content" select="/site/options/option[@name = 'cdn.stylesheets']" />
+    </xsl:call-template>
+
+    <!-- custom stylesheet -->
     <link rel="stylesheet" href="css/style.css" />
 
   </xsl:template>
@@ -146,11 +140,13 @@
 
   <xsl:template name="html.head.script">
 
-    <!-- TODO: these should be options -->
-    <xsl:text disable-output-escaping="yes">
-<![CDATA[<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/headroom/0.7.0/headroom.min.js"></script>]]></xsl:text>
+    <xsl:text><![CDATA[
+]]></xsl:text>
+
+    <!-- scripts from options (CDN) -->
+    <xsl:for-each select="/site/options/option[@name = 'cdn.scripts']/script">
+      <script src="{./@src}"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></script>
+    </xsl:for-each>
 
   </xsl:template>
 
