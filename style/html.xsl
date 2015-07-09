@@ -10,9 +10,9 @@
     ~~~~~~~~~~~~~~~~~~~~-->
 
   <xsl:template name="html.page">
-    <xsl:param name="title" />
-    <xsl:param name="subtitle" />
-    <xsl:param name="content" />
+    <xsl:param name="title" /><!-- string -->
+    <xsl:param name="subtitle" /><!-- string -->
+    <xsl:param name="content" /><!-- node-set -->
 
     <xsl:call-template name="html.doctype" />
     <html lang="en">
@@ -77,7 +77,7 @@
     ~~~~~~~~~~~~~~~~~~~~-->
 
   <xsl:template name="html.head">
-    <xsl:param name="pagetitle" />
+    <xsl:param name="pagetitle" /><!-- string -->
 
     <!-- options -->
     <xsl:variable name="sitetitle" select="/site/options/option[@name = 'site.title']" />
@@ -156,8 +156,8 @@
     ~~~~~~~~~~~~~~~~~~~~-->
 
   <xsl:template name="html.banner">
-    <xsl:param name="title" />
-    <xsl:param name="subtitle" />
+    <xsl:param name="title" /><!-- string -->
+    <xsl:param name="subtitle" /><!-- string -->
 
     <header class="jumbotron">
       <div class="container">

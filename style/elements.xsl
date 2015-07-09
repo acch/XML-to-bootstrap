@@ -12,8 +12,8 @@
     ~~~~~~~~~~~~~~~~~~~~-->
 
   <xsl:template name="element.breadcrumps">
-    <xsl:param name="parent" />
-    <xsl:param name="current" />
+    <xsl:param name="parent" /><!-- node-set (page) -->
+    <xsl:param name="current" /><!-- string -->
 
     <!-- Convert parent parameter to node-set -->
     <xsl:variable name="parent.page" select="ext:node-set($parent)/page" />
@@ -47,8 +47,8 @@
     ~~~~~~~~~~~~~~~~~~~~-->
 
   <xsl:template name="element.pager">
-    <xsl:param name="next" />
-    <xsl:param name="prev" />
+    <xsl:param name="next" /><!-- node-set (page) -->
+    <xsl:param name="prev" /><!-- node-set (page) -->
 
     <!-- Convert parameters to node-sets -->
     <xsl:variable name="next.page" select="ext:node-set($next)/page" />

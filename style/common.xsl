@@ -8,10 +8,10 @@
 <!--~~~~~~~~~~~~~~~~~~~~
          Date format
     ~~~~~~~~~~~~~~~~~~~~-->
-<!-- 1.01.2001 -->
+<!-- Will turn 2001-12-31 into 31.12.2001 -->
 
   <xsl:template name="format.date">
-    <xsl:param name="date" />
+    <xsl:param name="date" /><!-- string (format 'YYYY-MM-DD') -->
 
     <xsl:variable name="year" select="substring-before($date, '-')" />
     <xsl:variable name="month" select="format-number(substring-before(substring-after($date, '-'), '-'), '00')" />
@@ -28,7 +28,7 @@
 <!-- Make string lowercase and mask special characters -->
 
   <xsl:template name="format.filename">
-    <xsl:param name="string" />
+    <xsl:param name="string" /><!-- string -->
 
     <xsl:value-of select="translate($string, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ äöüÄÖÜ', 'abcdefghijklmnopqrstuvwxyz_aouaou')" />
 
@@ -38,10 +38,11 @@
 <!--~~~~~~~~~~~~~~~~~~~~
         Copy contents
     ~~~~~~~~~~~~~~~~~~~~-->
-<!-- Helper for copying element nodes and attributes (but no namespaces) from XML -->
+<!-- Helper for copying child element nodes and attributes (but no namespaces)
+     from XML -->
 
   <xsl:template name="copy.content">
-    <xsl:param name="content" />
+    <xsl:param name="content" /><!-- node-set -->
 
     <xsl:for-each select="$content/*">
       <xsl:element name="{name()}">
