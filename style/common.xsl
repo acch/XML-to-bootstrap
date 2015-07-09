@@ -43,7 +43,7 @@
   <xsl:template name="copy.content">
     <xsl:param name="content" />
 
-    <xsl:for-each select="content/*">
+    <xsl:for-each select="$content/*">
       <xsl:element name="{name()}">
         <xsl:apply-templates select="node()|@*"/>
       </xsl:element>
