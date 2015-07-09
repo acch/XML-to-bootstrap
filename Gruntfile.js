@@ -29,18 +29,21 @@ module.exports = function(grunt) {
     copy: {
       main: {
         files: [
-//          { nonull: true, src: path.join(bootstrap_path, 'less/variables.less'), dest: 'less/variables.less' },
           {
-            nonull: true,
             expand: true,
-            cwd: path.join(bootstrap_path, 'css'),
-            src: 'bootstrap*.min.css',
+            flatten: true,
+            nonull: true,
+            cwd: bootstrap_path,
+            src: '**/bootstrap*.min.css',
             dest: 'publish/css/'
           },
           {
+            expand: true,
+            flatten: true,
             nonull: true,
-            src: path.join(bootstrap_path, 'js/bootstrap.min.js'),
-            dest: 'publish/js/bootstrap.min.js'
+            cwd: bootstrap_path,
+            src: '**/bootstrap.min.js',
+            dest: 'publish/js/'
           }
         ]
       }
@@ -90,11 +93,9 @@ module.exports = function(grunt) {
           removeComments: true,
           collapseWhitespace: true
         },
-        files: [{
-          expand: true,
-          src: 'publish/*.html',
-          dest: '.'
-        }]
+        expand: true,
+        nonull: true,
+        src: 'publish/*.html'
       }
     },
 
