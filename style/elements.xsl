@@ -56,19 +56,19 @@
 
     <!-- Check if there is a next page -->
     <xsl:variable name="next.disabled">
-      <xsl:if test="not($next.page)">disabled</xsl:if>
+      <xsl:if test="not($next.page)"> disabled</xsl:if>
     </xsl:variable>
 
     <!-- Check if there is a previous page -->
     <xsl:variable name="prev.disabled">
-      <xsl:if test="not($prev.page)">disabled</xsl:if>
+      <xsl:if test="not($prev.page)"> disabled</xsl:if>
     </xsl:variable>
 
     <!-- Bootstrap pager component -->
     <nav>
       <ul class="pager">
 
-        <li class="{concat('previous ', $prev.disabled)}">
+        <li class="previous{$prev.disabled}">
           <xsl:choose>
             <xsl:when test="$prev.page">
               <a title="{$prev.page/@title}" href="{$prev.page/@href}">
@@ -81,7 +81,7 @@
           </xsl:choose>
         </li>
 
-        <li class="{concat('next ', $next.disabled)}">
+        <li class="next{$next.disabled}">
           <xsl:choose>
             <xsl:when test="$next.page">
               <a title="{$next.page/@title}" href="{$next.page/@href}">
