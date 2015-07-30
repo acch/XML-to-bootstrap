@@ -14,11 +14,14 @@
     <xsl:param name="subtitle" /><!-- string -->
     <xsl:param name="content" /><!-- node-set -->
 
+    <!-- check content for elements with id attribute -->
+    <xsl:variable name="sidebar" select="boolean($content/*/*[@id])" />
+
     <xsl:call-template name="html.doctype" />
     <html lang="en">
 
       <xsl:call-template name="html.head">
-        <xsl:with-param name="pagetitle"><xsl:value-of select="$title" /></xsl:with-param>
+        <xsl:with-param name="pagetitle" select="$title" />
       </xsl:call-template>
 
       <body class="x2b-bdy">
@@ -37,16 +40,30 @@
           <div class="row">
 
             <!-- main column -->
-            <article class="col-sm-9 col-md-8">
-              <!-- content -->
+            <article>
+              <xsl:choose>
+                <xsl:when test="$sidebar">
+                  <xsl:attribute name="class">col-xs-12 col-sm-9 col-md-8</xsl:attribute>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:attribute name="class">col-xs-12</xsl:attribute>
+                </xsl:otherwise>
+              </xsl:choose>
+
+              <!-- main content -->
               <xsl:apply-templates select="$content" />
+
             </article><!-- /main column -->
 
-            <!-- sidebar column -->
-            <aside class="hidden-xs [ col-sm-3 col-md-offset-1 ]">
-              <!-- sidebar -->
-              <xsl:call-template name="html.sidebar" />
-            </aside> <!-- /sidebar column -->
+            <xsl:if test="$sidebar">
+              <!-- sidebar column -->
+              <aside class="hidden-xs [ col-sm-3 col-md-offset-1 ]">
+
+                <!-- sidebar -->
+                <xsl:call-template name="html.sidebar" />
+
+              </aside> <!-- /sidebar column -->
+            </xsl:if>
 
           </div><!-- /content area -->
         </div><!-- /container -->

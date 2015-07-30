@@ -148,7 +148,7 @@ module.exports = function(grunt) {
     var bootstrap_config_path = grunt.file.expand({ cwd: bootstrap_path }, '**/config.json')[0];
     if (! bootstrap_config_path) {
       grunt.log.error('Bootstrap config not found!');
-      
+
       return false;
     }
     grunt.log.writeln('Parsing Bootstrap config: ' + bootstrap_config_path);
