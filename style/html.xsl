@@ -2,7 +2,9 @@
 
 <xsl:stylesheet
   version="1.0"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:ext="http://exslt.org/common"
+  extension-element-prefixes="ext">
 
 
 <!--~~~~~~~~~~~~~~~~~~~~
@@ -13,9 +15,10 @@
     <xsl:param name="title" /><!-- string -->
     <xsl:param name="subtitle" /><!-- string -->
     <xsl:param name="content" /><!-- node-set -->
+    <xsl:param name="content.sidebar" /><!-- node-set (nav) -->
 
-    <!-- check content for elements with id attribute -->
-    <xsl:variable name="sidebar" select="boolean($content/*/*[@id])" />
+    <!-- check for sidebar content -->
+    <xsl:variable name="sidebar" select="boolean(ext:node-set($content.sidebar)/*/*)" />
 
     <xsl:call-template name="html.doctype" />
     <html lang="en">
@@ -61,7 +64,7 @@
 
                 <!-- sidebar -->
                 <xsl:call-template name="element.sidebar">
-                  <xsl:with-param name="content" select="$content" />
+                  <xsl:with-param name="content" select="$content.sidebar" />
                 </xsl:call-template>
 
               </aside><!-- /sidebar column -->

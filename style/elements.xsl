@@ -15,10 +15,10 @@
     <xsl:param name="parent" /><!-- node-set (page) -->
     <xsl:param name="current" /><!-- string -->
 
-    <!-- Convert parent parameter to node-set -->
+    <!-- convert parent parameter to node-set -->
     <xsl:variable name="parent.page" select="ext:node-set($parent)/page" />
 
-    <!-- Bootstrap breadcrump component -->
+    <!-- bootstrap breadcrump component -->
     <ol class="breadcrumb">
 
       <li>
@@ -50,21 +50,21 @@
     <xsl:param name="next" /><!-- node-set (page) -->
     <xsl:param name="prev" /><!-- node-set (page) -->
 
-    <!-- Convert parameters to node-sets -->
+    <!-- convert parameters to node-sets -->
     <xsl:variable name="next.page" select="ext:node-set($next)/page" />
     <xsl:variable name="prev.page" select="ext:node-set($prev)/page" />
 
-    <!-- Check if there is a next page -->
+    <!-- check if there is a next page -->
     <xsl:variable name="next.disabled">
       <xsl:if test="not($next.page)"> disabled</xsl:if>
     </xsl:variable>
 
-    <!-- Check if there is a previous page -->
+    <!-- check if there is a previous page -->
     <xsl:variable name="prev.disabled">
       <xsl:if test="not($prev.page)"> disabled</xsl:if>
     </xsl:variable>
 
-    <!-- Bootstrap pager component -->
+    <!-- bootstrap pager component -->
     <nav>
       <ul class="pager">
 
@@ -105,11 +105,15 @@
     ~~~~~~~~~~~~~~~~~~~~-->
 
   <xsl:template name="element.sidebar">
-    <xsl:param name="content" /><!-- node-set -->
+    <xsl:param name="content" /><!-- node-set (nav) -->
 
     <!-- options -->
     <xsl:variable name="sidebaroffset" select="/site/options/option[@name = 'sidebar.offset']" />
 
+    <!-- convert parameter to node-set -->
+    <xsl:variable name="content.nav" select="ext:node-set($content)" />
+
+    <!-- bootstrap panel component -->
     <div class="[ panel panel-default ] x2b-sdbr affix-top" data-spy="affix" data-offset-top="{$sidebaroffset}">
       <nav class="panel-body">
 
@@ -117,11 +121,10 @@
         <ul class="nav">
 
           <!-- iterate over all elements with id attribute -->
-          <xsl:for-each select="$content/*/*[@id]">
-            <xsl:sort select="../date" order="descending" />
+          <xsl:for-each select="$content.nav/nav/link">
 
             <li>
-              <a href="#{@id}"><xsl:value-of select="." /></a>
+              <a href="#{@href}"><xsl:value-of select="@title" /></a>
             </li>
 
           </xsl:for-each>

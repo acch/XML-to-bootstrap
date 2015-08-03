@@ -4,7 +4,8 @@
   version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:ext="http://exslt.org/common"
-  extension-element-prefixes="ext">
+  xmlns:math="http://exslt.org/math"
+  extension-element-prefixes="ext math">
 
 
 <!--~~~~~~~~~~~~~~~~~~~~
@@ -13,7 +14,7 @@
 
   <xsl:template name="articles">
 
-    <!-- Generate article overview page -->
+    <!-- generate article overview page -->
     <ext:document
       href="articles.html"
       method="xml"
@@ -25,21 +26,26 @@
         <xsl:with-param name="title">Articles</xsl:with-param>
         <xsl:with-param name="subtitle" select="/site/articles/introduction" />
         <xsl:with-param name="content" select="/site/articles" />
+        <xsl:with-param name="content.sidebar">
+          <xsl:call-template name="articles.sidebar">
+            <xsl:with-param name="content" select="/site/articles" />
+          </xsl:call-template>
+        </xsl:with-param>
       </xsl:call-template>
 
     </ext:document>
 
-    <!-- Iterate over all articles -->
+    <!-- iterate over all articles -->
     <xsl:for-each select="/site/articles/article">
 
-      <!-- Compute filename -->
+      <!-- compute filename -->
       <xsl:variable name="filename">
         <xsl:call-template name="format.filename">
           <xsl:with-param name="string" select="title" />
         </xsl:call-template>
       </xsl:variable>
 
-      <!-- Generate article detail page -->
+      <!-- generate article detail page -->
       <ext:document
         href="article.{$filename}.html"
         method="xml"
@@ -51,6 +57,11 @@
           <xsl:with-param name="title" select="title" />
           <xsl:with-param name="subtitle" select="subtitle" />
           <xsl:with-param name="content" select="." />
+          <xsl:with-param name="content.sidebar">
+            <xsl:call-template name="article.sidebar">
+              <xsl:with-param name="content" select="." />
+            </xsl:call-template>
+          </xsl:with-param>
         </xsl:call-template>
 
       </ext:document>
@@ -66,7 +77,7 @@
 
   <xsl:template match="articles">
 
-    <!-- Navigation breadcrumps -->
+    <!-- navigation breadcrumps -->
     <xsl:call-template name="element.breadcrumps">
       <xsl:with-param name="current">Articles</xsl:with-param>
     </xsl:call-template>
@@ -75,29 +86,29 @@
       Click on the title to continue reading...
     </p>
 
-    <!-- Iterate over all articles -->
+    <!-- iterate over all articles -->
     <xsl:for-each select="article">
       <xsl:sort select="date" order="descending" />
 
-      <!-- Compute filename -->
+      <!-- compute filename -->
       <xsl:variable name="filename">
         <xsl:call-template name="format.filename">
           <xsl:with-param name="string" select="title" />
         </xsl:call-template>
       </xsl:variable>
 
-      <!-- Compute date -->
+      <!-- compute date -->
       <xsl:variable name="date">
         <xsl:call-template name="format.date">
           <xsl:with-param name="date" select="date" />
         </xsl:call-template>
       </xsl:variable>
 
-      <!-- Article short description -->
+      <!-- article short description -->
       <div class="row">
         <div class="col-sm-12">
 
-          <h2>
+          <h2 id="{@id}">
             <a href="article.{$filename}.html">
               <xsl:value-of select="title" />
 
@@ -118,12 +129,31 @@
         </div> <!-- /column -->
       </div> <!-- /row -->
 
-      <!-- Divider -->
+      <!-- divider -->
       <xsl:if test="position()!=last()">
         <hr />
       </xsl:if>
 
     </xsl:for-each>
+
+  </xsl:template>
+
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Article overview page sidebar
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+  <xsl:template name="articles.sidebar">
+    <xsl:param name="content" /><!-- node-set (articles) -->
+
+    <nav>
+      <xsl:for-each select="$content/article[@id]">
+        <xsl:sort select="date" order="descending" />
+
+        <link title="{title}" href="{@id}" />
+
+      </xsl:for-each>
+    </nav>
 
   </xsl:template>
 
@@ -134,14 +164,14 @@
 
   <xsl:template match="article">
 
-    <!-- Compute date -->
+    <!-- compute date -->
     <xsl:variable name="date">
       <xsl:call-template name="format.date">
         <xsl:with-param name="date" select="date" />
       </xsl:call-template>
     </xsl:variable>
 
-    <!-- Navigation breadcrumps -->
+    <!-- navigation breadcrumps -->
     <xsl:call-template name="element.breadcrumps">
       <xsl:with-param name="parent">
         <page title="Articles" href="/articles.html" />
@@ -149,7 +179,7 @@
       <xsl:with-param name="current" select="title" />
     </xsl:call-template>
 
-    <!-- Article introduction -->
+    <!-- article introduction -->
     <p>
       <span class="x2b-gry">
         //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date" />
@@ -162,19 +192,19 @@
       </strong>
     </p>
 
-    <!-- Divider -->
+    <!-- divider -->
     <hr />
 
-    <!-- Copy content from XML directly -->
+    <!-- copy content from XML directly -->
     <xsl:call-template name="copy.content">
       <xsl:with-param name="content" select="content" />
     </xsl:call-template>
 
-    <!-- Previous and next article -->
+    <!-- previous and next article -->
     <xsl:variable name="prev" select="preceding-sibling::article[1]/title" />
     <xsl:variable name="next" select="following-sibling::article[1]/title" />
 
-    <!-- Pager navigation -->
+    <!-- pager navigation -->
     <xsl:call-template name="element.pager">
 
       <xsl:with-param name="prev">
@@ -198,6 +228,24 @@
       </xsl:with-param>
 
     </xsl:call-template>
+
+  </xsl:template>
+
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Article overview page sidebar
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+  <xsl:template name="article.sidebar">
+    <xsl:param name="content" /><!-- node-set (article) -->
+
+    <nav>
+      <xsl:for-each select="$content/content/*[@id]">
+
+        <link title="{.}" href="{@id}" />
+
+      </xsl:for-each>
+    </nav>
 
   </xsl:template>
 
