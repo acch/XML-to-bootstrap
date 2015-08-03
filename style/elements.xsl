@@ -116,9 +116,14 @@
         <!-- sidebar nav links -->
         <ul class="nav">
 
-          <!-- Iterate over all elements with id attribute -->
+          <!-- iterate over all elements with id attribute -->
           <xsl:for-each select="$content/*/*[@id]">
-            <li><a href="#{./@id}"><xsl:value-of select="." /></a></li>
+            <xsl:sort select="../date" order="descending" />
+
+            <li>
+              <a href="#{@id}"><xsl:value-of select="." /></a>
+            </li>
+
           </xsl:for-each>
 
         </ul>

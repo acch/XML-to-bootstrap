@@ -64,7 +64,7 @@
                   <xsl:with-param name="content" select="$content" />
                 </xsl:call-template>
 
-              </aside> <!-- /sidebar column -->
+              </aside><!-- /sidebar column -->
             </xsl:if>
 
           </div><!-- /content area -->
