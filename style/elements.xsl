@@ -99,4 +99,33 @@
 
   </xsl:template>
 
+
+<!--~~~~~~~~~~~~~~~~~~~~
+        Sidebar panel
+    ~~~~~~~~~~~~~~~~~~~~-->
+
+  <xsl:template name="element.sidebar">
+    <xsl:param name="content" /><!-- node-set -->
+
+    <!-- options -->
+    <xsl:variable name="sidebaroffset" select="/site/options/option[@name = 'sidebar.offset']" />
+
+    <div class="[ panel panel-default ] x2b-sdbr affix-top" data-spy="affix" data-offset-top="{$sidebaroffset}">
+      <nav class="panel-body">
+
+        <!-- sidebar nav links -->
+        <ul class="nav">
+
+          <!-- Iterate over all elements with id attribute -->
+          <xsl:for-each select="$content/*/*[@id]">
+            <li><a href="#{./@id}"><xsl:value-of select="." /></a></li>
+          </xsl:for-each>
+
+        </ul>
+
+      </nav><!-- /panel-body  -->
+    </div> <!-- /panel -->
+
+  </xsl:template>
+
 </xsl:stylesheet>

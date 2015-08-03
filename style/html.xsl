@@ -60,7 +60,9 @@
               <aside class="hidden-xs [ col-sm-3 col-md-offset-1 ]">
 
                 <!-- sidebar -->
-                <xsl:call-template name="html.sidebar" />
+                <xsl:call-template name="element.sidebar">
+                  <xsl:with-param name="content" select="$content" />
+                </xsl:call-template>
 
               </aside> <!-- /sidebar column -->
             </xsl:if>
@@ -249,24 +251,6 @@
       });
       headroom.init();
     </script>
-
-  </xsl:template>
-
-
-<!--~~~~~~~~~~~~~~~~~~~~
-        Sidebar panel
-    ~~~~~~~~~~~~~~~~~~~~-->
-
-  <xsl:template name="html.sidebar">
-
-    <!-- options -->
-    <xsl:variable name="sidebaroffset" select="/site/options/option[@name = 'sidebar.offset']" />
-
-    <div class="[ panel panel-default ] x2b-sdbr affix-top" data-spy="affix" data-offset-top="{$sidebaroffset}">
-      <div class="panel-body">
-        Nulla facilisi. Pellentesque vulputate sapien risus, eu pulvinar est bibendum at. Nam dictum feugiat nisi ut bibendum. Aliquam ut facilisis ipsum, non blandit libero. Proin lobortis consectetur tortor, sed cursus leo scelerisque non. Nullam rhoncus est libero. In hac habitasse platea dictumst. Nam egestas risus urna, sit amet condimentum massa bibendum ut.
-      </div><!-- /panel-body  -->
-    </div> <!-- /panel -->
 
   </xsl:template>
 
