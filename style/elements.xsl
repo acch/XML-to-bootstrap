@@ -111,7 +111,7 @@
     <xsl:variable name="sidebaroffset" select="/site/options/option[@name = 'sidebar.offset']" />
 
     <!-- convert parameter to node-set -->
-    <xsl:variable name="content.nav" select="ext:node-set($content)" />
+    <xsl:variable name="content.nav" select="ext:node-set($content)/nav" />
 
     <!-- bootstrap panel component -->
     <div class="[ panel panel-default ] x2b-sdbr affix-top" data-spy="affix" data-offset-top="{$sidebaroffset}">
@@ -121,7 +121,7 @@
         <ul class="nav">
 
           <!-- iterate over all elements with id attribute -->
-          <xsl:for-each select="$content.nav/nav/link">
+          <xsl:for-each select="$content.nav/link">
 
             <li>
               <a href="#{@href}"><xsl:value-of select="@title" /></a>

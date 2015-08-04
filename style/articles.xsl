@@ -130,7 +130,7 @@
       </div> <!-- /row -->
 
       <!-- divider -->
-      <xsl:if test="position()!=last()">
+      <xsl:if test="position() != last()">
         <hr />
       </xsl:if>
 
@@ -201,6 +201,7 @@
     </xsl:call-template>
 
     <!-- previous and next article -->
+    <!-- TODO: sort articles by date to select next / prev one -->
     <xsl:variable name="prev" select="preceding-sibling::article[1]/title" />
     <xsl:variable name="next" select="following-sibling::article[1]/title" />
 
@@ -232,9 +233,9 @@
   </xsl:template>
 
 
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Article overview page sidebar
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Article detail page sidebar
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
   <xsl:template name="article.sidebar">
     <xsl:param name="content" /><!-- node-set (article) -->

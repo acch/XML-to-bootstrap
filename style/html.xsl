@@ -18,8 +18,9 @@
     <xsl:param name="content.sidebar" /><!-- node-set (nav) -->
 
     <!-- check for sidebar content -->
-    <xsl:variable name="sidebar" select="boolean(ext:node-set($content.sidebar)/*/*)" />
+    <xsl:variable name="sidebar" select="ext:node-set($content.sidebar)/*/*" />
 
+    <!-- render HTML page -->
     <xsl:call-template name="html.doctype" />
     <html lang="en">
 
@@ -167,7 +168,7 @@
 
     <!-- scripts from options (CDN) -->
     <xsl:for-each select="/site/options/option[@name = 'cdn.scripts']/script">
-      <script src="{./@src}"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></script>
+      <script src="{@src}"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></script>
     </xsl:for-each>
 
   </xsl:template>
@@ -184,7 +185,7 @@
     <header class="jumbotron">
       <div class="container">
 
-        <h1>
+        <h1 class="x2b-nwrp">
           <xsl:value-of select="$title" />
         </h1>
 
@@ -266,8 +267,10 @@
 
     <footer class="x2b-ftr">
       <div class="container">
+
         <p class="x2b-gry">Generated using <a href="https://github.com/acch/XML-to-bootstrap">XML-to-Bootstrap</a> for your reading pleasure.</p>
         <p class="x2b-gry">This site uses <a href="http://getbootstrap.com">Bootstrap</a> and <a href="http://wicky.nillia.ms/headroom.js/">Headroom.js</a>.</p>
+
       </div>
     </footer>
 

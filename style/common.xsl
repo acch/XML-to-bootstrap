@@ -8,7 +8,7 @@
 <!--~~~~~~~~~~~~~~~~~~~~
          Date format
     ~~~~~~~~~~~~~~~~~~~~-->
-<!-- Will turn 2001-12-31 into 31.12.2001 -->
+<!-- will turn 2001-12-31 into 31.12.2001 -->
 
   <xsl:template name="format.date">
     <xsl:param name="date" /><!-- string (format 'YYYY-MM-DD') -->
@@ -25,7 +25,7 @@
 <!--~~~~~~~~~~~~~~~~~~~~
        Filename format
     ~~~~~~~~~~~~~~~~~~~~-->
-<!-- Make string lowercase and mask special characters -->
+<!-- make string lowercase and mask special characters -->
 
   <xsl:template name="format.filename">
     <xsl:param name="string" /><!-- string -->
@@ -38,7 +38,7 @@
 <!--~~~~~~~~~~~~~~~~~~~~
         Copy contents
     ~~~~~~~~~~~~~~~~~~~~-->
-<!-- Helper for copying child element nodes and attributes (but no namespaces)
+<!-- helper for copying child element nodes and attributes (but no namespaces)
      from XML -->
 
   <xsl:template name="copy.content">
