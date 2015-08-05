@@ -287,9 +287,37 @@
 
           </xsl:for-each>
 
-        </ul>
+          <!-- iterate over all nav sections -->
+          <xsl:for-each select="$content.nav/section">
 
-      </nav><!-- /panel-body  -->
+            <li class="x2b-sdbr-sctn">
+              <span>
+                <xsl:value-of select="@title" />
+              </span>
+
+              <!-- section nav links -->
+              <ul class="nav">
+
+                <!-- iterate over all nav links in section -->
+                <xsl:for-each select="link">
+
+                  <li>
+                    <a class="x2b-sdbr-lnk" href="{@href}">
+                      <xsl:value-of select="@title" />
+                    </a>
+                  </li>
+
+                </xsl:for-each>
+
+              </ul><!-- /section nav links -->
+
+            </li>
+
+          </xsl:for-each>
+
+        </ul><!-- /sidebar nav links -->
+
+      </nav><!-- /panel-body -->
     </div> <!-- /panel -->
 
   </xsl:template>
