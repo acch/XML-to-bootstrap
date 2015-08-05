@@ -20,12 +20,17 @@
     <!-- check for sidebar content -->
     <xsl:variable name="sidebar" select="ext:node-set($content.sidebar)/nav/*" />
 
+    <!-- compute width of main column -->
+    <xsl:variable name="maincolumn.class">
+      <xsl:if test="$sidebar"> col-sm-9 col-md-8</xsl:if>
+    </xsl:variable>
+
     <!-- render HTML page -->
     <xsl:call-template name="html.doctype" />
     <html lang="en">
 
       <xsl:call-template name="html.head">
-        <xsl:with-param name="pagetitle" select="$title" />
+        <xsl:with-param name="page.title" select="$title" />
       </xsl:call-template>
 
       <body class="x2b-bdy">
@@ -44,15 +49,7 @@
           <div class="row">
 
             <!-- main column -->
-            <article>
-              <xsl:choose>
-                <xsl:when test="$sidebar">
-                  <xsl:attribute name="class">col-xs-12 col-sm-9 col-md-8</xsl:attribute>
-                </xsl:when>
-                <xsl:otherwise>
-                  <xsl:attribute name="class">col-xs-12</xsl:attribute>
-                </xsl:otherwise>
-              </xsl:choose>
+            <article class="col-xs-12{$maincolumn.class}">
 
               <!-- main content -->
               <xsl:apply-templates select="$content" />
@@ -100,14 +97,14 @@
     ~~~~~~~~~~~~~~~~~~~~-->
 
   <xsl:template name="html.head">
-    <xsl:param name="pagetitle" /><!-- string -->
+    <xsl:param name="page.title" /><!-- string -->
 
     <!-- options -->
-    <xsl:variable name="sitetitle" select="/site/options/option[@name = 'site.title']" />
+    <xsl:variable name="site.title" select="/site/options/option[@name = 'site.title']" />
 
     <head>
       <title>
-        <xsl:value-of select="$sitetitle" /> · <xsl:value-of select="$pagetitle" />
+        <xsl:value-of select="$site.title" /> · <xsl:value-of select="$page.title" />
       </title>
 
       <xsl:call-template name="html.head.meta" />
@@ -125,13 +122,13 @@
   <xsl:template name="html.head.meta">
 
     <!-- options -->
-    <xsl:variable name="siteauthor" select="/site/options/option[@name = 'site.author']" />
+    <xsl:variable name="site.author" select="/site/options/option[@name = 'site.author']" />
 
     <xsl:text><![CDATA[
 ]]></xsl:text>
 
     <meta charset="utf-8" />
-    <meta name="author" content="{$siteauthor}" />
+    <meta name="author" content="{$site.author}" />
     <meta name="viewport" content="width=device-width" />
 
   </xsl:template>
@@ -206,10 +203,10 @@
   <xsl:template name="html.navbar">
 
     <!-- options -->
-    <xsl:variable name="sitetitle" select="/site/options/option[@name = 'site.title']" />
-    <xsl:variable name="siteauthor" select="/site/options/option[@name = 'site.author']" />
-    <xsl:variable name="navbaroffset" select="/site/options/option[@name = 'navbar.offset']" />
-    <xsl:variable name="navbartolerance" select="/site/options/option[@name = 'navbar.tolerance']" />
+    <xsl:variable name="site.title" select="/site/options/option[@name = 'site.title']" />
+    <xsl:variable name="site.author" select="/site/options/option[@name = 'site.author']" />
+    <xsl:variable name="navbar.offset" select="/site/options/option[@name = 'navbar.offset']" />
+    <xsl:variable name="navbar.tolerance" select="/site/options/option[@name = 'navbar.tolerance']" />
 
     <nav class="[ navbar navbar-default navbar-fixed-top ] x2b-nvbr affix-top" data-spy="affix" data-offset-top="1">
       <div class="container">
@@ -221,7 +218,7 @@
             <span class="icon-bar"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></span>
             <span class="icon-bar"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></span>
           </button>
-          <a class="navbar-brand" href="#"><xsl:value-of select="$sitetitle" /></a>
+          <a class="navbar-brand" href="#"><xsl:value-of select="$site.title" /></a>
         </div> <!-- /navbar-header -->
 
         <div class="navbar-collapse collapse">
@@ -242,7 +239,7 @@
               </ul>
             </li>
           </ul>
-          <p class="[ navbar-text navbar-right ] hidden-xs">by <xsl:value-of select="$siteauthor" /></p>
+          <p class="[ navbar-text navbar-right ] hidden-xs">by <xsl:value-of select="$site.author" /></p>
         </div> <!-- /navbar-collapse -->
 
       </div> <!-- /container -->
@@ -250,8 +247,8 @@
 
     <script type="application/javascript">
       var headroom  = new Headroom(document.querySelector(".navbar"), {
-        "offset": <xsl:value-of select="$navbaroffset" />,
-        "tolerance": <xsl:value-of select="$navbartolerance" />
+        "offset": <xsl:value-of select="$navbar.offset" />,
+        "tolerance": <xsl:value-of select="$navbar.tolerance" />
       });
       headroom.init();
     </script>
@@ -267,13 +264,13 @@
     <xsl:param name="content" /><!-- node-set (nav) -->
 
     <!-- options -->
-    <xsl:variable name="sidebaroffset" select="/site/options/option[@name = 'sidebar.offset']" />
+    <xsl:variable name="sidebar.offset" select="/site/options/option[@name = 'sidebar.offset']" />
 
     <!-- convert parameter to node-set -->
     <xsl:variable name="content.nav" select="ext:node-set($content)/nav" />
 
     <!-- bootstrap panel component -->
-    <div class="[ panel panel-default ] x2b-sdbr affix-top" data-spy="affix" data-offset-top="{$sidebaroffset}">
+    <div class="[ panel panel-default ] x2b-sdbr affix-top" data-spy="affix" data-offset-top="{$sidebar.offset}">
       <nav class="panel-body">
 
         <!-- sidebar nav links -->
