@@ -4,8 +4,8 @@
   version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:ext="http://exslt.org/common"
-  xmlns:math="http://exslt.org/math"
-  extension-element-prefixes="ext math">
+  xmlns:set="http://exslt.org/sets"
+  extension-element-prefixes="ext set">
 
 
 <!--~~~~~~~~~~~~~~~~~~~~
@@ -147,10 +147,32 @@
     <xsl:param name="content" /><!-- node-set (articles) -->
 
     <nav>
-      <xsl:for-each select="$content/article[@id]">
-        <xsl:sort select="date" order="descending" />
 
-        <link title="{title}" href="#{@id}" />
+      <!-- find all years -->
+      <xsl:variable name="years">
+        <xsl:for-each select="$content/article/date">
+          <year><xsl:value-of select="substring-before(., '-')" /></year>
+        </xsl:for-each>
+      </xsl:variable>
+
+      <!-- iterate over all distinct years -->
+      <xsl:for-each select="set:distinct(ext:node-set($years)/year)">
+        <xsl:sort order="descending" />
+
+        <xsl:variable name="current.year" select="." />
+
+        <!-- nav link section -->
+        <section title="{$current.year}">
+
+          <!-- find all articles from current year -->
+          <xsl:for-each select="$content/article[@id][starts-with(date, $current.year)]">
+            <xsl:sort select="date" order="descending" />
+
+            <!-- nav link -->
+            <link title="{title}" href="#{@id}" />
+
+          </xsl:for-each>
+        </section>
 
       </xsl:for-each>
     </nav>
@@ -241,6 +263,8 @@
     <xsl:param name="content" /><!-- node-set (article) -->
 
     <nav>
+
+      <!-- find all elements with id attribute -->
       <xsl:for-each select="$content/content/*[@id]">
 
         <link title="{.}" href="#{@id}" />

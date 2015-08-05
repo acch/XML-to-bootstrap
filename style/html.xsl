@@ -291,9 +291,7 @@
           <xsl:for-each select="$content.nav/section">
 
             <li class="x2b-sdbr-sctn">
-              <span>
-                <xsl:value-of select="@title" />
-              </span>
+              <xsl:value-of select="@title" />
 
               <!-- section nav links -->
               <ul class="nav">
