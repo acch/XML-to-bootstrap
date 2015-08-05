@@ -69,29 +69,31 @@
       <ul class="pager">
 
         <li class="previous{$prev.disabled}">
-          <xsl:choose>
-            <xsl:when test="$prev.page">
-              <a title="{$prev.page/@title}" href="{$prev.page/@href}">
-                Previous
-              </a>
-            </xsl:when>
-            <xsl:otherwise>
-              <a>Previous</a>
-            </xsl:otherwise>
-          </xsl:choose>
+          <a>
+            <xsl:if test="$prev.page">
+              <xsl:attribute name="title">
+                <xsl:value-of select="$prev.page/@title" />
+              </xsl:attribute>
+              <xsl:attribute name="href">
+                <xsl:value-of select="$prev.page/@href" />
+              </xsl:attribute>
+            </xsl:if>
+            Previous
+          </a>
         </li>
 
         <li class="next{$next.disabled}">
-          <xsl:choose>
-            <xsl:when test="$next.page">
-              <a title="{$next.page/@title}" href="{$next.page/@href}">
-                Next
-              </a>
-            </xsl:when>
-            <xsl:otherwise>
-              <a>Next</a>
-            </xsl:otherwise>
-          </xsl:choose>
+          <a>
+            <xsl:if test="$next.page">
+              <xsl:attribute name="title">
+                <xsl:value-of select="$next.page/@title" />
+              </xsl:attribute>
+              <xsl:attribute name="href">
+                <xsl:value-of select="$next.page/@href" />
+              </xsl:attribute>
+            </xsl:if>
+            Next
+          </a>
         </li>
 
       </ul><!-- /pager -->
