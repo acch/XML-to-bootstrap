@@ -99,43 +99,4 @@
 
   </xsl:template>
 
-
-<!--~~~~~~~~~~~~~~~~~~~~
-        Sidebar panel
-    ~~~~~~~~~~~~~~~~~~~~-->
-
-  <xsl:template name="element.sidebar">
-    <xsl:param name="content" /><!-- node-set (nav) -->
-
-    <!-- options -->
-    <xsl:variable name="sidebaroffset" select="/site/options/option[@name = 'sidebar.offset']" />
-
-    <!-- convert parameter to node-set -->
-    <xsl:variable name="content.nav" select="ext:node-set($content)/nav" />
-
-    <!-- bootstrap panel component -->
-    <div class="[ panel panel-default ] x2b-sdbr affix-top" data-spy="affix" data-offset-top="{$sidebaroffset}">
-      <nav class="panel-body">
-
-        <!-- sidebar nav links -->
-        <ul class="nav">
-
-          <!-- iterate over all nav links -->
-          <xsl:for-each select="$content.nav/link">
-
-            <li>
-              <a class="x2b-sdbr-lnk" href="{@href}">
-                <xsl:value-of select="@title" />
-              </a>
-            </li>
-
-          </xsl:for-each>
-
-        </ul>
-
-      </nav><!-- /panel-body  -->
-    </div> <!-- /panel -->
-
-  </xsl:template>
-
 </xsl:stylesheet>
