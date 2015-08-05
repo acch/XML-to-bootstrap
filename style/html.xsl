@@ -239,7 +239,7 @@
               </ul>
             </li>
           </ul>
-          <p class="[ navbar-text navbar-right ] hidden-xs">by <xsl:value-of select="$site.author" /></p>
+          <p class="hidden-xs [ navbar-text navbar-right ] x2b-nvbr-txt">by <xsl:value-of select="$site.author" /></p>
         </div> <!-- /navbar-collapse -->
 
       </div> <!-- /container -->
