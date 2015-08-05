@@ -120,11 +120,13 @@
         <!-- sidebar nav links -->
         <ul class="nav">
 
-          <!-- iterate over all elements with id attribute -->
+          <!-- iterate over all nav links -->
           <xsl:for-each select="$content.nav/link">
 
             <li>
-              <a href="#{@href}"><xsl:value-of select="@title" /></a>
+              <a class="x2b-sdbr-lnk" href="{@href}">
+                <xsl:value-of select="@title" />
+              </a>
             </li>
 
           </xsl:for-each>

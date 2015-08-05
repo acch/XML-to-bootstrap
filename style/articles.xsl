@@ -150,7 +150,7 @@
       <xsl:for-each select="$content/article[@id]">
         <xsl:sort select="date" order="descending" />
 
-        <link title="{title}" href="{@id}" />
+        <link title="{title}" href="#{@id}" />
 
       </xsl:for-each>
     </nav>
@@ -243,7 +243,7 @@
     <nav>
       <xsl:for-each select="$content/content/*[@id]">
 
-        <link title="{.}" href="{@id}" />
+        <link title="{.}" href="#{@id}" />
 
       </xsl:for-each>
     </nav>
