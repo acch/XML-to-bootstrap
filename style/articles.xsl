@@ -160,7 +160,7 @@
       <xsl:for-each select="set:distinct(ext:node-set($years)/year)">
         <xsl:sort order="descending" />
 
-        <xsl:variable name="current.year" select="." />
+        <xsl:variable name="current.year" select="text()" />
 
         <!-- nav link section -->
         <section title="{$current.year}">
@@ -292,10 +292,10 @@
       <xsl:for-each select="$content/content/*[@id]">
 
         <!-- nav link -->
-        <link title="{child::text()}" href="#{@id}" />
+        <link title="{text()}" href="#{@id}" />
 
       </xsl:for-each>
-      
+
     </nav>
 
   </xsl:template>
