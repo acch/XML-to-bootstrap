@@ -291,9 +291,11 @@
       <!-- find all elements with id attribute -->
       <xsl:for-each select="$content/content/*[@id]">
 
-        <link title="{.}" href="#{@id}" />
+        <!-- nav link -->
+        <link title="{child::text()}" href="#{@id}" />
 
       </xsl:for-each>
+      
     </nav>
 
   </xsl:template>
