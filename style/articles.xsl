@@ -228,7 +228,7 @@
     <!-- find all articles before current one -->
     <xsl:variable name="articles.before">
       <xsl:for-each select="../article[translate(date, '-', '') &lt; $date.raw]">
-        <article title="${title}">
+        <article title="{title}">
           <xsl:value-of select="translate(date, '-', '')" />
         </article>
       </xsl:for-each>
@@ -240,7 +240,7 @@
     <!-- find all articles after current one -->
     <xsl:variable name="articles.after">
       <xsl:for-each select="../article[translate(date, '-', '') &gt; $date.raw]">
-        <article title="${title}">
+        <article title="{title}">
           <xsl:value-of select="translate(date, '-', '')" />
         </article>
       </xsl:for-each>
