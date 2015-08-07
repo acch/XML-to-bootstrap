@@ -5,7 +5,8 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:ext="http://exslt.org/common"
   xmlns:set="http://exslt.org/sets"
-  extension-element-prefixes="ext set">
+  xmlns:math="http://exslt.org/math"
+  extension-element-prefixes="ext set math">
 
 
 <!--~~~~~~~~~~~~~~~~~~~~
@@ -38,7 +39,7 @@
     <!-- iterate over all articles -->
     <xsl:for-each select="/site/articles/article">
 
-      <!-- compute filename -->
+      <!-- format filename -->
       <xsl:variable name="filename">
         <xsl:call-template name="format.filename">
           <xsl:with-param name="string" select="title" />
@@ -90,14 +91,14 @@
     <xsl:for-each select="article">
       <xsl:sort select="date" order="descending" />
 
-      <!-- compute filename -->
+      <!-- format filename -->
       <xsl:variable name="filename">
         <xsl:call-template name="format.filename">
           <xsl:with-param name="string" select="title" />
         </xsl:call-template>
       </xsl:variable>
 
-      <!-- compute date -->
+      <!-- format date -->
       <xsl:variable name="date">
         <xsl:call-template name="format.date">
           <xsl:with-param name="date" select="date" />
@@ -175,6 +176,7 @@
         </section>
 
       </xsl:for-each>
+
     </nav>
 
   </xsl:template>
@@ -186,8 +188,9 @@
 
   <xsl:template match="article">
 
-    <!-- compute date -->
-    <xsl:variable name="date">
+    <!-- format date -->
+    <xsl:variable name="date.raw" select="translate(date, '-', '')" />
+    <xsl:variable name="date.formatted">
       <xsl:call-template name="format.date">
         <xsl:with-param name="date" select="date" />
       </xsl:call-template>
@@ -204,7 +207,7 @@
     <!-- article introduction -->
     <p>
       <span class="x2b-gry">
-        //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date" />
+        //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date.formatted" />
       </span>
 
       <br />
@@ -222,14 +225,34 @@
       <xsl:with-param name="content" select="content" />
     </xsl:call-template>
 
-    <!-- previous and next article -->
-    <!-- TODO: sort articles by date to select next / prev one -->
-    <xsl:variable name="prev" select="preceding-sibling::article[1]/title" />
-    <xsl:variable name="next" select="following-sibling::article[1]/title" />
+    <!-- find all articles before current one -->
+    <xsl:variable name="articles.before">
+      <xsl:for-each select="../article[translate(date, '-', '') &lt; $date.raw]">
+        <article title="${title}">
+          <xsl:value-of select="translate(date, '-', '')" />
+        </article>
+      </xsl:for-each>
+    </xsl:variable>
+
+    <!-- find latest article before current one -->
+    <xsl:variable name="prev" select="math:highest(ext:node-set($articles.before)/article)/@title" />
+
+    <!-- find all articles after current one -->
+    <xsl:variable name="articles.after">
+      <xsl:for-each select="../article[translate(date, '-', '') &gt; $date.raw]">
+        <article title="${title}">
+          <xsl:value-of select="translate(date, '-', '')" />
+        </article>
+      </xsl:for-each>
+    </xsl:variable>
+
+    <!-- find earliest article after current one -->
+    <xsl:variable name="next" select="math:lowest(ext:node-set($articles.after)/article)/@title" />
 
     <!-- pager navigation -->
     <xsl:call-template name="element.pager">
 
+      <!-- previous article -->
       <xsl:with-param name="prev">
         <xsl:if test="$prev">
           <page title="{$prev}">
@@ -240,6 +263,7 @@
         </xsl:if>
       </xsl:with-param>
 
+      <!-- next article -->
       <xsl:with-param name="next">
         <xsl:if test="$next">
           <page title="{$next}">
