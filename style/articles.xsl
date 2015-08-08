@@ -5,8 +5,7 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:ext="http://exslt.org/common"
   xmlns:set="http://exslt.org/sets"
-  xmlns:math="http://exslt.org/math"
-  extension-element-prefixes="ext set math">
+  extension-element-prefixes="ext set">
 
 
 <!--~~~~~~~~~~~~~~~~~~~~
@@ -225,36 +224,28 @@
       <xsl:with-param name="content" select="content" />
     </xsl:call-template>
 
-    <!-- find all articles before current one -->
-    <xsl:variable name="articles.before">
-      <xsl:for-each select="../article[translate(date, '-', '') &lt; $date.raw]">
-        <article title="{title}">
-          <xsl:value-of select="translate(date, '-', '')" />
-        </article>
-      </xsl:for-each>
-    </xsl:variable>
-
     <!-- find latest article before current one -->
-    <xsl:variable name="prev" select="math:highest(ext:node-set($articles.before)/article)/@title" />
-
-    <!-- find all articles after current one -->
-    <xsl:variable name="articles.after">
-      <xsl:for-each select="../article[translate(date, '-', '') &gt; $date.raw]">
-        <article title="{title}">
-          <xsl:value-of select="translate(date, '-', '')" />
-        </article>
-      </xsl:for-each>
+    <xsl:variable name="prev">
+      <xsl:call-template name="date.prev.title">
+        <xsl:with-param name="date" select="date" />
+        <xsl:with-param name="elements" select="../article" />
+      </xsl:call-template>
     </xsl:variable>
 
     <!-- find earliest article after current one -->
-    <xsl:variable name="next" select="math:lowest(ext:node-set($articles.after)/article)/@title" />
+    <xsl:variable name="next">
+      <xsl:call-template name="date.next.title">
+        <xsl:with-param name="date" select="date" />
+        <xsl:with-param name="elements" select="../article" />
+      </xsl:call-template>
+    </xsl:variable>
 
     <!-- pager navigation -->
     <xsl:call-template name="element.pager">
 
       <!-- previous article -->
       <xsl:with-param name="prev">
-        <xsl:if test="$prev">
+        <xsl:if test="$prev != ''">
           <page title="{$prev}">
             <xsl:attribute name="href">article.<xsl:call-template name="format.filename">
               <xsl:with-param name="string" select="$prev" />
@@ -265,7 +256,7 @@
 
       <!-- next article -->
       <xsl:with-param name="next">
-        <xsl:if test="$next">
+        <xsl:if test="$next != ''">
           <page title="{$next}">
             <xsl:attribute name="href">article.<xsl:call-template name="format.filename">
               <xsl:with-param name="string" select="$next" />

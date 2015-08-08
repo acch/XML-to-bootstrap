@@ -2,7 +2,10 @@
 
 <xsl:stylesheet
   version="1.0"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:ext="http://exslt.org/common"
+  xmlns:math="http://exslt.org/math"
+  extension-element-prefixes="ext math">
 
 
 <!--~~~~~~~~~~~~~~~~~~~~
@@ -54,6 +57,58 @@
 
   <xsl:template match="node()|@*" priority="-1">
     <xsl:copy />
+  </xsl:template>
+
+
+<!--~~~~~~~~~~~~~~~~~~~~
+      Previous element
+    ~~~~~~~~~~~~~~~~~~~~-->
+<!-- find title of element with a date closest before the specified date -->
+
+  <xsl:template name="date.prev.title">
+    <xsl:param name="date" /><!-- string (format 'YYYY-MM-DD') -->
+    <xsl:param name="elements" /><!-- node-set (with 'title' and 'date' children) -->
+
+    <xsl:variable name="date.raw" select="translate($date, '-', '')" />
+
+    <!-- find all elements with a date before the specified date -->
+    <xsl:variable name="elements.before">
+      <xsl:for-each select="ext:node-set($elements)[translate(date, '-', '') &lt; $date.raw]">
+        <element title="{title}">
+          <xsl:value-of select="translate(date, '-', '')" />
+        </element>
+      </xsl:for-each>
+    </xsl:variable>
+
+    <!-- find title of latest element -->
+    <xsl:value-of select="math:highest(ext:node-set($elements.before)/element)/@title" />
+
+  </xsl:template>
+
+
+<!--~~~~~~~~~~~~~~~~~~~~
+        Next element
+    ~~~~~~~~~~~~~~~~~~~~-->
+<!-- find title of element with a date closest after the specified date -->
+
+  <xsl:template name="date.next.title">
+    <xsl:param name="date" /><!-- string (format 'YYYY-MM-DD') -->
+    <xsl:param name="elements" /><!-- node-set (with 'title' and 'date' children) -->
+
+    <xsl:variable name="date.raw" select="translate($date, '-', '')" />
+
+    <!-- find all elements with a date after the specified date -->
+    <xsl:variable name="elements.after">
+      <xsl:for-each select="ext:node-set($elements)[translate(date, '-', '') &gt; $date.raw]">
+        <element title="{title}">
+          <xsl:value-of select="translate(date, '-', '')" />
+        </element>
+      </xsl:for-each>
+    </xsl:variable>
+
+    <!-- find title of earliest element -->
+    <xsl:value-of select="math:lowest(ext:node-set($elements.after)/element)/@title" />
+
   </xsl:template>
 
 </xsl:stylesheet>
