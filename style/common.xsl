@@ -5,7 +5,8 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:ext="http://exslt.org/common"
   xmlns:math="http://exslt.org/math"
-  extension-element-prefixes="ext math">
+  xmlns:set="http://exslt.org/sets"
+  extension-element-prefixes="ext math set">
 
 
 <!--~~~~~~~~~~~~~~~~~~~~
@@ -57,6 +58,29 @@
 
   <xsl:template match="node()|@*" priority="-1">
     <xsl:copy />
+  </xsl:template>
+
+
+<!--~~~~~~~~~~~~~~~~~~~~
+       Distinct years
+    ~~~~~~~~~~~~~~~~~~~~-->
+<!-- find distinct years of elements with a date -->
+
+  <xsl:template name="date.years">
+    <xsl:param name="elements" /><!-- node-set (with 'date' child) -->
+
+    <!-- find all years -->
+    <xsl:variable name="years">
+      <xsl:for-each select="$elements/date">
+        <year><xsl:value-of select="substring-before(text(), '-')" /></year>
+      </xsl:for-each>
+    </xsl:variable>
+
+    <!-- find distinct years -->
+    <xsl:for-each select="set:distinct(ext:node-set($years)/year)">
+      <year><xsl:value-of select="text()" /></year>
+    </xsl:for-each>
+
   </xsl:template>
 
 

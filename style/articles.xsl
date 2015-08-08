@@ -4,8 +4,7 @@
   version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:ext="http://exslt.org/common"
-  xmlns:set="http://exslt.org/sets"
-  extension-element-prefixes="ext set">
+  extension-element-prefixes="ext">
 
 
 <!--~~~~~~~~~~~~~~~~~~~~
@@ -150,22 +149,20 @@
 
       <!-- find all years -->
       <xsl:variable name="years">
-        <xsl:for-each select="$content/article/date">
-          <year><xsl:value-of select="substring-before(., '-')" /></year>
-        </xsl:for-each>
+        <xsl:call-template name="date.years">
+          <xsl:with-param name="elements" select="$content/article" />
+        </xsl:call-template>
       </xsl:variable>
 
       <!-- iterate over all distinct years -->
-      <xsl:for-each select="set:distinct(ext:node-set($years)/year)">
+      <xsl:for-each select="ext:node-set($years)/year">
         <xsl:sort order="descending" />
 
-        <xsl:variable name="current.year" select="text()" />
-
         <!-- nav link section -->
-        <section title="{$current.year}">
+        <section title="{text()}">
 
           <!-- find all articles from current year -->
-          <xsl:for-each select="$content/article[@id][starts-with(date, $current.year)]">
+          <xsl:for-each select="$content/article[@id][starts-with(date, current())]">
             <xsl:sort select="date" order="descending" />
 
             <!-- nav link -->
@@ -188,7 +185,6 @@
   <xsl:template match="article">
 
     <!-- format date -->
-    <xsl:variable name="date.raw" select="translate(date, '-', '')" />
     <xsl:variable name="date.formatted">
       <xsl:call-template name="format.date">
         <xsl:with-param name="date" select="date" />
