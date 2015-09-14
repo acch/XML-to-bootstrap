@@ -8,7 +8,10 @@
   <xsl:import href="common.xsl" />
   <xsl:import href="html.xsl" />
   <xsl:import href="elements.xsl" />
+  <xsl:import href="home.xsl" />
   <xsl:import href="articles.xsl" />
+  <!--xsl:import href="projects.xsl" /-->
+  <!--xsl:import href="gallery.xsl" /-->
 
 
 <!--~~~~~~~~~~~~~~~~~~~~
@@ -25,17 +28,20 @@
 <!--~~~~~~~~~~~~~~~~~~~~
         Main template
     ~~~~~~~~~~~~~~~~~~~~-->
-    
+
   <xsl:template match="/">
 
-    <!-- Generate article pages -->
+    <!-- generate home page -->
+    <xsl:call-template name="home" />
+
+    <!-- generate article pages -->
     <xsl:call-template name="articles" />
 
-    <!-- Generate project pages -->
+    <!-- generate project pages -->
     <!--xsl:call-template name="projects" /-->
 
-    <!-- Generate generic pages -->
-    <!--xsl:call-template name="pages" /-->
+    <!-- generate gallery pages -->
+    <!--xsl:call-template name="gallery" /-->
 
   </xsl:template>
 

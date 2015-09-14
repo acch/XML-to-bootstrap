@@ -80,7 +80,7 @@
             </xsl:if>
             Previous
           </a>
-        </li>
+        </li><!-- /previous -->
 
         <li class="next{$next.disabled}">
           <a>
@@ -94,7 +94,7 @@
             </xsl:if>
             Next
           </a>
-        </li>
+        </li><!-- /next -->
 
       </ul><!-- /pager -->
     </nav>

@@ -190,8 +190,8 @@
           <xsl:value-of select="$subtitle" />
         </p>
 
-      </div>
-    </header>
+      </div><!-- /container -->
+    </header><!-- /jumbotron -->
 
   </xsl:template>
 
@@ -333,7 +333,7 @@
         <p class="x2b-gry">Generated using <a href="https://github.com/acch/XML-to-bootstrap">XML-to-Bootstrap</a> for your reading pleasure.</p>
         <p class="x2b-gry">This site uses <a href="http://getbootstrap.com">Bootstrap</a> and <a href="http://wicky.nillia.ms/headroom.js/">Headroom.js</a>.</p>
 
-      </div>
+      </div><!-- /container -->
     </footer>
 
   </xsl:template>
