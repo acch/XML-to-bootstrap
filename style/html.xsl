@@ -58,7 +58,7 @@
 
             <xsl:if test="$sidebar">
               <!-- sidebar column -->
-              <aside class="hidden-xs [ col-sm-3 col-md-offset-1 ]">
+              <aside class="hidden-xs [ col-sm-3 col-md-offset-1 ] x2b-sdbr">
 
                 <!-- sidebar -->
                 <xsl:call-template name="html.sidebar">
@@ -271,7 +271,7 @@
     <xsl:variable name="content.nav" select="ext:node-set($content)/nav" />
 
     <!-- bootstrap panel component -->
-    <div class="[ panel panel-default ] x2b-sdbr affix-top" data-spy="affix" data-offset-top="{$sidebar.offset}">
+    <div class="[ panel panel-default ]">
       <nav class="panel-body">
 
         <!-- sidebar nav links -->
