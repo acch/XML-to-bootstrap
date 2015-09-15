@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
   </option>
   <option name="cdn.scripts">
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/headroom/0.7.0/headroom.min.js"></script>
   </option>
