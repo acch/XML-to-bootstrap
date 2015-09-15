@@ -200,15 +200,16 @@
     </xsl:call-template>
 
     <!-- article introduction -->
-    <p class="lead">
+    <p>
       <span class="x2b-gry">
         //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date.formatted" />
       </span>
 
       <br />
 
-      <xsl:value-of select="short" />
-
+      <strong>
+        <xsl:value-of select="short" />
+      </strong>
     </p>
 
     <!-- divider -->
