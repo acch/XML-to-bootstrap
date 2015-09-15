@@ -183,11 +183,11 @@
     <header class="jumbotron">
       <div class="container">
 
-        <h1 class="x2b-nwrp">
+        <h1>
           <xsl:value-of select="$title" />
         </h1>
 
-        <p class="x2b-nwrp">
+        <p>
           <xsl:value-of select="$subtitle" />
         </p>
 
