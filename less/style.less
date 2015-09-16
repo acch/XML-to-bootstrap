@@ -15,6 +15,14 @@
   color: @gray-light;
 }
 
+article > h3:before {
+    display: block;
+    content: " ";
+    margin-top: (0 - @navbar-height - 2 * @padding-large-vertical - 2);
+    height: (@navbar-height + 2 * @padding-large-vertical + 2);
+    visibility: hidden;
+}
+
 
 /* -------------------- *\
        Body styles
@@ -92,8 +100,8 @@
 \* -------------------- */
 
 .x2b-hm-pnl {
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: (2.5 * @padding-large-horizontal);
+  padding-right: (2.5 * @padding-large-horizontal);
 }
 
 
