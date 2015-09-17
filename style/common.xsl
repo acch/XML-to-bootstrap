@@ -43,15 +43,26 @@
         Copy contents
     ~~~~~~~~~~~~~~~~~~~~-->
 <!-- helper for copying child element nodes and attributes (but no namespaces)
-     from XML -->
+     from XML. also, adds anchor CSS class to elements with id attribute -->
 
   <xsl:template name="copy.content">
     <xsl:param name="content" /><!-- node-set -->
 
     <xsl:for-each select="$content/*">
+
+      <!-- generate element without namespace -->
       <xsl:element name="{name()}">
+
+        <!-- add anchor class to elements with id attribute -->
+        <xsl:if test="@id">
+          <xsl:attribute name="class">x2b-anchr</xsl:attribute>
+        </xsl:if>
+
+        <!-- copy attributes and child nodes -->
         <xsl:apply-templates select="node()|@*"/>
+
       </xsl:element>
+
     </xsl:for-each>
 
   </xsl:template>

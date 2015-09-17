@@ -15,11 +15,16 @@
   color: @gray-light;
 }
 
-article > h3:before {
-    display: block;
+
+/* -------------------- *\
+       Anchro styles
+\* -------------------- */
+
+.x2b-anchr::before {
     content: " ";
-    margin-top: (0 - @navbar-height - 2 * @padding-large-vertical - 2);
+    display: block;
     height: (@navbar-height + 2 * @padding-large-vertical + 2);
+    margin-top: (0 - @navbar-height - 2 * @padding-large-vertical - 2);
     visibility: hidden;
 }
 
