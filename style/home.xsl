@@ -14,7 +14,7 @@
     <!-- generate home page -->
     <xsl:call-template name="html.page">
       <xsl:with-param name="title" select="/site/home/title" />
-      <xsl:with-param name="subtitle" select="/site/home/introduction" />
+      <xsl:with-param name="subtitle" select="/site/home/subtitle" />
       <xsl:with-param name="content" select="/site/home" />
       <xsl:with-param name="banner.style">text-center</xsl:with-param>
     </xsl:call-template>
@@ -29,6 +29,11 @@
   <xsl:template match="home">
 
     <div class="row text-center">
+
+      <!-- copy introduction from XML directly -->
+      <xsl:call-template name="copy.content">
+        <xsl:with-param name="content" select="introduction" />
+      </xsl:call-template>
 
       <!-- articles panel -->
       <div class="col-sm-4 x2b-hm-pnl">

@@ -2,12 +2,26 @@
 
 <home>
 
-  <title>
-    Home
-  </title>
+  <title>Home</title>
+  <subtitle>There's no place like localhost</subtitle>
 
   <introduction>
-    This is the home page. Nothing fancy.
+    <p>Welcome to the best site in the world... The authors sincerely hope that you find something useful...</p>
+    <p>Feel free to use the content found here in whichever way you consider appropriate. The authors were glad if you let them know and provide feedback, but that's not required.</p>
+    <p>TODO: Find some CC license...</p>
+    <p>This is the home page. Nothing fancy.</p>
   </introduction>
+
+  <description type="Articles">
+    Contains some articles. Nothing special.
+  </description>
+
+  <description type="Projects">
+    Some projects. Not much.
+  </description>
+
+  <description type="Gallery">
+    Browse some pictures. Keep cool.
+  </description>
 
 </home>
