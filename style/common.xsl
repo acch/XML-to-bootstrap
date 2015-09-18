@@ -61,7 +61,7 @@
         </xsl:if>
 
         <!-- copy attributes and child nodes -->
-        <xsl:apply-templates select="node()|@*"/>
+        <xsl:apply-templates select="node()|@*" />
 
       </xsl:element>
 
@@ -70,7 +70,9 @@
   </xsl:template>
 
   <xsl:template match="node()|@*" priority="-1">
-    <xsl:copy />
+    <xsl:copy>
+      <xsl:apply-templates select="node()|@*" />
+    </xsl:copy>
   </xsl:template>
 
 
