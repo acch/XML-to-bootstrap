@@ -30,20 +30,15 @@
 
     <div class="row text-center">
 
-      <!-- introduction text -->
-      <xsl:for-each select="introduction/*[not(self::collapse)]">
-
-        <!-- generate element without namespace -->
-          <xsl:element name="{name()}">
-            <!-- copy attributes and child nodes -->
-            <xsl:apply-templates select="node()|@*"/>
-          </xsl:element>
-
-      </xsl:for-each>
+      <!-- copy introduction from XML, excluding collapsed text -->
+      <xsl:call-template name="copy.content">
+        <xsl:with-param name="content" select="introduction" />
+        <xsl:with-param name="exclude">collapse</xsl:with-param>
+      </xsl:call-template>
 
       <!-- collapsed introduction text -->
       <div class="collapse" id="intrdctn">
-        <!-- copy from XML directly -->
+        <!-- copy collapsed introduction text from XML directly -->
         <xsl:call-template name="copy.content">
           <xsl:with-param name="content" select="introduction/collapse" />
         </xsl:call-template>

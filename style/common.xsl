@@ -47,8 +47,10 @@
 
   <xsl:template name="copy.content">
     <xsl:param name="content" /><!-- node-set -->
+    <xsl:param name="exclude" /><!-- string -->
 
-    <xsl:for-each select="$content/*">
+    <!-- find all child elements excluding specific names -->
+    <xsl:for-each select="$content/*[not(name() = $exclude)]">
 
       <!-- generate element without namespace -->
       <xsl:element name="{name()}">
