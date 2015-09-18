@@ -36,7 +36,7 @@
         <xsl:with-param name="exclude">collapse</xsl:with-param>
       </xsl:call-template>
 
-      <!-- collapsed introduction text -->
+      <!-- collapsed section -->
       <div class="collapse" id="intrdctn">
         <!-- copy collapsed introduction text from XML directly -->
         <xsl:call-template name="copy.content">
@@ -44,9 +44,9 @@
         </xsl:call-template>
       </div>
 
-      <!-- link to expand collapsed introduction -->
+      <!-- link to expand collapsed section -->
       <p>
-        <a data-toggle="collapse" href="#intrdctn" aria-expanded="false" aria-controls="intrdctn">More...</a>
+        <a class="x2b-expnd collapsed" data-toggle="collapse" href="#intrdctn" aria-expanded="false" aria-controls="intrdctn">More...</a>
       </p>
 
     </div><!-- /row -->
