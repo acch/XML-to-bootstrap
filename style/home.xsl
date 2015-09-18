@@ -60,13 +60,13 @@
           <div class="panel-heading">
             <h3 class="panel-title">
               <a href="articles.html">
-                Articles
+                <xsl:value-of select="/site/articles/title" />
               </a>
             </h3>
           </div>
 
           <div class="panel-body">
-            <xsl:value-of select="description[@type='Articles']" />
+            <xsl:value-of select="description[@type='articles']" />
           </div>
 
         </div><!-- /panel -->
@@ -79,13 +79,13 @@
           <div class="panel-heading">
             <h3 class="panel-title">
               <a href="projects.html">
-                Projects
+                <xsl:value-of select="/site/projects/title" />
               </a>
             </h3>
           </div>
 
           <div class="panel-body">
-            <xsl:value-of select="description[@type='Projects']" />
+            <xsl:value-of select="description[@type='projects']" />
           </div>
 
         </div><!-- /panel -->
@@ -98,13 +98,13 @@
           <div class="panel-heading">
             <h3 class="panel-title">
               <a href="gallery.html">
-                Gallery
+                <xsl:value-of select="/site/gallery/title" />
               </a>
             </h3>
           </div>
 
           <div class="panel-body">
-            <xsl:value-of select="description[@type='Gallery']" />
+            <xsl:value-of select="description[@type='gallery']" />
           </div>
 
         </div><!-- /panel -->

@@ -22,8 +22,8 @@
       indent="yes">
 
       <xsl:call-template name="html.page">
-        <xsl:with-param name="title">Articles</xsl:with-param>
-        <xsl:with-param name="subtitle" select="/site/articles/introduction" />
+        <xsl:with-param name="title" select="/site/articles/title" />
+        <xsl:with-param name="subtitle" select="/site/articles/subtitle" />
         <xsl:with-param name="content" select="/site/articles" />
         <xsl:with-param name="content.sidebar">
           <xsl:call-template name="articles.sidebar">
@@ -78,7 +78,7 @@
 
     <!-- navigation breadcrumps -->
     <xsl:call-template name="element.breadcrumps">
-      <xsl:with-param name="current">Articles</xsl:with-param>
+      <xsl:with-param name="current" select="title" />
     </xsl:call-template>
 
     <p class="x2b-gry">
@@ -125,8 +125,8 @@
             </a>
           </p>
 
-        </div> <!-- /column -->
-      </div> <!-- /row -->
+        </div><!-- /column -->
+      </div><!-- /row -->
 
       <!-- divider -->
       <xsl:if test="position() != last()">
@@ -194,7 +194,7 @@
     <!-- navigation breadcrumps -->
     <xsl:call-template name="element.breadcrumps">
       <xsl:with-param name="parent">
-        <page title="Articles" href="/articles.html" />
+        <page title="{../title}" href="/articles.html" />
       </xsl:with-param>
       <xsl:with-param name="current" select="title" />
     </xsl:call-template>

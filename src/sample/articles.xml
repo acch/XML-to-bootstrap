@@ -2,9 +2,8 @@
 
 <articles>
 
-  <introduction>
-    This page contains some articles. Nothing special.
-  </introduction>
+  <title>ArticlesX</title>
+  <subtitle>This page contains some articles. Nothing special.</subtitle>
 
   <article id="zweiter">
     <date>2015-1-12</date>
@@ -15,7 +14,7 @@
     </short>
     <content>
       <h3 id="top">Suspendisse rutrum</h3>
-      <p>Suspendisse rutrum, augue ut scelerisque lacinia, elit massa lacinia neque, elementum convallis libero elit nec diam. Aenean euismod elementum risus, non iaculis quam maximus et. Nam scelerisque dui vitae turpis ullamcorper euismod. Phasellus lacinia ut diam eu mattis. Sed et nisi convallis, mattis nisi a, sodales nunc. In neque nulla, aliquam ac libero ac, pellentesque ornare sapien. Praesent vestibulum velit tortor, non malesuada arcu sagittis aliquam. Phasellus id ligula ac metus ultricies ornare. In quis varius felis. Vestibulum hendrerit nisi vitae elit fermentum placerat.</p>
+      <p>Suspendisse rutrum, <strong>augue</strong> ut scelerisque lacinia, elit massa lacinia neque, elementum convallis libero elit nec diam. Aenean euismod elementum risus, non iaculis quam maximus et. Nam scelerisque dui vitae turpis ullamcorper euismod. Phasellus lacinia ut diam eu mattis. Sed et nisi convallis, mattis nisi a, sodales nunc. In neque nulla, aliquam ac libero ac, pellentesque ornare sapien. Praesent vestibulum velit tortor, non malesuada arcu sagittis aliquam. Phasellus id ligula ac metus ultricies ornare. In quis varius felis. Vestibulum hendrerit nisi vitae elit fermentum placerat.</p>
       <p>Suspendisse rutrum, augue ut scelerisque lacinia, elit massa lacinia neque, elementum convallis libero elit nec diam. Aenean euismod elementum risus, non iaculis quam maximus et. Nam scelerisque dui vitae turpis ullamcorper euismod. Phasellus lacinia ut diam eu mattis. Sed et nisi convallis, mattis nisi a, sodales nunc. In neque nulla, aliquam ac libero ac, pellentesque ornare sapien. Praesent vestibulum velit tortor, non malesuada arcu sagittis aliquam. Phasellus id ligula ac metus ultricies ornare. In quis varius felis. Vestibulum hendrerit nisi vitae elit fermentum placerat.</p>
       <p>Suspendisse rutrum, augue ut scelerisque lacinia, elit massa lacinia neque, elementum convallis libero elit nec diam. Aenean euismod elementum risus, non iaculis quam maximus et. Nam scelerisque dui vitae turpis ullamcorper euismod. Phasellus lacinia ut diam eu mattis. Sed et nisi convallis, mattis nisi a, sodales nunc. In neque nulla, aliquam ac libero ac, pellentesque ornare sapien. Praesent vestibulum velit tortor, non malesuada arcu sagittis aliquam. Phasellus id ligula ac metus ultricies ornare. In quis varius felis. Vestibulum hendrerit nisi vitae elit fermentum placerat.</p>
       <p>Suspendisse rutrum, augue ut scelerisque lacinia, elit massa lacinia neque, elementum convallis libero elit nec diam. Aenean euismod elementum risus, non iaculis quam maximus et. Nam scelerisque dui vitae turpis ullamcorper euismod. Phasellus lacinia ut diam eu mattis. Sed et nisi convallis, mattis nisi a, sodales nunc. In neque nulla, aliquam ac libero ac, pellentesque ornare sapien. Praesent vestibulum velit tortor, non malesuada arcu sagittis aliquam. Phasellus id ligula ac metus ultricies ornare. In quis varius felis. Vestibulum hendrerit nisi vitae elit fermentum placerat.</p>
@@ -77,7 +76,7 @@
   <article>
     <date>2015-3-13</date>
     <title>Fünfter Artikel</title>
-    <subtitle>noch besser als der erste</subtitle>
+    <subtitle>noch besser als der erste... und mit einem sehr sehr sehr sehr sehr langen untertitel... nur um zu prüfen ob der sidebar trotzdem sauber stickt ;-)</subtitle>
     <short>
       Beim zweiten Artikel ist vieles einfacher und geht leichter von der Hand.
     </short>
