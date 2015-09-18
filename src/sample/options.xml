@@ -4,8 +4,6 @@
   <option name="site.title">Byteshell</option>
   <option name="site.author">Achim Christ</option>
 
-  <option name="sidebar.offset">255</option>
-
   <option name="navbar.offset">240</option>
   <option name="navbar.tolerance">5</option>
 

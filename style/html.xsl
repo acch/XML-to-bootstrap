@@ -275,9 +275,6 @@
   <xsl:template name="html.sidebar">
     <xsl:param name="content" /><!-- node-set (nav) -->
 
-    <!-- options -->
-    <xsl:variable name="sidebar.offset" select="/site/options/option[@name = 'sidebar.offset']" />
-
     <!-- convert parameter to node-set -->
     <xsl:variable name="content.nav" select="ext:node-set($content)/nav" />
 
