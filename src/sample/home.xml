@@ -2,15 +2,14 @@
 
 <home>
 
-  <title>Home</title>
+  <title>Welcome</title>
   <subtitle>There's no place like localhost</subtitle>
 
   <introduction>
-    <p>Welcome to the best site in the world... The authors sincerely hope that you find something useful!</p>
+    <p>Welcome to this fine piece of carefully crafted hypertext... The authors sincerely hope that you find something interesting or, even better, something useful here!</p>
     <collapse>
-      <p>Feel free to use the content found here in whichever way you consider appropriate. The authors were glad if you let them know and provide feedback, but that's not required.</p>
-      <p>TODO: Find some CC license...</p>
-      <p>This is the home page. Nothing fancy.</p>
+      <p>If you do then feel free to use the content found here in whichever way you consider appropriate. The authors were glad if you let them know and provide feedback, but you don't have to if you don't want to.</p>
+      <p>TODO: Find some appropriate CC license...</p>
     </collapse>
   </introduction>
 
