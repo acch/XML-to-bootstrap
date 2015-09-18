@@ -30,10 +30,33 @@
 
     <div class="row text-center">
 
-      <!-- copy introduction from XML directly -->
-      <xsl:call-template name="copy.content">
-        <xsl:with-param name="content" select="introduction" />
-      </xsl:call-template>
+      <!-- introduction text -->
+      <xsl:for-each select="introduction/*[not(self::collapse)]">
+
+        <!-- generate element without namespace -->
+          <xsl:element name="{name()}">
+            <!-- copy attributes and child nodes -->
+            <xsl:apply-templates select="node()|@*"/>
+          </xsl:element>
+
+      </xsl:for-each>
+
+      <!-- collapsed introduction text -->
+      <div class="collapse" id="intrdctn">
+        <!-- copy from XML directly -->
+        <xsl:call-template name="copy.content">
+          <xsl:with-param name="content" select="introduction/collapse" />
+        </xsl:call-template>
+      </div>
+
+      <!-- link to expand collapsed introduction -->
+      <p>
+        <a data-toggle="collapse" href="#intrdctn" aria-expanded="false" aria-controls="intrdctn">More...</a>
+      </p>
+
+    </div><!-- /row -->
+
+    <div class="row text-center">
 
       <!-- articles panel -->
       <div class="col-sm-4 x2b-hm-pnl">
