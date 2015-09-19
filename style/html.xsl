@@ -37,7 +37,9 @@
       <body class="x2b-bdy">
 
         <!-- navbar -->
-        <xsl:call-template name="html.navbar" />
+        <xsl:call-template name="html.navbar">
+          <xsl:with-param name="title" select="$title" />
+        </xsl:call-template>
 
         <!-- banner -->
         <xsl:call-template name="html.banner">
@@ -213,6 +215,7 @@
     ~~~~~~~~~~~~~~~~~~~~~~~-->
 
   <xsl:template name="html.navbar">
+    <xsl:param name="title" /><!-- string -->
 
     <!-- options -->
     <xsl:variable name="site.title" select="/site/options/option[@name = 'site.title']" />
@@ -230,15 +233,35 @@
             <span class="icon-bar"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></span>
             <span class="icon-bar"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></span>
           </button>
-          <a class="navbar-brand" href="#"><xsl:value-of select="$site.title" /></a>
+          <a class="navbar-brand" href="/"><xsl:value-of select="$site.title" /></a>
         </div> <!-- /navbar-header -->
 
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="articles.html"><xsl:value-of select="/site/articles/title" /></a></li>
-            <li><a href="projects.html"><xsl:value-of select="/site/projects/title" /></a></li>
-            <li><a href="galleries.html"><xsl:value-of select="/site/galleries/title" /></a></li>
+            <li>
+              <xsl:if test="$title = /site/home/title">
+                <xsl:attribute name="class">active</xsl:attribute>
+              </xsl:if>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <xsl:if test="$title = /site/articles/title">
+                <xsl:attribute name="class">active</xsl:attribute>
+              </xsl:if>
+              <a href="articles.html"><xsl:value-of select="/site/articles/title" /></a>
+            </li>
+            <li>
+              <xsl:if test="$title = /site/projects/title">
+                <xsl:attribute name="class">active</xsl:attribute>
+              </xsl:if>
+              <a href="projects.html"><xsl:value-of select="/site/projects/title" /></a>
+            </li>
+            <li>
+              <xsl:if test="$title = /site/galleries/title">
+                <xsl:attribute name="class">active</xsl:attribute>
+              </xsl:if>
+              <a href="galleries.html"><xsl:value-of select="/site/galleries/title" /></a>
+            </li>
           </ul>
           <p class="hidden-xs [ navbar-text navbar-right ] x2b-nvbr-txt">by <xsl:value-of select="$site.author" /></p>
         </div> <!-- /navbar-collapse -->
