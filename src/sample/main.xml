@@ -6,5 +6,7 @@
   <xi:include href="options.xml" parse="xml" />
   <xi:include href="home.xml" parse="xml" />
   <xi:include href="articles.xml" parse="xml" />
+  <xi:include href="projects.xml" parse="xml" />
+  <xi:include href="galleries.xml" parse="xml" />
 
 </site>

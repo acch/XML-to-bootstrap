@@ -97,14 +97,14 @@
 
           <div class="panel-heading">
             <h3 class="panel-title">
-              <a href="gallery.html">
-                <xsl:value-of select="/site/gallery/title" />
+              <a href="galleries.html">
+                <xsl:value-of select="/site/galleries/title" />
               </a>
             </h3>
           </div>
 
           <div class="panel-body">
-            <xsl:value-of select="description[@type='gallery']" />
+            <xsl:value-of select="description[@type='galleries']" />
           </div>
 
         </div><!-- /panel -->
