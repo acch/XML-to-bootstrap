@@ -8,34 +8,34 @@
 
 
 <!--~~~~~~~~~~~~~~~~~~~~
-       Article pages
+       Projects pages
     ~~~~~~~~~~~~~~~~~~~~-->
 
-  <xsl:template name="articles">
+  <xsl:template name="projects">
 
-    <!-- generate article overview page -->
+    <!-- generate projects overview page -->
     <ext:document
-      href="articles.html"
+      href="projects.html"
       method="xml"
       omit-xml-declaration="yes"
       encoding="utf-8"
       indent="yes">
 
       <xsl:call-template name="html.page">
-        <xsl:with-param name="title" select="/site/articles/title" />
-        <xsl:with-param name="subtitle" select="/site/articles/subtitle" />
-        <xsl:with-param name="content" select="/site/articles" />
+        <xsl:with-param name="title" select="/site/projects/title" />
+        <xsl:with-param name="subtitle" select="/site/projects/subtitle" />
+        <xsl:with-param name="content" select="/site/projects" />
         <xsl:with-param name="content.sidebar">
-          <xsl:call-template name="articles.sidebar">
-            <xsl:with-param name="content" select="/site/articles" />
+          <xsl:call-template name="projects.sidebar">
+            <xsl:with-param name="content" select="/site/projects" />
           </xsl:call-template>
         </xsl:with-param>
       </xsl:call-template>
 
     </ext:document>
 
-    <!-- iterate over all articles -->
-    <xsl:for-each select="/site/articles/article">
+    <!-- iterate over all projects -->
+    <xsl:for-each select="/site/projects/project">
 
       <!-- format filename -->
       <xsl:variable name="filename">
@@ -44,9 +44,9 @@
         </xsl:call-template>
       </xsl:variable>
 
-      <!-- generate article detail page -->
+      <!-- generate project detail page -->
       <ext:document
-        href="article.{$filename}.html"
+        href="project.{$filename}.html"
         method="xml"
         omit-xml-declaration="yes"
         encoding="utf-8"
@@ -57,7 +57,7 @@
           <xsl:with-param name="subtitle" select="subtitle" />
           <xsl:with-param name="content" select="." />
           <xsl:with-param name="content.sidebar">
-            <xsl:call-template name="article.sidebar">
+            <xsl:call-template name="project.sidebar">
               <xsl:with-param name="content" select="." />
             </xsl:call-template>
           </xsl:with-param>
@@ -71,10 +71,10 @@
 
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Article overview page contents
+    Project overview page contents
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-  <xsl:template match="articles">
+  <xsl:template match="projects">
 
     <!-- navigation breadcrumps -->
     <xsl:call-template name="element.breadcrumps">
@@ -85,8 +85,8 @@
       Click on the title to continue reading...
     </p>
 
-    <!-- iterate over all articles -->
-    <xsl:for-each select="article">
+    <!-- iterate over all projects -->
+    <xsl:for-each select="project">
       <xsl:sort select="date" order="descending" />
 
       <!-- format filename -->
@@ -103,12 +103,12 @@
         </xsl:call-template>
       </xsl:variable>
 
-      <!-- article short description -->
+      <!-- project short description -->
       <div class="row">
         <div class="col-sm-12">
 
           <h2 id="{@id}">
-            <a href="article.{$filename}.html">
+            <a href="project.{$filename}.html">
               <xsl:value-of select="title" />
 
               <br />
@@ -120,7 +120,7 @@
           <p>
             <xsl:value-of select="short" />
             <xsl:text> </xsl:text>
-            <a href="article.{$filename}.html">
+            <a href="project.{$filename}.html">
               //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date" />
             </a>
           </p>
@@ -139,18 +139,18 @@
 
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Article overview page sidebar
+    Project overview page sidebar
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-  <xsl:template name="articles.sidebar">
-    <xsl:param name="content" /><!-- node-set (articles) -->
+  <xsl:template name="projects.sidebar">
+    <xsl:param name="content" /><!-- node-set (projects) -->
 
     <nav>
 
       <!-- find all years -->
       <xsl:variable name="years">
         <xsl:call-template name="date.years">
-          <xsl:with-param name="elements" select="$content/article" />
+          <xsl:with-param name="elements" select="$content/project" />
         </xsl:call-template>
       </xsl:variable>
 
@@ -161,8 +161,8 @@
         <!-- nav link section -->
         <section title="{text()}">
 
-          <!-- find all articles from current year -->
-          <xsl:for-each select="$content/article[@id][starts-with(date, current())]">
+          <!-- find all projects from current year -->
+          <xsl:for-each select="$content/project[@id][starts-with(date, current())]">
             <xsl:sort select="date" order="descending" />
 
             <!-- nav link -->
@@ -179,10 +179,10 @@
 
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Article detail page contents
+    Project detail page contents
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-  <xsl:template match="article">
+  <xsl:template match="project">
 
     <!-- format date -->
     <xsl:variable name="date.formatted">
@@ -194,12 +194,12 @@
     <!-- navigation breadcrumps -->
     <xsl:call-template name="element.breadcrumps">
       <xsl:with-param name="parent">
-        <page title="{/site/articles/title}" href="/articles.html" />
+        <page title="{/site/projects/title}" href="/projects.html" />
       </xsl:with-param>
       <xsl:with-param name="current" select="title" />
     </xsl:call-template>
 
-    <!-- article introduction -->
+    <!-- project introduction -->
     <p>
       <span class="x2b-gry">
         //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date.formatted" />
@@ -220,41 +220,41 @@
       <xsl:with-param name="content" select="content" />
     </xsl:call-template>
 
-    <!-- find latest article before current one -->
+    <!-- find latest project before current one -->
     <xsl:variable name="prev">
       <xsl:call-template name="date.prev.title">
         <xsl:with-param name="date" select="date" />
-        <xsl:with-param name="elements" select="../article" />
+        <xsl:with-param name="elements" select="../project" />
       </xsl:call-template>
     </xsl:variable>
 
-    <!-- find earliest article after current one -->
+    <!-- find earliest project after current one -->
     <xsl:variable name="next">
       <xsl:call-template name="date.next.title">
         <xsl:with-param name="date" select="date" />
-        <xsl:with-param name="elements" select="../article" />
+        <xsl:with-param name="elements" select="../project" />
       </xsl:call-template>
     </xsl:variable>
 
     <!-- pager navigation -->
     <xsl:call-template name="element.pager">
 
-      <!-- previous article -->
+      <!-- previous project -->
       <xsl:with-param name="prev">
         <xsl:if test="$prev != ''">
           <page title="{$prev}">
-            <xsl:attribute name="href">article.<xsl:call-template name="format.filename">
+            <xsl:attribute name="href">project.<xsl:call-template name="format.filename">
               <xsl:with-param name="string" select="$prev" />
             </xsl:call-template>.html</xsl:attribute>
           </page>
         </xsl:if>
       </xsl:with-param>
 
-      <!-- next article -->
+      <!-- next project -->
       <xsl:with-param name="next">
         <xsl:if test="$next != ''">
           <page title="{$next}">
-            <xsl:attribute name="href">article.<xsl:call-template name="format.filename">
+            <xsl:attribute name="href">project.<xsl:call-template name="format.filename">
               <xsl:with-param name="string" select="$next" />
             </xsl:call-template>.html</xsl:attribute>
           </page>
@@ -267,11 +267,11 @@
 
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Article detail page sidebar
+    Project detail page sidebar
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-  <xsl:template name="article.sidebar">
-    <xsl:param name="content" /><!-- node-set (article) -->
+  <xsl:template name="project.sidebar">
+    <xsl:param name="content" /><!-- node-set (project) -->
 
     <nav>
 

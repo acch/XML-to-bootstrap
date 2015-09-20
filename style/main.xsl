@@ -10,8 +10,8 @@
   <xsl:import href="elements.xsl" />
   <xsl:import href="home.xsl" />
   <xsl:import href="articles.xsl" />
-  <!--xsl:import href="projects.xsl" /-->
-  <!--xsl:import href="gallery.xsl" /-->
+  <xsl:import href="projects.xsl" />
+  <xsl:import href="galleries.xsl" />
 
 
 <!--~~~~~~~~~~~~~~~~~~~~
@@ -38,10 +38,10 @@
     <xsl:call-template name="articles" />
 
     <!-- generate project pages -->
-    <!--xsl:call-template name="projects" /-->
+    <xsl:call-template name="projects" />
 
     <!-- generate gallery pages -->
-    <!--xsl:call-template name="gallery" /-->
+    <xsl:call-template name="galleries" />
 
   </xsl:template>
 
