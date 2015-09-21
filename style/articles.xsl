@@ -107,7 +107,7 @@
       <div class="row">
         <div class="col-sm-12">
 
-          <h2 id="{@id}">
+          <h2 class="x2b-anchr" id="{@id}">
             <a href="article.{$filename}.html">
               <xsl:value-of select="title" />
 
