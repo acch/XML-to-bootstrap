@@ -223,7 +223,7 @@
     <xsl:variable name="navbar.offset" select="/site/options/option[@name = 'navbar.offset']" />
     <xsl:variable name="navbar.tolerance" select="/site/options/option[@name = 'navbar.tolerance']" />
 
-    <nav class="[ navbar navbar-default navbar-fixed-top ] x2b-nvbr affix-top" data-spy="affix" data-offset-top="1">
+    <nav class="[ navbar navbar-default navbar-fixed-top ] x2b-nvbr js-nvbr affix-top" data-spy="affix" data-offset-top="1">
       <div class="container">
 
         <div class="navbar-header">
@@ -238,12 +238,6 @@
 
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li>
-              <xsl:if test="$title = /site/home/title">
-                <xsl:attribute name="class">active</xsl:attribute>
-              </xsl:if>
-              <a href="/">Home</a>
-            </li>
             <li>
               <xsl:if test="$title = /site/articles/title">
                 <xsl:attribute name="class">active</xsl:attribute>
@@ -270,7 +264,7 @@
     </nav>
 
     <script type="application/javascript">
-      var headroom  = new Headroom(document.querySelector(".navbar"), {
+      var headroom  = new Headroom(document.querySelector(".js-nvbr"), {
         "offset": <xsl:value-of select="$navbar.offset" />,
         "tolerance": <xsl:value-of select="$navbar.tolerance" />
       });
