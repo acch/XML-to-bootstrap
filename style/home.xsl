@@ -66,7 +66,7 @@
           </div>
 
           <div class="panel-body">
-            <xsl:value-of select="description[@type='articles']" />
+            <xsl:value-of select="/site/articles/introduction" />
           </div>
 
         </div><!-- /panel -->
@@ -85,7 +85,7 @@
           </div>
 
           <div class="panel-body">
-            <xsl:value-of select="description[@type='projects']" />
+            <xsl:value-of select="/site/projects/introduction" />
           </div>
 
         </div><!-- /panel -->
@@ -104,7 +104,7 @@
           </div>
 
           <div class="panel-body">
-            <xsl:value-of select="description[@type='galleries']" />
+            <xsl:value-of select="/site/galleries/introduction" />
           </div>
 
         </div><!-- /panel -->
