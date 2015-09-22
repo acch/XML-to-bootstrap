@@ -104,29 +104,23 @@
       </xsl:variable>
 
       <!-- article short description -->
-      <div class="row">
-        <div class="col-sm-12">
+      <h3 class="x2b-anchr" id="{@id}">
+        <a href="article.{$filename}.html">
+          <xsl:value-of select="title" />
+        </a>
+      </h3>
 
-          <h2 class="x2b-anchr" id="{@id}">
-            <a href="article.{$filename}.html">
-              <xsl:value-of select="title" />
+      <p><strong>
+        <xsl:value-of select="subtitle" />
+      </strong></p>
 
-              <br />
-
-              <small><xsl:value-of select="subtitle" /></small>
-            </a>
-          </h2>
-
-          <p>
-            <xsl:value-of select="short" />
-            <xsl:text> </xsl:text>
-            <a href="article.{$filename}.html">
-              //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date" />
-            </a>
-          </p>
-
-        </div><!-- /column -->
-      </div><!-- /row -->
+      <p>
+        <xsl:value-of select="short" />
+        <xsl:text> </xsl:text>
+        <a href="article.{$filename}.html">
+          //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date" />
+        </a>
+      </p>
 
       <!-- divider -->
       <xsl:if test="position() != last()">
