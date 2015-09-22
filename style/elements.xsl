@@ -65,7 +65,7 @@
     </xsl:variable>
 
     <!-- bootstrap pager component -->
-    <nav>
+    <nav class="x2b-pgr">
       <ul class="pager">
 
         <li class="previous{$prev.disabled}">
