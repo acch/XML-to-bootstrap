@@ -101,4 +101,34 @@
 
   </xsl:template>
 
+
+<!--~~~~~~~~~~~~~~~~~~~~
+            Icons
+    ~~~~~~~~~~~~~~~~~~~~-->
+
+  <xsl:template name="element.icon">
+    <xsl:param name="icon" /><!-- string-->
+    <xsl:param name="size" select="fa-lg" /><!-- string -->
+
+    <span class="fa {$icon} {$size}">
+      <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+    </span>
+
+  </xsl:template>
+
+  <xsl:template name="element.icon.circled">
+    <xsl:param name="icon" /><!-- string-->
+    <xsl:param name="size" select="fa-lg" /><!-- string -->
+
+    <span class="fa-stack {$size}">
+      <span class="fa fa-circle fa-stack-2x">
+        <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+      </span>
+      <span class="fa {$icon} fa-stack-1x fa-inverse">
+        <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+      </span>
+    </span>
+
+  </xsl:template>
+
 </xsl:stylesheet>

@@ -57,6 +57,7 @@
       <div class="col-sm-4 x2b-hm-pnl">
         <div class="panel panel-default">
 
+          <!-- panel heading -->
           <div class="panel-heading">
             <h3 class="panel-title">
               <xsl:choose>
@@ -70,8 +71,9 @@
                 </xsl:otherwise>
               </xsl:choose>
             </h3>
-          </div>
+          </div><!-- /panel-heading -->
 
+          <!-- panel body -->
           <div class="panel-body">
             <xsl:choose>
               <xsl:when test="$articles">
@@ -81,7 +83,28 @@
                 Coming soon...
               </xsl:otherwise>
             </xsl:choose>
-          </div>
+
+            <br />
+
+            <!-- panel icon -->
+            <xsl:choose>
+              <xsl:when test="$articles">
+                <a href="articles.html">
+                  <xsl:call-template name="element.icon.circled">
+                    <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
+                    <xsl:with-param name="size">fa-3x</xsl:with-param>
+                  </xsl:call-template>
+                </a>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:call-template name="element.icon.circled">
+                  <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
+                  <xsl:with-param name="size">fa-3x</xsl:with-param>
+                </xsl:call-template>
+              </xsl:otherwise>
+            </xsl:choose>
+
+          </div><!-- /panel-body -->
 
         </div><!-- /panel -->
       </div><!-- /column -->
@@ -90,6 +113,7 @@
       <div class="col-sm-4 x2b-hm-pnl">
         <div class="panel panel-default">
 
+          <!-- panel heading -->
           <div class="panel-heading">
             <h3 class="panel-title">
               <xsl:choose>
@@ -103,8 +127,9 @@
                 </xsl:otherwise>
               </xsl:choose>
             </h3>
-          </div>
+          </div><!-- /panel-heading -->
 
+          <!-- panel body -->
           <div class="panel-body">
             <xsl:choose>
               <xsl:when test="$projects">
@@ -114,7 +139,28 @@
                 Coming soon...
               </xsl:otherwise>
             </xsl:choose>
-          </div>
+
+            <br />
+
+            <!-- panel icon -->
+            <xsl:choose>
+              <xsl:when test="$projects">
+                <a href="projects.html">
+                  <xsl:call-template name="element.icon.circled">
+                    <xsl:with-param name="icon">fa-rocket</xsl:with-param>
+                    <xsl:with-param name="size">fa-3x</xsl:with-param>
+                  </xsl:call-template>
+                </a>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:call-template name="element.icon.circled">
+                  <xsl:with-param name="icon">fa-rocket</xsl:with-param>
+                  <xsl:with-param name="size">fa-3x</xsl:with-param>
+                </xsl:call-template>
+              </xsl:otherwise>
+            </xsl:choose>
+
+          </div><!-- /panel-body -->
 
         </div><!-- /panel -->
       </div><!-- /column -->
@@ -123,6 +169,7 @@
       <div class="col-sm-4 x2b-hm-pnl">
         <div class="panel panel-default">
 
+          <!-- panel heading -->
           <div class="panel-heading">
             <h3 class="panel-title">
               <xsl:choose>
@@ -136,8 +183,9 @@
                 </xsl:otherwise>
               </xsl:choose>
             </h3>
-          </div>
+          </div><!-- /panel-heading -->
 
+          <!-- panel body -->
           <div class="panel-body">
             <xsl:choose>
               <xsl:when test="$galleries">
@@ -147,7 +195,28 @@
                 Coming soon...
               </xsl:otherwise>
             </xsl:choose>
-          </div>
+
+            <br />
+
+            <!-- panel icon -->
+            <xsl:choose>
+              <xsl:when test="$galleries">
+                <a href="galleries.html">
+                  <xsl:call-template name="element.icon.circled">
+                    <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
+                    <xsl:with-param name="size">fa-3x</xsl:with-param>
+                  </xsl:call-template>
+                </a>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:call-template name="element.icon.circled">
+                  <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
+                  <xsl:with-param name="size">fa-3x</xsl:with-param>
+                </xsl:call-template>
+              </xsl:otherwise>
+            </xsl:choose>
+
+          </div><!-- /panel-body -->
 
         </div><!-- /panel -->
       </div><!-- /column -->
