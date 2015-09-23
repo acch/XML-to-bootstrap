@@ -59,14 +59,28 @@
 
           <div class="panel-heading">
             <h3 class="panel-title">
-              <a href="articles.html">
-                <xsl:value-of select="/site/articles/title" />
-              </a>
+              <xsl:choose>
+                <xsl:when test="$articles">
+                  <a href="articles.html">
+                    <xsl:value-of select="/site/articles/title" />
+                  </a>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="/site/articles/title" />
+                </xsl:otherwise>
+              </xsl:choose>
             </h3>
           </div>
 
           <div class="panel-body">
-            <xsl:value-of select="/site/articles/introduction" />
+            <xsl:choose>
+              <xsl:when test="$articles">
+                <xsl:value-of select="/site/articles/introduction" />
+              </xsl:when>
+              <xsl:otherwise>
+                Coming soon...
+              </xsl:otherwise>
+            </xsl:choose>
           </div>
 
         </div><!-- /panel -->
@@ -78,14 +92,28 @@
 
           <div class="panel-heading">
             <h3 class="panel-title">
-              <a href="projects.html">
-                <xsl:value-of select="/site/projects/title" />
-              </a>
+              <xsl:choose>
+                <xsl:when test="$projects">
+                  <a href="projects.html">
+                    <xsl:value-of select="/site/projects/title" />
+                  </a>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="/site/projects/title" />
+                </xsl:otherwise>
+              </xsl:choose>
             </h3>
           </div>
 
           <div class="panel-body">
-            <xsl:value-of select="/site/projects/introduction" />
+            <xsl:choose>
+              <xsl:when test="$projects">
+                <xsl:value-of select="/site/projects/introduction" />
+              </xsl:when>
+              <xsl:otherwise>
+                Coming soon...
+              </xsl:otherwise>
+            </xsl:choose>
           </div>
 
         </div><!-- /panel -->
@@ -97,14 +125,28 @@
 
           <div class="panel-heading">
             <h3 class="panel-title">
-              <a href="galleries.html">
-                <xsl:value-of select="/site/galleries/title" />
-              </a>
+              <xsl:choose>
+                <xsl:when test="$galleries">
+                  <a href="galleries.html">
+                    <xsl:value-of select="/site/galleries/title" />
+                  </a>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="/site/galleries/title" />
+                </xsl:otherwise>
+              </xsl:choose>
             </h3>
           </div>
 
           <div class="panel-body">
-            <xsl:value-of select="/site/galleries/introduction" />
+            <xsl:choose>
+              <xsl:when test="$galleries">
+                <xsl:value-of select="/site/galleries/introduction" />
+              </xsl:when>
+              <xsl:otherwise>
+                Coming soon...
+              </xsl:otherwise>
+            </xsl:choose>
           </div>
 
         </div><!-- /panel -->

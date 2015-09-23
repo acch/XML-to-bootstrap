@@ -14,6 +14,15 @@
   <xsl:import href="galleries.xsl" />
 
 
+<!--~~~~~~~~~~~~~~~~~~~~~~
+    Commandline parameters
+    ~~~~~~~~~~~~~~~~~~~~~~-->
+
+  <xsl:param name="articles" select="true()"/>
+  <xsl:param name="projects" select="false()"/>
+  <xsl:param name="galleries" select="false()"/>
+
+
 <!--~~~~~~~~~~~~~~~~~~~~
          Index page
     ~~~~~~~~~~~~~~~~~~~~-->
@@ -35,13 +44,19 @@
     <xsl:call-template name="home" />
 
     <!-- generate article pages -->
-    <xsl:call-template name="articles" />
+    <xsl:if test="$articles">
+      <xsl:call-template name="articles" />
+    </xsl:if>
 
     <!-- generate project pages -->
-    <xsl:call-template name="projects" />
+    <xsl:if test="$projects">
+      <xsl:call-template name="projects" />
+    </xsl:if>
 
     <!-- generate gallery pages -->
-    <xsl:call-template name="galleries" />
+    <xsl:if test="$galleries">
+      <xsl:call-template name="galleries" />
+    </xsl:if>
 
   </xsl:template>
 
