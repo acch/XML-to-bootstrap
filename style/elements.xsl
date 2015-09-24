@@ -110,7 +110,7 @@
     <xsl:param name="icon" /><!-- string-->
     <xsl:param name="size" select="fa-lg" /><!-- string -->
 
-    <span class="fa {$icon} {$size}">
+    <span class="fa {$icon} {$size} fa-fw" aria-hidden="true">
       <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
     </span>
 
@@ -120,7 +120,7 @@
     <xsl:param name="icon" /><!-- string-->
     <xsl:param name="size" select="fa-lg" /><!-- string -->
 
-    <span class="fa-stack {$size}">
+    <span class="fa-stack {$size} fa-fw" aria-hidden="true">
       <span class="fa fa-circle fa-stack-2x">
         <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
       </span>
