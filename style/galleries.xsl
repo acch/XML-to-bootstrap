@@ -214,6 +214,9 @@
       <xsl:with-param name="content" select="content" />
     </xsl:call-template>
 
+    <!-- separator -->
+    <xsl:call-template name="element.separator" />
+
     <!-- find latest gallery before current one -->
     <xsl:variable name="prev">
       <xsl:call-template name="date.prev.title">

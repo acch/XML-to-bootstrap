@@ -65,7 +65,7 @@
     </xsl:variable>
 
     <!-- bootstrap pager component -->
-    <nav class="x2b-pgr">
+    <nav>
       <ul class="pager">
 
         <li class="previous{$prev.disabled}">
@@ -128,6 +128,22 @@
         <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
       </span>
     </span>
+
+  </xsl:template>
+
+
+<!--~~~~~~~~~~~~~~~~~~~~
+          Separator
+    ~~~~~~~~~~~~~~~~~~~~-->
+
+  <xsl:template name="element.separator">
+    <xsl:param name="position" /><!-- string -->
+
+    <hr class="x2b-hddn">
+      <xsl:if test="$position">
+        <xsl:attribute name="style">margin-top:<xsl:value-of select="$position" /></xsl:attribute>
+      </xsl:if>
+    </hr>
 
   </xsl:template>
 

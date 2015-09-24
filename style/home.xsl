@@ -84,7 +84,10 @@
               </xsl:otherwise>
             </xsl:choose>
 
-            <hr />
+            <!-- separator -->
+            <xsl:call-template name="element.separator">
+              <xsl:with-param name="position">-5px</xsl:with-param>
+            </xsl:call-template>
 
             <!-- panel icon -->
             <xsl:choose>
@@ -140,7 +143,10 @@
               </xsl:otherwise>
             </xsl:choose>
 
-            <hr />
+            <!-- separator -->
+            <xsl:call-template name="element.separator">
+              <xsl:with-param name="position">-5px</xsl:with-param>
+            </xsl:call-template>
 
             <!-- panel icon -->
             <xsl:choose>
@@ -196,7 +202,10 @@
               </xsl:otherwise>
             </xsl:choose>
 
-            <hr />
+            <!-- separator -->
+            <xsl:call-template name="element.separator">
+              <xsl:with-param name="position">-5px</xsl:with-param>
+            </xsl:call-template>
 
             <!-- panel icon -->
             <xsl:choose>
