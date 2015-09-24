@@ -154,7 +154,7 @@
     </xsl:call-template>
 
     <!-- custom stylesheet -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
 
   </xsl:template>
 
@@ -242,19 +242,37 @@
               <xsl:if test="$title = /site/articles/title">
                 <xsl:attribute name="class">active</xsl:attribute>
               </xsl:if>
-              <a href="articles.html"><xsl:value-of select="/site/articles/title" /></a>
+              <a href="/articles.html">
+                <xsl:call-template name="element.icon">
+                  <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
+                </xsl:call-template>
+                <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+                <xsl:value-of select="/site/articles/title" />
+              </a>
             </li>
             <li>
               <xsl:if test="$title = /site/projects/title">
                 <xsl:attribute name="class">active</xsl:attribute>
               </xsl:if>
-              <a href="projects.html"><xsl:value-of select="/site/projects/title" /></a>
+              <a href="/projects.html">
+                <xsl:call-template name="element.icon">
+                  <xsl:with-param name="icon">fa-rocket</xsl:with-param>
+                </xsl:call-template>
+                <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+                <xsl:value-of select="/site/projects/title" />
+              </a>
             </li>
             <li>
               <xsl:if test="$title = /site/galleries/title">
                 <xsl:attribute name="class">active</xsl:attribute>
               </xsl:if>
-              <a href="galleries.html"><xsl:value-of select="/site/galleries/title" /></a>
+              <a href="/galleries.html">
+                <xsl:call-template name="element.icon">
+                  <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
+                </xsl:call-template>
+                <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+                <xsl:value-of select="/site/galleries/title" />
+              </a>
             </li>
           </ul>
           <p class="hidden-xs [ navbar-text navbar-right ] x2b-nvbr-txt">by <xsl:value-of select="$site.author" /></p>
@@ -345,8 +363,8 @@
     <footer class="x2b-ftr">
       <div class="container">
 
-        <p class="x2b-gry">Generated using <a href="https://github.com/acch/XML-to-bootstrap">XML-to-Bootstrap</a> for your reading pleasure.</p>
-        <p class="x2b-gry">This site uses <a href="http://getbootstrap.com">Bootstrap</a> and <a href="http://wicky.nillia.ms/headroom.js/">Headroom.js</a>.</p>
+        <p class="x2b-gry">Generated using <a href="//github.com/acch/XML-to-bootstrap">XML-to-Bootstrap</a> for your reading pleasure.</p>
+        <p class="x2b-gry">This site uses <a href="//getbootstrap.com">Bootstrap</a> and <a href="//wicky.nillia.ms/headroom.js/">Headroom.js</a>.</p>
 
       </div><!-- /container -->
     </footer>
