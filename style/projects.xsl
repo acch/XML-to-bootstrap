@@ -46,7 +46,7 @@
 
       <!-- generate project detail page -->
       <ext:document
-        href="project.{$filename}.html"
+        href="/project/{$filename}.html"
         method="xml"
         omit-xml-declaration="yes"
         encoding="utf-8"
@@ -105,7 +105,7 @@
 
       <!-- project short description -->
       <h3 class="x2b-anchr" id="{@id}">
-        <a href="project.{$filename}.html">
+        <a href="/project/{$filename}.html">
           <xsl:value-of select="title" />
         </a>
       </h3>
@@ -117,7 +117,7 @@
       <p>
         <xsl:value-of select="short" />
         <xsl:text> </xsl:text>
-        <a href="project.{$filename}.html">
+        <a href="/project/{$filename}.html">
           //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date" />
         </a>
       </p>
@@ -237,7 +237,7 @@
       <xsl:with-param name="prev">
         <xsl:if test="$prev != ''">
           <page title="{$prev}">
-            <xsl:attribute name="href">project.<xsl:call-template name="format.filename">
+            <xsl:attribute name="href">/project/<xsl:call-template name="format.filename">
               <xsl:with-param name="string" select="$prev" />
             </xsl:call-template>.html</xsl:attribute>
           </page>
@@ -248,7 +248,7 @@
       <xsl:with-param name="next">
         <xsl:if test="$next != ''">
           <page title="{$next}">
-            <xsl:attribute name="href">project.<xsl:call-template name="format.filename">
+            <xsl:attribute name="href">/project/<xsl:call-template name="format.filename">
               <xsl:with-param name="string" select="$next" />
             </xsl:call-template>.html</xsl:attribute>
           </page>
