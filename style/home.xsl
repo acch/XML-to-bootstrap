@@ -84,7 +84,7 @@
               </xsl:otherwise>
             </xsl:choose>
 
-            <br />
+            <hr />
 
             <!-- panel icon -->
             <xsl:choose>
@@ -140,7 +140,7 @@
               </xsl:otherwise>
             </xsl:choose>
 
-            <br />
+            <hr />
 
             <!-- panel icon -->
             <xsl:choose>
@@ -196,7 +196,7 @@
               </xsl:otherwise>
             </xsl:choose>
 
-            <br />
+            <hr />
 
             <!-- panel icon -->
             <xsl:choose>
