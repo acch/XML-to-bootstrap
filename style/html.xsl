@@ -238,42 +238,52 @@
 
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li>
-              <xsl:if test="$title = /site/articles/title">
-                <xsl:attribute name="class">active</xsl:attribute>
-              </xsl:if>
-              <a href="/articles.html">
-                <xsl:call-template name="element.icon">
-                  <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
-                </xsl:call-template>
-                <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
-                <xsl:value-of select="/site/articles/title" />
-              </a>
-            </li>
-            <li>
-              <xsl:if test="$title = /site/projects/title">
-                <xsl:attribute name="class">active</xsl:attribute>
-              </xsl:if>
-              <a href="/projects.html">
-                <xsl:call-template name="element.icon">
-                  <xsl:with-param name="icon">fa-rocket</xsl:with-param>
-                </xsl:call-template>
-                <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
-                <xsl:value-of select="/site/projects/title" />
-              </a>
-            </li>
-            <li>
-              <xsl:if test="$title = /site/galleries/title">
-                <xsl:attribute name="class">active</xsl:attribute>
-              </xsl:if>
-              <a href="/galleries.html">
-                <xsl:call-template name="element.icon">
-                  <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
-                </xsl:call-template>
-                <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
-                <xsl:value-of select="/site/galleries/title" />
-              </a>
-            </li>
+
+            <xsl:if test="$articles">
+              <li>
+                <xsl:if test="$title = /site/articles/title">
+                  <xsl:attribute name="class">active</xsl:attribute>
+                </xsl:if>
+                <a href="/articles.html">
+                  <xsl:call-template name="element.icon">
+                    <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
+                  </xsl:call-template>
+                  <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+                  <xsl:value-of select="/site/articles/title" />
+                </a>
+              </li>
+            </xsl:if>
+
+            <xsl:if test="$projects">
+              <li>
+                <xsl:if test="$title = /site/projects/title">
+                  <xsl:attribute name="class">active</xsl:attribute>
+                </xsl:if>
+                <a href="/projects.html">
+                  <xsl:call-template name="element.icon">
+                    <xsl:with-param name="icon">fa-rocket</xsl:with-param>
+                  </xsl:call-template>
+                  <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+                  <xsl:value-of select="/site/projects/title" />
+                </a>
+              </li>
+            </xsl:if>
+
+            <xsl:if test="$galleries">
+              <li>
+                <xsl:if test="$title = /site/galleries/title">
+                  <xsl:attribute name="class">active</xsl:attribute>
+                </xsl:if>
+                <a href="/galleries.html">
+                  <xsl:call-template name="element.icon">
+                    <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
+                  </xsl:call-template>
+                  <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+                  <xsl:value-of select="/site/galleries/title" />
+                </a>
+              </li>
+            </xsl:if>
+
           </ul>
           <p class="hidden-xs [ navbar-text navbar-right ] x2b-nvbr-txt">by <xsl:value-of select="$site.author" /></p>
         </div> <!-- /navbar-collapse -->
