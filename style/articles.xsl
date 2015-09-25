@@ -206,8 +206,8 @@
       </strong>
     </p>
 
-    <!-- divider -->
-    <hr />
+    <!-- separator -->
+    <xsl:call-template name="element.separator" />
 
     <!-- copy content from XML directly -->
     <xsl:call-template name="copy.content">
