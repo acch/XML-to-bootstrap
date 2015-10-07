@@ -95,7 +95,7 @@ module.exports = function(grunt) {
         },
         expand: true,
         nonull: true,
-        src: 'publish/*.html'
+        src: 'publish/**.html'
       }
     },
 
@@ -105,7 +105,7 @@ module.exports = function(grunt) {
           port: 8000,
           base: 'publish',
           keepalive: true,
-          //open: 'http://localhost:8000/articles.html',
+          //open: 'http://localhost:8000/',
         }
       }
     }
