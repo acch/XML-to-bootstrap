@@ -10,7 +10,7 @@
   </introduction>
 
   <article id="zweiter">
-    <date>2015-1-12</date>
+    <date>2015-01-12</date>
     <title>Second Entry</title>
     <subtitle>noch besser als der erste</subtitle>
     <short>
@@ -31,7 +31,7 @@
   </article>
 
   <article id="erster">
-    <date>2014-3-01</date>
+    <date>2014-03-01</date>
     <title>First Entry</title>
     <subtitle>Bob <code>Dylan</code></subtitle>
     <short>
@@ -53,7 +53,7 @@
   </article>
 
   <article id="dritter">
-    <date>2015-2-27</date>
+    <date>2015-02-27</date>
     <title>Entry Number Three</title>
     <subtitle>noch besser als der zweite</subtitle>
     <short>
@@ -70,7 +70,7 @@
   </article>
 
   <article id="vierter">
-    <date>2015-3-12</date>
+    <date>2015-03-12</date>
     <title>The Fourth Entry</title>
     <subtitle>noch besser als der dritte</subtitle>
     <short>
@@ -91,7 +91,7 @@
   </article>
 
   <article>
-    <date>2015-3-13</date>
+    <date>2015-03-13</date>
     <title>Article Number Five</title>
     <subtitle>noch besser als der vierte... und mit einem sehr sehr sehr sehr sehr langen untertitel... nur um zu prüfen ob der sidebar trotzdem sauber stickt ;-)</subtitle>
     <short>

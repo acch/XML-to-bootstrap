@@ -10,7 +10,7 @@
   </introduction>
 
   <project id="erstes">
-    <date>2013-6-19</date>
+    <date>2013-06-19</date>
     <title>Really cool project</title>
     <subtitle>Boom shakka lakka</subtitle>
     <short>
@@ -31,7 +31,7 @@
   </project>
 
   <project id="zweites">
-    <date>2014-2-7</date>
+    <date>2014-02-07</date>
     <title>Another cool project</title>
     <subtitle>Shakka lakka boom</subtitle>
     <short>
@@ -52,7 +52,7 @@
   </project>
 
   <project id="drittes">
-    <date>2014-7-2</date>
+    <date>2014-07-02</date>
     <title>Yet another project</title>
     <subtitle>Lakka boom shakka</subtitle>
     <short>
