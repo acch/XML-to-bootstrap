@@ -78,6 +78,9 @@
         <!-- footer -->
         <xsl:call-template name="html.footer" />
 
+        <!-- scripts -->
+        <xsl:call-template name="html.script" />
+
       </body>
     </html>
 
@@ -113,7 +116,6 @@
 
       <xsl:call-template name="html.head.meta" />
       <xsl:call-template name="html.head.link" />
-      <xsl:call-template name="html.head.script" />
     </head>
 
   </xsl:template>
@@ -163,7 +165,7 @@
         HTML scripts
     ~~~~~~~~~~~~~~~~~~~~-->
 
-  <xsl:template name="html.head.script">
+  <xsl:template name="html.script">
 
     <xsl:text><![CDATA[
 ]]></xsl:text>
@@ -172,6 +174,9 @@
     <xsl:for-each select="/site/options/option[@name = 'cdn.scripts']/script">
       <script src="{@src}"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></script>
     </xsl:for-each>
+
+    <!-- script for navbar -->
+    <xsl:call-template name="html.navbar.js" />
 
   </xsl:template>
 
@@ -220,8 +225,6 @@
     <!-- options -->
     <xsl:variable name="site.title" select="/site/options/option[@name = 'site.title']" />
     <xsl:variable name="site.author" select="/site/options/option[@name = 'site.author']" />
-    <xsl:variable name="navbar.offset" select="/site/options/option[@name = 'navbar.offset']" />
-    <xsl:variable name="navbar.tolerance" select="/site/options/option[@name = 'navbar.tolerance']" />
 
     <nav class="[ navbar navbar-default navbar-fixed-top ] x2b-nvbr js-nvbr affix-top" data-spy="affix" data-offset-top="1">
       <div class="container">
@@ -290,6 +293,14 @@
 
       </div> <!-- /container -->
     </nav>
+
+  </xsl:template>
+
+  <xsl:template name="html.navbar.js">
+
+    <!-- options -->
+    <xsl:variable name="navbar.offset" select="/site/options/option[@name = 'navbar.offset']" />
+    <xsl:variable name="navbar.tolerance" select="/site/options/option[@name = 'navbar.tolerance']" />
 
     <script type="application/javascript">
       var headroom  = new Headroom(document.querySelector(".js-nvbr"), {
