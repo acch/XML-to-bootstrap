@@ -80,7 +80,9 @@
                 <xsl:value-of select="/site/articles/introduction" />
               </xsl:when>
               <xsl:otherwise>
-                Coming soon...
+                <span class="x2b-gry">
+                  Coming soon...
+                </span>
               </xsl:otherwise>
             </xsl:choose>
 
@@ -92,7 +94,7 @@
             <!-- panel icon -->
             <xsl:choose>
               <xsl:when test="$articles">
-                <a href="articles.html">
+                <a href="articles.html" class="x2b-shdw">
                   <xsl:call-template name="element.icon.squared">
                     <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
                     <xsl:with-param name="size">fa-3x</xsl:with-param>
@@ -100,10 +102,12 @@
                 </a>
               </xsl:when>
               <xsl:otherwise>
-                <xsl:call-template name="element.icon.squared">
-                  <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
-                  <xsl:with-param name="size">fa-3x</xsl:with-param>
-                </xsl:call-template>
+                <span class="x2b-gry">
+                  <xsl:call-template name="element.icon.squared">
+                    <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
+                    <xsl:with-param name="size">fa-3x</xsl:with-param>
+                  </xsl:call-template>
+                </span>
               </xsl:otherwise>
             </xsl:choose>
 
@@ -139,7 +143,9 @@
                 <xsl:value-of select="/site/projects/introduction" />
               </xsl:when>
               <xsl:otherwise>
-                Coming soon...
+                <span class="x2b-gry">
+                  Coming soon...
+                </span>
               </xsl:otherwise>
             </xsl:choose>
 
@@ -151,7 +157,7 @@
             <!-- panel icon -->
             <xsl:choose>
               <xsl:when test="$projects">
-                <a href="projects.html">
+                <a href="projects.html" class="x2b-shdw">
                   <xsl:call-template name="element.icon.squared">
                     <xsl:with-param name="icon">fa-rocket</xsl:with-param>
                     <xsl:with-param name="size">fa-3x</xsl:with-param>
@@ -159,10 +165,12 @@
                 </a>
               </xsl:when>
               <xsl:otherwise>
-                <xsl:call-template name="element.icon.squared">
-                  <xsl:with-param name="icon">fa-rocket</xsl:with-param>
-                  <xsl:with-param name="size">fa-3x</xsl:with-param>
-                </xsl:call-template>
+                <span class="x2b-gry">
+                  <xsl:call-template name="element.icon.squared">
+                    <xsl:with-param name="icon">fa-rocket</xsl:with-param>
+                    <xsl:with-param name="size">fa-3x</xsl:with-param>
+                  </xsl:call-template>
+                </span>
               </xsl:otherwise>
             </xsl:choose>
 
@@ -198,7 +206,9 @@
                 <xsl:value-of select="/site/galleries/introduction" />
               </xsl:when>
               <xsl:otherwise>
-                Coming soon...
+                <span class="x2b-gry">
+                  Coming soon...
+                </span>
               </xsl:otherwise>
             </xsl:choose>
 
@@ -210,7 +220,7 @@
             <!-- panel icon -->
             <xsl:choose>
               <xsl:when test="$galleries">
-                <a href="galleries.html">
+                <a href="galleries.html" class="x2b-shdw">
                   <xsl:call-template name="element.icon.squared">
                     <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
                     <xsl:with-param name="size">fa-3x</xsl:with-param>
@@ -218,10 +228,12 @@
                 </a>
               </xsl:when>
               <xsl:otherwise>
-                <xsl:call-template name="element.icon.squared">
-                  <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
-                  <xsl:with-param name="size">fa-3x</xsl:with-param>
-                </xsl:call-template>
+                <span class="x2b-gry">
+                  <xsl:call-template name="element.icon.squared">
+                    <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
+                    <xsl:with-param name="size">fa-3x</xsl:with-param>
+                  </xsl:call-template>
+                </span>
               </xsl:otherwise>
             </xsl:choose>
 
