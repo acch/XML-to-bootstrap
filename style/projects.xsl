@@ -46,7 +46,7 @@
 
       <!-- generate project detail page -->
       <ext:document
-        href="/project/{$filename}.html"
+        href="project/{$filename}.html"
         method="xml"
         omit-xml-declaration="yes"
         encoding="utf-8"
