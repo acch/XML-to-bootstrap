@@ -131,6 +131,34 @@
 
   </xsl:template>
 
+  <xsl:template name="element.icon.squared">
+    <xsl:param name="icon" /><!-- string-->
+    <xsl:param name="size" select="fa-lg" /><!-- string -->
+
+    <span class="fa-stack {$size} fa-fw" aria-hidden="true">
+      <span class="fa fa-square fa-stack-2x">
+        <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+      </span>
+      <span class="fa {$icon} fa-stack-1x fa-inverse">
+        <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+      </span>
+    </span>
+
+  </xsl:template>
+
+  <xsl:template name="element.icon.button">
+    <xsl:param name="icon" /><!-- string-->
+    <xsl:param name="size" select="fa-lg" /><!-- string -->
+
+    <span class="btn btn-primary">
+      <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+      <span class="fa {$icon} {$size} fa-fw" aria-hidden="true">
+        <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+      </span>
+    </span>
+
+  </xsl:template>
+
 
 <!--~~~~~~~~~~~~~~~~~~~~
           Separator
