@@ -95,7 +95,7 @@ module.exports = function(grunt) {
         },
         expand: true,
         nonull: true,
-        src: 'publish/**.html'
+        src: 'publish/**/*.html'
       }
     },
 
