@@ -17,4 +17,10 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/headroom/0.7.0/headroom.min.js"></script>
   </option>
+
+  <option name="sociallinks">
+    <sociallink rel="license" href="//creativecommons.org/licenses/by/4.0/">fa-creative-commons</sociallink>
+    <sociallink href="//github.com/acch">fa-github</sociallink>
+    <sociallink href="//github.com/acch/feedback">fa-envelope</sociallink>
+  </option>
 </options>
