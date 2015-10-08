@@ -78,6 +78,9 @@
                 <xsl:value-of select="$prev.page/@href" />
               </xsl:attribute>
             </xsl:if>
+            <xsl:call-template name="element.icon">
+              <xsl:with-param name="icon">fa-arrow-left</xsl:with-param>
+            </xsl:call-template>
             Previous
           </a>
         </li><!-- /previous -->
@@ -92,7 +95,11 @@
                 <xsl:value-of select="$next.page/@href" />
               </xsl:attribute>
             </xsl:if>
+            <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
             Next
+            <xsl:call-template name="element.icon">
+              <xsl:with-param name="icon">fa-arrow-right</xsl:with-param>
+            </xsl:call-template>
           </a>
         </li><!-- /next -->
 
@@ -106,6 +113,7 @@
             Icons
     ~~~~~~~~~~~~~~~~~~~~-->
 
+  <!-- normal icon (fixed-width) -->
   <xsl:template name="element.icon">
     <xsl:param name="icon" /><!-- string-->
     <xsl:param name="size" select="fa-lg" /><!-- string -->
@@ -116,6 +124,7 @@
 
   </xsl:template>
 
+  <!-- icon on circle (inverted) -->
   <xsl:template name="element.icon.circled">
     <xsl:param name="icon" /><!-- string-->
     <xsl:param name="size" select="fa-lg" /><!-- string -->
@@ -131,25 +140,13 @@
 
   </xsl:template>
 
+  <!-- icon in squared box -->
   <xsl:template name="element.icon.squared">
     <xsl:param name="icon" /><!-- string-->
     <xsl:param name="size" select="fa-lg" /><!-- string -->
 
     <span class="[ fa {$icon} {$size} ] x2b-sqrd" aria-hidden="true">
       <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
-    </span>
-
-  </xsl:template>
-
-  <xsl:template name="element.icon.button">
-    <xsl:param name="icon" /><!-- string-->
-    <xsl:param name="size" select="fa-lg" /><!-- string -->
-
-    <span class="btn btn-primary">
-      <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
-      <span class="fa {$icon} {$size} fa-fw" aria-hidden="true">
-        <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
-      </span>
     </span>
 
   </xsl:template>
