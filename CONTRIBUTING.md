@@ -1,4 +1,4 @@
-# Contributing to ScrollPos-Styler
+# Contributing to XML-to-Bootstrap
 
 Please use the [issue tracker](https://github.com/acch/XML-to-bootstrap/issues) to ask questions, report bugs and request features.
 
