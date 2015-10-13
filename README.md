@@ -3,3 +3,7 @@
 Transforms a generic XML document into Bootstrap HTML pages.
 
 ## This project is still under heavy development... please be patient!
+
+## Copyright and license
+
+Copyright 2015 Achim Christ, released under the [MIT license](LICENSE).
