@@ -1,3 +1,7 @@
+// TODO: rename 'main' target to 'publish'
+// TODO: http://www.html5rocks.com/en/tutorials/tooling/supercharging-your-gruntfile/
+
+
 module.exports = function(grunt) {
 
   // Dependencies
@@ -5,6 +9,7 @@ module.exports = function(grunt) {
 
   // Variables
   var bootstrap_path = '../bootstrap';
+  var scrollposstyler_path = '../scrollpos-styler';
 
   // Project configuration
   grunt.initConfig({
@@ -47,6 +52,13 @@ module.exports = function(grunt) {
           }
         ]
       }
+    },
+
+    concat: {
+      main: {
+        src: ['js/*.js'],
+        dest: 'publish/js/script.js',
+      },
     },
 
     less: {
@@ -167,7 +179,7 @@ module.exports = function(grunt) {
   });
 
   // Default task including everything
-  grunt.registerTask('default', ['clean', 'copy', 'copy_samples', 'xsltproc', 'parse_bootstrap_config', 'less', 'autoprefixer', 'csslint', 'cssmin', 'htmlmin', 'connect']);
+  grunt.registerTask('default', ['clean', 'copy', 'copy_samples', 'xsltproc', 'concat', 'parse_bootstrap_config', 'less', 'autoprefixer', 'csslint', 'cssmin', 'htmlmin', 'connect']);
   // Everything except minification
-  grunt.registerTask('debug', ['clean', 'copy', 'copy_samples', 'xsltproc', 'parse_bootstrap_config', 'less', 'autoprefixer', 'csslint', 'connect']);
+  grunt.registerTask('debug', ['clean', 'copy', 'copy_samples', 'xsltproc', 'concat', 'parse_bootstrap_config', 'less', 'autoprefixer', 'csslint', 'connect']);
 };

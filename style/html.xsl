@@ -172,11 +172,11 @@
 
     <!-- scripts from options (CDN) -->
     <xsl:for-each select="/site/options/option[@name = 'cdn.scripts']/script">
-      <script src="{@src}"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></script>
+      <script src="{@src}">;</script>
     </xsl:for-each>
 
-    <!-- script for navbar -->
-    <xsl:call-template name="html.navbar.js" />
+    <!-- custom script -->
+    <script src="/js/script.js">;</script>
 
   </xsl:template>
 
@@ -296,22 +296,6 @@
 
   </xsl:template>
 
-  <xsl:template name="html.navbar.js">
-
-    <!-- options -->
-    <xsl:variable name="navbar.offset" select="/site/options/option[@name = 'navbar.offset']" />
-    <xsl:variable name="navbar.tolerance" select="/site/options/option[@name = 'navbar.tolerance']" />
-
-    <script type="application/javascript">
-      var headroom  = new Headroom(document.querySelector(".js-nvbr"), {
-        "offset": <xsl:value-of select="$navbar.offset" />,
-        "tolerance": <xsl:value-of select="$navbar.tolerance" />
-      });
-      headroom.init();
-    </script>
-
-  </xsl:template>
-
 
 <!--~~~~~~~~~~~~~~~~~~~~
         Sidebar panel
@@ -400,6 +384,7 @@
 
   </xsl:template>
 
+  <!-- social links -->
   <xsl:template name="html.sociallinks">
 
     <div class="container text-center">
