@@ -102,12 +102,11 @@
                 </a>
               </xsl:when>
               <xsl:otherwise>
-                <span class="x2b-gry">
-                  <xsl:call-template name="element.icon.squared">
-                    <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
-                    <xsl:with-param name="size">fa-3x</xsl:with-param>
-                  </xsl:call-template>
-                </span>
+                <xsl:call-template name="element.icon.squared">
+                  <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
+                  <xsl:with-param name="size">fa-3x</xsl:with-param>
+                  <xsl:with-param name="disabled" select="true()" />
+                </xsl:call-template>
               </xsl:otherwise>
             </xsl:choose>
 
@@ -165,12 +164,11 @@
                 </a>
               </xsl:when>
               <xsl:otherwise>
-                <span class="x2b-gry">
-                  <xsl:call-template name="element.icon.squared">
-                    <xsl:with-param name="icon">fa-rocket</xsl:with-param>
-                    <xsl:with-param name="size">fa-3x</xsl:with-param>
-                  </xsl:call-template>
-                </span>
+                <xsl:call-template name="element.icon.squared">
+                  <xsl:with-param name="icon">fa-rocket</xsl:with-param>
+                  <xsl:with-param name="size">fa-3x</xsl:with-param>
+                  <xsl:with-param name="disabled" select="true()" />
+                </xsl:call-template>
               </xsl:otherwise>
             </xsl:choose>
 
@@ -228,12 +226,11 @@
                 </a>
               </xsl:when>
               <xsl:otherwise>
-                <span class="x2b-gry">
-                  <xsl:call-template name="element.icon.squared">
-                    <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
-                    <xsl:with-param name="size">fa-3x</xsl:with-param>
-                  </xsl:call-template>
-                </span>
+                <xsl:call-template name="element.icon.squared">
+                  <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
+                  <xsl:with-param name="size">fa-3x</xsl:with-param>
+                  <xsl:with-param name="disabled" select="true()" />
+                </xsl:call-template>
               </xsl:otherwise>
             </xsl:choose>
 

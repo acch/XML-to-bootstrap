@@ -144,8 +144,13 @@
   <xsl:template name="element.icon.squared">
     <xsl:param name="icon" /><!-- string-->
     <xsl:param name="size" select="fa-lg" /><!-- string -->
+    <xsl:param name="disabled" select="false()" /><!-- boolean -->
 
-    <span class="[ fa {$icon} {$size} ] x2b-sqrd" aria-hidden="true">
+    <xsl:variable name="disabled.class">
+       <xsl:if test="$disabled"> dsbld</xsl:if>
+    </xsl:variable>
+
+    <span class="[ fa {$icon} {$size} ] x2b-sqrd{$disabled.class}" aria-hidden="true">
       <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
     </span>
 
