@@ -16,7 +16,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     clean: {
-      main: ['publish/*', 'less/variables.less', 'js/_options.js']
+      main: ['publish/*', 'less/variables.less', 'js/options.json']
     },
 
     xsltproc: {
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
 
     concat: {
       main: {
-        src: ['js/*.js'],
+        src: ['js/options.json', 'js/*.js'],
         dest: 'publish/js/script.js',
       },
     },

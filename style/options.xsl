@@ -15,7 +15,7 @@
 
     <!-- generate javascript options -->
     <ext:document
-      href="../js/_options.js"
+      href="../js/options.json"
       method="text"
       omit-xml-declaration="yes"
       encoding="utf-8"
