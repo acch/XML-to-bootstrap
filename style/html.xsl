@@ -376,8 +376,8 @@
     <footer class="x2b-ftr">
       <div class="container">
 
-        <p class="x2b-gry">Generated using <a href="//github.com/acch/XML-to-bootstrap">XML-to-Bootstrap</a> for your viewing pleasure.</p>
-        <p class="x2b-gry">This site uses <a href="//getbootstrap.com">Bootstrap</a>, <a href="//fontawesome.io">Font Awesome</a> and <a href="//wicky.nillia.ms/headroom.js/">Headroom.js</a>.</p>
+        <p class="x2b-ftr-txt">Generated using <a href="//github.com/acch/XML-to-bootstrap">XML-to-Bootstrap</a> for your viewing pleasure.</p>
+        <p class="x2b-ftr-txt">This site uses <a href="//getbootstrap.com">Bootstrap</a>, <a href="//fontawesome.io">Font Awesome</a> and <a href="//wicky.nillia.ms/headroom.js/">Headroom.js</a>.</p>
 
       </div><!-- /container -->
     </footer>
