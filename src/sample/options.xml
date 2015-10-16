@@ -4,8 +4,10 @@
   <option name="site.title">Byteshell</option>
   <option name="site.author">Achim Christ</option>
 
-  <option name="navbar.offset">240</option>
-  <option name="navbar.tolerance">5</option>
+  <export type="js">
+    <option name="navbar_offset">240</option>
+    <option name="navbar_tolerance">5</option>
+  </export>
 
   <option name="cdn.stylesheets">
     <link rel="stylesheet" href="/css/bootstrap.min.css" />

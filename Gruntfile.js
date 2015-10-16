@@ -16,7 +16,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     clean: {
-      main: ['publish/*', 'less/variables.less']
+      main: ['publish/*', 'less/variables.less', 'js/_options.js']
     },
 
     xsltproc: {

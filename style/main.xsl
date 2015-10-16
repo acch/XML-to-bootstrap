@@ -8,10 +8,13 @@
   <xsl:import href="common.xsl" />
   <xsl:import href="html.xsl" />
   <xsl:import href="elements.xsl" />
+
   <xsl:import href="home.xsl" />
   <xsl:import href="articles.xsl" />
   <xsl:import href="projects.xsl" />
   <xsl:import href="galleries.xsl" />
+
+  <xsl:import href="options.xsl" />
 
 
 <!--~~~~~~~~~~~~~~~~~~~~~~
@@ -57,6 +60,9 @@
     <xsl:if test="$galleries">
       <xsl:call-template name="galleries" />
     </xsl:if>
+
+    <!-- export options -->
+    <xsl:call-template name="options" />
 
   </xsl:template>
 
