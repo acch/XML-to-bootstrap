@@ -5,8 +5,8 @@
   <option name="site.author">Achim Christ</option>
 
   <export type="js">
-    <option name="navbar_offset">240</option>
-    <option name="navbar_tolerance">5</option>
+    <option name="navbarOffset">240</option>
+    <option name="navbarTolerance">5</option>
   </export>
 
   <option name="cdn.stylesheets">
