@@ -1,4 +1,3 @@
-// TODO: rename 'main' target to 'publish'
 // TODO: http://www.html5rocks.com/en/tutorials/tooling/supercharging-your-gruntfile/
 
 
@@ -67,6 +66,14 @@ module.exports = function(grunt) {
         src: ['js/options.json', 'js/*.js'],
         dest: 'publish/js/script.js',
       },
+    },
+
+    uglify: {
+      publish: {
+        files: {
+          'publish/js/script.js': 'publish/js/script.js'
+        }
+      }
     },
 
     less: {
@@ -187,7 +194,7 @@ module.exports = function(grunt) {
   });
 
   // Default task including everything
-  grunt.registerTask('default', ['clean', 'copy', 'copy_samples', 'xsltproc', 'concat', 'parse_bootstrap_config', 'less', 'autoprefixer', 'csslint', 'cssmin', 'htmlmin', 'connect']);
+  grunt.registerTask('default', ['clean', 'copy', 'copy_samples', 'xsltproc', 'concat', 'uglify', 'parse_bootstrap_config', 'less', 'autoprefixer', 'csslint', 'cssmin', 'htmlmin', 'connect']);
   // Everything except minification
   grunt.registerTask('debug', ['clean', 'copy', 'copy_samples', 'xsltproc', 'concat', 'parse_bootstrap_config', 'less', 'autoprefixer', 'csslint', 'connect']);
 };
