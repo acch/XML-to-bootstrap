@@ -3,3 +3,4 @@ src/*.xml
 publish/*
 less/variables.less
 js/options.json
+js/scrollPosStyler.js

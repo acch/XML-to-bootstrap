@@ -16,7 +16,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     clean: {
-      main: ['publish/*', 'less/variables.less', 'js/options.json']
+      publish: ['publish/*', 'less/variables.less', 'js/options.json', 'js/scrollPosStyler.js']
     },
 
     xsltproc: {
@@ -24,7 +24,7 @@ module.exports = function(grunt) {
         stylesheet: 'style/main.xsl',
         xinclude: true
       },
-      main: {
+      publish: {
         files: {
           'publish/index.html': 'src/main.xml'
         }
@@ -32,7 +32,7 @@ module.exports = function(grunt) {
     },
 
     copy: {
-      main: {
+      publish: {
         files: [
           {
             expand: true,
@@ -49,20 +49,28 @@ module.exports = function(grunt) {
             cwd: bootstrap_path,
             src: '**/bootstrap.min.js',
             dest: 'publish/js/'
+          },
+          {
+            expand: true,
+            flatten: true,
+            nonull: true,
+            cwd: scrollposstyler_path,
+            src: '**/scrollPosStyler.js',
+            dest: 'js/'
           }
         ]
       }
     },
 
     concat: {
-      main: {
+      publish: {
         src: ['js/options.json', 'js/*.js'],
         dest: 'publish/js/script.js',
       },
     },
 
     less: {
-      main: {
+      publish: {
         options: {
           strictMath: true
         },
@@ -76,7 +84,7 @@ module.exports = function(grunt) {
 //      options: {
 //        'browsers': '> 1%, last 2 versions'
 //      },
-      main: {
+      publish: {
         src: ['publish/css/style.css']
       }
     },
@@ -86,13 +94,13 @@ module.exports = function(grunt) {
         'adjoining-classes': false,
         'compatible-vendor-prefixes': false
       },
-      main: {
+      publish: {
         src: ['publish/css/style.css']
       }
     },
 
     cssmin: {
-      main: {
+      publish: {
         files: {
           'publish/css/style.css': 'publish/css/style.css'
         }
@@ -100,7 +108,7 @@ module.exports = function(grunt) {
     },
 
     htmlmin: {
-      main: {
+      publish: {
         options: {
           removeComments: true,
           collapseWhitespace: true
