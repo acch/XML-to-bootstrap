@@ -88,13 +88,7 @@
   background-color: @body-bg;
   border-width: 1px 0;
   top: @padding-large-vertical;
-}
-.x2b-nvbr.affix-top {
-  background-position: center @navbar-height;
-  box-shadow: none;
-}
-.x2b-nvbr.affix {
-  background-position: center 0;
+  transition: transform 250ms, background-position 0.5s, box-shadow 0.5s;
 }
 
 .x2b-nvbr-txt {
@@ -102,13 +96,23 @@
 }
 
 
+/* ------------------------------------- *\
+   Navbar animation (scrollPosStyler.js)
+\* ------------------------------------- */
+
+.sps--abv {
+  background-position: center @navbar-height;
+  box-shadow: none;
+}
+.sps--blw {
+  background-position: center 0;
+}
+
+
 /* ------------------------------ *\
-   Navbar animation (Headroom.js)
+   Navbar animation (headroom.js)
 \* ------------------------------ */
 
-.headroom {
-  transition: transform 250ms, background-position 0.5s;
-}
 .headroom--pinned {
   transform: translateY(0%);
 }

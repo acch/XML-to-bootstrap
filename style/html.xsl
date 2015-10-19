@@ -226,7 +226,7 @@
     <xsl:variable name="site.title" select="/site/options/option[@name = 'site.title']" />
     <xsl:variable name="site.author" select="/site/options/option[@name = 'site.author']" />
 
-    <nav class="[ navbar navbar-default navbar-fixed-top ] x2b-nvbr js-nvbr affix-top" data-spy="affix" data-offset-top="1">
+    <nav class="[ navbar navbar-default navbar-fixed-top ] x2b-nvbr js-nvbr [ sps sps--abv ] headroom--pinned">
       <div class="container">
 
         <div class="navbar-header">
