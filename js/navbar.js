@@ -19,6 +19,9 @@
       elements[i].onclick = function() {
         // fudge scroll position to make Headroom pin
         headroom.lastKnownScrollY = headroom.getScrollerHeight();
+
+        // make Headroom pin even if scroll position has not changed
+        window.requestAnimationFrame(function() { headroom.pin() });
       }
     }
   });
