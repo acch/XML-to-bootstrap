@@ -4,7 +4,13 @@
   "description": "Transforms a generic XML document into Bootstrap HTML pages",
   "author": "Achim Christ",
   "license": "MIT",
-  "repository": "acch/XML-to-bootstrap",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/acch/XML-to-bootstrap.git"
+  },
+  "bugs": {
+    "url": "https://github.com/acch/XML-to-bootstrap/issues"
+  }
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-autoprefixer": "~3.0.3",
