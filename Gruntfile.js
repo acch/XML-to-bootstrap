@@ -1,13 +1,13 @@
 module.exports = function(grunt) {
 
-  // Dependencies
+  // dependencies
   var path = require('path');
 
-  // Variables
-  var bootstrap_path = '../bootstrap';
-  var scrollposstyler_path = '../scrollpos-styler';
+  // variables
+  var bootstrap_path = 'lib/bootstrap';
+  var scrollposstyler_path = 'lib/scrollpos-styler';
 
-  // Project configuration
+  // project configuration
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
@@ -23,6 +23,16 @@ module.exports = function(grunt) {
       publish: {
         files: {
           'publish/index.html': 'src/main.xml'
+        }
+      }
+    },
+
+    bower: {
+      install: {
+        options: {
+          cleanTargetDir: true,
+          cleanBowerDir: false,
+          layout: 'byComponent'
         }
       }
     },
@@ -45,6 +55,14 @@ module.exports = function(grunt) {
             cwd: bootstrap_path,
             src: '**/bootstrap.min.js',
             dest: 'publish/js/'
+          },
+          {
+            expand: true,
+            flatten: true,
+            nonull: true,
+            cwd: bootstrap_path,
+            src: '**/variables.less',
+            dest: 'less/'
           },
           {
             expand: true,
@@ -135,70 +153,34 @@ module.exports = function(grunt) {
     }
   });
 
-  // Load the plugin(s)
+  // load the plugin(s)
   require('load-grunt-tasks')(grunt);
 
-  // Copy sample files
+  // copy sample files
   grunt.registerTask('copy_samples', function() {
-    // Recurse samples directory
+    // recurse samples directory
     grunt.file.recurse('src/sample', function(abspath, rootdir, subdir, filename) {
       var destfile = path.join('src', filename);
 
-      // Check if destination file exists
+      // check if destination file exists
       if (! grunt.file.exists(destfile)) {
         grunt.log.writeln('Copying sample: ' + filename);
 
-        // Copy sample to destination
+        // copy sample to destination
         grunt.file.copy(abspath, destfile);
       }
     });
   });
 
-  // Read bootstrap variables.less or config.json
-  grunt.registerTask('parse_bootstrap_config', function() {
-    // Find variables.less in bootstrap_path
-    var bootstrap_config_path = grunt.file.expand({ cwd: bootstrap_path }, '**/variables.less')[0];
-    if (bootstrap_config_path) {
-      grunt.log.writeln('Copying Bootstrap variables: ' + bootstrap_config_path);
-
-      // Copy variables.less
-      grunt.file.copy(path.join(bootstrap_path, bootstrap_config_path), 'less/variables.less');
-
-      return true;
-    }
-    grunt.log.writeln('Bootstrap variables not found!');
-
-    // Find config.json in bootstrap_path
-    var bootstrap_config_path = grunt.file.expand({ cwd: bootstrap_path }, '**/config.json')[0];
-    if (! bootstrap_config_path) {
-      grunt.log.error('Bootstrap config not found!');
-
-      return false;
-    }
-    grunt.log.writeln('Parsing Bootstrap config: ' + bootstrap_config_path);
-
-    // Parse config.json
-    var bootstrap_config = grunt.file.readJSON(path.join(bootstrap_path, bootstrap_config_path));
-    var variables = '';
-    for (var key in bootstrap_config.vars) {
-      variables += key + ':\t' + bootstrap_config.vars[key] + ';\n';
-    }
-
-    // Generate variables.less
-    grunt.file.write('less/variables.less', variables);
-
-    return true;
-  });
-
-  // Default task including everything
+  // default task including everything
   grunt.registerTask('default', [
     'clean',
+    'bower',
     'copy',
     'copy_samples',
     'xsltproc',
     'concat',
     'uglify',
-    'parse_bootstrap_config',
     'less',
     'autoprefixer',
     'csslint',
@@ -206,14 +188,14 @@ module.exports = function(grunt) {
     'htmlmin',
     'connect']);
 
-  // Everything except minification
+  // everything except minification
   grunt.registerTask('debug', [
     'clean',
+    'bower',
     'copy',
     'copy_samples',
     'xsltproc',
     'concat',
-    'parse_bootstrap_config',
     'less',
     'autoprefixer',
     'csslint',
