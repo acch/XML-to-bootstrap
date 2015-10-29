@@ -12,7 +12,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     clean: {
-      publish: ['publish/*', 'less/variables.less', 'js/options.json', 'js/scrollPosStyler.js']
+      publish: ['publish/*', 'js/options.json', 'js/scrollPosStyler.js']
     },
 
     xsltproc: {
@@ -55,14 +55,6 @@ module.exports = function(grunt) {
             cwd: bootstrap_path,
             src: '**/bootstrap.min.js',
             dest: 'publish/js/'
-          },
-          {
-            expand: true,
-            flatten: true,
-            nonull: true,
-            cwd: bootstrap_path,
-            src: '**/variables.less',
-            dest: 'less/'
           },
           {
             expand: true,
@@ -172,12 +164,34 @@ module.exports = function(grunt) {
     });
   });
 
+  // copy bootstrap variables
+  grunt.registerTask('copy_variables', function() {
+    // check if variables.less already exists
+    if (grunt.file.exists('less/variables.less')) {
+      // nothing to do
+      return true;
+    }
+
+    // find variables.less in bootstrap_path
+    var bootstrap_config_path = grunt.file.expand({ cwd: bootstrap_path }, '**/variables.less')[0];
+    if (! bootstrap_config_path) {
+      // variables.less not found
+      return false;
+    }
+
+    grunt.log.writeln('Copying Bootstrap variables: ' + bootstrap_config_path);
+
+    // Copy variables.less
+    grunt.file.copy(path.join(bootstrap_path, bootstrap_config_path), 'less/variables.less');
+  });
+
   // default task including everything
   grunt.registerTask('default', [
     'clean',
     'bower',
     'copy',
     'copy_samples',
+    'copy_variables',
     'xsltproc',
     'concat',
     'uglify',
@@ -194,6 +208,7 @@ module.exports = function(grunt) {
     'bower',
     'copy',
     'copy_samples',
+    'copy_variables',
     'xsltproc',
     'concat',
     'less',
