@@ -1,9 +1,7 @@
 {
   "name": "XML-to-Bootstrap",
   "description": "Transforms a generic XML document into Bootstrap HTML pages",
-  "authors": [
-    "Achim Christ"
-  ],
+  "authors": ["Achim Christ"],
   "license": "MIT",
   "homepage": "https://github.com/acch/XML-to-bootstrap",
   "devDependencies": {
