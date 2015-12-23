@@ -1,4 +1,5 @@
 module.exports = function(grunt) {
+  "use strict";
 
   // dependencies
   var path = require('path');
@@ -6,13 +7,14 @@ module.exports = function(grunt) {
   // variables
   var bootstrap_path = 'lib/bootstrap';
   var scrollposstyler_path = 'lib/scrollpos-styler';
+  var photoswipe_path = 'lib/photoswipe';
 
   // project configuration
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
     clean: {
-      publish: ['publish/*', 'js/options.json', 'js/scrollPosStyler.js']
+      publish: ['publish/*', 'css/*', 'js/options.json', 'js/scrollPosStyler.js', 'js/photoswipe*.js']
     },
 
     xsltproc: {
@@ -63,6 +65,22 @@ module.exports = function(grunt) {
             cwd: scrollposstyler_path,
             src: '**/scrollPosStyler.js',
             dest: 'js/'
+          },
+          {
+            expand: true,
+            flatten: true,
+            nonull: true,
+            cwd: photoswipe_path,
+            src: ['**/photoswipe.css', '**/default-skin.css'],
+            dest: 'css/'
+          },
+          {
+            expand: true,
+            flatten: true,
+            nonull: true,
+            cwd: photoswipe_path,
+            src: '**/photoswipe*.js',
+            dest: 'js/'
           }
         ]
       }
@@ -70,15 +88,28 @@ module.exports = function(grunt) {
 
     concat: {
       publish: {
-        src: ['js/options.json', 'js/*.js'],
-        dest: 'publish/js/script.js',
-      },
+        files: [
+          {
+            src: ['js/options.json', 'js/navbar.js', 'js/scrollPosStyler.js'],
+            dest: 'publish/js/script.js'
+          },
+          {
+            src: ['css/*.css'],
+            dest: 'publish/css/gallery.css'
+          },
+          {
+            src: ['js/photoswipe*.js'],
+            dest: 'publish/js/gallery.js'
+          }
+        ]
+      }
     },
 
     uglify: {
       publish: {
         files: {
-          'publish/js/script.js': 'publish/js/script.js'
+          'publish/js/script.js': 'publish/js/script.js',
+          'publish/js/gallery.js': 'publish/js/gallery.js'
         }
       }
     },
@@ -99,7 +130,10 @@ module.exports = function(grunt) {
 //        'browsers': '> 1%, last 2 versions'
 //      },
       publish: {
-        src: ['publish/css/style.css']
+        files: {
+          'publish/css/style.css': 'publish/css/style.css',
+          'publish/css/gallery.css': 'publish/css/gallery.css'
+        }
       }
     },
 
@@ -116,7 +150,8 @@ module.exports = function(grunt) {
     cssmin: {
       publish: {
         files: {
-          'publish/css/style.css': 'publish/css/style.css'
+          'publish/css/style.css': 'publish/css/style.css',
+          'publish/css/gallery.css': 'publish/css/gallery.css'
         }
       }
     },

@@ -2,7 +2,10 @@ node_modules
 src/*.xml
 publish/*
 less/variables.less
+css/*
 js/options.json
 js/scrollPosStyler.js
+js/photoswipe.js
+js/photoswipe-ui-default.js
 lib
 bower_components

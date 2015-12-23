@@ -5,8 +5,9 @@
   "license": "MIT",
   "homepage": "https://github.com/acch/XML-to-bootstrap",
   "devDependencies": {
-    "bootstrap": "~3.3.5",
-    "scrollpos-styler": "*"
+    "bootstrap": "~3.3.6",
+    "scrollpos-styler": "*",
+    "photoswipe": "*"
   },
   "exportsOverride": {
     "bootstrap": {
