@@ -5,6 +5,7 @@ less/variables.less
 css/*
 js/options.json
 js/scrollPosStyler.js
+js/headroom.js
 js/photoswipe.js
 js/photoswipe-ui-default.js
 lib

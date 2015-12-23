@@ -8,6 +8,7 @@
     "bootstrap": "~3.3.6",
     "scrollpos-styler": "*",
     "font-awesome": "*",
+    "headroom.js": "*",
     "photoswipe": "*"
   },
   "exportsOverride": {
