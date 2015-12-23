@@ -7,6 +7,7 @@ module.exports = function(grunt) {
   // variables
   var bootstrap_path = 'lib/bootstrap';
   var scrollposstyler_path = 'lib/scrollpos-styler';
+  var fontawesome_path = 'lib/font-awesome';
   var photoswipe_path = 'lib/photoswipe';
 
   // project configuration
@@ -65,6 +66,14 @@ module.exports = function(grunt) {
             cwd: scrollposstyler_path,
             src: '**/scrollPosStyler.js',
             dest: 'js/'
+          },
+          {
+            expand: true,
+            flatten: true,
+            nonull: true,
+            cwd: fontawesome_path,
+            src: '**/font-awesome.min.css',
+            dest: 'publish/css/'
           },
           {
             expand: true,
