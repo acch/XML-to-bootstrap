@@ -34,7 +34,7 @@
   <xsl:template name="format.filename">
     <xsl:param name="string" /><!-- string -->
 
-    <xsl:value-of select="translate($string, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ äöüÄÖÜ', 'abcdefghijklmnopqrstuvwxyz_aouaou')" />
+    <xsl:value-of select="translate($string, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ äöüÄÖÜ', 'abcdefghijklmnopqrstuvwxyz-aouaou')" />
 
   </xsl:template>
 
