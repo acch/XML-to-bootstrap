@@ -11,7 +11,7 @@ The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), 
 ## Highlights
 
 - Produces clean, fast HTML5 pages
-- Uses [schema.org](https://schema.org) vocabularies to optimize pages for search engines
+- Uses [schema.org](https://schema.org) vocabularies to optimize pages for search engines [WIP]
 
 ## Installation
 
