@@ -69,7 +69,7 @@
       <ul class="pager">
 
         <li class="previous{$prev.disabled}">
-          <a>
+          <a rel="prev">
             <xsl:if test="$prev.page">
               <xsl:attribute name="title">
                 <xsl:value-of select="$prev.page/@title" />
@@ -86,7 +86,7 @@
         </li><!-- /previous -->
 
         <li class="next{$next.disabled}">
-          <a>
+          <a rel="next">
             <xsl:if test="$next.page">
               <xsl:attribute name="title">
                 <xsl:value-of select="$next.page/@title" />
