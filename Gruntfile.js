@@ -144,6 +144,17 @@ module.exports = function(grunt) {
       }
     },
 
+    sass: {
+      publish: {
+        options: {
+          style: 'nested'
+        },
+        files: {
+          'publish/css/style.css': 'sass/style.scss'
+        }
+      }
+    },
+
     autoprefixer: {
 //      options: {
 //        'browsers': '> 1%, last 2 versions'
@@ -220,23 +231,38 @@ module.exports = function(grunt) {
 
   // copy bootstrap variables
   grunt.registerTask('copy_variables', function() {
-    // check if variables.less already exists
-    if (grunt.file.exists('less/variables.less')) {
-      // nothing to do
-      return true;
+    // check if variables.scss already exists
+    if (! grunt.file.exists('sass/_variables.scss')) {
+
+      // find variables.scss in bootstrap_path
+      var bootstrap_config_path = grunt.file.expand({ cwd: bootstrap_path }, '**/_variables.scss')[0];
+      if (! bootstrap_config_path) {
+        // variables.scss not found
+        grunt.log.error('Bootstrap variables _variables.scss not found!');
+        return false;
+      }
+
+      grunt.log.writeln('Copying Bootstrap variables: ' + bootstrap_config_path);
+
+      // Copy variables.scss
+      grunt.file.copy(path.join(bootstrap_path, bootstrap_config_path), 'sass/_variables.scss');
     }
 
-    // find variables.less in bootstrap_path
-    var bootstrap_config_path = grunt.file.expand({ cwd: bootstrap_path }, '**/variables.less')[0];
-    if (! bootstrap_config_path) {
-      // variables.less not found
-      return false;
+    // check if breakpoints.scss already exists
+    if (! grunt.file.exists('sass/_breakpoints.scss')) {
+      // find breakpoints.scss in bootstrap_path
+      var bootstrap_breakpoints_path = grunt.file.expand({ cwd: bootstrap_path }, '**/_breakpoints.scss')[0];
+      if (! bootstrap_breakpoints_path) {
+        // breakpoints.scss not found
+        grunt.log.error('Bootstrap breakpoints _breakpoints.scss not found!');
+        return false;
+      }
+
+      grunt.log.writeln('Copying Bootstrap breakpoints: ' + bootstrap_breakpoints_path);
+
+      // Copy breakpoints.scss
+      grunt.file.copy(path.join(bootstrap_path, bootstrap_breakpoints_path), 'sass/_breakpoints.scss');
     }
-
-    grunt.log.writeln('Copying Bootstrap variables: ' + bootstrap_config_path);
-
-    // Copy variables.less
-    grunt.file.copy(path.join(bootstrap_path, bootstrap_config_path), 'less/variables.less');
   });
 
   // default task including everything
@@ -249,7 +275,7 @@ module.exports = function(grunt) {
     'xsltproc',
     'concat',
     'uglify',
-    'less',
+    'sass',
     'autoprefixer',
     'csslint',
     'cssmin',
@@ -265,7 +291,7 @@ module.exports = function(grunt) {
     'copy_variables',
     'xsltproc',
     'concat',
-    'less',
+    'sass',
     'autoprefixer',
     'csslint',
     'connect']);

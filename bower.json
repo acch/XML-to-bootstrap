@@ -5,7 +5,7 @@
   "license": "MIT",
   "homepage": "https://github.com/acch/XML-to-bootstrap",
   "devDependencies": {
-    "bootstrap": "~3.3.6",
+    "bootstrap": "~4.*",
     "scrollpos-styler": "*",
     "font-awesome": "*",
     "headroom.js": "*",
@@ -15,7 +15,8 @@
     "bootstrap": {
       "css": "dist/css/*.min.css",
       "js": "dist/js/*.min.js",
-      "less": "less/variables.less"
+      "less": "less/variables.less",
+      "sass": ["scss/_variables.scss", "scss/mixins/_breakpoints.scss"]
     },
     "font-awesome": {
       "css": "css/font-awesome.min.css"

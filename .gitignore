@@ -2,6 +2,8 @@ node_modules
 src/*.xml
 publish/*
 less/variables.less
+scss/_variables.scss
+scss/_breakpoints.scss
 css/*
 js/options.json
 js/scrollPosStyler.js
