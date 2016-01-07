@@ -76,7 +76,7 @@
 
           </ul>
 
-          <span class="hidden-xs-down pull-sm-right x2b-nvbr-txt">by <xsl:value-of select="$site.author" /></span>
+          <span class="[ hidden-xs-down pull-sm-right ] x2b-nvbr-txt">by <xsl:value-of select="$site.author" /></span>
 
         </div><!-- /navbar-collapse -->
 
