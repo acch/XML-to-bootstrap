@@ -16,28 +16,25 @@
     <xsl:variable name="site.title" select="/site/options/option[@name = 'site.title']" />
     <xsl:variable name="site.author" select="/site/options/option[@name = 'site.author']" />
 
-    <nav class="[ navbar navbar-default navbar-fixed-top ] x2b-nvbr js-nvbr [ sps sps--abv ] headroom--pinned">
+    <nav class="[ navbar navbar-fixed-top navbar-light bg-faded ] x2b-nvbr js-nvbr [ sps sps--abv ] headroom--pinned">
       <div class="container">
 
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></span>
-            <span class="icon-bar"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></span>
-            <span class="icon-bar"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></span>
-          </button>
-          <a class="navbar-brand" href="/"><xsl:value-of select="$site.title" /></a>
-        </div><!-- /navbar-header -->
+        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+          &#9776;
+        </button>
 
-        <div class="navbar-collapse collapse">
+        <div class="collapse navbar-toggleable-xs" id="collapsingNavbar">
+
+          <a class="navbar-brand" href="/"><xsl:value-of select="$site.title" /></a>
+
           <ul class="nav navbar-nav">
 
             <xsl:if test="$articles">
-              <li>
+              <li class="nav-item">
                 <xsl:if test="$title = /site/articles/title">
-                  <xsl:attribute name="class">active</xsl:attribute>
+                  <xsl:attribute name="class">nav-item active</xsl:attribute>
                 </xsl:if>
-                <a href="/articles.html">
+                <a class="nav-link" href="/articles.html">
                   <xsl:call-template name="element.icon">
                     <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
                   </xsl:call-template>
@@ -48,11 +45,11 @@
             </xsl:if>
 
             <xsl:if test="$projects">
-              <li>
+              <li class="nav-item">
                 <xsl:if test="$title = /site/projects/title">
-                  <xsl:attribute name="class">active</xsl:attribute>
+                  <xsl:attribute name="class">nav-item active</xsl:attribute>
                 </xsl:if>
-                <a href="/projects.html">
+                <a class="nav-link" href="/projects.html">
                   <xsl:call-template name="element.icon">
                     <xsl:with-param name="icon">fa-rocket</xsl:with-param>
                   </xsl:call-template>
@@ -63,11 +60,11 @@
             </xsl:if>
 
             <xsl:if test="$galleries">
-              <li>
+              <li class="nav-item">
                 <xsl:if test="$title = /site/galleries/title">
-                  <xsl:attribute name="class">active</xsl:attribute>
+                  <xsl:attribute name="class">nav-item active</xsl:attribute>
                 </xsl:if>
-                <a href="/galleries.html">
+                <a class="nav-link" href="/galleries.html">
                   <xsl:call-template name="element.icon">
                     <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
                   </xsl:call-template>
@@ -78,7 +75,9 @@
             </xsl:if>
 
           </ul>
-          <p class="hidden-xs [ navbar-text navbar-right ] x2b-nvbr-txt">by <xsl:value-of select="$site.author" /></p>
+
+          <span class="hidden-xs-down pull-sm-right x2b-nvbr-txt">by <xsl:value-of select="$site.author" /></span>
+
         </div><!-- /navbar-collapse -->
 
       </div><!-- /container -->
