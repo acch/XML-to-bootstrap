@@ -16,72 +16,107 @@
     <xsl:variable name="site.title" select="/site/options/option[@name = 'site.title']" />
     <xsl:variable name="site.author" select="/site/options/option[@name = 'site.author']" />
 
+    <!-- bootstrap navbar -->
     <nav class="[ navbar navbar-fixed-top navbar-light ] x2b-nvbr js-nvbr [ sps sps--abv ] headroom--pinned">
       <div class="container">
 
+        <!-- button -->
         <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
           &#9776;
         </button>
 
+        <!-- collapsing navbar -->
         <div class="collapse navbar-toggleable-xs" id="collapsingNavbar">
 
-          <!-- Title -->
+          <!-- title -->
           <a class="navbar-brand" href="/"><xsl:value-of select="$site.title" /></a>
 
           <ul class="nav navbar-nav">
 
-            <!-- Articles -->
+            <!-- articles -->
             <xsl:if test="$articles">
-              <li class="nav-item">
-                <xsl:if test="$title = /site/articles/title">
-                  <xsl:attribute name="class">nav-item active</xsl:attribute>
-                </xsl:if>
+
+              <!-- check if current page is articles -->
+              <xsl:variable name="active">
+                <xsl:if test="$title = /site/articles/title"> active</xsl:if>
+              </xsl:variable>
+
+              <li class="nav-item{$active}">
                 <a class="nav-link" href="/articles.html">
+
+                  <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
                   <xsl:call-template name="element.icon">
                     <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
                   </xsl:call-template>
                   <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
                   <xsl:value-of select="/site/articles/title" />
-                  <!--<span class="sr-only">(current)</span>-->
+
+                  <!-- mark active item for screen readers -->
+                  <xsl:if test="$title = /site/articles/title">
+                    <span class="sr-only">(current)</span>
+                  </xsl:if>
+
                 </a>
               </li>
+
             </xsl:if>
 
-            <!-- Projects -->
+            <!-- projects -->
             <xsl:if test="$projects">
-              <li class="nav-item">
-                <xsl:if test="$title = /site/projects/title">
-                  <xsl:attribute name="class">nav-item active</xsl:attribute>
-                </xsl:if>
+
+              <!-- check if current page is projects -->
+              <xsl:variable name="active">
+                <xsl:if test="$title = /site/projects/title"> active</xsl:if>
+              </xsl:variable>
+
+              <li class="nav-item{$active}">
                 <a class="nav-link" href="/projects.html">
+
+                  <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
                   <xsl:call-template name="element.icon">
                     <xsl:with-param name="icon">fa-rocket</xsl:with-param>
                   </xsl:call-template>
                   <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
                   <xsl:value-of select="/site/projects/title" />
-                  <!--<span class="sr-only">(current)</span>-->
+
+                  <!-- mark active item for screen readers -->
+                  <xsl:if test="$title = /site/projects/title">
+                    <span class="sr-only">(current)</span>
+                  </xsl:if>
+
                 </a>
               </li>
+
             </xsl:if>
 
-            <!-- Galleries -->
+            <!-- galleries -->
             <xsl:if test="$galleries">
-              <li class="nav-item">
-                <xsl:if test="$title = /site/galleries/title">
-                  <xsl:attribute name="class">nav-item active</xsl:attribute>
-                </xsl:if>
+
+              <!-- check if current page is galleries -->
+              <xsl:variable name="active">
+                <xsl:if test="$title = /site/galleries/title"> active</xsl:if>
+              </xsl:variable>
+
+              <li class="nav-item{$active}">
                 <a class="nav-link" href="/galleries.html">
+
+                  <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
                   <xsl:call-template name="element.icon">
                     <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
                   </xsl:call-template>
                   <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
                   <xsl:value-of select="/site/galleries/title" />
-                  <!--<span class="sr-only">(current)</span>-->
+
+                  <!-- mark active item for screen readers -->
+                  <xsl:if test="$title = /site/galleries/title">
+                    <span class="sr-only">(current)</span>
+                  </xsl:if>
                 </a>
               </li>
+
             </xsl:if>
 
-            <!-- Author -->
+            <!-- author -->
             <li class="[ navbar-brand hidden-xs-down pull-sm-right ] x2b-nvbr-txt">
               by <xsl:value-of select="$site.author" />
             </li>
