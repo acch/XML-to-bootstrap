@@ -16,7 +16,7 @@
     <xsl:variable name="site.title" select="/site/options/option[@name = 'site.title']" />
     <xsl:variable name="site.author" select="/site/options/option[@name = 'site.author']" />
 
-    <nav class="[ navbar navbar-fixed-top navbar-light bg-faded ] x2b-nvbr js-nvbr [ sps sps--abv ] headroom--pinned">
+    <nav class="[ navbar navbar-fixed-top navbar-light ] x2b-nvbr js-nvbr [ sps sps--abv ] headroom--pinned">
       <div class="container">
 
         <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
@@ -25,10 +25,12 @@
 
         <div class="collapse navbar-toggleable-xs" id="collapsingNavbar">
 
+          <!-- Title -->
           <a class="navbar-brand" href="/"><xsl:value-of select="$site.title" /></a>
 
           <ul class="nav navbar-nav">
 
+            <!-- Articles -->
             <xsl:if test="$articles">
               <li class="nav-item">
                 <xsl:if test="$title = /site/articles/title">
@@ -40,10 +42,12 @@
                   </xsl:call-template>
                   <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
                   <xsl:value-of select="/site/articles/title" />
+                  <!--<span class="sr-only">(current)</span>-->
                 </a>
               </li>
             </xsl:if>
 
+            <!-- Projects -->
             <xsl:if test="$projects">
               <li class="nav-item">
                 <xsl:if test="$title = /site/projects/title">
@@ -55,10 +59,12 @@
                   </xsl:call-template>
                   <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
                   <xsl:value-of select="/site/projects/title" />
+                  <!--<span class="sr-only">(current)</span>-->
                 </a>
               </li>
             </xsl:if>
 
+            <!-- Galleries -->
             <xsl:if test="$galleries">
               <li class="nav-item">
                 <xsl:if test="$title = /site/galleries/title">
@@ -70,13 +76,18 @@
                   </xsl:call-template>
                   <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
                   <xsl:value-of select="/site/galleries/title" />
+                  <!--<span class="sr-only">(current)</span>-->
                 </a>
               </li>
             </xsl:if>
 
+            <!-- Author -->
+            <li class="navbar-brand hidden-xs-down pull-sm-right">
+              by <xsl:value-of select="$site.author" />
+            </li>
+
           </ul>
 
-          <span class="[ hidden-xs-down pull-sm-right ] x2b-nvbr-txt">by <xsl:value-of select="$site.author" /></span>
 
         </div><!-- /navbar-collapse -->
 

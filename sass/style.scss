@@ -1,7 +1,7 @@
 @import "variables";
 @import "breakpoints";
 
-// TODO: map-get()
+// TODO: map-get()?
 
 /* -------------------- *\
       Generic styles
@@ -90,12 +90,8 @@
 
 .x2b-nvbr {
   border-width: 1px 0;
-  top: $spacer-y;
+//  top: $spacer-y;
   transition: transform 250ms, background-color 0.5s, box-shadow 0.5s;
-}
-
-.x2b-nvbr-txt {
-  padding-right: $spacer-y;
 }
 
 
