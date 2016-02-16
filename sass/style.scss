@@ -80,7 +80,7 @@
 \* -------------------- */
 
 .x2b-bdy {
-  padding-top: ($spacer + $spacer);
+  padding-top: (3.375 * $spacer-y);
 }
 
 
@@ -89,10 +89,13 @@
 \* -------------------- */
 
 .x2b-nvbr {
-  border-width: 1px 0;
-//  top: $spacer-y;
+  border-width: $border-width 0;
   transition: transform 250ms, background-color 0.5s, box-shadow 0.5s;
 }
+
+//.x2b-nvbr-txt {
+//  color: $gray-light !important;
+//}
 
 
 /* ------------------------------------- *\

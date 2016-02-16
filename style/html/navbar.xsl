@@ -82,7 +82,7 @@
             </xsl:if>
 
             <!-- Author -->
-            <li class="navbar-brand hidden-xs-down pull-sm-right">
+            <li class="[ navbar-brand hidden-xs-down pull-sm-right ] x2b-nvbr-txt">
               by <xsl:value-of select="$site.author" />
             </li>
 
