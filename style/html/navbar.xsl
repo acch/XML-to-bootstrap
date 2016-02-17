@@ -9,6 +9,7 @@
     Animated navigation bar
     ~~~~~~~~~~~~~~~~~~~~~~~-->
 
+  <!-- this template generates html code for a responsive navbar -->
   <xsl:template name="html.navbar">
     <xsl:param name="title" /><!-- string -->
 
@@ -28,12 +29,12 @@
         <!-- collapsing navbar -->
         <div class="collapse navbar-toggleable-xs" id="collapsingNavbar">
 
-          <!-- title -->
+          <!-- site title -->
           <a class="navbar-brand" href="/"><xsl:value-of select="$site.title" /></a>
 
           <ul class="nav navbar-nav">
 
-            <!-- articles -->
+            <!-- optional articles component -->
             <xsl:if test="$articles">
 
               <!-- check if current page is articles -->
@@ -44,7 +45,7 @@
               <li class="nav-item{$active}">
                 <a class="nav-link" href="/articles.html">
 
-                  <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+                  <!-- icon and title -->
                   <xsl:call-template name="element.icon">
                     <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
                   </xsl:call-template>
@@ -53,6 +54,7 @@
 
                   <!-- mark active item for screen readers -->
                   <xsl:if test="$title = /site/articles/title">
+                    <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
                     <span class="sr-only">(current)</span>
                   </xsl:if>
 
@@ -61,7 +63,7 @@
 
             </xsl:if>
 
-            <!-- projects -->
+            <!-- optional projects component -->
             <xsl:if test="$projects">
 
               <!-- check if current page is projects -->
@@ -72,7 +74,7 @@
               <li class="nav-item{$active}">
                 <a class="nav-link" href="/projects.html">
 
-                  <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+                  <!-- icon and title -->
                   <xsl:call-template name="element.icon">
                     <xsl:with-param name="icon">fa-rocket</xsl:with-param>
                   </xsl:call-template>
@@ -81,6 +83,7 @@
 
                   <!-- mark active item for screen readers -->
                   <xsl:if test="$title = /site/projects/title">
+                    <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
                     <span class="sr-only">(current)</span>
                   </xsl:if>
 
@@ -89,7 +92,7 @@
 
             </xsl:if>
 
-            <!-- galleries -->
+            <!-- optional galleries component -->
             <xsl:if test="$galleries">
 
               <!-- check if current page is galleries -->
@@ -100,7 +103,7 @@
               <li class="nav-item{$active}">
                 <a class="nav-link" href="/galleries.html">
 
-                  <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+                  <!-- icon and title -->
                   <xsl:call-template name="element.icon">
                     <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
                   </xsl:call-template>
@@ -109,6 +112,7 @@
 
                   <!-- mark active item for screen readers -->
                   <xsl:if test="$title = /site/galleries/title">
+                    <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
                     <span class="sr-only">(current)</span>
                   </xsl:if>
                 </a>
@@ -116,10 +120,10 @@
 
             </xsl:if>
 
-            <!-- author -->
-            <li class="[ navbar-brand hidden-xs-down pull-sm-right ] x2b-nvbr-txt">
+            <!-- author info -->
+            <!--li class="navbar-brand hidden-xs-down pull-sm-right">
               by <xsl:value-of select="$site.author" />
-            </li>
+            </li-->
 
           </ul>
 
