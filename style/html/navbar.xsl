@@ -30,7 +30,10 @@
         <div class="collapse navbar-toggleable-xs" id="collapsingNavbar">
 
           <!-- site title -->
-          <a class="navbar-brand" href="/"><xsl:value-of select="$site.title" /></a>
+          <a class="navbar-brand" href="/">
+            <xsl:value-of select="$site.title" />
+            <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+          </a>
 
           <ul class="nav navbar-nav">
 
@@ -54,8 +57,7 @@
 
                   <!-- mark active item for screen readers -->
                   <xsl:if test="$title = /site/articles/title">
-                    <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
-                    <span class="sr-only">(current)</span>
+                    <span class="sr-only"> (current)</span>
                   </xsl:if>
 
                 </a>
@@ -83,8 +85,7 @@
 
                   <!-- mark active item for screen readers -->
                   <xsl:if test="$title = /site/projects/title">
-                    <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
-                    <span class="sr-only">(current)</span>
+                    <span class="sr-only"> (current)</span>
                   </xsl:if>
 
                 </a>
@@ -112,8 +113,7 @@
 
                   <!-- mark active item for screen readers -->
                   <xsl:if test="$title = /site/galleries/title">
-                    <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
-                    <span class="sr-only">(current)</span>
+                    <span class="sr-only"> (current)</span>
                   </xsl:if>
                 </a>
               </li>
