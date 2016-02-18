@@ -4,12 +4,20 @@
   version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Animated navigation bar
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-<!--~~~~~~~~~~~~~~~~~~~~~~~
-    Animated navigation bar
-    ~~~~~~~~~~~~~~~~~~~~~~~-->
+     This file is part of XML-to-bootstrap.
+     https://github.com/acch/XML-to-bootstrap
 
-  <!-- this template generates html code for a responsive navbar -->
+     Copyright 2016 Achim Christ
+     Released under the MIT license
+     (https://github.com/acch/scrollpos-styler/blob/master/LICENSE)
+
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <!-- this template generates HTML code for the fixed-top navbar -->
   <xsl:template name="html.navbar">
     <xsl:param name="title" /><!-- string -->
 

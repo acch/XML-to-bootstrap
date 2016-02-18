@@ -6,18 +6,28 @@
   xmlns:ext="http://exslt.org/common"
   extension-element-prefixes="ext">
 
-  <!-- Import other HTML templates -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Basic HTML page
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+     This file is part of XML-to-bootstrap.
+     https://github.com/acch/XML-to-bootstrap
+
+     Copyright 2016 Achim Christ
+     Released under the MIT license
+     (https://github.com/acch/scrollpos-styler/blob/master/LICENSE)
+
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <!-- import other HTML templates -->
   <xsl:import href="html/meta.xsl" />
   <xsl:import href="html/banner.xsl" />
   <xsl:import href="html/navbar.xsl" />
   <xsl:import href="html/sidebar.xsl" />
   <xsl:import href="html/footer.xsl" />
 
-
-<!--~~~~~~~~~~~~~~~~~~~~
-          HTML page
-    ~~~~~~~~~~~~~~~~~~~~-->
-
+  <!-- this template generates HTML code for the basic page and its grid layout,
+       and calls other templates as required -->
   <xsl:template name="html.page">
     <xsl:param name="title" /><!-- string -->
     <xsl:param name="subtitle" /><!-- string -->
@@ -55,8 +65,8 @@
           <xsl:with-param name="style" select="$banner.style" />
         </xsl:call-template>
 
+        <!-- main content area -->
         <div class="container">
-          <!-- content area -->
           <div class="row">
 
             <!-- main column -->
@@ -79,11 +89,12 @@
               </aside><!-- /sidebar column -->
             </xsl:if>
 
-          </div><!-- /content area -->
-        </div><!-- /container -->
+          </div><!-- /row -->
 
-        <!-- footer -->
-        <xsl:call-template name="html.footer" />
+          <!-- footer -->
+          <xsl:call-template name="html.footer" />
+
+        </div><!-- /container -->
 
         <!-- scripts -->
         <xsl:call-template name="html.script" />
