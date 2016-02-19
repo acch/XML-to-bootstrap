@@ -38,11 +38,6 @@
     <!-- check for sidebar content -->
     <xsl:variable name="sidebar" select="ext:node-set($content.sidebar)/nav/*" />
 
-    <!-- compute width of main column -->
-    <xsl:variable name="maincolumn.class">
-      <xsl:if test="$sidebar"> col-sm-9 col-md-8</xsl:if>
-    </xsl:variable>
-
     <!-- render HTML page -->
     <xsl:call-template name="html.doctype" />
     <html lang="en">
@@ -71,6 +66,11 @@
         <div class="container">
           <div class="row">
 
+            <!-- width of main column -->
+            <xsl:variable name="maincolumn.class">
+              <xsl:if test="$sidebar"> col-md-8</xsl:if>
+            </xsl:variable>
+
             <!-- main column -->
             <article class="col-xs-12{$maincolumn.class}">
 
@@ -81,7 +81,7 @@
 
             <xsl:if test="$sidebar">
               <!-- sidebar column -->
-              <aside class="hidden-xs-down [ col-sm-3 col-md-offset-1 ] x2b-sdbr">
+              <aside class="hidden-sm-down [ col-md-4  col-lg-3 col-lg-offset-1 ] x2b-sdbr">
 
                 <!-- sidebar -->
                 <xsl:call-template name="html.sidebar">
