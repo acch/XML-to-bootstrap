@@ -24,12 +24,15 @@
     <xsl:param name="style" /><!-- string -->
 
     <!-- check if there is a custom style -->
-    <xsl:variable name="header.style">
-      <xsl:if test="$style"> <xsl:value-of select="$style" /></xsl:if>
+    <xsl:variable name="style.class">
+      <xsl:if test="$style">
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="$style" />
+      </xsl:if>
     </xsl:variable>
 
     <!-- bootstrap jumbotron -->
-    <header class="jumbotron{$header.style}">
+    <header class="jumbotron{$style.class}">
       <div class="container">
 
         <!-- main title -->
