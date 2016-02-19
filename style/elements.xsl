@@ -19,6 +19,11 @@
 
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+<!-- Currently includes:
+     - Breadcrumps
+     - Pager
+     - Icons (normal / on circle / in box)
+
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      Breadcrumps
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -29,7 +34,7 @@
     <!-- convert parent parameter to node-set -->
     <xsl:variable name="parent.page" select="ext:node-set($parent)/page" />
 
-    <!-- bootstrap breadcrump component -->
+    <!-- bootstrap breadcrumps -->
     <ol class="breadcrumb">
 
       <li>
