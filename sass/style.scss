@@ -33,7 +33,7 @@
 \* -------------------- */
 
 .x2b-sqrd {
-  border: 1px solid $pager-border-color;
+  border: $border-width solid $pager-border-color;
   border-radius: $pager-border-radius;
   box-sizing: content-box;
   padding: 10px 4px 10px 16px;
@@ -157,16 +157,12 @@
 /* -------------------- *\
        Footer styles
 \* -------------------- */
-/*
+
 .x2b-ftr {
-  border-top: 1px solid @navbar-default-border;
-  margin-top: (4 * @padding-large-vertical);
-  padding: (4 * @padding-large-vertical) 0;
-  text-align: center;
+  border-top: $border-width solid $hr-border-color;
 }
 
 .x2b-ftr-txt {
-  color: @gray-light;
+  color: $gray-light;
   margin: 0;
 }
-*/
