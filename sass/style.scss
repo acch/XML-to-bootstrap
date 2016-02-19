@@ -124,21 +124,12 @@ $shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 .x2b-sdbr {
   position: sticky;
   top: (5.375 * $spacer-y);
-
-  .x2b-sdbr-lnk {
-    padding: $spacer $spacer;
-  }
-/*
-  .x2b-sdbr-sctn {
-    color: $gray-light;
-    font-size: @font-size-large;
-    padding: @padding-small-vertical 2px;
-
-    .x2b-sdbr-lnk {
-      font-size: @font-size-small;
-      padding: @padding-small-vertical @padding-small-horizontal;
-    }
-  }*/
+}
+.x2b-sdbr-sctn {
+  font-size: $font-size-lg;
+}
+.x2b-sdbr-lnk {
+  margin: ($spacer-y * 0.5) 0;
 }
 
 
@@ -159,7 +150,6 @@ $shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 .x2b-ftr {
   border-top: $border-width solid $hr-border-color;
 }
-
 .x2b-ftr-txt {
   margin: 0;
 }

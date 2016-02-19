@@ -36,8 +36,8 @@
         <xsl:for-each select="$content.nav/link">
 
           <!-- nav link -->
-          <li class="nav-item">
-            <a class="nav-link x2b-sdbr-lnk" href="{@href}">
+          <li class="nav-item x2b-sdbr-lnk">
+            <a class="nav-link" href="{@href}">
               <xsl:value-of select="@title" />
             </a>
           </li>
@@ -48,18 +48,27 @@
         <xsl:for-each select="$content.nav/section">
 
           <!-- nav section -->
-          <li class="x2b-sdbr-sctn">
-            <xsl:value-of select="@title" />
+          <li>
+
+            <!-- section title -->
+            <span class="text-muted x2b-sdbr-sctn">
+              <xsl:value-of select="@title" />
+            </span>
+
+            <!-- section spacing -->
+            <xsl:variable name="spacing">
+              <xsl:if test="position() != last()"> m-b-1</xsl:if>
+            </xsl:variable>
 
             <!-- section nav links -->
-            <ul class="nav">
+            <ul class="nav m-l-1{$spacing}">
 
               <!-- iterate over all nav links in section -->
               <xsl:for-each select="link">
 
                 <!-- nav link inside section -->
-                <li class="nav-item">
-                  <a class="nav-link x2b-sdbr-lnk" href="{@href}">
+                <li class="nav-item x2b-sdbr-lnk">
+                  <a class="nav-link" href="{@href}">
                     <xsl:value-of select="@title" />
                   </a>
                 </li>
@@ -68,7 +77,7 @@
 
             </ul><!-- /section nav links -->
 
-          </li>
+          </li><!-- /nav section -->
 
         </xsl:for-each>
 
