@@ -4,13 +4,24 @@
   version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Page footer
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-<!--~~~~~~~~~~~~~~~~~~~~
-         Page footer
-    ~~~~~~~~~~~~~~~~~~~~-->
+     This file is part of XML-to-bootstrap.
+     https://github.com/acch/XML-to-bootstrap
 
+     Copyright 2016 Achim Christ
+     Released under the MIT license
+     (https://github.com/acch/scrollpos-styler/blob/master/LICENSE)
+
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <!-- this template generates HTML code for the page footer with social links
+       and credits -->
   <xsl:template name="html.footer">
 
+    <!-- spacing to main content -->
     <xsl:call-template name="element.separator">
       <xsl:with-param name="position">80px</xsl:with-param>
     </xsl:call-template>
@@ -18,12 +29,17 @@
     <!-- generate social links -->
     <xsl:call-template name="html.sociallinks" />
 
-    <!-- generate footer -->
+    <!-- credits -->
     <footer class="x2b-ftr">
-      <div class="container">
+      <div class="container text-xs-center">
 
-        <p class="x2b-ftr-txt">Generated using <a href="//github.com/acch/XML-to-bootstrap">XML-to-Bootstrap</a> for your viewing pleasure.</p>
-        <p class="x2b-ftr-txt">This site uses <a href="//getbootstrap.com">Bootstrap</a>, <a href="//fontawesome.io">Font Awesome</a> and <a href="//wicky.nillia.ms/headroom.js/">Headroom.js</a>.</p>
+        <p class="x2b-ftr-txt">
+          Generated using <a href="//github.com/acch/XML-to-bootstrap">XML-to-Bootstrap</a> for your viewing pleasure.
+        </p>
+
+        <p class="x2b-ftr-txt">
+          This site uses <a href="//getbootstrap.com">Bootstrap</a>, <a href="//fontawesome.io">Font Awesome</a> and <a href="//wicky.nillia.ms/headroom.js/">Headroom.js</a>.
+        </p>
 
       </div><!-- /container -->
     </footer>
@@ -33,7 +49,7 @@
   <!-- social links -->
   <xsl:template name="html.sociallinks">
 
-    <div class="container text-center">
+    <div class="container text-xs-center">
 
       <!-- iterate over all social links -->
       <xsl:for-each select="/site/options/option[@name = 'sociallinks']/sociallink">
