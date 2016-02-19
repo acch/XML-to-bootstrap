@@ -124,7 +124,7 @@
 
       <!-- divider -->
       <xsl:if test="position() != last()">
-        <hr />
+        <hr class="m-y-2" />
       </xsl:if>
 
     </xsl:for-each>
