@@ -25,10 +25,7 @@
 
     <!-- check if there is a custom style -->
     <xsl:variable name="header.style">
-      <xsl:if test="$style">
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="$style" />
-      </xsl:if>
+      <xsl:if test="$style"> <xsl:value-of select="$style" /></xsl:if>
     </xsl:variable>
 
     <!-- bootstrap jumbotron -->
