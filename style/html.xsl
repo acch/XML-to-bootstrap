@@ -47,10 +47,12 @@
     <xsl:call-template name="html.doctype" />
     <html lang="en">
 
+      <!-- HTML header -->
       <xsl:call-template name="html.head">
         <xsl:with-param name="page.title" select="$title" />
       </xsl:call-template>
 
+      <!-- HTML body -->
       <body class="x2b-bdy">
 
         <!-- navbar -->
