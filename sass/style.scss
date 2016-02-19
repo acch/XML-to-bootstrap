@@ -125,7 +125,7 @@
 
 .x2b-sdbr {
   position: sticky;
-  top: ($spacer + 2 * $spacer);
+  top: (5.375 * $spacer-y);
 
   .x2b-sdbr-lnk {
     padding: $spacer $spacer;

@@ -81,7 +81,7 @@
 
             <xsl:if test="$sidebar">
               <!-- sidebar column -->
-              <aside class="hidden-xs [ col-sm-3 col-md-offset-1 ] x2b-sdbr">
+              <aside class="hidden-xs-down [ col-sm-3 col-md-offset-1 ] x2b-sdbr">
 
                 <!-- sidebar -->
                 <xsl:call-template name="html.sidebar">
