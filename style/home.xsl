@@ -80,7 +80,7 @@
                 <xsl:value-of select="/site/articles/introduction" />
               </xsl:when>
               <xsl:otherwise>
-                <span class="x2b-gry">
+                <span class="text-muted">
                   Coming soon...
                 </span>
               </xsl:otherwise>
@@ -140,7 +140,7 @@
                 <xsl:value-of select="/site/projects/introduction" />
               </xsl:when>
               <xsl:otherwise>
-                <span class="x2b-gry">
+                <span class="text-muted">
                   Coming soon...
                 </span>
               </xsl:otherwise>
@@ -200,7 +200,7 @@
                 <xsl:value-of select="/site/galleries/introduction" />
               </xsl:when>
               <xsl:otherwise>
-                <span class="x2b-gry">
+                <span class="text-muted">
                   Coming soon...
                 </span>
               </xsl:otherwise>

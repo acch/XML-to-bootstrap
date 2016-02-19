@@ -29,7 +29,7 @@
 
     <!-- credits -->
     <footer class="x2b-ftr m-t-2 p-y-2">
-      <div class="container text-xs-center">
+      <div class="container text-xs-center text-muted">
 
         <p class="x2b-ftr-txt">
           Generated using <a href="//github.com/acch/XML-to-bootstrap">XML-to-Bootstrap</a> for your viewing pleasure.

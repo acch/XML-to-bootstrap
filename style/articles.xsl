@@ -81,7 +81,7 @@
       <xsl:with-param name="current" select="title" />
     </xsl:call-template>
 
-    <p class="x2b-gry">
+    <p class="text-muted">
       Click on the title to continue reading...
     </p>
 
@@ -195,7 +195,7 @@
 
     <!-- article introduction -->
     <p>
-      <span class="x2b-gry">
+      <span class="text-muted">
         //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date.formatted" />
       </span>
 
