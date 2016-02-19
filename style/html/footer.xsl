@@ -22,7 +22,7 @@
   <xsl:template name="html.footer">
 
     <!-- spacing to main content -->
-    <hr class="x2b-hddn p-y-3" />
+    <hr class="invisible p-y-3" />
 
     <!-- generate social links -->
     <xsl:call-template name="html.sociallinks" />

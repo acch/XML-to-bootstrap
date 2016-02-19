@@ -87,7 +87,7 @@
             </xsl:choose>
 
             <!-- spacing -->
-            <hr class="x2b-hddn" />
+            <hr class="invisible" />
 
             <!-- panel icon -->
             <xsl:choose>
@@ -147,7 +147,7 @@
             </xsl:choose>
 
             <!-- spacing -->
-            <hr class="x2b-hddn" />
+            <hr class="invisible" />
 
             <!-- panel icon -->
             <xsl:choose>
@@ -207,7 +207,7 @@
             </xsl:choose>
 
             <!-- spacing -->
-            <hr class="x2b-hddn" />
+            <hr class="invisible" />
 
             <!-- panel icon -->
             <xsl:choose>

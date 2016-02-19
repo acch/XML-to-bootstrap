@@ -207,7 +207,7 @@
     </p>
 
     <!-- spacing -->
-    <hr class="x2b-hddn" />
+    <hr class="invisible" />
 
     <!-- copy content from XML directly -->
     <xsl:call-template name="copy.content">
@@ -215,7 +215,7 @@
     </xsl:call-template>
 
     <!-- spacing -->
-    <hr class="x2b-hddn" />
+    <hr class="invisible" />
 
     <!-- find latest project before current one -->
     <xsl:variable name="prev">
