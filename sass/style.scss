@@ -4,10 +4,16 @@
 // TODO: map-get()?
 
 /* -------------------- *\
+         Variables
+\* -------------------- */
+
+$shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+
+/* -------------------- *\
       Generic styles
 \* -------------------- */
 
-//@media (min-width: @screen-sm-min) {
+//TODO: not currently used - required?
 @include media-breakpoint-up(sm) {
   .x2b-nwrp {
     overflow: hidden;
@@ -16,7 +22,7 @@
 }
 
 .x2b-shdw {
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  text-shadow: $shadow;
 }
 
 
@@ -95,7 +101,7 @@
 }
 .sps--blw {
   background-color: $gray-lighter;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: $shadow;
 }
 
 
