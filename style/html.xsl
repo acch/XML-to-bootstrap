@@ -67,12 +67,12 @@
           <div class="row">
 
             <!-- width of main column -->
-            <xsl:variable name="maincolumn.class">
+            <xsl:variable name="maincolumn">
               <xsl:if test="$sidebar"> col-md-8</xsl:if>
             </xsl:variable>
 
             <!-- main column -->
-            <article class="col-xs-12{$maincolumn.class}">
+            <article class="col-xs-12{$maincolumn}">
 
               <!-- main content -->
               <xsl:apply-templates select="$content" />
