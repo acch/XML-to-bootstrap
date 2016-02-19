@@ -5,18 +5,18 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 
-  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-       Banner jumbotron
-       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Banner jumbotron
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-       This file is part of XML-to-bootstrap.
-       https://github.com/acch/XML-to-bootstrap
+     This file is part of XML-to-bootstrap.
+     https://github.com/acch/XML-to-bootstrap
 
-       Copyright 2016 Achim Christ
-       Released under the MIT license
-       (https://github.com/acch/scrollpos-styler/blob/master/LICENSE)
+     Copyright 2016 Achim Christ
+     Released under the MIT license
+     (https://github.com/acch/scrollpos-styler/blob/master/LICENSE)
 
-       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <!-- this template generates HTML code for the top banner jumbotron -->
   <xsl:template name="html.banner">
