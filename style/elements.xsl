@@ -22,7 +22,7 @@
 <!-- Currently includes:
      - Breadcrumps
      - Pager
-     - Icons (normal / on circle / in box)
+     - Icons (normal / on circle / in box) -->
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      Breadcrumps
