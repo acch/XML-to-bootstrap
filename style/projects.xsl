@@ -206,16 +206,16 @@
       </strong>
     </p>
 
-    <!-- separator -->
-    <xsl:call-template name="element.separator" />
+    <!-- spacing -->
+    <hr class="x2b-hddn" />
 
     <!-- copy content from XML directly -->
     <xsl:call-template name="copy.content">
       <xsl:with-param name="content" select="content" />
     </xsl:call-template>
 
-    <!-- separator -->
-    <xsl:call-template name="element.separator" />
+    <!-- spacing -->
+    <hr class="x2b-hddn" />
 
     <!-- find latest project before current one -->
     <xsl:variable name="prev">

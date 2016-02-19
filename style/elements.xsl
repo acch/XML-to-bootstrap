@@ -6,11 +6,22 @@
   xmlns:ext="http://exslt.org/common"
   extension-element-prefixes="ext">
 
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Reusable page elements
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-<!--~~~~~~~~~~~~~~~~~~~~
-         Breadcrumps
-    ~~~~~~~~~~~~~~~~~~~~-->
+     This file is part of XML-to-bootstrap.
+     https://github.com/acch/XML-to-bootstrap
 
+     Copyright 2016 Achim Christ
+     Released under the MIT license
+     (https://github.com/acch/scrollpos-styler/blob/master/LICENSE)
+
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Breadcrumps
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
   <xsl:template name="element.breadcrumps">
     <xsl:param name="parent" /><!-- node-set (page) -->
     <xsl:param name="current" /><!-- string -->
@@ -42,10 +53,9 @@
   </xsl:template>
 
 
-<!--~~~~~~~~~~~~~~~~~~~~
-            Pager
-    ~~~~~~~~~~~~~~~~~~~~-->
-
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Pager
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
   <xsl:template name="element.pager">
     <xsl:param name="next" /><!-- node-set (page) -->
     <xsl:param name="prev" /><!-- node-set (page) -->
@@ -109,9 +119,9 @@
   </xsl:template>
 
 
-<!--~~~~~~~~~~~~~~~~~~~~
-            Icons
-    ~~~~~~~~~~~~~~~~~~~~-->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Icons
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <!-- normal icon (fixed-width) -->
   <xsl:template name="element.icon">
@@ -153,22 +163,6 @@
     <span class="[ fa {$icon} {$size} ] x2b-sqrd{$disabled.class}" aria-hidden="true">
       <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
     </span>
-
-  </xsl:template>
-
-
-<!--~~~~~~~~~~~~~~~~~~~~
-          Separator
-    ~~~~~~~~~~~~~~~~~~~~-->
-
-  <xsl:template name="element.separator">
-    <xsl:param name="position" /><!-- string -->
-
-    <hr class="x2b-hddn">
-      <xsl:if test="$position">
-        <xsl:attribute name="style">margin-top:<xsl:value-of select="$position" /></xsl:attribute>
-      </xsl:if>
-    </hr>
 
   </xsl:template>
 

@@ -22,15 +22,13 @@
   <xsl:template name="html.footer">
 
     <!-- spacing to main content -->
-    <xsl:call-template name="element.separator">
-      <xsl:with-param name="position">80px</xsl:with-param>
-    </xsl:call-template>
+    <hr class="x2b-hddn p-y-3" />
 
     <!-- generate social links -->
     <xsl:call-template name="html.sociallinks" />
 
     <!-- credits -->
-    <footer class="x2b-ftr">
+    <footer class="x2b-ftr m-t-2 p-y-2">
       <div class="container text-xs-center">
 
         <p class="x2b-ftr-txt">
