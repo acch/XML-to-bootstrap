@@ -38,9 +38,8 @@
         <div class="collapse navbar-toggleable-xs" id="collapsingNavbar">
 
           <!-- site title -->
-          <a class="navbar-brand" href="/">
+          <a class="navbar-brand m-x-1" href="/">
             <xsl:value-of select="$site.title" />
-            <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
           </a>
 
           <ul class="nav navbar-nav">
@@ -53,7 +52,7 @@
                 <xsl:if test="$title = /site/articles/title"> active</xsl:if>
               </xsl:variable>
 
-              <li class="nav-item{$active}">
+              <li class="nav-item{$active} m-x-1">
                 <a class="nav-link" href="/articles.html">
 
                   <!-- icon and title -->
@@ -81,7 +80,7 @@
                 <xsl:if test="$title = /site/projects/title"> active</xsl:if>
               </xsl:variable>
 
-              <li class="nav-item{$active}">
+              <li class="nav-item{$active} m-x-1">
                 <a class="nav-link" href="/projects.html">
 
                   <!-- icon and title -->
@@ -109,7 +108,7 @@
                 <xsl:if test="$title = /site/galleries/title"> active</xsl:if>
               </xsl:variable>
 
-              <li class="nav-item{$active}">
+              <li class="nav-item{$active} m-x-1">
                 <a class="nav-link" href="/galleries.html">
 
                   <!-- icon and title -->
