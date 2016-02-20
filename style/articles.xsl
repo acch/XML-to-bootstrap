@@ -207,7 +207,7 @@
     </p>
 
     <!-- spacing -->
-    <hr class="invisible" />
+    <hr class="invisible m-y-2" />
 
     <!-- copy content from XML directly -->
     <xsl:call-template name="copy.content">
@@ -215,7 +215,7 @@
     </xsl:call-template>
 
     <!-- spacing -->
-    <hr class="invisible" />
+    <hr class="invisible m-y-2" />
 
     <!-- find latest article before current one -->
     <xsl:variable name="prev">
