@@ -193,6 +193,9 @@
       <xsl:with-param name="current" select="title" />
     </xsl:call-template>
 
+    <!-- spacing -->
+    <hr class="invisible" />
+
     <!-- project introduction -->
     <p>
       <span class="text-muted">
@@ -207,7 +210,7 @@
     </p>
 
     <!-- spacing -->
-    <hr class="invisible m-y-2" />
+    <hr class="invisible" />
 
     <!-- copy content from XML directly -->
     <xsl:call-template name="copy.content">
@@ -215,7 +218,7 @@
     </xsl:call-template>
 
     <!-- spacing -->
-    <hr class="invisible m-y-2" />
+    <hr class="invisible" />
 
     <!-- find latest project before current one -->
     <xsl:variable name="prev">
