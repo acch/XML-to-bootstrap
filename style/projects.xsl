@@ -81,9 +81,15 @@
       <xsl:with-param name="current" select="title" />
     </xsl:call-template>
 
+    <!-- spacing -->
+    <hr class="invisible" />
+
     <p class="text-muted">
       Click on the title to continue reading...
     </p>
+
+    <!-- spacing -->
+    <hr class="invisible m-b-0" />
 
     <!-- iterate over all projects -->
     <xsl:for-each select="project">
