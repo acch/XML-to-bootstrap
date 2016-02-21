@@ -9,6 +9,7 @@
 
 $shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 
+
 /* -------------------- *\
       Generic styles
 \* -------------------- */
@@ -96,7 +97,7 @@ $shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 \* ------------------------------------- */
 
 .sps--abv {
-  background-color: transparent;
+  background-color: $body-bg;
   box-shadow: none;
 }
 .sps--blw {
