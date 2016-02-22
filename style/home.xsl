@@ -38,7 +38,7 @@
   <xsl:template match="home">
 
     <!-- introduction -->
-    <div class="row text-xs-center">
+    <div class="text-xs-center">
 
       <!-- copy introduction from XML, excluding collapsed text -->
       <xsl:call-template name="copy.content">
@@ -61,190 +61,168 @@
 
     </div><!-- /row -->
 
-    <!-- section panels -->
+    <!-- section cards -->
     <div class="row text-xs-center">
+      <div class="col-xs-12">
 
-      <!-- articles panel -->
-      <div class="col-sm-4 x2b-hm-pnl">
-        <div class="panel panel-default">
+      <!-- articles card -->
+      <div class="[ card card-block ] x2b-hm-pnl" style="width: 18rem;">
 
-          <!-- panel heading -->
-          <div class="panel-heading">
-            <h3 class="panel-title">
-              <xsl:choose>
-                <xsl:when test="$articles">
-                  <a href="articles.html">
-                    <xsl:value-of select="/site/articles/title" />
-                  </a>
-                </xsl:when>
-                <xsl:otherwise>
-                  <xsl:value-of select="/site/articles/title" />
-                </xsl:otherwise>
-              </xsl:choose>
-            </h3>
-          </div><!-- /panel-heading -->
+        <!-- card heading -->
+        <h3 class="card-title">
+          <xsl:choose>
+            <xsl:when test="$articles">
+              <a href="articles.html">
+                <xsl:value-of select="/site/articles/title" />
+              </a>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="/site/articles/title" />
+            </xsl:otherwise>
+          </xsl:choose>
+        </h3>
 
-          <!-- panel body -->
-          <div class="panel-body">
-            <xsl:choose>
-              <xsl:when test="$articles">
-                <xsl:value-of select="/site/articles/introduction" />
-              </xsl:when>
-              <xsl:otherwise>
-                <span class="text-muted">
-                  Coming soon...
-                </span>
-              </xsl:otherwise>
-            </xsl:choose>
+        <!-- card body -->
+        <p class="card-text">
+          <xsl:choose>
+            <xsl:when test="$articles">
+              <xsl:value-of select="/site/articles/introduction" />
+            </xsl:when>
+            <xsl:otherwise>
+              <span class="text-muted">
+                Coming soon...
+              </span>
+            </xsl:otherwise>
+          </xsl:choose>
+        </p>
 
-            <!-- spacing -->
-            <hr class="invisible" />
+        <!-- icon -->
+        <xsl:choose>
+          <xsl:when test="$articles">
+            <a href="articles.html" class="x2b-shdw">
+              <xsl:call-template name="element.icon.squared">
+                <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
+                <xsl:with-param name="size">fa-3x</xsl:with-param>
+              </xsl:call-template>
+            </a>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:call-template name="element.icon.squared">
+              <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
+              <xsl:with-param name="size">fa-3x</xsl:with-param>
+              <xsl:with-param name="disabled" select="true()" />
+            </xsl:call-template>
+          </xsl:otherwise>
+        </xsl:choose>
 
-            <!-- panel icon -->
-            <xsl:choose>
-              <xsl:when test="$articles">
-                <a href="articles.html" class="x2b-shdw">
-                  <xsl:call-template name="element.icon.squared">
-                    <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
-                    <xsl:with-param name="size">fa-3x</xsl:with-param>
-                  </xsl:call-template>
-                </a>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:call-template name="element.icon.squared">
-                  <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
-                  <xsl:with-param name="size">fa-3x</xsl:with-param>
-                  <xsl:with-param name="disabled" select="true()" />
-                </xsl:call-template>
-              </xsl:otherwise>
-            </xsl:choose>
+      </div><!-- /card -->
 
-          </div><!-- /panel-body -->
+      <!-- projects card -->
+      <div class="[ card card-block ] x2b-hm-pnl" style="width: 18rem;">
 
-        </div><!-- /panel -->
-      </div><!-- /column -->
+        <!-- card heading -->
+        <h3 class="card-title">
+          <xsl:choose>
+            <xsl:when test="$projects">
+              <a href="projects.html">
+                <xsl:value-of select="/site/projects/title" />
+              </a>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="/site/projects/title" />
+            </xsl:otherwise>
+          </xsl:choose>
+        </h3>
 
-      <!-- projects panel -->
-      <div class="col-sm-4 x2b-hm-pnl">
-        <div class="panel panel-default">
+        <!-- card body -->
+        <p class="card-text">
+          <xsl:choose>
+            <xsl:when test="$projects">
+              <xsl:value-of select="/site/projects/introduction" />
+            </xsl:when>
+            <xsl:otherwise>
+              <span class="text-muted">
+                Coming soon...
+              </span>
+            </xsl:otherwise>
+          </xsl:choose>
+        </p>
 
-          <!-- panel heading -->
-          <div class="panel-heading">
-            <h3 class="panel-title">
-              <xsl:choose>
-                <xsl:when test="$projects">
-                  <a href="projects.html">
-                    <xsl:value-of select="/site/projects/title" />
-                  </a>
-                </xsl:when>
-                <xsl:otherwise>
-                  <xsl:value-of select="/site/projects/title" />
-                </xsl:otherwise>
-              </xsl:choose>
-            </h3>
-          </div><!-- /panel-heading -->
+        <!-- icon -->
+        <xsl:choose>
+          <xsl:when test="$projects">
+            <a href="projects.html" class="x2b-shdw">
+              <xsl:call-template name="element.icon.squared">
+                <xsl:with-param name="icon">fa-rocket</xsl:with-param>
+                <xsl:with-param name="size">fa-3x</xsl:with-param>
+              </xsl:call-template>
+            </a>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:call-template name="element.icon.squared">
+              <xsl:with-param name="icon">fa-rocket</xsl:with-param>
+              <xsl:with-param name="size">fa-3x</xsl:with-param>
+              <xsl:with-param name="disabled" select="true()" />
+            </xsl:call-template>
+          </xsl:otherwise>
+        </xsl:choose>
 
-          <!-- panel body -->
-          <div class="panel-body">
-            <xsl:choose>
-              <xsl:when test="$projects">
-                <xsl:value-of select="/site/projects/introduction" />
-              </xsl:when>
-              <xsl:otherwise>
-                <span class="text-muted">
-                  Coming soon...
-                </span>
-              </xsl:otherwise>
-            </xsl:choose>
+      </div><!-- /card -->
 
-            <!-- spacing -->
-            <hr class="invisible" />
+      <!-- galleries card -->
+      <div class="[ card card-block ] x2b-hm-pnl" style="width: 18rem;">
 
-            <!-- panel icon -->
-            <xsl:choose>
-              <xsl:when test="$projects">
-                <a href="projects.html" class="x2b-shdw">
-                  <xsl:call-template name="element.icon.squared">
-                    <xsl:with-param name="icon">fa-rocket</xsl:with-param>
-                    <xsl:with-param name="size">fa-3x</xsl:with-param>
-                  </xsl:call-template>
-                </a>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:call-template name="element.icon.squared">
-                  <xsl:with-param name="icon">fa-rocket</xsl:with-param>
-                  <xsl:with-param name="size">fa-3x</xsl:with-param>
-                  <xsl:with-param name="disabled" select="true()" />
-                </xsl:call-template>
-              </xsl:otherwise>
-            </xsl:choose>
+        <!-- card heading -->
+        <h3 class="card-title">
+          <xsl:choose>
+            <xsl:when test="$galleries">
+              <a href="galleries.html">
+                <xsl:value-of select="/site/galleries/title" />
+              </a>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="/site/galleries/title" />
+            </xsl:otherwise>
+          </xsl:choose>
+        </h3>
 
-          </div><!-- /panel-body -->
+        <!-- card body -->
+        <p class="card-text">
+          <xsl:choose>
+            <xsl:when test="$galleries">
+              <xsl:value-of select="/site/galleries/introduction" />
+            </xsl:when>
+            <xsl:otherwise>
+              <span class="text-muted">
+                Coming soon...
+              </span>
+            </xsl:otherwise>
+          </xsl:choose>
+        </p>
 
-        </div><!-- /panel -->
-      </div><!-- /column -->
+        <!-- icon -->
+        <xsl:choose>
+          <xsl:when test="$galleries">
+            <a href="galleries.html" class="x2b-shdw">
+              <xsl:call-template name="element.icon.squared">
+                <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
+                <xsl:with-param name="size">fa-3x</xsl:with-param>
+              </xsl:call-template>
+            </a>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:call-template name="element.icon.squared">
+              <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
+              <xsl:with-param name="size">fa-3x</xsl:with-param>
+              <xsl:with-param name="disabled" select="true()" />
+            </xsl:call-template>
+          </xsl:otherwise>
+        </xsl:choose>
 
-      <!-- gallery panel -->
-      <div class="col-sm-4 x2b-hm-pnl">
-        <div class="panel panel-default">
+      </div><!-- /card -->
 
-          <!-- panel heading -->
-          <div class="panel-heading">
-            <h3 class="panel-title">
-              <xsl:choose>
-                <xsl:when test="$galleries">
-                  <a href="galleries.html">
-                    <xsl:value-of select="/site/galleries/title" />
-                  </a>
-                </xsl:when>
-                <xsl:otherwise>
-                  <xsl:value-of select="/site/galleries/title" />
-                </xsl:otherwise>
-              </xsl:choose>
-            </h3>
-          </div><!-- /panel-heading -->
-
-          <!-- panel body -->
-          <div class="panel-body">
-            <xsl:choose>
-              <xsl:when test="$galleries">
-                <xsl:value-of select="/site/galleries/introduction" />
-              </xsl:when>
-              <xsl:otherwise>
-                <span class="text-muted">
-                  Coming soon...
-                </span>
-              </xsl:otherwise>
-            </xsl:choose>
-
-            <!-- spacing -->
-            <hr class="invisible" />
-
-            <!-- panel icon -->
-            <xsl:choose>
-              <xsl:when test="$galleries">
-                <a href="galleries.html" class="x2b-shdw">
-                  <xsl:call-template name="element.icon.squared">
-                    <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
-                    <xsl:with-param name="size">fa-3x</xsl:with-param>
-                  </xsl:call-template>
-                </a>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:call-template name="element.icon.squared">
-                  <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
-                  <xsl:with-param name="size">fa-3x</xsl:with-param>
-                  <xsl:with-param name="disabled" select="true()" />
-                </xsl:call-template>
-              </xsl:otherwise>
-            </xsl:choose>
-
-          </div><!-- /panel-body -->
-
-        </div><!-- /panel -->
-      </div><!-- /column -->
-
-    </div><!-- /row -->
+    </div>
+    </div><!-- /section cards -->
 
   </xsl:template>
 
