@@ -5,10 +5,20 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 
-<!--~~~~~~~~~~~~~~~~~~~~
-          Home page
-    ~~~~~~~~~~~~~~~~~~~~-->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Home page
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+     This file is part of XML-to-bootstrap.
+     https://github.com/acch/XML-to-bootstrap
+
+     Copyright 2016 Achim Christ
+     Released under the MIT license
+     (https://github.com/acch/scrollpos-styler/blob/master/LICENSE)
+
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <!-- this template generates HTML code for the start (home) page -->
   <xsl:template name="home">
 
     <!-- generate home page -->
@@ -16,19 +26,19 @@
       <xsl:with-param name="title" select="/site/home/title" />
       <xsl:with-param name="subtitle" select="/site/home/subtitle" />
       <xsl:with-param name="content" select="/site/home" />
-      <xsl:with-param name="banner.style">text-center</xsl:with-param>
+      <xsl:with-param name="banner.style">text-xs-center</xsl:with-param>
     </xsl:call-template>
 
   </xsl:template>
 
 
-<!--~~~~~~~~~~~~~~~~~~~~
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      Home page contents
-    ~~~~~~~~~~~~~~~~~~~~-->
-
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
   <xsl:template match="home">
 
-    <div class="row text-center">
+    <!-- introduction -->
+    <div class="row text-xs-center">
 
       <!-- copy introduction from XML, excluding collapsed text -->
       <xsl:call-template name="copy.content">
@@ -51,7 +61,8 @@
 
     </div><!-- /row -->
 
-    <div class="row text-center">
+    <!-- section panels -->
+    <div class="row text-xs-center">
 
       <!-- articles panel -->
       <div class="col-sm-4 x2b-hm-pnl">
