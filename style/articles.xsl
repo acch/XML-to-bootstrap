@@ -82,14 +82,14 @@
     </xsl:call-template>
 
     <!-- spacing -->
-    <hr class="invisible" />
+    <hr class="invisible m-y-1" />
 
     <p class="text-muted">
       Click on the title to continue reading...
     </p>
 
     <!-- spacing -->
-    <hr class="invisible m-b-0" />
+    <hr class="invisible m-t-1 m-b-0" />
 
     <!-- iterate over all articles -->
     <xsl:for-each select="article">
@@ -200,7 +200,7 @@
     </xsl:call-template>
 
     <!-- spacing -->
-    <hr class="invisible" />
+    <hr class="invisible m-y-1" />
 
     <!-- article introduction -->
     <p>
@@ -216,7 +216,7 @@
     </p>
 
     <!-- spacing -->
-    <hr class="invisible" />
+    <hr class="invisible m-y-1" />
 
     <!-- copy content from XML directly -->
     <xsl:call-template name="copy.content">
@@ -224,7 +224,7 @@
     </xsl:call-template>
 
     <!-- spacing -->
-    <hr class="invisible" />
+    <hr class="invisible m-y-1" />
 
     <!-- find latest article before current one -->
     <xsl:variable name="prev">
