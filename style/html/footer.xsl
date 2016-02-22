@@ -28,7 +28,7 @@
     <xsl:call-template name="html.sociallinks" />
 
     <!-- credits -->
-    <footer class="x2b-ftr m-t-2 p-y-2">
+    <footer class="x2b-ftr m-t-2 p-y-2" role="contentinfo">
       <div class="container text-xs-center text-muted">
 
         <p class="x2b-ftr-txt">
