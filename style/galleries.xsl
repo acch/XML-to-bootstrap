@@ -7,10 +7,21 @@
   extension-element-prefixes="ext">
 
 
-<!--~~~~~~~~~~~~~~~~~~~~
-        Gallery pages
-    ~~~~~~~~~~~~~~~~~~~~-->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Gallery pages
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+     This file is part of XML-to-bootstrap.
+     https://github.com/acch/XML-to-bootstrap
+
+     Copyright 2016 Achim Christ
+     Released under the MIT license
+     (https://github.com/acch/scrollpos-styler/blob/master/LICENSE)
+
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <!-- this template generates HTML code for gallery overview and detail
+       pages -->
   <xsl:template name="galleries">
 
     <!-- generate gallery overview page -->
@@ -70,9 +81,9 @@
   </xsl:template>
 
 
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Gallery overview page contents
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Gallery overview page contents
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <xsl:template match="galleries">
 
@@ -132,9 +143,9 @@
   </xsl:template>
 
 
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Gallery overview page sidebar
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Gallery overview page sidebar
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <xsl:template name="galleries.sidebar">
     <xsl:param name="content" /><!-- node-set (galleries) -->
@@ -172,9 +183,9 @@
   </xsl:template>
 
 
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Gallery detail page contents
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Gallery detail page contents
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <xsl:template match="gallery">
 
@@ -263,9 +274,9 @@
   </xsl:template>
 
 
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Gallery detail page sidebar
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Gallery detail page sidebar
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <xsl:template name="gallery.sidebar">
     <xsl:param name="content" /><!-- node-set (gallery) -->

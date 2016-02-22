@@ -7,10 +7,21 @@
   extension-element-prefixes="ext">
 
 
-<!--~~~~~~~~~~~~~~~~~~~~
-       Projects pages
-    ~~~~~~~~~~~~~~~~~~~~-->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Project pages
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+     This file is part of XML-to-bootstrap.
+     https://github.com/acch/XML-to-bootstrap
+
+     Copyright 2016 Achim Christ
+     Released under the MIT license
+     (https://github.com/acch/scrollpos-styler/blob/master/LICENSE)
+
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <!-- this template generates HTML code for project overview and detail
+       pages -->
   <xsl:template name="projects">
 
     <!-- generate projects overview page -->
@@ -70,9 +81,9 @@
   </xsl:template>
 
 
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Project overview page contents
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Project overview page contents
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <xsl:template match="projects">
 
@@ -138,9 +149,9 @@
   </xsl:template>
 
 
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Project overview page sidebar
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Project overview page sidebar
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <xsl:template name="projects.sidebar">
     <xsl:param name="content" /><!-- node-set (projects) -->
@@ -178,9 +189,9 @@
   </xsl:template>
 
 
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Project detail page contents
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Project detail page contents
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <xsl:template match="project">
 
@@ -272,9 +283,9 @@
   </xsl:template>
 
 
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Project detail page sidebar
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Project detail page sidebar
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <xsl:template name="project.sidebar">
     <xsl:param name="content" /><!-- node-set (project) -->

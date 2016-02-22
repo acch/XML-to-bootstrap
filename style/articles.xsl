@@ -7,10 +7,21 @@
   extension-element-prefixes="ext">
 
 
-<!--~~~~~~~~~~~~~~~~~~~~
-       Article pages
-    ~~~~~~~~~~~~~~~~~~~~-->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Article pages
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+     This file is part of XML-to-bootstrap.
+     https://github.com/acch/XML-to-bootstrap
+
+     Copyright 2016 Achim Christ
+     Released under the MIT license
+     (https://github.com/acch/scrollpos-styler/blob/master/LICENSE)
+
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <!-- this template generates HTML code for article overview and detail
+       pages -->
   <xsl:template name="articles">
 
     <!-- generate article overview page -->
@@ -70,9 +81,9 @@
   </xsl:template>
 
 
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Article overview page contents
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Article overview page contents
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <xsl:template match="articles">
 
@@ -138,9 +149,9 @@
   </xsl:template>
 
 
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Article overview page sidebar
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Article overview page sidebar
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <xsl:template name="articles.sidebar">
     <xsl:param name="content" /><!-- node-set (articles) -->
@@ -178,9 +189,9 @@
   </xsl:template>
 
 
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Article detail page contents
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Article detail page contents
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <xsl:template match="article">
 
@@ -272,9 +283,9 @@
   </xsl:template>
 
 
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Article detail page sidebar
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Article detail page sidebar
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <xsl:template name="article.sidebar">
     <xsl:param name="content" /><!-- node-set (article) -->
