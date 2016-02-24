@@ -83,7 +83,7 @@
     <nav>
       <ul class="pager">
 
-        <li class="previous{$prev.disabled}">
+        <li class="pager-prev{$prev.disabled}">
           <a rel="prev">
             <xsl:if test="$prev.page">
               <xsl:attribute name="title">
@@ -100,7 +100,7 @@
           </a>
         </li><!-- /previous -->
 
-        <li class="next{$next.disabled}">
+        <li class="pager-next{$next.disabled}">
           <a rel="next">
             <xsl:if test="$next.page">
               <xsl:attribute name="title">
