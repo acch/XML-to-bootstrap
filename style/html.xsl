@@ -66,13 +66,16 @@
         <div class="container">
           <div class="row">
 
-            <!-- width of main column -->
+            <!-- width of main column depends on sidebar -->
             <xsl:variable name="maincolumn">
-              <xsl:if test="$sidebar"> col-md-8</xsl:if>
+              <xsl:if test="$sidebar">
+               <xsl:text> </xsl:text>
+               <xsl:value-of select="$style.sidebar.maincolumn" />
+              </xsl:if>
             </xsl:variable>
 
             <!-- main column -->
-            <article class="col-xs-12{$maincolumn}">
+            <article class="{$style.maincolumn}{$maincolumn}">
 
               <!-- main content -->
               <xsl:apply-templates select="$content" />
@@ -81,7 +84,7 @@
 
             <xsl:if test="$sidebar">
               <!-- sidebar column -->
-              <aside class="hidden-sm-down [ col-md-4  col-lg-3 col-lg-offset-1 ] x2b-sdbr">
+              <aside class="x2b-sdbr {$style.sidebar.sidecolumn}">
 
                 <!-- sidebar -->
                 <xsl:call-template name="html.sidebar">

@@ -63,7 +63,8 @@
     <!-- section cards -->
     <div class="row text-xs-center">
 
-      <div class="col-xs-12 col-md-6 col-lg-4">
+      <!-- responsive column -->
+      <div class="{$style.cardcolumn}">
 
         <!-- articles card -->
         <div class="[ card card-block ] m-b-2">
@@ -118,7 +119,7 @@
         </div><!-- /card -->
 
       </div><!-- /column -->
-      <div class="col-xs-12 col-md-6 col-lg-4">
+      <div class="{$style.cardcolumn}">
 
         <!-- projects card -->
         <div class="[ card card-block ] m-b-2">
@@ -173,7 +174,7 @@
         </div><!-- /card -->
 
       </div><!-- /column -->
-      <div class="col-xs-12 col-md-6 col-lg-4">
+      <div class="{$style.cardcolumn}">
 
         <!-- galleries card -->
         <div class="[ card card-block ] m-b-2">
