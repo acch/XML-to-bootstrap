@@ -9,11 +9,24 @@
   extension-element-prefixes="ext math set">
 
 
-<!--~~~~~~~~~~~~~~~~~~~~
-         Date format
-    ~~~~~~~~~~~~~~~~~~~~-->
-<!-- will turn 2001-12-31 into 31.12.2001 -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Common components
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+     This file is part of XML-to-bootstrap.
+     https://github.com/acch/XML-to-bootstrap
+
+     Copyright 2016 Achim Christ
+     Released under the MIT license
+     (https://github.com/acch/scrollpos-styler/blob/master/LICENSE)
+
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         Date format
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <!-- will turn 2001-12-31 into 31.12.2001 -->
   <xsl:template name="format.date">
     <xsl:param name="date" /><!-- string (format 'YYYY-MM-DD') -->
 
@@ -26,11 +39,11 @@
   </xsl:template>
 
 
-<!--~~~~~~~~~~~~~~~~~~~~
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
        Filename format
-    ~~~~~~~~~~~~~~~~~~~~-->
-<!-- make string lowercase and mask special characters -->
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+  <!-- make string lowercase and mask special characters -->
   <xsl:template name="format.filename">
     <xsl:param name="string" /><!-- string -->
 
@@ -39,12 +52,12 @@
   </xsl:template>
 
 
-<!--~~~~~~~~~~~~~~~~~~~~
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         Copy contents
-    ~~~~~~~~~~~~~~~~~~~~-->
-<!-- helper for copying child element nodes and attributes (but no namespaces)
-     from XML. also, adds anchor CSS class to elements with id attribute -->
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+  <!-- helper for copying child element nodes and attributes (but no namespaces)
+       from XML. also, adds anchor CSS class to elements with id attribute -->
   <xsl:template name="copy.content">
     <xsl:param name="content" /><!-- node-set -->
     <xsl:param name="exclude" /><!-- string -->
@@ -76,11 +89,11 @@
   </xsl:template>
 
 
-<!--~~~~~~~~~~~~~~~~~~~~
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
        Distinct years
-    ~~~~~~~~~~~~~~~~~~~~-->
-<!-- find distinct years of elements with a date -->
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+  <!-- find distinct years of elements with a date -->
   <xsl:template name="date.years">
     <xsl:param name="elements" /><!-- node-set (with 'date' child) -->
 
@@ -99,11 +112,11 @@
   </xsl:template>
 
 
-<!--~~~~~~~~~~~~~~~~~~~~
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       Previous element
-    ~~~~~~~~~~~~~~~~~~~~-->
-<!-- find title of element with a date closest before the specified date -->
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+  <!-- find title of element with a date closest before the specified date -->
   <xsl:template name="date.prev.title">
     <xsl:param name="date" /><!-- string (format 'YYYY-MM-DD') -->
     <xsl:param name="elements" /><!-- node-set (with 'title' and 'date' children) -->
@@ -125,11 +138,11 @@
   </xsl:template>
 
 
-<!--~~~~~~~~~~~~~~~~~~~~
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         Next element
-    ~~~~~~~~~~~~~~~~~~~~-->
-<!-- find title of element with a date closest after the specified date -->
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+  <!-- find title of element with a date closest after the specified date -->
   <xsl:template name="date.next.title">
     <xsl:param name="date" /><!-- string (format 'YYYY-MM-DD') -->
     <xsl:param name="elements" /><!-- node-set (with 'title' and 'date' children) -->
