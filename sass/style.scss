@@ -54,13 +54,18 @@ $shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 \* ------------------------ */
 
 .x2b-expnd.collapsed {
-  visibility: visible;
-  margin-bottom: (1.5 * $spacer-y);
+//  visibility: visible;
+//  margin-bottom: (1.5 * $spacer-y);
+  height: (3 * $spacer-y);
 }
 .x2b-expnd {
+  //  visibility: hidden;
+  //  margin-bottom: (-1 * $spacer-y);
+  //  transition: margin .35s ease;
   display: block;
-  visibility: hidden;
-  margin-bottom: (-1 * $spacer-y);
+  height: 0;
+  overflow: hidden;
+  transition: height .35s ease;
 }
 
 
@@ -91,7 +96,9 @@ $shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 \* -------------------- */
 
 .x2b-nvbr {
-  transition: transform 250ms, background-color 0.5s, box-shadow 0.5s;
+  transition: transform .25s,
+              background-color .5s linear,
+              box-shadow .25s linear;
 }
 
 
