@@ -54,14 +54,9 @@ $shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 \* ------------------------ */
 
 .x2b-expnd.collapsed {
-//  visibility: visible;
-//  margin-bottom: (1.5 * $spacer-y);
-  height: (3 * $spacer-y);
+  height: (2 * $spacer-y);
 }
 .x2b-expnd {
-  //  visibility: hidden;
-  //  margin-bottom: (-1 * $spacer-y);
-  //  transition: margin .35s ease;
   display: block;
   height: 0;
   overflow: hidden;

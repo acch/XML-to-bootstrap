@@ -56,7 +56,7 @@
       </div>
 
       <!-- link to expand collapsed section -->
-      <a class="x2b-expnd collapsed" data-toggle="collapse" href="#intrdctn" aria-expanded="false" aria-controls="intrdctn">More...</a>
+      <a class="x2b-expnd collapsed m-b-1" data-toggle="collapse" href="#intrdctn" aria-expanded="false" aria-controls="intrdctn">More...</a>
 
     </div><!-- /introduction -->
 
