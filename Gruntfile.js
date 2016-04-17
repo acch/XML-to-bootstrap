@@ -17,7 +17,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     clean: {
-      publish: ['publish/*', 'css/*', 'js/options.json', 'js/scrollPosStyler.js', 'js/photoswipe*.js']
+      publish: ['publish/*', 'css/*', 'js/options.json', 'js/headroom.js', 'js/photoswipe*.js', 'js/scrollPosStyler.js']
     },
 
     xsltproc: {
