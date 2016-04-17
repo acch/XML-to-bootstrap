@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 
   // variables
   // TODO: store all path in an object
-  var bootstrap_path = 'lib/bootstrap';
+  var bootstrap_path = 'modules/bootstrap';
   var scrollposstyler_path = 'lib/scrollpos-styler';
   var fontawesome_path = 'lib/font-awesome';
   var headroom_path = 'lib/headroom.js';
