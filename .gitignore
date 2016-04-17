@@ -10,8 +10,4 @@ js/options.json
 js/headroom.js
 js/photoswipe*.js
 js/scrollPosStyler.js
-lib/font-awesome
-lib/headroom.js
-lib/jquery
-lib/photoswipe
-lib/scrollpos-styler
+lib
