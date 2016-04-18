@@ -11,12 +11,6 @@
     "scrollpos-styler": "*"
   },
   "exportsOverride": {
-    "bootstrap": {
-      "css": "dist/css/*.min.css",
-      "js": "dist/js/*.min.js",
-      "less": "less/variables.less",
-      "sass": ["scss/_variables.scss", "scss/mixins/_breakpoints.scss"]
-    },
     "font-awesome": {
       "css": "css/font-awesome.min.css"
     }
