@@ -26,6 +26,8 @@
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      Constants
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <!-- define some styles which are used all over the place -->
   <xsl:variable name="style.maincolumn">col-xs-12</xsl:variable>
   <xsl:variable name="style.sidebar.maincolumn">col-md-8</xsl:variable>
   <xsl:variable name="style.sidebar.sidecolumn">hidden-sm-down [ col-md-4 col-lg-3 col-lg-offset-1 ]</xsl:variable>
