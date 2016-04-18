@@ -4,13 +4,14 @@ module.exports = function(grunt) {
   // dependencies
   var path = require('path');
 
-  // variables
-  // TODO: store all path in an object
-  var bootstrap_path = 'modules/bootstrap';
-  var scrollposstyler_path = 'lib/scrollpos-styler';
-  var fontawesome_path = 'lib/font-awesome';
-  var headroom_path = 'lib/headroom.js';
-  var photoswipe_path = 'lib/photoswipe';
+  // path definitions
+  var pathdef = {
+    'bootstrap':       'modules/bootstrap',
+    'fontawesome':     'lib/font-awesome',
+    'headroom':        'lib/headroom.js',
+    'photoswipe':      'lib/photoswipe',
+    'scrollposstyler': 'lib/scrollpos-styler'
+  };
 
   // project configuration
   grunt.initConfig({
@@ -58,7 +59,7 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: bootstrap_path,
+            cwd: pathdef.bootstrap,
             src: '**/bootstrap*.min.css',
             dest: 'publish/css/'
           },
@@ -66,7 +67,7 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: bootstrap_path,
+            cwd: pathdef.bootstrap,
             src: '**/bootstrap.min.js',
             dest: 'publish/js/'
           },
@@ -74,7 +75,15 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: scrollposstyler_path,
+            cwd: pathdef.bootstrap,
+            src: ['**/_variables.scss', '**/_breakpoints.scss'],
+            dest: 'sass/'
+          },
+          {
+            expand: true,
+            flatten: true,
+            nonull: true,
+            cwd: pathdef.scrollposstyler,
             src: '**/scrollPosStyler.js',
             dest: 'js/'
           },
@@ -82,7 +91,7 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: fontawesome_path,
+            cwd: pathdef.fontawesome,
             src: '**/font-awesome.min.css',
             dest: 'publish/css/'
           },
@@ -90,7 +99,7 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: headroom_path,
+            cwd: pathdef.headroom,
             src: '**/headroom.js',
             dest: 'js/'
           },
@@ -98,7 +107,7 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: photoswipe_path,
+            cwd: pathdef.photoswipe,
             src: ['**/photoswipe.css', '**/default-skin.css'],
             dest: 'css/'
           },
@@ -106,7 +115,7 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: photoswipe_path,
+            cwd: pathdef.photoswipe,
             src: '**/photoswipe*.js',
             dest: 'js/'
           }
@@ -227,49 +236,12 @@ module.exports = function(grunt) {
     });
   });
 
-  // copy bootstrap variables
-  grunt.registerTask('copy_variables', function() {
-    // check if variables.scss already exists
-    if (! grunt.file.exists('sass/_variables.scss')) {
-
-      // find variables.scss in bootstrap_path
-      var bootstrap_config_path = grunt.file.expand({ cwd: bootstrap_path }, '**/_variables.scss')[0];
-      if (! bootstrap_config_path) {
-        // variables.scss not found
-        grunt.log.error('Bootstrap variables _variables.scss not found!');
-        return false;
-      }
-
-      grunt.log.writeln('Copying Bootstrap variables: ' + bootstrap_config_path);
-
-      // Copy variables.scss
-      grunt.file.copy(path.join(bootstrap_path, bootstrap_config_path), 'sass/_variables.scss');
-    }
-
-    // check if breakpoints.scss already exists
-    if (! grunt.file.exists('sass/_breakpoints.scss')) {
-      // find breakpoints.scss in bootstrap_path
-      var bootstrap_breakpoints_path = grunt.file.expand({ cwd: bootstrap_path }, '**/_breakpoints.scss')[0];
-      if (! bootstrap_breakpoints_path) {
-        // breakpoints.scss not found
-        grunt.log.error('Bootstrap breakpoints _breakpoints.scss not found!');
-        return false;
-      }
-
-      grunt.log.writeln('Copying Bootstrap breakpoints: ' + bootstrap_breakpoints_path);
-
-      // Copy breakpoints.scss
-      grunt.file.copy(path.join(bootstrap_path, bootstrap_breakpoints_path), 'sass/_breakpoints.scss');
-    }
-  });
-
   // default task including everything
   grunt.registerTask('default', [
     'clean',
     'bower',
     'copy',
     'copy_samples',
-    'copy_variables',
     'xsltproc',
     'concat',
     'uglify',
@@ -286,7 +258,6 @@ module.exports = function(grunt) {
     'bower',
     'copy',
     'copy_samples',
-    'copy_variables',
     'xsltproc',
     'concat',
     'sass',
