@@ -1,5 +1,5 @@
 {
-  "name": "XML-to-Bootstrap",
+  "name": "XML-to-bootstrap",
   "description": "Transforms a generic XML document into Bootstrap HTML pages",
   "authors": ["Achim Christ"],
   "license": "MIT",
