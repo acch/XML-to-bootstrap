@@ -155,19 +155,27 @@
 
   </xsl:template>
 
-  <!-- icon in squared box -->
+  <!-- icon in squared box (button) -->
   <xsl:template name="element.icon.squared">
     <xsl:param name="icon" /><!-- string-->
     <xsl:param name="size" select="fa-lg" /><!-- string -->
     <xsl:param name="disabled" select="false()" /><!-- boolean -->
 
-    <xsl:variable name="disabled.class">
-       <xsl:if test="$disabled"> dsbld</xsl:if>
+    <xsl:variable name="btn.class">
+      <xsl:choose>
+        <xsl:when test="$disabled">btn-secondary</xsl:when>
+        <xsl:otherwise>btn-primary-outline</xsl:otherwise>
+      </xsl:choose>
     </xsl:variable>
 
-    <span class="[ fa {$icon} {$size} ] x2b-sqrd{$disabled.class}" aria-hidden="true">
-      <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
-    </span>
+    <button type="button" class="[ btn {$btn.class} ] x2b-sqrd">
+      <xsl:if test="$disabled">
+        <xsl:attribute name="disabled" />
+      </xsl:if>
+      <span class="fa {$icon} {$size} fa-fw" aria-hidden="true">
+        <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+      </span>
+    </button>
 
   </xsl:template>
 

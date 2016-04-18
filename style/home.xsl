@@ -100,7 +100,7 @@
           <!-- icon -->
           <xsl:choose>
             <xsl:when test="$articles">
-              <a href="articles.html" class="x2b-shdw">
+              <a href="articles.html">
                 <xsl:call-template name="element.icon.squared">
                   <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
                   <xsl:with-param name="size">fa-3x</xsl:with-param>
@@ -155,7 +155,7 @@
           <!-- icon -->
           <xsl:choose>
             <xsl:when test="$projects">
-              <a href="projects.html" class="x2b-shdw">
+              <a href="projects.html">
                 <xsl:call-template name="element.icon.squared">
                   <xsl:with-param name="icon">fa-rocket</xsl:with-param>
                   <xsl:with-param name="size">fa-3x</xsl:with-param>
@@ -210,7 +210,7 @@
           <!-- icon -->
           <xsl:choose>
             <xsl:when test="$galleries">
-              <a href="galleries.html" class="x2b-shdw">
+              <a href="galleries.html">
                 <xsl:call-template name="element.icon.squared">
                   <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
                   <xsl:with-param name="size">fa-3x</xsl:with-param>
