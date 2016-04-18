@@ -122,7 +122,7 @@
         <div class="{$style.cardcolumn}">
 
           <!-- project card -->
-          <div class="[ card card-block ]">
+          <div class="card card-block">
 
             <!-- project title -->
             <h3 class="card-title">
