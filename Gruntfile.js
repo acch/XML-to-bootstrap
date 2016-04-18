@@ -24,7 +24,6 @@ module.exports = function(grunt) {
         'js/headroom.js',
         'js/photoswipe*.js',
         'js/scrollPosStyler.js',
-        'less/variables.less',
         'sass/_variables.scss',
         'sass/_breakpoints.scss'
       ]
@@ -139,17 +138,6 @@ module.exports = function(grunt) {
         files: {
           'publish/js/script.js': 'publish/js/script.js',
           'publish/js/gallery.js': 'publish/js/gallery.js'
-        }
-      }
-    },
-
-    less: {
-      publish: {
-        options: {
-          strictMath: true
-        },
-        files: {
-          'publish/css/style.css': 'less/style.less'
         }
       }
     },

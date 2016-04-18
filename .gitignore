@@ -2,7 +2,6 @@ bower_components
 node_modules
 src/*.xml
 publish/*
-less/variables.less
 sass/_variables.scss
 sass/_breakpoints.scss
 css/*
