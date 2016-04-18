@@ -36,11 +36,6 @@
         <xsl:with-param name="title" select="/site/projects/title" />
         <xsl:with-param name="subtitle" select="/site/projects/subtitle" />
         <xsl:with-param name="content" select="/site/projects" />
-        <xsl:with-param name="content.sidebar">
-          <xsl:call-template name="projects.sidebar">
-            <xsl:with-param name="content" select="/site/projects" />
-          </xsl:call-template>
-        </xsl:with-param>
       </xsl:call-template>
 
     </ext:document>
@@ -157,46 +152,6 @@
       </xsl:for-each>
 
     </div><!-- /project cards -->
-
-  </xsl:template>
-
-
-<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     Project overview page sidebar
-     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
-  <xsl:template name="projects.sidebar">
-    <xsl:param name="content" /><!-- node-set (projects) -->
-
-    <nav>
-
-      <!-- find all years -->
-      <xsl:variable name="years">
-        <xsl:call-template name="date.years">
-          <xsl:with-param name="elements" select="$content/project" />
-        </xsl:call-template>
-      </xsl:variable>
-
-      <!-- iterate over all distinct years -->
-      <xsl:for-each select="ext:node-set($years)/year">
-        <xsl:sort order="descending" />
-
-        <!-- nav link section -->
-        <section title="{text()}">
-
-          <!-- find all projects from current year -->
-          <xsl:for-each select="$content/project[@id][starts-with(date, current())]">
-            <xsl:sort select="date" order="descending" />
-
-            <!-- nav link -->
-            <link title="{title}" href="#{@id}" />
-
-          </xsl:for-each>
-        </section>
-
-      </xsl:for-each>
-
-    </nav>
 
   </xsl:template>
 
