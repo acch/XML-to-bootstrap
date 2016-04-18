@@ -100,51 +100,63 @@
     </p>
 
     <!-- spacing -->
-    <hr class="invisible m-t-1 m-b-0" />
+    <hr class="invisible m-y-1" />
 
-    <!-- iterate over all projects -->
-    <xsl:for-each select="project">
-      <xsl:sort select="date" order="descending" />
+    <!-- project cards -->
+    <div class="row">
 
-      <!-- format filename -->
-      <xsl:variable name="filename">
-        <xsl:call-template name="format.filename">
-          <xsl:with-param name="string" select="title" />
-        </xsl:call-template>
-      </xsl:variable>
+      <!-- iterate over all projects -->
+      <xsl:for-each select="project">
+        <xsl:sort select="date" order="descending" />
 
-      <!-- format date -->
-      <xsl:variable name="date">
-        <xsl:call-template name="format.date">
-          <xsl:with-param name="date" select="date" />
-        </xsl:call-template>
-      </xsl:variable>
+        <!-- format filename -->
+        <xsl:variable name="filename">
+          <xsl:call-template name="format.filename">
+            <xsl:with-param name="string" select="title" />
+          </xsl:call-template>
+        </xsl:variable>
 
-      <!-- project short description -->
-      <h3 class="x2b-anchr" id="{@id}">
-        <a href="/project/{$filename}.html">
-          <xsl:value-of select="title" />
-        </a>
-      </h3>
+        <!-- format date -->
+        <xsl:variable name="date">
+          <xsl:call-template name="format.date">
+            <xsl:with-param name="date" select="date" />
+          </xsl:call-template>
+        </xsl:variable>
 
-      <p><strong>
-        <xsl:value-of select="subtitle" />
-      </strong></p>
+        <!-- responsive column -->
+        <div class="{$style.cardcolumn}">
 
-      <p>
-        <xsl:value-of select="short" />
-        <xsl:text> </xsl:text>
-        <a href="/project/{$filename}.html">
-          //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date" />
-        </a>
-      </p>
+          <!-- project card -->
+          <div class="[ card card-block ]">
 
-      <!-- divider -->
-      <xsl:if test="position() != last()">
-        <hr class="m-y-2" />
-      </xsl:if>
+            <!-- project title -->
+            <h3 class="card-title">
+              <a href="/project/{$filename}.html">
+                <xsl:value-of select="title" />
+              </a>
+            </h3>
 
-    </xsl:for-each>
+            <!-- project subtitle -->
+            <p class="card-text"><strong>
+              <xsl:value-of select="subtitle" />
+            </strong></p>
+
+            <!-- project description -->
+            <p class="card-text">
+              <xsl:value-of select="short" />
+              <xsl:text> </xsl:text>
+              <a href="/project/{$filename}.html">
+                //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date" />
+              </a>
+            </p>
+
+          </div><!-- /card -->
+
+        </div><!-- /column -->
+
+      </xsl:for-each>
+
+    </div><!-- /project cards -->
 
   </xsl:template>
 
