@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <options>
+  <!-- side-wide options -->
   <option name="site.title">Byteshell</option>
   <option name="site.author">Achim Christ</option>
 
+  <!-- the following options will be exported to JavaScript -->
   <export type="js">
     <option name="navbarOffset">240</option>
     <option name="navbarTolerance">5</option>
   </export>
 
+  <!-- stylesheets to import -->
   <option name="cdn.stylesheets">
-    <!--link rel="stylesheet" href="/css/bootstrap.min.css" /-->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <!--link rel="stylesheet" href="/css/bootstrap-theme.min.css" /-->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <!--link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" /-->
     <!--link rel="stylesheet" href="/css/font-awesome.min.css" /-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
   </option>
+
+  <!-- scripts to import -->
   <option name="cdn.scripts">
     <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
     <!--script src="/js/bootstrap.min.js"></script-->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="//cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
     <!--script src="//cdnjs.cloudflare.com/ajax/libs/headroom/0.7.0/headroom.min.js"></script-->
   </option>
 
+  <!-- social links -->
   <option name="sociallinks">
     <sociallink rel="license" href="//creativecommons.org/licenses/by/4.0/">fa-creative-commons</sociallink>
     <sociallink href="//github.com/acch">fa-github</sociallink>
