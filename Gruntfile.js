@@ -83,14 +83,6 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: pathdef.scrollposstyler,
-            src: '**/scrollPosStyler.js',
-            dest: 'js/'
-          },
-          {
-            expand: true,
-            flatten: true,
-            nonull: true,
             cwd: pathdef.fontawesome,
             src: '**/font-awesome.min.css',
             dest: 'publish/css/'
@@ -117,6 +109,14 @@ module.exports = function(grunt) {
             nonull: true,
             cwd: pathdef.photoswipe,
             src: '**/photoswipe*.js',
+            dest: 'js/'
+          },
+          {
+            expand: true,
+            flatten: true,
+            nonull: true,
+            cwd: pathdef.scrollposstyler,
+            src: '**/scrollPosStyler.js',
             dest: 'js/'
           }
         ]
