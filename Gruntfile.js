@@ -9,6 +9,7 @@ module.exports = function(grunt) {
     'bootstrap':       'modules/bootstrap',
     'fontawesome':     'lib/font-awesome',
     'headroom':        'lib/headroom.js',
+    'jquery':          'lib/jquery',
     'photoswipe':      'lib/photoswipe',
     'scrollposstyler': 'lib/scrollpos-styler'
   };
@@ -94,6 +95,14 @@ module.exports = function(grunt) {
             cwd: pathdef.headroom,
             src: '**/headroom.js',
             dest: 'js/'
+          },
+          {
+            expand: true,
+            flatten: true,
+            nonull: true,
+            cwd: pathdef.jquery,
+            src: '**/jquery.min.js',
+            dest: 'publish/js/'
           },
           {
             expand: true,

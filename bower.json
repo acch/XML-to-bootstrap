@@ -7,12 +7,16 @@
   "devDependencies": {
     "font-awesome": "*",
     "headroom.js": "*",
+    "jquery": "*",
     "photoswipe": "*",
     "scrollpos-styler": "*"
   },
   "exportsOverride": {
     "font-awesome": {
       "css": "css/font-awesome.min.css"
+    },
+    "jquery": {
+      "js": "dist/jquery.min.js"
     }
   }
 }

@@ -118,7 +118,17 @@
 
     <!-- scripts from options (CDN) -->
     <xsl:for-each select="/site/options/option[@name = 'cdn.scripts']/script">
-      <script src="{@src}">;</script>
+      <xsl:choose>
+        <xsl:when test="@src">
+          <script src="{@src}">;</script>
+        </xsl:when>
+        <xsl:otherwise>
+          <script>
+            <xsl:value-of select="node()" disable-output-escaping="yes" />
+          </script>
+        </xsl:otherwise>
+      </xsl:choose>
+
     </xsl:for-each>
 
     <!-- custom script -->
