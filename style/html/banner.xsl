@@ -36,7 +36,7 @@
       <div class="container">
 
         <!-- main title -->
-        <h1 class="display-3">
+        <h1 class="display-3 x2b-shdw">
           <xsl:value-of select="$title" />
         </h1>
 
