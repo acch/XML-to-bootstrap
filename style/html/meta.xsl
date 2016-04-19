@@ -24,8 +24,7 @@
   <!-- this template generates HTML code for the doctype -->
   <xsl:template name="html.doctype">
 
-    <xsl:text disable-output-escaping="yes"><![CDATA[<!DOCTYPE html>
-]]></xsl:text>
+    <xsl:text disable-output-escaping="yes"><![CDATA[<!DOCTYPE html>]]></xsl:text>
 
   </xsl:template>
 
@@ -68,10 +67,6 @@
     <!-- options -->
     <xsl:variable name="site.author" select="/site/options/option[@name = 'site.author']" />
 
-    <!-- newline -->
-    <xsl:text><![CDATA[
-]]></xsl:text>
-
     <!-- meta elements -->
     <meta charset="utf-8" />
     <meta name="author" content="{$site.author}" />
@@ -88,10 +83,6 @@
   <!-- this template generates HTML code for stylesheet links in document
        head -->
   <xsl:template name="html.head.link">
-
-    <!-- newline -->
-    <xsl:text><![CDATA[
-]]></xsl:text>
 
     <!-- stylesheets from options (CDN) -->
     <xsl:call-template name="copy.content">
@@ -111,10 +102,6 @@
   <!-- this template generates HTML code for scripts - imported at end of
        document -->
   <xsl:template name="html.script">
-
-    <!-- newline -->
-    <xsl:text><![CDATA[
-]]></xsl:text>
 
     <!-- scripts from options (CDN) -->
     <xsl:for-each select="/site/options/option[@name = 'cdn.scripts']/script">
