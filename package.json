@@ -24,6 +24,7 @@
     "grunt-contrib-htmlmin": "~0.4.0",
     "grunt-contrib-less": "~1.0.1",
     "grunt-contrib-uglify": "~0.9.2",
+    "grunt-prettify": "~0.4.0",
     "grunt-sass": "~1.1.0",
     "grunt-xsltproc": "~0.5.1",
     "load-grunt-tasks": "~3.2.0"

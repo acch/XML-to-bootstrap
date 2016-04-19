@@ -205,6 +205,13 @@ module.exports = function(grunt) {
       }
     },
 
+    prettify: {
+      publish: {
+        expand: true,
+        src: 'publish/**/*.html'
+      }
+    },
+
     connect: {
       server: {
         options: {
@@ -263,5 +270,6 @@ module.exports = function(grunt) {
     'sass',
     'autoprefixer',
     'csslint',
+    'prettify',
     'connect']);
 };
