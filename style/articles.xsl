@@ -100,7 +100,7 @@
     </p>
 
     <!-- spacing -->
-    <hr class="invisible m-t-1 m-b-0" />
+    <hr class="invisible m-t-2 m-b-0" />
 
     <!-- iterate over all articles -->
     <xsl:for-each select="article">
@@ -141,7 +141,7 @@
 
       <!-- divider -->
       <xsl:if test="position() != last()">
-        <hr class="m-y-2" />
+        <hr class="m-t-3 m-b-2" />
       </xsl:if>
 
     </xsl:for-each>
