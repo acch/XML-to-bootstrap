@@ -20,11 +20,11 @@ The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), 
 
   On Red Hat-like Linux:
 
-       # sudo dnf install xsltproc nodejs
+      # sudo dnf install xsltproc nodejs
 
   On Debian-like Linux:
 
-       # sudo apt-get install xsltproc nodejs
+      # sudo apt-get install xsltproc nodejs
 
 2. Several options are available for getting the code:
 
