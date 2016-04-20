@@ -16,15 +16,15 @@ The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), 
 
 ## Installation
 
-1. XML-to-Bootstrap requires a XSLT processor such as [xsltproc](http://xmlsoft.org/XSLT/xsltproc2.html), [Node.js](https://www.nodejs.org/) and [Bower](http://bower.io/):
+1. XML-to-Bootstrap requires a XSLT processor such as [xsltproc](http://xmlsoft.org/XSLT/xsltproc2.html), [Node.js](https://www.nodejs.org/):
 
   On Red Hat-like Linux:
 
-       # sudo dnf install xsltproc nodejs bower
+       # sudo dnf install xsltproc nodejs
 
   On Debian-like Linux:
 
-       # sudo apt-get install -y xsltproc nodejs bower
+       # sudo apt-get install xsltproc nodejs
 
 2. Several options are available for getting the code:
 
@@ -33,12 +33,13 @@ The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), 
 
 3. Once code is downloaded, `cd` into the directory and install necessary prerequisites:
 
-       # npm install
-       # bower install
+        # npm install
+        # npm install grunt-cli -g
+        # npm install bower -g
 
 4. With all prerequisites installed, build the project:
 
-       # grunt
+        # grunt
 
 5. If all goes well you end up with a set of static web pages in the `/publish` directory. Transfer them to your web server and enjoy!
 
