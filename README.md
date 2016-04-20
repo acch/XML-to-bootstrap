@@ -16,38 +16,46 @@ The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), 
 
 ## Installation
 
-XML-to-Bootstrap requires a XSLT processor such as [xsltproc](http://xmlsoft.org/XSLT/xsltproc2.html), [Node.js](https://www.nodejs.org/) and [Bower](http://bower.io/).
+1. XML-to-Bootstrap requires a XSLT processor such as [xsltproc](http://xmlsoft.org/XSLT/xsltproc2.html), [Node.js](https://www.nodejs.org/) and [Bower](http://bower.io/):
 
-Several options are available for getting the code:
+  On Red Hat-like Linux:
 
-- Download the latest [release](https://github.com/acch/XML-to-bootstrap/releases/latest) and extract to a local directory
-- Clone the repo: `git clone https://github.com/acch/XML-to-bootstrap.git`
+       # sudo dnf install xsltproc nodejs bower
 
-Once the code is downloaded, `cd` into the directory and install necessary prerequisites:
+  On Debian-like Linux:
 
-    # npm install
-    # bower install
+       # sudo apt-get install -y xsltproc nodejs bower
 
-With all prerequisites installed, build the project:
+2. Several options are available for getting the code:
 
-    # grunt
+   - Download the latest [release](https://github.com/acch/XML-to-bootstrap/releases/latest) and extract to a local directory
+   - Clone the repo: `git clone https://github.com/acch/XML-to-bootstrap.git`
 
-If all goes well you end up with a set of static web pages in the `/publish` directory. Transfer them to your web server and enjoy.
+3. Once code is downloaded, `cd` into the directory and install necessary prerequisites:
+
+       # npm install
+       # bower install
+
+4. With all prerequisites installed, build the project:
+
+       # grunt
+
+5. If all goes well you end up with a set of static web pages in the `/publish` directory. Transfer them to your web server and enjoy!
 
 ## Usage
 
 The following Grunt tasks are available:
 
 - clean -
-  Deletes
+  Deletes previously produced output
 - default -
   Produces minified output
 - debug -
-  Skips minification and instead produces prettified output
+  Skips minification and instead produces pretty output
 
 ## Development and Extension
 
-How to read the code.
+TODO: How to read the code.
 
 Please consider making your modifications and extensions available to others. Refer to the [CONTRIBUTING](CONTRIBUTING.md) document for details.
 
