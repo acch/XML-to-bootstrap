@@ -8,26 +8,42 @@ XML-to-Bootstrap is a set of tools to generate web pages.
 Input is defined in the form of an *Extensible Markup Language* ([XML](https://en.wikipedia.org/wiki/XML)) document.
 The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) and [JavaScript](https://en.wikipedia.org/wiki/JavaScript) files. The transformation is performed by using *Extensible Stylesheet Language Transformations* ([XSLT](https://en.wikipedia.org/wiki/XSLT)), as well as several JavaScript utilities invoked as [Grunt](https://gruntjs.com/) tasks.
 
-## Highlights
+### Features
 
 - Produces clean, fast HTML5 pages
+- Static web pages compatible with any web server
 - Uses [schema.org](https://schema.org) vocabularies to optimize pages for search engines [WIP]
 
 ## Installation
 
 XML-to-Bootstrap requires a XSLT processor such as [xsltproc](http://xmlsoft.org/XSLT/xsltproc2.html), [Node.js](https://www.nodejs.org/) and [Bower](http://bower.io/).
 
-Several options are available for installation:
+Several options are available for getting the code:
 
-- Download the latest [release](https://github.com/acch/XML-to-bootstrap/releases/latest)
+- Download the latest [release](https://github.com/acch/XML-to-bootstrap/releases/latest) and extract to a local directory
 - Clone the repo: `git clone https://github.com/acch/XML-to-bootstrap.git`
+
+Once the code is downloaded, `cd` into the directory and install necessary prerequisites:
+
+    # npm install
+    # bower install
+
+With all prerequisites installed, build the project:
+
+    # grunt
+
+If all goes well you end up with a set of static web pages in the `/publish` directory. Transfer them to your web server and enjoy.
 
 ## Usage
 
-Available Grunt tasks:
+The following Grunt tasks are available:
 
-- default
-- debug
+- clean -
+  Deletes
+- default -
+  Produces minified output
+- debug -
+  Skips minification and instead produces prettified output
 
 ## Development and Extension
 
