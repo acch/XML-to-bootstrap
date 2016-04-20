@@ -16,7 +16,7 @@ The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), 
 
 ## Installation
 
-1. XML-to-Bootstrap requires a XSLT processor such as [xsltproc](http://xmlsoft.org/XSLT/xsltproc2.html), [Node.js](https://www.nodejs.org/):
+1. XML-to-Bootstrap requires a XSLT processor such as [xsltproc](http://xmlsoft.org/XSLT/xsltproc2.html), as well as [Node.js](https://www.nodejs.org/):
 
   On Red Hat-like Linux:
 
@@ -31,11 +31,11 @@ The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), 
    - Download the latest [release](https://github.com/acch/XML-to-bootstrap/releases/latest) and extract to a local directory
    - Clone the repo: `git clone https://github.com/acch/XML-to-bootstrap.git`
 
-3. Once code is downloaded, `cd` into the directory and install necessary prerequisites:
+3. Once code is downloaded, `cd` into the directory and install necessary prerequisites (including [Grunt](https://gruntjs.com/) and [Bower](https://bower.io/)):
 
         # npm install
-        # npm install grunt-cli -g
-        # npm install bower -g
+        # npm install -g grunt-cli
+        # npm install -g bower
 
 4. With all prerequisites installed, build the project:
 
