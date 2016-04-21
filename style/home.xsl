@@ -73,7 +73,7 @@
           <h3 class="card-title">
             <xsl:choose>
               <xsl:when test="$articles">
-                <a href="articles.html">
+                <a href="{$site.url}articles.html">
                   <xsl:value-of select="/site/articles/title" />
                 </a>
               </xsl:when>
@@ -100,7 +100,7 @@
           <!-- icon -->
           <xsl:choose>
             <xsl:when test="$articles">
-              <a href="articles.html">
+              <a href="{$site.url}articles.html">
                 <xsl:call-template name="element.icon.squared">
                   <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
                   <xsl:with-param name="size">fa-3x</xsl:with-param>
@@ -128,7 +128,7 @@
           <h3 class="card-title">
             <xsl:choose>
               <xsl:when test="$projects">
-                <a href="projects.html">
+                <a href="{$site.url}projects.html">
                   <xsl:value-of select="/site/projects/title" />
                 </a>
               </xsl:when>
@@ -155,7 +155,7 @@
           <!-- icon -->
           <xsl:choose>
             <xsl:when test="$projects">
-              <a href="projects.html">
+              <a href="{$site.url}projects.html">
                 <xsl:call-template name="element.icon.squared">
                   <xsl:with-param name="icon">fa-rocket</xsl:with-param>
                   <xsl:with-param name="size">fa-3x</xsl:with-param>
@@ -183,7 +183,7 @@
           <h3 class="card-title">
             <xsl:choose>
               <xsl:when test="$galleries">
-                <a href="galleries.html">
+                <a href="{$site.url}galleries.html">
                   <xsl:value-of select="/site/galleries/title" />
                 </a>
               </xsl:when>
@@ -210,7 +210,7 @@
           <!-- icon -->
           <xsl:choose>
             <xsl:when test="$galleries">
-              <a href="galleries.html">
+              <a href="{$site.url}galleries.html">
                 <xsl:call-template name="element.icon.squared">
                   <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
                   <xsl:with-param name="size">fa-3x</xsl:with-param>

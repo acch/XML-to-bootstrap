@@ -38,7 +38,7 @@
     <ol class="breadcrumb">
 
       <li>
-        <a href="/">Home</a>
+        <a href="{$site.url}">Home</a>
       </li>
 
       <xsl:if test="$parent.page">
