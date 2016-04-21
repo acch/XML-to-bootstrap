@@ -126,7 +126,7 @@
 
             <!-- project title -->
             <h3 class="card-title">
-              <a href="/project/{$filename}.html">
+              <a href="{$site.url}project/{$filename}.html">
                 <xsl:value-of select="title" />
               </a>
             </h3>
@@ -140,7 +140,7 @@
             <p class="card-text">
               <xsl:value-of select="short" />
               <xsl:text> </xsl:text>
-              <a href="/project/{$filename}.html">
+              <a href="{$site.url}project/{$filename}.html">
                 //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date" />
               </a>
             </p>
@@ -172,7 +172,7 @@
     <!-- navigation breadcrumps -->
     <xsl:call-template name="element.breadcrumps">
       <xsl:with-param name="parent">
-        <page title="{/site/projects/title}" href="/projects.html" />
+        <page title="{/site/projects/title}" href="{$site.url}projects.html" />
       </xsl:with-param>
       <xsl:with-param name="current" select="title" />
     </xsl:call-template>
@@ -227,7 +227,7 @@
       <xsl:with-param name="prev">
         <xsl:if test="$prev != ''">
           <page title="{$prev}">
-            <xsl:attribute name="href">/project/<xsl:call-template name="format.filename">
+            <xsl:attribute name="href"><xsl:value-of select="$site.url" />project/<xsl:call-template name="format.filename">
               <xsl:with-param name="string" select="$prev" />
             </xsl:call-template>.html</xsl:attribute>
           </page>
@@ -238,7 +238,7 @@
       <xsl:with-param name="next">
         <xsl:if test="$next != ''">
           <page title="{$next}">
-            <xsl:attribute name="href">/project/<xsl:call-template name="format.filename">
+            <xsl:attribute name="href"><xsl:value-of select="$site.url" />project/<xsl:call-template name="format.filename">
               <xsl:with-param name="string" select="$next" />
             </xsl:call-template>.html</xsl:attribute>
           </page>

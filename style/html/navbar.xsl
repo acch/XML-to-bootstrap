@@ -38,7 +38,7 @@
         <div class="collapse navbar-toggleable-xs" id="cllpsNvbr">
 
           <!-- site title -->
-          <a class="navbar-brand m-x-1" href="/">
+          <a class="navbar-brand m-x-1" href="{$site.url}">
             <xsl:value-of select="$site.title" />
           </a>
 
@@ -53,7 +53,7 @@
               </xsl:variable>
 
               <li class="nav-item{$active} m-x-1">
-                <a class="nav-link" href="/articles.html">
+                <a class="nav-link" href="{$site.url}articles.html">
 
                   <!-- icon and title -->
                   <xsl:call-template name="element.icon">
@@ -81,7 +81,7 @@
               </xsl:variable>
 
               <li class="nav-item{$active} m-x-1">
-                <a class="nav-link" href="/projects.html">
+                <a class="nav-link" href="{$site.url}projects.html">
 
                   <!-- icon and title -->
                   <xsl:call-template name="element.icon">
@@ -109,7 +109,7 @@
               </xsl:variable>
 
               <li class="nav-item{$active} m-x-1">
-                <a class="nav-link" href="/galleries.html">
+                <a class="nav-link" href="{$site.url}galleries.html">
 
                   <!-- icon and title -->
                   <xsl:call-template name="element.icon">

@@ -260,9 +260,7 @@
       <xsl:with-param name="prev">
         <xsl:if test="$prev != ''">
           <page title="{$prev}">
-            <xsl:attribute name="href">
-              <xsl:value-of select="$site.url" />
-              /article/<xsl:call-template name="format.filename">
+            <xsl:attribute name="href"><xsl:value-of select="$site.url" />article/<xsl:call-template name="format.filename">
               <xsl:with-param name="string" select="$prev" />
             </xsl:call-template>.html</xsl:attribute>
           </page>
@@ -273,9 +271,7 @@
       <xsl:with-param name="next">
         <xsl:if test="$next != ''">
           <page title="{$next}">
-            <xsl:attribute name="href">
-              <xsl:value-of select="$site.url" />
-              /article/<xsl:call-template name="format.filename">
+            <xsl:attribute name="href"><xsl:value-of select="$site.url" />article/<xsl:call-template name="format.filename">
               <xsl:with-param name="string" select="$next" />
             </xsl:call-template>.html</xsl:attribute>
           </page>
