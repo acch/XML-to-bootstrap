@@ -2,9 +2,9 @@
 
 <options>
   <!-- side-wide options -->
-  <option name="site.title">Byteshell</option>
+  <option name="site.title">XML-to-Bootstrap</option>
   <option name="site.author">Achim Christ</option>
-  <option name="site.baseurl">//localhost:8000/</option>
+  <option name="site.url">//localhost:8000/publish/</option>
 
   <!-- the following options will be exported to JavaScript -->
   <export type="js">
@@ -23,14 +23,14 @@
   <!-- scripts to import -->
   <option name="cdn.scripts">
     <script src="//code.jquery.com/jquery-2.2.3.min.js" />
-    <script><![CDATA[window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')]]></script>
+    <script><![CDATA[window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')]]></script>
     <!--script src="js/bootstrap.min.js" /-->
     <script src="//cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js" />
     <!--script src="//cdnjs.cloudflare.com/ajax/libs/headroom/0.7.0/headroom.min.js" /-->
   </option>
 
   <!-- social links -->
-  <option name="sociallinks">
+  <option name="site.sociallinks">
     <sociallink rel="license" href="//creativecommons.org/licenses/by/4.0/">fa-creative-commons</sociallink>
     <sociallink href="//github.com/acch">fa-github</sociallink>
     <sociallink href="//github.com/acch/feedback">fa-envelope</sociallink>
