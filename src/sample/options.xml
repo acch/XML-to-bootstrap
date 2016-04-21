@@ -4,6 +4,7 @@
   <!-- side-wide options -->
   <option name="site.title">Byteshell</option>
   <option name="site.author">Achim Christ</option>
+  <option name="site.baseurl">//localhost:8000/</option>
 
   <!-- the following options will be exported to JavaScript -->
   <export type="js">
@@ -13,17 +14,17 @@
 
   <!-- stylesheets to import -->
   <option name="cdn.stylesheets">
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <!--link rel="stylesheet" href="//cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" /-->
-    <!--link rel="stylesheet" href="/css/font-awesome.min.css" /-->
+    <!--link rel="stylesheet" href="css/font-awesome.min.css" /-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
   </option>
 
   <!-- scripts to import -->
   <option name="cdn.scripts">
     <script src="//code.jquery.com/jquery-2.2.3.min.js" />
-    <script><![CDATA[window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')]]></script>
-    <!--script src="/js/bootstrap.min.js" /-->
+    <script><![CDATA[window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')]]></script>
+    <!--script src="js/bootstrap.min.js" /-->
     <script src="//cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js" />
     <!--script src="//cdnjs.cloudflare.com/ajax/libs/headroom/0.7.0/headroom.min.js" /-->
   </option>

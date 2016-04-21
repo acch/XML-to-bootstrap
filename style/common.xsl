@@ -27,6 +27,28 @@
      Constants
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+  <!-- define the site's base URL -->
+  <xsl:variable name="site.url">
+
+    <!-- get base URL from options -->
+    <xsl:variable name="url">
+      <xsl:value-of select="/site/options/option[@name = 'site.url']" />
+    </xsl:variable>
+
+    <!-- prepend leading slashes if necessary -->
+    <xsl:if test="not(starts-with($url, '//'))">
+      <xsl:text disable-output-escaping="yes">//</xsl:text>
+    </xsl:if>
+
+    <xsl:value-of select="$url" />
+
+    <!-- append trailing slash if necessary -->
+    <xsl:if test="not(substring($url, string-length($url)) = '/')"><!-- ends-with($url, '/') -->
+      <xsl:text disable-output-escaping="yes">/</xsl:text>
+    </xsl:if>
+
+  </xsl:variable>
+
   <!-- define some styles which are used all over the place -->
   <xsl:variable name="style.maincolumn">col-xs-12</xsl:variable>
   <xsl:variable name="style.sidebar.maincolumn">col-md-8</xsl:variable>

@@ -90,7 +90,7 @@
     </xsl:call-template>
 
     <!-- custom stylesheet -->
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="{$site.url}css/style.css" />
 
   </xsl:template>
 
@@ -119,7 +119,7 @@
     </xsl:for-each>
 
     <!-- custom script -->
-    <script src="/js/script.js">;</script>
+    <script src="{$site.url}js/script.js">;</script>
 
   </xsl:template>
 
