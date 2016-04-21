@@ -50,7 +50,7 @@
     <div class="container text-xs-center">
 
       <!-- iterate over all social links -->
-      <xsl:for-each select="/site/options/option[@name = 'sociallinks']/sociallink">
+      <xsl:for-each select="/site/options/option[@name = 'site.sociallinks']/sociallink">
         <a>
 
           <!-- copy attributes from XML directly -->
