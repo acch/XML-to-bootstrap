@@ -85,9 +85,22 @@
   <xsl:template name="html.head.link">
 
     <!-- stylesheets from options (CDN) -->
-    <xsl:call-template name="copy.content">
-      <xsl:with-param name="content" select="/site/options/option[@name = 'cdn.stylesheets']" />
-    </xsl:call-template>
+    <xsl:for-each select="/site/options/option[@name = 'cdn.stylesheets']/link">
+
+      <link rel="stylesheet">
+        <xsl:attribute name="href">
+
+          <!-- prepend base URL if necessary -->
+          <xsl:if test="not(starts-with(@href, '//'))">
+            <xsl:value-of select="$site.url" />
+          </xsl:if>
+
+          <xsl:value-of select="@href" />
+
+        </xsl:attribute>
+      </link>
+
+    </xsl:for-each>
 
     <!-- custom stylesheet -->
     <link rel="stylesheet" href="{$site.url}css/style.css" />
@@ -105,14 +118,33 @@
 
     <!-- scripts from options (CDN) -->
     <xsl:for-each select="/site/options/option[@name = 'cdn.scripts']/script">
+
       <xsl:choose>
         <xsl:when test="@src">
-          <script src="{@src}">;</script>
+
+          <!-- import external script -->
+          <script>
+            <xsl:attribute name="src">
+
+              <!-- prepend base URL if necessary -->
+              <xsl:if test="not(starts-with(@src, '//'))">
+                <xsl:value-of select="$site.url" />
+              </xsl:if>
+
+              <xsl:value-of select="@src" />
+
+            </xsl:attribute>
+            ;
+          </script>
+
         </xsl:when>
         <xsl:otherwise>
+
+          <!-- copy local script -->
           <script>
             <xsl:value-of select="node()" disable-output-escaping="yes" />
           </script>
+
         </xsl:otherwise>
       </xsl:choose>
 
