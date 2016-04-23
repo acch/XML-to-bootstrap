@@ -4,7 +4,7 @@
   <!-- side-wide options -->
   <option name="site.title">XML-to-Bootstrap</option>
   <option name="site.author">Achim Christ</option>
-  <option name="site.url">//localhost:8000/publish/</option>
+  <option name="site.url">//localhost:8000/</option>
 
   <!-- the following options will be exported to JavaScript -->
   <export type="js">
