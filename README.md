@@ -12,6 +12,7 @@ The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), 
 
 - Produces clean, fast HTML5 pages
 - Static web pages compatible with any web server
+- Fully themable with custom Bootstrap build
 - Uses [schema.org](https://schema.org) vocabularies to optimize pages for search engines [WIP]
 
 ## Installation
@@ -41,7 +42,7 @@ The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), 
         # npm install -g grunt-cli
         # npm install -g bower
 
-4. Bootstrap is integrated as a git submodule. Fetch it with the following commands:
+4. Bootstrap is integrated as a [git submodule](https://git-scm.com/docs/git-submodule). Fetch it with the following commands:
 
         # cd modules/bootstrap
         # git submodule init
