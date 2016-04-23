@@ -10,6 +10,8 @@ The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), 
 
 ### Features
 
+Take a look at the [Demo](https://acch.github.io/XML-to-bootstrap/) to understand how generated pages look like.
+
 - Produces clean, fast HTML5 pages
 - Static web pages compatible with any web server
 - Fully themable with custom Bootstrap build
@@ -42,7 +44,7 @@ The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), 
         # npm install -g grunt-cli
         # npm install -g bower
 
-4. Bootstrap is integrated as a [git submodule](https://git-scm.com/docs/git-submodule). Fetch it with the following commands:
+4. Bootstrap is integrated as a git [submodule](https://git-scm.com/docs/git-submodule). Fetch it with the following commands:
 
         # cd modules/bootstrap
         # git submodule init
