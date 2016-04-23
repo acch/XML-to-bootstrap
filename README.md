@@ -26,6 +26,10 @@ The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), 
 
       # sudo apt-get install xsltproc nodejs
 
+  On Arch-like Linux:
+
+      # sudo pacman -S libxslt nodejs
+
 2. Several options are available for getting the code:
 
    - Download the latest [release](https://github.com/acch/XML-to-bootstrap/releases/latest) and extract to a local directory
@@ -37,11 +41,18 @@ The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), 
         # npm install -g grunt-cli
         # npm install -g bower
 
-4. With all prerequisites installed, build the project:
+4. Bootstrap is integrated as a git submodule. Fetch it with the following commands:
+
+        # cd modules/bootstrap
+        # git submodule init
+        # git submodule update
+        # cd ../..
+
+5. With all prerequisites installed and submodules updated, build the project:
 
         # grunt
 
-5. If all goes well you end up with a set of static web pages in the `/publish` directory. Transfer them to your web server and enjoy!
+6. If all goes well you end up with a set of static web pages in the `/publish` directory. Transfer them to your web server and enjoy!
 
 ## Usage
 
