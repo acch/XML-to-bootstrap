@@ -10,6 +10,15 @@
 .x2b-shdw {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25); }
 
+/* -------------------- *        Link styles
+\* -------------------- */
+a.x2b-txt-lnk {
+  color: #373a3c;
+  text-decoration: none !important; }
+  a.x2b-txt-lnk:focus, a.x2b-txt-lnk:hover {
+    color: #373a3c;
+    text-decoration: none !important; }
+
 /* -------------------- *        Icon styles
 \* -------------------- */
 .x2b-sqrd {
