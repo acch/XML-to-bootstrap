@@ -10,11 +10,12 @@ The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), 
 
 ### Features
 
-Take a look at the [Demo](https://acch.github.io/XML-to-bootstrap/) to understand how generated pages look like.
+Take a look at the [Demo](https://acch.github.io/XML-to-bootstrap/) site to understand how generated pages look like.
 
-- Produces clean, fast HTML5 pages
+- Produces clean, fast HTML5 code
 - Static web pages compatible with any web server
-- Fully themable with custom Bootstrap build
+- Compatible with latest and greatest Bootstrap v4
+- Fully themable with custom Bootstrap builds
 - Uses [schema.org](https://schema.org) vocabularies to optimize pages for search engines [WIP]
 
 ## Installation
@@ -23,11 +24,11 @@ Take a look at the [Demo](https://acch.github.io/XML-to-bootstrap/) to understan
 
   On Red Hat-like Linux:
 
-      # sudo dnf install xsltproc nodejs
+      # sudo dnf install libxslt nodejs
 
   On Debian-like Linux:
 
-      # sudo apt-get install xsltproc nodejs
+      # sudo apt-get install libxslt nodejs
 
   On Arch-like Linux:
 
@@ -46,10 +47,8 @@ Take a look at the [Demo](https://acch.github.io/XML-to-bootstrap/) to understan
 
 4. Bootstrap is integrated as a git [submodule](https://git-scm.com/docs/git-submodule). Fetch it with the following commands:
 
-        # cd modules/bootstrap
         # git submodule init
         # git submodule update
-        # cd ../..
 
 5. With all prerequisites installed and submodules updated, build the project:
 
