@@ -43,7 +43,11 @@
     <!-- document head -->
     <head>
       <title>
-        <xsl:value-of select="$page.title" /> · <xsl:value-of select="$site.title" />
+        <xsl:value-of select="$page.title" />
+        <xsl:text> </xsl:text>
+        <xsl:text disable-output-escaping="yes">&amp;middot;</xsl:text>
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="$site.title" />
       </title>
 
       <!-- generate meta elements -->
