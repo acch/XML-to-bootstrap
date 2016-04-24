@@ -43,7 +43,7 @@
     <!-- document head -->
     <head>
       <title>
-        <xsl:value-of select="$site.title" /> · <xsl:value-of select="$page.title" />
+        <xsl:value-of select="$page.title" /> · <xsl:value-of select="$site.title" />
       </title>
 
       <!-- generate meta elements -->
