@@ -97,6 +97,12 @@
     <!-- spacing -->
     <hr class="invisible m-y-1" />
 
+    <xsl:if test="not(project)">
+      <p><strong>
+        There are no projects, yet. Why don't you create one?
+      </strong></p>
+    </xsl:if>
+
     <!-- project cards -->
     <div class="row">
 

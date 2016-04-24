@@ -102,6 +102,12 @@
     <!-- spacing -->
     <hr class="invisible m-t-2 m-b-0" />
 
+    <xsl:if test="not(article)">
+      <p><strong>
+        There are no articles, yet. Why don't you create one?
+      </strong></p>
+    </xsl:if>
+
     <!-- iterate over all articles -->
     <xsl:for-each select="article">
       <xsl:sort select="date" order="descending" />

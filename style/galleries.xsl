@@ -92,6 +92,12 @@
     <!-- spacing -->
     <hr class="invisible m-y-1" />
 
+    <xsl:if test="not(gallery)">
+      <p><strong>
+        There are no galleries, yet. Why don't you create one?
+      </strong></p>
+    </xsl:if>
+
     <!-- project cards -->
     <div class="row">
 
