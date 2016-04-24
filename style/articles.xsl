@@ -93,11 +93,11 @@
     </xsl:call-template>
 
     <!-- spacing -->
-    <hr class="invisible m-y-1" />
+    <!--hr class="invisible m-y-1" /-->
 
-    <p class="text-muted">
+    <!--p class="text-muted">
       Click on the title to continue reading<xsl:text disable-output-escaping="yes">&amp;hellip;</xsl:text>
-    </p>
+    </p-->
 
     <!-- spacing -->
     <hr class="invisible m-t-2 m-b-0" />
@@ -120,24 +120,31 @@
         </xsl:call-template>
       </xsl:variable>
 
-      <!-- article short description -->
+      <!-- article title -->
       <h3 class="x2b-anchr" id="{@id}">
         <a href="{$site.url}article/{$filename}.html">
           <xsl:value-of select="title" />
         </a>
       </h3>
 
-      <p><strong>
-        <xsl:value-of select="subtitle" />
-      </strong></p>
+      <a class="x2b-txt-lnk" href="{$site.url}article/{$filename}.html">
 
-      <p>
-        <xsl:value-of select="short" />
-        <xsl:text> </xsl:text>
-        <a href="{$site.url}article/{$filename}.html">
-          //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date" />
-        </a>
-      </p>
+        <!-- article subtitle -->
+        <p><strong>
+          <xsl:value-of select="subtitle" />
+        </strong></p>
+
+        <!-- article description -->
+        <p>
+          <xsl:value-of select="short" />
+
+          <xsl:text> </xsl:text>
+
+          <span class="text-muted">
+            //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date" />
+          </span>
+        </p>
+      </a>
 
       <!-- divider -->
       <xsl:if test="position() != last()">

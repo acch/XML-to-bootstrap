@@ -88,11 +88,11 @@
     </xsl:call-template>
 
     <!-- spacing -->
-    <hr class="invisible m-y-1" />
+    <!--hr class="invisible m-y-1" /-->
 
-    <p class="text-muted">
+    <!--p class="text-muted">
       Click on the title to continue reading<xsl:text disable-output-escaping="yes">&amp;hellip;</xsl:text>
-    </p>
+    </p-->
 
     <!-- spacing -->
     <hr class="invisible m-y-1" />
@@ -131,19 +131,24 @@
               </a>
             </h3>
 
-            <!-- project subtitle -->
-            <p class="card-text"><strong>
-              <xsl:value-of select="subtitle" />
-            </strong></p>
+            <a class="x2b-txt-lnk" href="{$site.url}project/{$filename}.html">
 
-            <!-- project description -->
-            <p class="card-text">
-              <xsl:value-of select="short" />
-              <xsl:text> </xsl:text>
-              <a href="{$site.url}project/{$filename}.html">
-                //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date" />
-              </a>
-            </p>
+              <!-- project subtitle -->
+              <p class="card-text"><strong>
+                <xsl:value-of select="subtitle" />
+              </strong></p>
+
+              <!-- project description -->
+              <p class="card-text">
+                <xsl:value-of select="short" />
+
+                <xsl:text> </xsl:text>
+
+                <span class="text-muted">
+                  //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date" />
+                </span>
+              </p>
+            </a>
 
           </div><!-- /card -->
 
