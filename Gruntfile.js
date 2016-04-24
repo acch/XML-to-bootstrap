@@ -26,8 +26,7 @@ module.exports = function(grunt) {
         'js/headroom.js',
         'js/photoswipe*.js',
         'js/scrollPosStyler.js',
-        'sass/_variables.scss',
-        'sass/_breakpoints.scss'
+        'sass/_*.scss'
       ]
     },
 
@@ -77,7 +76,7 @@ module.exports = function(grunt) {
             flatten: true,
             nonull: true,
             cwd: pathdef.bootstrap,
-            src: ['**/_variables.scss', '**/_breakpoints.scss'],
+            src: ['**/_variables.scss', '**/_breakpoints.scss', '**/_hover.scss'],
             dest: 'sass/'
           },
           {

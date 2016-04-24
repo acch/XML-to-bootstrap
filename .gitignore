@@ -2,8 +2,7 @@ bower_components
 node_modules
 src/*.xml
 publish
-sass/_variables.scss
-sass/_breakpoints.scss
+sass/_*.scss
 css
 js/options.json
 js/headroom.js
