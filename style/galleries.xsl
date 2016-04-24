@@ -93,7 +93,7 @@
     </xsl:call-template>
 
     <p class="text-muted">
-      Click on the title to continue reading...
+      Click on the title to continue reading<xsl:text disable-output-escaping="yes">&amp;hellip;</xsl:text>
     </p>
 
     <!-- iterate over all galleries -->

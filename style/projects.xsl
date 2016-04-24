@@ -91,7 +91,7 @@
     <hr class="invisible m-y-1" />
 
     <p class="text-muted">
-      Click on the title to continue reading...
+      Click on the title to continue reading<xsl:text disable-output-escaping="yes">&amp;hellip;</xsl:text>
     </p>
 
     <!-- spacing -->
