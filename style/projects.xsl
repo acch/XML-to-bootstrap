@@ -148,6 +148,7 @@
                   //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date" />
                 </span>
               </p>
+
             </a>
 
           </div><!-- /card -->
