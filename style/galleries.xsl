@@ -62,11 +62,6 @@
           <xsl:with-param name="title" select="title" />
           <xsl:with-param name="subtitle" select="subtitle" />
           <xsl:with-param name="content" select="." />
-          <xsl:with-param name="content.sidebar">
-            <xsl:call-template name="gallery.sidebar">
-              <xsl:with-param name="content" select="." />
-            </xsl:call-template>
-          </xsl:with-param>
         </xsl:call-template>
 
       </ext:document>
@@ -101,7 +96,7 @@
     <div class="row">
 
       <!-- iterate over all galleries -->
-      <xsl:for-each select="galleries">
+      <xsl:for-each select="gallery">
         <xsl:sort select="date" order="descending" />
 
         <!-- format filename -->
@@ -146,7 +141,7 @@
 
             </a>
 
-          </div><!-- /gallery -->
+          </div><!-- /card -->
 
         </div><!-- /column -->
 
@@ -247,28 +242,6 @@
       </xsl:with-param>
 
     </xsl:call-template>
-
-  </xsl:template>
-
-
-<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     Gallery detail page sidebar
-     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
-  <xsl:template name="gallery.sidebar">
-    <xsl:param name="content" /><!-- node-set (gallery) -->
-
-    <nav>
-
-      <!-- find all elements with id attribute -->
-      <xsl:for-each select="$content/content/*[@id]">
-
-        <!-- nav link -->
-        <link title="{text()}" href="#{@id}" />
-
-      </xsl:for-each>
-
-    </nav>
 
   </xsl:template>
 
