@@ -6,16 +6,14 @@
   <subtitle>There's no place like localhost</subtitle>
 
   <introduction>
-    <p>Welcome to this fine piece of carefully crafted hypertext... The authors sincerely hope that you find something interesting or, better yet, something useful here!</p>
+    <p>Welcome to the Demo pages for XML-to-Bootstrap. This site is generated from the sample files included in the source code.</p>
     <collapse>
       <p>
-        If you do then please feel free to use the content in whichever way you consider appropriate.
-        Go ahead and share, link or copy - but don't forget to credit the origin clearly.
-        The authors were glad if you'd let them know in which way you reuse the content and provide some feedback, but you don't have to if you don't want to.
+        To get started with your own content, simply modify the source files in the <code>src/</code> directory an rebuild.
+        Don't worry, your modifications will not be overwritten by future updates of XML-to-Bootstrap.
       </p><p>
-        To make a long story short: Content on this site is licensed under a <a rel="license" href="//creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
-      </p><p>
-        This site is <strong>100% ad-free</strong> and does not track it's visitors.
+        Demo pages use an unmodified version of Bootstrap (default theme).
+        Remember that all colors, fonts, etc. can be customized by modifying Bootstrap's <code>_variables.scss</code> file.
       </p>
     </collapse>
   </introduction>

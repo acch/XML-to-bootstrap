@@ -2,7 +2,7 @@
 
 <articles>
 
-  <title>ArticlesX</title>
+  <title>Articles</title>
   <subtitle>This page contains some articles. Nothing special.</subtitle>
 
   <introduction>
@@ -12,7 +12,7 @@
   <article id="zweiter">
     <date>2015-01-12</date>
     <title>Second Entry</title>
-    <subtitle>noch besser als der erste</subtitle>
+    <subtitle>Better than the first one</subtitle>
     <short>
       Morbi nec lacus vestibulum, placerat metus sit amet, dapibus sapien. Vivamus tempus neque venenatis ligula iaculis, nec vulputate orci laoreet. Phasellus semper ultrices ipsum eu sodales. In vitae risus maximus, pulvinar turpis quis, tincidunt metus. Nullam aliquet risus ex, quis scelerisque sem blandit quis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse nec magna id velit laoreet fermentum eu eu leo. Quisque sit amet fermentum augue. Pellentesque vitae neque ut libero volutpat malesuada pharetra id purus. Donec in elit dignissim, fringilla lectus id, feugiat turpis.
     </short>
@@ -55,7 +55,7 @@
   <article id="dritter">
     <date>2015-02-27</date>
     <title>Entry Number Three</title>
-    <subtitle>noch besser als der zweite</subtitle>
+    <subtitle>Even better than the second one</subtitle>
     <short>
       Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc ut sollicitudin enim. Donec elementum, mauris nec finibus gravida, orci mi vestibulum ipsum, eget aliquet lorem velit ut sapien. Suspendisse in eleifend lorem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum efficitur enim ut nunc accumsan scelerisque. Donec commodo, turpis id varius congue, ex quam tempus augue, ac tempor risus magna ac neque. In hac habitasse platea dictumst. Vestibulum eget gravida dolor, eget ullamcorper ligula. Fusce maximus erat a leo mattis hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eros mi, hendrerit vitae nulla vitae, tempus ornare nisi. Proin in libero blandit, viverra arcu quis, auctor metus. Ut fermentum tellus sed nisi lobortis convallis. Sed euismod pharetra vulputate.
     </short>
@@ -72,7 +72,7 @@
   <article id="vierter">
     <date>2015-03-12</date>
     <title>The Fourth Entry</title>
-    <subtitle>noch besser als der dritte</subtitle>
+    <subtitle>Even better than number three</subtitle>
     <short>
       Curabitur sagittis sollicitudin est. Duis scelerisque, odio luctus ullamcorper placerat, nisl velit cursus nibh, eget cursus magna risus ut nulla. Morbi vel orci eget est euismod vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris sollicitudin arcu pulvinar, vehicula turpis id, convallis neque. Vestibulum vel turpis ut tortor ornare facilisis. Proin bibendum convallis purus, mollis sodales enim consectetur sit amet. Etiam vitae ante libero. Nulla facilisi. Morbi eu cursus arcu. Proin auctor turpis eu erat molestie euismod. Mauris tempor sapien eget lorem sagittis elementum. Aliquam commodo, nulla a elementum scelerisque, orci dolor tempus massa, eget ultricies lacus justo at libero.
     </short>
@@ -93,7 +93,7 @@
   <article>
     <date>2015-03-13</date>
     <title>Article Number Five</title>
-    <subtitle>noch besser als der vierte... und mit einem sehr sehr sehr sehr sehr langen untertitel... nur um zu prüfen ob der sidebar trotzdem sauber stickt ;-)</subtitle>
+    <subtitle>The very best of all... and with a very very very very very very long subtitle... don't get me wrong - the subtitle is very long... not just long, but incredibly super duper long... it probably would have made for a separate paragraph on its own</subtitle>
     <short>
       Aenean eget ex orci. Duis vulputate turpis at sem rutrum semper. Maecenas eu consectetur leo. Integer placerat tincidunt diam, et porttitor diam dapibus sit amet. Sed congue laoreet suscipit. Sed lacinia egestas orci quis feugiat. Proin maximus elit a elementum posuere.
     </short>
