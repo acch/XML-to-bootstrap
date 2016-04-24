@@ -23,7 +23,7 @@
 
   <xsl:param name="articles" select="true()" />
   <xsl:param name="projects" select="true()" />
-  <xsl:param name="galleries" select="false()" />
+  <xsl:param name="galleries" select="true()" />
 
 
 <!--~~~~~~~~~~~~~~~~~~~~
