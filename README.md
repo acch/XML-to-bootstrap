@@ -10,7 +10,7 @@ The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), 
 
 ### Features
 
-Take a look at the [Demo](https://acch.github.io/XML-to-bootstrap/) site to understand how generated pages look like.
+Take a look at the [Demo](https://acch.github.io/XML-to-bootstrap/) site to learn how generated pages look like.
 
 - Produces clean, fast HTML5 code
 - Static web pages compatible with any web server
@@ -28,7 +28,7 @@ Take a look at the [Demo](https://acch.github.io/XML-to-bootstrap/) site to unde
 
   On Debian-like Linux:
 
-      # sudo apt-get install libxslt nodejs
+      # sudo apt-get install xsltproc nodejs
 
   On Arch-like Linux:
 
