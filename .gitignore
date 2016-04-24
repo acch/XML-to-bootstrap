@@ -1,10 +1,10 @@
 bower_components
 node_modules
 src/*.xml
-publish/*
+publish
 sass/_variables.scss
 sass/_breakpoints.scss
-css/*
+css
 js/options.json
 js/headroom.js
 js/photoswipe*.js
