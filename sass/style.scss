@@ -2,8 +2,6 @@
 @import "breakpoints";
 @import "hover";
 
-// TODO: map-get()?
-
 /* -------------------- *\
          Variables
 \* -------------------- */
@@ -87,6 +85,9 @@ a.x2b-txt-lnk {
 
 .x2b-bdy {
   padding-top: (3.375 * $spacer-y);
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+  font-feature-settings: "liga" on, "clig" on, "kern" on;
 }
 
 
