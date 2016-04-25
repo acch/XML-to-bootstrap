@@ -6,14 +6,16 @@
   <subtitle>There's no place like localhost</subtitle>
 
   <introduction>
-    <p>Welcome to the Demo pages for XML-to-Bootstrap. This site is generated from the sample files included in the source code.</p>
+    <p>
+      Welcome to the Demo pages for XML-to-Bootstrap. This site is generated from the sample files included in the source code.
+    </p>
     <collapse>
       <p>
-        To get started with your own content, simply modify the source files in the <code>src/</code> directory an rebuild.
+        To get started with your own content, simply modify the source files in the <code>src/</code> directory and rebuild using Grunt.
         Don't worry, your modifications will not be overwritten by future updates of XML-to-Bootstrap.
       </p><p>
-        Demo pages use an unmodified version of Bootstrap (default theme).
-        Remember that all colors, fonts, etc. can be customized by modifying Bootstrap's <code>_variables.scss</code> file.
+        Demo pages use an unmodified version of Bootstrap &mdash; the default theme.
+        Remember that all colors, fonts, etc. can be customized by modifying Bootstrap's <code>scss/_variables.scss</code> file.
       </p>
     </collapse>
   </introduction>
