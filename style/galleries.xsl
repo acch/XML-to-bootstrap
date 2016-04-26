@@ -16,7 +16,7 @@
 
      Copyright 2016 Achim Christ
      Released under the MIT license
-     (https://github.com/acch/scrollpos-styler/blob/master/LICENSE)
+     (https://github.com/acch/XML-to-bootstrap/blob/master/LICENSE)
 
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
