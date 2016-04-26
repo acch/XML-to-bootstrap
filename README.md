@@ -70,6 +70,16 @@ clean | Deletes previously generated output and temprorary files
 default | Generates minified output - use this for production
 debug | Skips minification and instead generates readable output - use this for development
 
+When populating the XML document with your own content, remember to use character entity numbers instead of names. Character entity names are not defined in XML. For example, `&nbsp;` will not work - you will need to use `&#160;` instead. Refer to the [HTML5 Reference](https://dev.w3.org/html5/html-author/charref) for a complete list with mappings.
+
+Here are some popular characters to use:
+
+| Entity Name | Entity Number | Description
+--- | ---|---|---
+&#160; | &amp;nbsp; | &amp;#160; | Non-breaking space
+&#8212; | &amp;mdash; | &amp;#8212; | Em dash
+&#8230; | &amp;hellip; | &amp;#8230; | Ellipsis
+
 ## Development and Extension
 
 TODO: How to read the code.
