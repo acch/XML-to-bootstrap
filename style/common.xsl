@@ -130,8 +130,8 @@
   <!-- replace all occurences of one string with another -->
   <xsl:template name="string.replace">
     <xsl:param name="text" /><!-- string -->
-    <xsl:param name="replace"></xsl:param><!-- string -->
-    <xsl:param name="by"></xsl:param><!-- string -->
+    <xsl:param name="replace" /><!-- string -->
+    <xsl:param name="by" /><!-- string -->
 
     <xsl:choose>
 
