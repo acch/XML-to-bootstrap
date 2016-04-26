@@ -86,7 +86,7 @@
     <!--hr class="invisible m-y-1" /-->
 
     <!--p class="text-muted">
-      Click on the title to view gallery<xsl:text disable-output-escaping="yes">&amp;hellip;</xsl:text>
+      Click on the title to view gallery&#8230;
     </p-->
 
     <!-- spacing -->
@@ -141,7 +141,7 @@
                 <xsl:text> </xsl:text>
 
                 <span class="text-muted">
-                  //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date" />
+                  //&#160;<xsl:value-of select="$date" />
                 </span>
               </p>
 
@@ -185,7 +185,7 @@
     <!-- gallery introduction -->
     <p>
       <span class="text-muted">
-        //<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text><xsl:value-of select="$date.formatted" />
+        //&#160;<xsl:value-of select="$date.formatted" />
       </span>
 
       <br />

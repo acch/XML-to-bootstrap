@@ -58,9 +58,7 @@
                   <!-- icon and title -->
                   <xsl:call-template name="element.icon">
                     <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
-                  </xsl:call-template>
-                  <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
-                  <xsl:value-of select="/site/articles/title" />
+                  </xsl:call-template>&#160;<xsl:value-of select="/site/articles/title" />
 
                   <!-- mark active item for screen readers -->
                   <xsl:if test="$title = /site/articles/title">
@@ -86,9 +84,7 @@
                   <!-- icon and title -->
                   <xsl:call-template name="element.icon">
                     <xsl:with-param name="icon">fa-rocket</xsl:with-param>
-                  </xsl:call-template>
-                  <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
-                  <xsl:value-of select="/site/projects/title" />
+                  </xsl:call-template>&#160;<xsl:value-of select="/site/projects/title" />
 
                   <!-- mark active item for screen readers -->
                   <xsl:if test="$title = /site/projects/title">
@@ -114,9 +110,7 @@
                   <!-- icon and title -->
                   <xsl:call-template name="element.icon">
                     <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
-                  </xsl:call-template>
-                  <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
-                  <xsl:value-of select="/site/galleries/title" />
+                  </xsl:call-template>&#160;<xsl:value-of select="/site/galleries/title" />
 
                   <!-- mark active item for screen readers -->
                   <xsl:if test="$title = /site/galleries/title">

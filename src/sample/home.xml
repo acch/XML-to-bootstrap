@@ -14,7 +14,7 @@
         To get started with your own content, simply modify the source files in the <code>src/</code> directory and rebuild using Grunt.
         Don't worry, your modifications will not be overwritten by future updates of XML-to-Bootstrap.
       </p><p>
-        Demo pages use an unmodified version of Bootstrap &mdash; the default theme.
+        Demo pages use an unmodified version of Bootstrap &#8212; the default theme.
         Remember that all colors, fonts, etc. can be customized by modifying Bootstrap's <code>scss/_variables.scss</code> file.
       </p>
     </collapse>

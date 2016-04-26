@@ -57,7 +57,7 @@
 
       <!-- link to expand collapsed section -->
       <a class="x2b-expnd collapsed m-b-1" data-toggle="collapse" href="#intrdctn" aria-expanded="false" aria-controls="intrdctn">
-        More<xsl:text disable-output-escaping="yes">&amp;hellip;</xsl:text>
+        More&#8230;
       </a>
 
     </div><!-- /introduction -->
@@ -93,7 +93,7 @@
               </xsl:when>
               <xsl:otherwise>
                 <span class="text-muted">
-                  Coming soon<xsl:text disable-output-escaping="yes">&amp;hellip;</xsl:text>
+                  Coming soon&#8230;
                 </span>
               </xsl:otherwise>
             </xsl:choose>
@@ -148,7 +148,7 @@
               </xsl:when>
               <xsl:otherwise>
                 <span class="text-muted">
-                  Coming soon<xsl:text disable-output-escaping="yes">&amp;hellip;</xsl:text>
+                  Coming soon&#8230;
                 </span>
               </xsl:otherwise>
             </xsl:choose>
@@ -203,7 +203,7 @@
               </xsl:when>
               <xsl:otherwise>
                 <span class="text-muted">
-                  Coming soon<xsl:text disable-output-escaping="yes">&amp;hellip;</xsl:text>
+                  Coming soon&#8230;
                 </span>
               </xsl:otherwise>
             </xsl:choose>

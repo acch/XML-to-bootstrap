@@ -97,6 +97,7 @@
               <xsl:with-param name="icon">fa-arrow-left</xsl:with-param>
             </xsl:call-template>
             Previous
+            <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
           </a>
         </li><!-- /previous -->
 
@@ -134,7 +135,8 @@
     <xsl:param name="size" select="fa-lg" /><!-- string -->
 
     <span class="fa {$icon} {$size} fa-fw" aria-hidden="true">
-      <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+      <!-- prevent tag from collapsing -->
+      <xsl:text> </xsl:text>
     </span>
 
   </xsl:template>
@@ -146,10 +148,12 @@
 
     <span class="fa-stack {$size}" aria-hidden="true">
       <span class="fa fa-circle fa-stack-2x">
-        <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+        <!-- prevent tag from collapsing -->
+        <xsl:text> </xsl:text>
       </span>
       <span class="fa {$icon} fa-stack-1x fa-inverse">
-        <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+        <!-- prevent tag from collapsing -->
+        <xsl:text> </xsl:text>
       </span>
     </span>
 
@@ -173,7 +177,8 @@
         <xsl:attribute name="disabled" />
       </xsl:if>
       <span class="fa {$icon} {$size} fa-fw" aria-hidden="true">
-        <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+        <!-- prevent tag from collapsing -->
+        <xsl:text> </xsl:text>
       </span>
     </button>
 

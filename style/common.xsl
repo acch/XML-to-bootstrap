@@ -37,14 +37,14 @@
 
     <!-- prepend leading slashes if necessary -->
     <xsl:if test="not(starts-with($url, '//'))">
-      <xsl:text disable-output-escaping="yes">//</xsl:text>
+      <xsl:text>//</xsl:text>
     </xsl:if>
 
     <xsl:value-of select="$url" />
 
     <!-- append trailing slash if necessary -->
     <xsl:if test="not(substring($url, string-length($url)) = '/')"><!-- ends-with($url, '/') -->
-      <xsl:text disable-output-escaping="yes">/</xsl:text>
+      <xsl:text>/</xsl:text>
     </xsl:if>
 
   </xsl:variable>
