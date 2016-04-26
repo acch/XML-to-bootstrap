@@ -138,7 +138,10 @@
               <xsl:value-of select="@src" />
 
             </xsl:attribute>
-            ;
+
+            <!-- prevent script tag from collapsing -->
+            <xsl:text> </xsl:text>
+
           </script>
 
         </xsl:when>
@@ -146,7 +149,14 @@
 
           <!-- copy local script -->
           <script>
-            <xsl:value-of select="node()" disable-output-escaping="yes" />
+
+            <!-- add base URL to script -->
+            <xsl:call-template name="string.replace">
+              <xsl:with-param name="text" select="node()" />
+              <xsl:with-param name="replace">SITE.URL</xsl:with-param>
+              <xsl:with-param name="by" select="$site.url" />
+            </xsl:call-template>
+
           </script>
 
         </xsl:otherwise>
@@ -155,7 +165,12 @@
     </xsl:for-each>
 
     <!-- custom script -->
-    <script src="{$site.url}js/script.js">;</script>
+    <script src="{$site.url}js/script.js">
+
+      <!-- prevent script tag from collapsing -->
+      <xsl:text> </xsl:text>
+
+    </script>
 
   </xsl:template>
 

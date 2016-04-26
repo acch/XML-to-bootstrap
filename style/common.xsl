@@ -124,7 +124,51 @@
 
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     Distinct years
+     Replace strings
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <!-- replace all occurences of one string with another -->
+  <xsl:template name="string.replace">
+    <xsl:param name="text" /><!-- string -->
+    <xsl:param name="replace"></xsl:param><!-- string -->
+    <xsl:param name="by"></xsl:param><!-- string -->
+
+    <xsl:choose>
+
+      <!-- check if one of the parameters is empty -->
+      <xsl:when test="$text = '' or $replace = ''">
+        <!-- prevent this routine from hanging -->
+        <xsl:value-of select="$text" disable-output-escaping="yes" />
+      </xsl:when>
+
+      <!-- check if text cotains string -->
+      <xsl:when test="contains($text, $replace)">
+
+        <!-- replace first occurence -->
+        <xsl:value-of select="substring-before($text, $replace)" disable-output-escaping="yes" />
+        <xsl:value-of select="$by" disable-output-escaping="yes" />
+
+        <!-- continue with remaining text -->
+        <xsl:call-template name="string.replace">
+          <xsl:with-param name="text" select="substring-after($text, $replace)" />
+          <xsl:with-param name="replace" select="$replace" />
+          <xsl:with-param name="by" select="$by" />
+        </xsl:call-template>
+
+      </xsl:when>
+
+      <!-- string not found -->
+      <xsl:otherwise>
+        <xsl:value-of select="$text" disable-output-escaping="yes" />
+      </xsl:otherwise>
+
+    </xsl:choose>
+
+  </xsl:template>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Find distinct years
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <!-- find distinct years of elements with a date -->
@@ -147,7 +191,7 @@
 
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     Previous element
+     Previous element by date
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <!-- find title of element with a date closest before the specified date -->
@@ -173,7 +217,7 @@
 
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     Next element
+     Next element by date
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <!-- find title of element with a date closest after the specified date -->
