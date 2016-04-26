@@ -4,7 +4,7 @@ Transforms a generic XML document into Bootstrap HTML pages.
 
 ## Overview
 
-XML-to-Bootstrap is a set of tools to generate web pages.
+XML-to-Bootstrap is a set of tools to generate static web pages.
 Input is defined in the form of an *Extensible Markup Language* ([XML](https://en.wikipedia.org/wiki/XML)) document.
 The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) and [JavaScript](https://en.wikipedia.org/wiki/JavaScript) files. The transformation is performed by using *Extensible Stylesheet Language Transformations* ([XSLT](https://en.wikipedia.org/wiki/XSLT)), as well as several JavaScript utilities invoked as [Grunt](https://gruntjs.com/) tasks.
 
@@ -13,10 +13,14 @@ The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), 
 Take a look at the [Demo](https://acch.github.io/XML-to-bootstrap/) site to learn how generated pages look like.
 
 - Produces clean, fast HTML5 code
-- Static web pages compatible with any web server
+- Generates static web pages compatible with any web server
 - Compatible with latest and greatest Bootstrap v4
 - Fully themable with custom Bootstrap builds
 - Uses [schema.org](https://schema.org) vocabularies to optimize pages for search engines [WIP]
+
+### Differentiation and Limitations
+
+XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https://jekyllrb.com/), [GitBook](https://www.gitbook.com/), or [Pelican](http://blog.getpelican.com/). But as opposed to these projects, which provide flexible general purpose tools, XML-to-Bootstrap (currently) focuses on a single, very specific use case. It only generates a certain type of web page. So if you're looking for something more customizable then I strongly suggest to check out Jekyll or [the like](https://www.staticgen.com/).
 
 ## Installation
 
@@ -60,12 +64,11 @@ Take a look at the [Demo](https://acch.github.io/XML-to-bootstrap/) site to lear
 
 The following Grunt tasks are available:
 
-- clean -
-  Deletes previously produced output
-- default -
-  Produces minified output
-- debug -
-  Skips minification and instead produces pretty output
+Task | Description
+--- | ---
+clean | Deletes previously generated output and temprorary files
+default | Generates minified output - use this for production
+debug | Skips minification and instead generates readable output - use this for development
 
 ## Development and Extension
 
