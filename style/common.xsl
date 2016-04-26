@@ -129,37 +129,37 @@
 
   <!-- replace all occurences of one string with another -->
   <xsl:template name="string.replace">
-    <xsl:param name="text" /><!-- string -->
+    <xsl:param name="string" /><!-- string -->
+    <xsl:param name="search" /><!-- string -->
     <xsl:param name="replace" /><!-- string -->
-    <xsl:param name="by" /><!-- string -->
 
     <xsl:choose>
 
       <!-- check if one of the parameters is empty -->
-      <xsl:when test="$text = '' or $replace = ''">
+      <xsl:when test="$string = '' or $search = ''">
         <!-- prevent this routine from hanging -->
-        <xsl:value-of select="$text" disable-output-escaping="yes" />
+        <xsl:value-of select="$string" disable-output-escaping="yes" />
       </xsl:when>
 
       <!-- check if text cotains string -->
-      <xsl:when test="contains($text, $replace)">
+      <xsl:when test="contains($string, $search)">
 
         <!-- replace first occurence -->
-        <xsl:value-of select="substring-before($text, $replace)" disable-output-escaping="yes" />
-        <xsl:value-of select="$by" disable-output-escaping="yes" />
+        <xsl:value-of select="substring-before($string, $search)" disable-output-escaping="yes" />
+        <xsl:value-of select="$replace" disable-output-escaping="yes" />
 
         <!-- continue with remaining text -->
         <xsl:call-template name="string.replace">
-          <xsl:with-param name="text" select="substring-after($text, $replace)" />
+          <xsl:with-param name="string" select="substring-after($string, $search)" />
+          <xsl:with-param name="search" select="$search" />
           <xsl:with-param name="replace" select="$replace" />
-          <xsl:with-param name="by" select="$by" />
         </xsl:call-template>
 
       </xsl:when>
 
       <!-- string not found -->
       <xsl:otherwise>
-        <xsl:value-of select="$text" disable-output-escaping="yes" />
+        <xsl:value-of select="$string" disable-output-escaping="yes" />
       </xsl:otherwise>
 
     </xsl:choose>

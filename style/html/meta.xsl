@@ -152,9 +152,9 @@
 
             <!-- add base URL to script -->
             <xsl:call-template name="string.replace">
-              <xsl:with-param name="text" select="node()" />
-              <xsl:with-param name="replace">SITE.URL</xsl:with-param>
-              <xsl:with-param name="by" select="$site.url" />
+              <xsl:with-param name="string" select="node()" />
+              <xsl:with-param name="search">SITE.URL</xsl:with-param>
+              <xsl:with-param name="replace" select="$site.url" />
             </xsl:call-template>
 
           </script>
