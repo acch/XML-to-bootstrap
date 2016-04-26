@@ -59,7 +59,7 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: pathdef.bootstrap,
+            cwd: path.join(pathdef.bootstrap, 'dist'),
             src: '**/bootstrap*.min.css',
             dest: 'publish/css/'
           },
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: pathdef.bootstrap,
+            cwd: path.join(pathdef.bootstrap, 'dist'),
             src: '**/bootstrap.min.js',
             dest: 'publish/js/'
           },
@@ -75,7 +75,7 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: pathdef.bootstrap,
+            cwd: path.join(pathdef.bootstrap, 'scss'),
             src: ['**/_variables.scss', '**/_breakpoints.scss', '**/_hover.scss'],
             dest: 'sass/'
           },
