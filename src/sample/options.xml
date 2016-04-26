@@ -22,7 +22,8 @@
 
   <!-- scripts to import -->
   <option name="cdn.scripts">
-    <script src="//code.jquery.com/jquery-2.2.3.min.js" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <!--script src="//code.jquery.com/jquery-2.2.2.min.js" /-->
     <script><![CDATA[window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')]]></script>
     <!--script src="js/bootstrap.min.js" /-->
     <script src="//cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js" />
