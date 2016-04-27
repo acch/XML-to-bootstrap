@@ -38,29 +38,37 @@
 
   <xsl:template match="home">
 
-    <!-- introduction -->
-    <div class="text-xs-center">
+    <!-- put content inside a text column -->
+    <xsl:call-template name="element.textcolumn">
+      <xsl:with-param name="content">
 
-      <!-- copy introduction from XML directly, excluding collapsed text -->
-      <xsl:call-template name="copy.content">
-        <xsl:with-param name="content" select="introduction" />
-        <xsl:with-param name="exclude">collapse</xsl:with-param>
-      </xsl:call-template>
+        <!-- introduction -->
+        <!-- TODO: add semantic vocabulary/description -->
+        <article class="text-xs-center">
 
-      <!-- collapsed section -->
-      <div class="collapse" id="intrdctn">
-        <!-- copy collapsed introduction text from XML directly -->
-        <xsl:call-template name="copy.content">
-          <xsl:with-param name="content" select="introduction/collapse" />
-        </xsl:call-template>
-      </div>
+          <!-- copy introduction from XML directly, excluding collapsed text -->
+          <xsl:call-template name="copy.content">
+            <xsl:with-param name="content" select="introduction" />
+            <xsl:with-param name="exclude">collapse</xsl:with-param>
+          </xsl:call-template>
 
-      <!-- link to expand collapsed section -->
-      <a class="x2b-expnd collapsed m-b-1" data-toggle="collapse" href="#intrdctn" aria-expanded="false" aria-controls="intrdctn">
-        More&#8230;
-      </a>
+          <!-- collapsed section -->
+          <div class="collapse" id="intrdctn">
+            <!-- copy collapsed introduction text from XML directly -->
+            <xsl:call-template name="copy.content">
+              <xsl:with-param name="content" select="introduction/collapse" />
+            </xsl:call-template>
+          </div>
 
-    </div><!-- /introduction -->
+          <!-- link to expand collapsed section -->
+          <a class="x2b-expnd collapsed m-b-1" data-toggle="collapse" href="#intrdctn" aria-expanded="false" aria-controls="intrdctn">
+            More&#8230;
+          </a>
+
+        </article><!-- /introduction -->
+
+      </xsl:with-param>
+    </xsl:call-template>
 
     <!-- section cards -->
     <div class="row text-xs-center">
