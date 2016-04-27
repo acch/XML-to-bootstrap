@@ -193,35 +193,40 @@
     <!-- spacing -->
     <hr class="invisible m-y-1" />
 
-    <!-- put introduction in a text column -->
-    <xsl:call-template name="element.textcolumn">
-      <xsl:with-param name="sidebar" select="content/*[@id]" />
+    <!-- TODO: add semantic vocabulary/description -->
+    <article>
 
-      <!-- project introduction -->
-      <xsl:with-param name="content">
-        <p>
-          <span class="text-muted">
-            //&#160;<xsl:value-of select="$date.formatted" />
-          </span>
+      <!-- put introduction in a text column -->
+      <xsl:call-template name="element.textcolumn">
+        <xsl:with-param name="sidebar" select="content/*[@id]" />
 
-          <br />
+        <!-- project introduction -->
+        <xsl:with-param name="content">
+          <p>
+            <span class="text-muted">
+              //&#160;<xsl:value-of select="$date.formatted" />
+            </span>
 
-          <strong>
-            <xsl:value-of select="short" />
-          </strong>
-        </p>
-      </xsl:with-param>
+            <br />
 
-    </xsl:call-template>
+            <strong>
+              <xsl:value-of select="short" />
+            </strong>
+          </p>
+        </xsl:with-param>
 
-    <!-- spacing -->
-    <hr class="invisible m-t-1 m-b-0" />
+      </xsl:call-template>
 
-    <!-- put actual content in a text column -->
-    <xsl:call-template name="element.textcolumn">
-      <xsl:with-param name="content" select="content" />
-      <xsl:with-param name="sidebar" select="content/*[@id]" />
-    </xsl:call-template>
+      <!-- spacing -->
+      <hr class="invisible m-t-1 m-b-0" />
+
+      <!-- put actual content in a text column -->
+      <xsl:call-template name="element.textcolumn">
+        <xsl:with-param name="content" select="content" />
+        <xsl:with-param name="sidebar" select="content/*[@id]" />
+      </xsl:call-template>
+
+    </article>
 
     <!-- spacing -->
     <hr class="invisible m-y-1" />
