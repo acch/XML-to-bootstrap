@@ -148,7 +148,7 @@
 
             </a>
 
-          </artcicle><!-- /card -->
+          </article><!-- /card -->
 
         </div><!-- /column -->
 
