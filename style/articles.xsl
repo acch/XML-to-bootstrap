@@ -126,32 +126,37 @@
         </xsl:call-template>
       </xsl:variable>
 
-      <!-- article title -->
-      <h3 class="x2b-anchr" id="{@id}">
-        <a href="{$site.url}article/{$filename}.html">
-          <xsl:value-of select="title" />
+      <!-- TODO: add semantic vocabulary/description -->
+      <article>
+
+        <!-- article title -->
+        <h3 class="x2b-anchr" id="{@id}">
+          <a href="{$site.url}article/{$filename}.html">
+            <xsl:value-of select="title" />
+          </a>
+        </h3>
+
+        <a class="x2b-txt-lnk" href="{$site.url}article/{$filename}.html">
+
+          <!-- article subtitle -->
+          <p><strong>
+            <xsl:value-of select="subtitle" />
+          </strong></p>
+
+          <!-- article description -->
+          <p>
+            <xsl:value-of select="short" />
+
+            <xsl:text> </xsl:text>
+
+            <span class="text-muted">
+              //&#160;<xsl:value-of select="$date" />
+            </span>
+          </p>
+
         </a>
-      </h3>
 
-      <a class="x2b-txt-lnk" href="{$site.url}article/{$filename}.html">
-
-        <!-- article subtitle -->
-        <p><strong>
-          <xsl:value-of select="subtitle" />
-        </strong></p>
-
-        <!-- article description -->
-        <p>
-          <xsl:value-of select="short" />
-
-          <xsl:text> </xsl:text>
-
-          <span class="text-muted">
-            //&#160;<xsl:value-of select="$date" />
-          </span>
-        </p>
-
-      </a>
+      </article>
 
       <!-- divider -->
       <xsl:if test="position() != last()">
@@ -175,7 +180,7 @@
       <!-- find all years -->
       <xsl:variable name="years">
         <xsl:call-template name="date.years">
-          <xsl:with-param name="elements" select="$content/article" />
+          <xsl:with-param name="elements" select="ext:node-set($content)/article" />
         </xsl:call-template>
       </xsl:variable>
 
@@ -187,7 +192,7 @@
         <section title="{text()}">
 
           <!-- find all articles from current year -->
-          <xsl:for-each select="$content/article[@id][starts-with(date, current())]">
+          <xsl:for-each select="ext:node-set($content)/article[@id][starts-with(date, current())]">
             <xsl:sort select="date" order="descending" />
 
             <!-- nav link -->
@@ -227,25 +232,35 @@
     <!-- spacing -->
     <hr class="invisible m-y-1" />
 
-    <!-- article introduction -->
-    <p>
-      <span class="text-muted">
-        //&#160;<xsl:value-of select="$date.formatted" />
-      </span>
 
-      <br />
+    <!-- put introduction in a text column -->
+    <xsl:call-template name="element.textcolumn">
+      <xsl:with-param name="sidebar" select="content/*[@id]" />
 
-      <strong>
-        <xsl:value-of select="short" />
-      </strong>
-    </p>
+      <!-- article introduction -->
+      <xsl:with-param name="content">
+        <p>
+          <span class="text-muted">
+            //&#160;<xsl:value-of select="$date.formatted" />
+          </span>
+
+          <br />
+
+          <strong>
+            <xsl:value-of select="short" />
+          </strong>
+        </p>
+      </xsl:with-param>
+
+    </xsl:call-template>
 
     <!-- spacing -->
-    <hr class="invisible m-y-1" />
+    <hr class="invisible m-t-1 m-b-0" />
 
-    <!-- copy content from XML directly -->
-    <xsl:call-template name="copy.content">
+    <!-- put actual content in a text column -->
+    <xsl:call-template name="element.textcolumn">
       <xsl:with-param name="content" select="content" />
+      <xsl:with-param name="sidebar" select="content/*[@id]" />
     </xsl:call-template>
 
     <!-- spacing -->
@@ -307,7 +322,7 @@
     <nav>
 
       <!-- find all elements with id attribute -->
-      <xsl:for-each select="$content/content/*[@id]">
+      <xsl:for-each select="ext:node-set($content)/content/*[@id]">
 
         <!-- nav link -->
         <link title="{text()}" href="#{@id}" />

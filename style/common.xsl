@@ -49,10 +49,12 @@
 
   </xsl:variable>
 
-  <!-- define some styles which are used all over the place -->
+  <!-- define our grid layout -->
   <xsl:variable name="style.maincolumn">col-xs-12</xsl:variable>
-  <xsl:variable name="style.sidebar.maincolumn">col-md-8</xsl:variable>
+  <xsl:variable name="style.sidebar.maincolumn">col-xs-12 col-md-8</xsl:variable>
   <xsl:variable name="style.sidebar.sidecolumn">hidden-sm-down [ col-md-4 col-lg-3 col-lg-offset-1 ]</xsl:variable>
+  <xsl:variable name="style.textcolumn">col-xs-12 col-lg-10 col-xl-8 col-lg-offset-1 col-xl-offset-2</xsl:variable>
+  <xsl:variable name="style.sidebar.textcolumn">col-xs-12 col-xl-10 col-xl-offset-1</xsl:variable>
   <xsl:variable name="style.cardcolumn">col-xs-12 col-md-6 col-lg-4</xsl:variable>
 
 
@@ -97,7 +99,7 @@
     <xsl:param name="exclude" /><!-- string -->
 
     <!-- find all child elements excluding specific names -->
-    <xsl:for-each select="$content/*[not(name() = $exclude)]">
+    <xsl:for-each select="ext:node-set($content)/*[not(name() = $exclude)]">
 
       <!-- generate element without namespace -->
       <xsl:element name="{name()}">
@@ -177,7 +179,7 @@
 
     <!-- find all years -->
     <xsl:variable name="years">
-      <xsl:for-each select="$elements/date">
+      <xsl:for-each select="ext:node-set($elements)/date">
         <year><xsl:value-of select="substring-before(text(), '-')" /></year>
       </xsl:for-each>
     </xsl:variable>

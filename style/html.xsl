@@ -68,19 +68,23 @@
 
             <!-- width of main column depends on sidebar -->
             <xsl:variable name="maincolumn">
-              <xsl:if test="$sidebar">
-               <xsl:text> </xsl:text>
-               <xsl:value-of select="$style.sidebar.maincolumn" />
-              </xsl:if>
+              <xsl:choose>
+                <xsl:when test="$sidebar">
+                 <xsl:value-of select="$style.sidebar.maincolumn" />
+               </xsl:when>
+               <xsl:otherwise>
+                 <xsl:value-of select="$style.maincolumn" />
+               </xsl:otherwise>
+              </xsl:choose>
             </xsl:variable>
 
             <!-- main column -->
-            <article class="{$style.maincolumn}{$maincolumn}">
+            <div class="{$maincolumn}">
 
               <!-- main content -->
-              <xsl:apply-templates select="$content" />
+              <xsl:apply-templates select="ext:node-set($content)" />
 
-            </article><!-- /main column -->
+            </div><!-- /main column -->
 
             <xsl:if test="$sidebar">
               <!-- sidebar column -->

@@ -21,6 +21,7 @@
 
 <!-- Currently includes:
      - Breadcrumps
+     - Text column
      - Pager
      - Icons (normal / on circle / in box) -->
 
@@ -54,6 +55,42 @@
       </li>
 
     </ol><!-- /breadcrump -->
+
+  </xsl:template>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Text column
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <xsl:template name="element.textcolumn">
+    <xsl:param name="content" /><!-- node-set -->
+    <xsl:param name="exclude" /><!-- string -->
+    <xsl:param name="sidebar" select="false()" /><!-- boolean -->
+
+    <!-- width of text column depends on sidebar -->
+    <xsl:variable name="textcolumn">
+      <xsl:choose>
+        <xsl:when test="$sidebar">
+          <xsl:value-of select="$style.sidebar.textcolumn" />
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="$style.textcolumn" />
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
+    <!-- ensure that text lines don't get to long -->
+    <div class="row">
+      <div class="{$textcolumn}">
+
+        <!-- copy content from XML directly -->
+        <xsl:call-template name="copy.content">
+          <xsl:with-param name="content" select="ext:node-set($content)" />
+          <xsl:with-param name="exclude" select="$exclude" />
+        </xsl:call-template>
+
+      </div>
+    </div>
 
   </xsl:template>
 
