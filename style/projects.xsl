@@ -193,15 +193,15 @@
     <!-- spacing -->
     <hr class="invisible m-y-1" />
 
-    <!-- TODO: add semantic vocabulary/description -->
-    <article>
+    <!-- put content inside a text column -->
+    <xsl:call-template name="element.textcolumn">
+      <xsl:with-param name="sidebar" select="content/*[@id]" />
+      <xsl:with-param name="content">
 
-      <!-- put introduction in a text column -->
-      <xsl:call-template name="element.textcolumn">
-        <xsl:with-param name="sidebar" select="content/*[@id]" />
+        <!-- TODO: add semantic vocabulary/description -->
+        <article>
 
-        <!-- project introduction -->
-        <xsl:with-param name="content">
+          <!-- project introduction -->
           <p>
             <span class="text-muted">
               //&#160;<xsl:value-of select="$date.formatted" />
@@ -222,14 +222,13 @@
             <xsl:with-param name="content" select="content" />
           </xsl:call-template>
 
-        </xsl:with-param>
+        </article>
 
-      </xsl:call-template>
-
-    </article>
+      </xsl:with-param>
+    </xsl:call-template>
 
     <!-- spacing -->
-    <hr class="invisible m-y-1" />
+    <hr class="invisible m-t-1 m-b-0" />
 
     <!-- find latest project before current one -->
     <xsl:variable name="prev">
