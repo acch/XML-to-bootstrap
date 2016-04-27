@@ -123,7 +123,8 @@
         <div class="{$style.cardcolumn}">
 
           <!-- gallery card -->
-          <div class="card card-block">
+          <!-- TODO: add semantic vocabulary/description -->
+          <article class="card card-block">
 
             <!-- gallery title -->
             <h3 class="card-title">
@@ -147,7 +148,7 @@
 
             </a>
 
-          </div><!-- /card -->
+          </artcicle><!-- /card -->
 
         </div><!-- /column -->
 
@@ -190,9 +191,7 @@
 
       <br />
 
-      <strong>
-        <xsl:value-of select="short" />
-      </strong>
+      <xsl:value-of select="short" />
     </p>
 
     <!-- spacing -->
