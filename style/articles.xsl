@@ -263,53 +263,53 @@
 
         </article>
 
+        <!-- spacing -->
+        <hr class="invisible m-y-1" />
+
+        <!-- find latest article before current one -->
+        <xsl:variable name="prev">
+          <xsl:call-template name="date.prev.title">
+            <xsl:with-param name="date" select="date" />
+            <xsl:with-param name="elements" select="../article" />
+          </xsl:call-template>
+        </xsl:variable>
+
+        <!-- find earliest article after current one -->
+        <xsl:variable name="next">
+          <xsl:call-template name="date.next.title">
+            <xsl:with-param name="date" select="date" />
+            <xsl:with-param name="elements" select="../article" />
+          </xsl:call-template>
+        </xsl:variable>
+
+        <!-- pager navigation -->
+        <xsl:call-template name="element.pager">
+
+          <!-- previous article -->
+          <xsl:with-param name="prev">
+            <xsl:if test="$prev != ''">
+              <page title="{$prev}">
+                <xsl:attribute name="href"><xsl:value-of select="$site.url" />article/<xsl:call-template name="format.filename">
+                  <xsl:with-param name="string" select="$prev" />
+                </xsl:call-template>.html</xsl:attribute>
+              </page>
+            </xsl:if>
+          </xsl:with-param>
+
+          <!-- next article -->
+          <xsl:with-param name="next">
+            <xsl:if test="$next != ''">
+              <page title="{$next}">
+                <xsl:attribute name="href"><xsl:value-of select="$site.url" />article/<xsl:call-template name="format.filename">
+                  <xsl:with-param name="string" select="$next" />
+                </xsl:call-template>.html</xsl:attribute>
+              </page>
+            </xsl:if>
+          </xsl:with-param>
+
+        </xsl:call-template>
+
       </xsl:with-param>
-    </xsl:call-template>
-
-    <!-- spacing -->
-    <hr class="invisible m-t-1 m-b-0" />
-
-    <!-- find latest article before current one -->
-    <xsl:variable name="prev">
-      <xsl:call-template name="date.prev.title">
-        <xsl:with-param name="date" select="date" />
-        <xsl:with-param name="elements" select="../article" />
-      </xsl:call-template>
-    </xsl:variable>
-
-    <!-- find earliest article after current one -->
-    <xsl:variable name="next">
-      <xsl:call-template name="date.next.title">
-        <xsl:with-param name="date" select="date" />
-        <xsl:with-param name="elements" select="../article" />
-      </xsl:call-template>
-    </xsl:variable>
-
-    <!-- pager navigation -->
-    <xsl:call-template name="element.pager">
-
-      <!-- previous article -->
-      <xsl:with-param name="prev">
-        <xsl:if test="$prev != ''">
-          <page title="{$prev}">
-            <xsl:attribute name="href"><xsl:value-of select="$site.url" />article/<xsl:call-template name="format.filename">
-              <xsl:with-param name="string" select="$prev" />
-            </xsl:call-template>.html</xsl:attribute>
-          </page>
-        </xsl:if>
-      </xsl:with-param>
-
-      <!-- next article -->
-      <xsl:with-param name="next">
-        <xsl:if test="$next != ''">
-          <page title="{$next}">
-            <xsl:attribute name="href"><xsl:value-of select="$site.url" />article/<xsl:call-template name="format.filename">
-              <xsl:with-param name="string" select="$next" />
-            </xsl:call-template>.html</xsl:attribute>
-          </page>
-        </xsl:if>
-      </xsl:with-param>
-
     </xsl:call-template>
 
   </xsl:template>
