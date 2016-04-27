@@ -1,6 +1,11 @@
 module.exports = function(grunt) {
   "use strict";
 
+  //TODO:
+  //  - htmllint task
+  //  - scsslint task
+  //  - postcss autoprefixer insead of autoprefixer?
+
   // dependencies
   var path = require('path');
 
