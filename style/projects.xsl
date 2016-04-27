@@ -213,17 +213,15 @@
               <xsl:value-of select="short" />
             </strong>
           </p>
+
+          <!-- spacing -->
+          <hr class="invisible m-y-1" />
+
+          <!-- copy actual content from XML directly -->
+          <xsl:copy-of select="content" />
+
         </xsl:with-param>
 
-      </xsl:call-template>
-
-      <!-- spacing -->
-      <hr class="invisible m-t-1 m-b-0" />
-
-      <!-- put actual content in a text column -->
-      <xsl:call-template name="element.textcolumn">
-        <xsl:with-param name="content" select="content" />
-        <xsl:with-param name="sidebar" select="content/*[@id]" />
       </xsl:call-template>
 
     </article>
