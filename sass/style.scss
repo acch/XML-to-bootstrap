@@ -11,9 +11,9 @@
 
 \* -------------------------------------------------------------------------- */
 
-@import "variables";
-@import "breakpoints";
-@import "hover";
+@import "bootstrap/variables";
+@import "bootstrap/mixins/breakpoints";
+@import "bootstrap/mixins/hover";
 
 
 /* -------------------- *\

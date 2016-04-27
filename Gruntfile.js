@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 
   // path definitions
   var pathdef = {
-    'bootstrap':       'modules/bootstrap',
+    'bootstrap':       'modules/bootstrap/dist',
     'fontawesome':     'lib/font-awesome',
     'headroom':        'lib/headroom.js',
     'jquery':          'lib/jquery',
@@ -25,8 +25,7 @@ module.exports = function(grunt) {
         'js/options.json',
         'js/headroom.js',
         'js/photoswipe*.js',
-        'js/scrollPosStyler.js',
-        'sass/_*.scss'
+        'js/scrollPosStyler.js'
       ]
     },
 
@@ -59,7 +58,7 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: path.join(pathdef.bootstrap, 'dist'),
+            cwd: pathdef.bootstrap,
             src: '**/bootstrap*.min.css',
             dest: 'publish/css/'
           },
@@ -67,17 +66,9 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: path.join(pathdef.bootstrap, 'dist'),
+            cwd: pathdef.bootstrap,
             src: '**/bootstrap.min.js',
             dest: 'publish/js/'
-          },
-          {
-            expand: true,
-            flatten: true,
-            nonull: true,
-            cwd: path.join(pathdef.bootstrap, 'scss'),
-            src: ['**/_variables.scss', '**/_breakpoints.scss', '**/_hover.scss'],
-            dest: 'sass/'
           },
           {
             expand: true,
@@ -216,6 +207,7 @@ module.exports = function(grunt) {
     prettify: {
       publish: {
         expand: true,
+        nonull: true,
         src: 'publish/**/*.html'
       }
     },

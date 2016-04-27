@@ -2,7 +2,6 @@ bower_components
 node_modules
 src/*.xml
 publish
-sass/_*.scss
 css
 js/options.json
 js/headroom.js
