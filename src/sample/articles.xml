@@ -69,7 +69,7 @@
     </content>
   </article>
 
-  <article id="vierter">
+  <article>
     <date>2015-03-12</date>
     <title>The Fourth Entry</title>
     <subtitle>Even better than number three</subtitle>
@@ -90,7 +90,7 @@
     </content>
   </article>
 
-  <article>
+  <article id="five">
     <date>2015-03-13</date>
     <title>Article Number Five</title>
     <subtitle>The very best of all... and with a very very very very very very long subtitle... don't get me wrong - the subtitle is very long... not just long, but incredibly super duper long... it probably would have made for a separate paragraph on its own</subtitle>
