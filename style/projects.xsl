@@ -128,7 +128,8 @@
         <div class="{$style.cardcolumn}">
 
           <!-- project card -->
-          <div class="card card-block">
+          <!-- TODO: add semantic vocabulary/description -->
+          <article class="card card-block">
 
             <!-- project title -->
             <h3 class="card-title">
@@ -157,7 +158,7 @@
 
             </a>
 
-          </div><!-- /card -->
+          </article><!-- /card -->
 
         </div><!-- /column -->
 
@@ -192,25 +193,34 @@
     <!-- spacing -->
     <hr class="invisible m-y-1" />
 
-    <!-- project introduction -->
-    <p>
-      <span class="text-muted">
-        //&#160;<xsl:value-of select="$date.formatted" />
-      </span>
+    <!-- put introduction in a text column -->
+    <xsl:call-template name="element.textcolumn">
+      <xsl:with-param name="sidebar" select="content/*[@id]" />
 
-      <br />
+      <!-- project introduction -->
+      <xsl:with-param name="content">
+        <p>
+          <span class="text-muted">
+            //&#160;<xsl:value-of select="$date.formatted" />
+          </span>
 
-      <strong>
-        <xsl:value-of select="short" />
-      </strong>
-    </p>
+          <br />
+
+          <strong>
+            <xsl:value-of select="short" />
+          </strong>
+        </p>
+      </xsl:with-param>
+
+    </xsl:call-template>
 
     <!-- spacing -->
-    <hr class="invisible m-y-1" />
+    <hr class="invisible m-t-1 m-b-0" />
 
-    <!-- copy content from XML directly -->
-    <xsl:call-template name="copy.content">
+    <!-- put actual content in a text column -->
+    <xsl:call-template name="element.textcolumn">
       <xsl:with-param name="content" select="content" />
+      <xsl:with-param name="sidebar" select="content/*[@id]" />
     </xsl:call-template>
 
     <!-- spacing -->
