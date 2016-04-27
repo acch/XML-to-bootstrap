@@ -9,4 +9,15 @@
     Browse some pictures. Keep cool.
   </introduction>
 
+  <gallery id="erste">
+    <date>2015-08-01</date>
+    <title>Amsterdam</title>
+    <short>
+      A weekend trip to the Dutch capital.
+    </short>
+    <content>
+      Coming soon&#8230;
+    </content>
+  </gallery>
+
 </galleries>
