@@ -83,11 +83,8 @@
     <div class="row">
       <div class="{$textcolumn}">
 
-        <!-- copy content from XML directly -->
-        <xsl:call-template name="copy.content">
-          <xsl:with-param name="content" select="ext:node-set($content)" />
-          <xsl:with-param name="exclude" select="$exclude" />
-        </xsl:call-template>
+        <!-- copy content directly -->
+        <xsl:copy-of select="ext:node-set($content)" />
 
       </div>
     </div>

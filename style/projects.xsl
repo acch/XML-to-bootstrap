@@ -217,8 +217,10 @@
           <!-- spacing -->
           <hr class="invisible m-y-1" />
 
-          <!-- copy actual content from XML directly -->
-          <xsl:copy-of select="content" />
+          <!-- copy actual content from XML -->
+          <xsl:call-template name="copy.content">
+            <xsl:with-param name="content" select="content" />
+          </xsl:call-template>
 
         </xsl:with-param>
 
