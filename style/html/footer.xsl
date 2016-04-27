@@ -31,11 +31,11 @@
     <footer class="x2b-ftr m-t-2 p-y-2" role="contentinfo">
       <div class="container text-xs-center text-muted">
 
-        <p class="x2b-ftr-txt">
+        <p class="m-a-0">
           Generated using <a href="//github.com/acch/XML-to-bootstrap">XML-to-Bootstrap</a> for your viewing pleasure.
         </p>
 
-        <p class="x2b-ftr-txt">
+        <p class="m-a-0">
           This site uses <a href="//getbootstrap.com">Bootstrap</a>, <a href="//fontawesome.io">Font Awesome</a> and <a href="//wicky.nillia.ms/headroom.js/">Headroom.js</a>.
         </p>
 
