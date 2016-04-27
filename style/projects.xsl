@@ -272,7 +272,7 @@
     <nav>
 
       <!-- find all elements with id attribute -->
-      <xsl:for-each select="$content/content/*[@id]">
+      <xsl:for-each select="ext:node-set($content)/content/*[@id]">
 
         <!-- nav link -->
         <link title="{text()}" href="#{@id}" />

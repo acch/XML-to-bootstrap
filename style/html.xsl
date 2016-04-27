@@ -92,7 +92,7 @@
 
                 <!-- sidebar -->
                 <xsl:call-template name="html.sidebar">
-                  <xsl:with-param name="content" select="$content.sidebar" />
+                  <xsl:with-param name="content" select="ext:node-set($content.sidebar)" />
                 </xsl:call-template>
 
               </aside><!-- /sidebar column -->
