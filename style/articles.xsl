@@ -232,7 +232,6 @@
     <!-- spacing -->
     <hr class="invisible m-y-1" />
 
-
     <!-- put introduction in a text column -->
     <xsl:call-template name="element.textcolumn">
       <xsl:with-param name="sidebar" select="content/*[@id]" />
