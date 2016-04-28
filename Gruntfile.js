@@ -234,18 +234,29 @@ module.exports = function(grunt) {
 
   // copy sample files
   grunt.registerTask('copy_samples', function() {
-    // recurse samples directory
-    grunt.file.recurse('src/sample', function(abspath, rootdir, subdir, filename) {
-      var destfile = path.join('src', filename);
 
-      // check if destination file exists
-      if (! grunt.file.exists(destfile)) {
-        grunt.log.writeln('Copying sample: ' + filename);
+    // copy sample files if they don't exist
+    function copySampleIfNotExist(relpath) {
 
-        // copy sample to destination
-        grunt.file.copy(abspath, destfile);
-      }
-    });
+      // recurse sample subdirectory
+      grunt.file.recurse(path.join(relpath, 'sample'), function(abspath, rootdir, subdir, filename) {
+
+        // check if destination file exists
+        var destfile = path.join(relpath, filename);
+        if (! grunt.file.exists(destfile)) {
+
+          // copy sample to destination
+          grunt.log.writeln('Copying sample: ' + filename);
+          grunt.file.copy(abspath, destfile);
+        }
+      });
+    }
+
+    // copy XML samples
+    copySampleIfNotExist('src');
+
+    // copy sass samples
+    copySampleIfNotExist('sass');
   });
 
   // default task including everything
