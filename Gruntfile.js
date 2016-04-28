@@ -16,8 +16,7 @@ module.exports = function(grunt) {
 
   //TODO:
   //  - htmllint task
-  //  - scsslint task
-  //  - postcss autoprefixer insead of autoprefixer?
+  //  - scsslint task?
 
   // dependencies
   var path = require('path');
@@ -144,15 +143,20 @@ module.exports = function(grunt) {
       publish: {
         files: [
           {
-            src: ['js/options.json', 'js/headroom.js', 'js/navbar.js', 'js/scrollPosStyler.js'],
+            src: [
+              'js/options.json',
+              'js/headroom.js',
+              'js/navbar.js',
+              'js/scrollPosStyler.js'
+            ],
             dest: 'publish/js/script.js'
           },
           {
-            src: ['css/*.css'],
+            src: 'css/*.css',
             dest: 'publish/css/gallery.css'
           },
           {
-            src: ['js/photoswipe*.js'],
+            src: 'js/photoswipe*.js',
             dest: 'publish/js/gallery.js'
           }
         ]
@@ -169,10 +173,10 @@ module.exports = function(grunt) {
     },
 
     sass: {
+      options: {
+        style: 'nested'
+      },
       publish: {
-        options: {
-          style: 'nested'
-        },
         files: {
           'publish/css/style.css': 'sass/style.scss'
         }
@@ -197,7 +201,7 @@ module.exports = function(grunt) {
         'compatible-vendor-prefixes': false
       },
       publish: {
-        src: ['publish/css/style.css']
+        src: 'publish/css/style.css'
       }
     },
 
@@ -210,12 +214,27 @@ module.exports = function(grunt) {
       }
     },
 
-    htmlmin: {
+    htmllint: {
+      options: {
+        force: true,
+        'attr-name-style': false,
+        'id-class-style': false,
+        'indent-width': false,
+        'line-end-style': false
+      },
       publish: {
-        options: {
-          removeComments: true,
-          collapseWhitespace: true
-        },
+        expand: true,
+        nonull: true,
+        src: 'publish/**/*.html'
+      }
+    },
+
+    htmlmin: {
+      options: {
+        removeComments: true,
+        collapseWhitespace: true
+      },
+      publish: {
         expand: true,
         nonull: true,
         src: 'publish/**/*.html'
@@ -272,7 +291,7 @@ module.exports = function(grunt) {
     copySampleIfNotExist('sass');
   });
 
-  // default task including everything
+  // no linting but minification (use this for production)
   grunt.registerTask('default', [
     'clean',
     'bower',
@@ -283,12 +302,11 @@ module.exports = function(grunt) {
     'uglify',
     'sass',
     'autoprefixer',
-    'csslint',
     'cssmin',
     'htmlmin',
     'connect']);
 
-  // everything except minification
+  // no minification but linting (use this for development)
   grunt.registerTask('debug', [
     'clean',
     'bower',
@@ -299,6 +317,7 @@ module.exports = function(grunt) {
     'sass',
     'autoprefixer',
     'csslint',
+    'htmllint',
     'prettify',
     'connect']);
 };
