@@ -6,7 +6,7 @@
   "homepage": "https://github.com/acch/XML-to-bootstrap",
   "devDependencies": {
     "font-awesome": "*",
-    "headroom.js": "*",
+    "headroom.js": "https://npmcdn.com/headroom.js@0.9.3/bower.zip",
     "jquery": "*",
     "photoswipe": "*",
     "scrollpos-styler": "*"
