@@ -1,3 +1,16 @@
+/* -------------------------------------------------------------------------- *\
+   Gruntfile - project build instructions
+   --------------------------------------------------------------------------
+
+   This file is part of XML-to-bootstrap.
+   https://github.com/acch/XML-to-bootstrap
+
+   Copyright 2016 Achim Christ
+   Released under the MIT license
+   (https://github.com/acch/XML-to-bootstrap/blob/master/LICENSE)
+
+\* -------------------------------------------------------------------------- */
+
 module.exports = function(grunt) {
   "use strict";
 
