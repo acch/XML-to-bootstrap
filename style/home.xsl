@@ -83,7 +83,7 @@
           <h3 class="card-title">
             <xsl:choose>
               <xsl:when test="$articles">
-                <a href="{$site.url}articles.html">
+                <a class="x2b-hdng-lnk" href="{$site.url}articles.html">
                   <xsl:value-of select="/site/articles/title" />
                 </a>
               </xsl:when>
@@ -138,7 +138,7 @@
           <h3 class="card-title">
             <xsl:choose>
               <xsl:when test="$projects">
-                <a href="{$site.url}projects.html">
+                <a class="x2b-hdng-lnk" href="{$site.url}projects.html">
                   <xsl:value-of select="/site/projects/title" />
                 </a>
               </xsl:when>
@@ -193,7 +193,7 @@
           <h3 class="card-title">
             <xsl:choose>
               <xsl:when test="$galleries">
-                <a href="{$site.url}galleries.html">
+                <a class="x2b-hdng-lnk" href="{$site.url}galleries.html">
                   <xsl:value-of select="/site/galleries/title" />
                 </a>
               </xsl:when>
