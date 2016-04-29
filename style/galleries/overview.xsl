@@ -75,7 +75,7 @@
           <article class="card card-block">
 
             <!-- gallery title -->
-            <h3 class="card-title">
+            <h3 class="card-title x2b-hdng-lnk">
               <a href="{$site.url}gallery/{$filename}.html">
                 <xsl:value-of select="title" />
               </a>
