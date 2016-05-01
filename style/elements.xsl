@@ -37,7 +37,7 @@
     <xsl:variable name="parent.page" select="ext:node-set($parent)/page" />
 
     <!-- bootstrap breadcrumps -->
-    <ol class="breadcrumb">
+    <ol class="breadcrumb x2b-brdcrmb">
 
       <li>
         <a href="{$site.url}">Home</a>
@@ -203,7 +203,7 @@
     <xsl:variable name="btn.class">
       <xsl:choose>
         <xsl:when test="$disabled">btn-secondary</xsl:when>
-        <xsl:otherwise>btn-primary-outline</xsl:otherwise>
+        <xsl:otherwise>btn-primary</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
 

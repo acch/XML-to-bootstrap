@@ -47,28 +47,30 @@
   <!-- social links -->
   <xsl:template name="html.sociallinks">
 
-    <div class="container text-xs-center">
+    <div class="container">
+      <div class="[ card card-block ] text-xs-center x2b-ftr-pnl">
 
-      <!-- iterate over all social links -->
-      <xsl:for-each select="/site/options/option[@name = 'site.sociallinks']/sociallink">
-        <a class="x2b-bs-lnk">
+        <!-- iterate over all social links -->
+        <xsl:for-each select="/site/options/option[@name = 'site.sociallinks']/sociallink">
+          <a class="x2b-bs-lnk">
 
-          <!-- copy attributes from XML directly -->
-          <xsl:for-each select="@*">
-            <xsl:copy />
-          </xsl:for-each>
+            <!-- copy attributes from XML directly -->
+            <xsl:for-each select="@*">
+              <xsl:copy />
+            </xsl:for-each>
 
-          <!-- generate icon -->
-          <xsl:call-template name="element.icon">
-            <xsl:with-param name="icon">
-              <xsl:value-of select="." />
-            </xsl:with-param>
-            <xsl:with-param name="size">fa-2x</xsl:with-param>
-          </xsl:call-template>
+            <!-- generate icon -->
+            <xsl:call-template name="element.icon">
+              <xsl:with-param name="icon">
+                <xsl:value-of select="." />
+              </xsl:with-param>
+              <xsl:with-param name="size">fa-2x</xsl:with-param>
+            </xsl:call-template>
 
-        </a>
-      </xsl:for-each>
+          </a>
+        </xsl:for-each>
 
+      </div><!-- /card -->
     </div><!-- /container -->
 
   </xsl:template>
