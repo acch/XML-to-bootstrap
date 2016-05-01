@@ -21,9 +21,13 @@
 \* -------------------- */
 
 $shadow:                     0 1px 2px rgba(0, 0, 0, 0.25) !default;
-$base-color:                 $gray-light !default;
-$base-color-light:           $gray-lighter !default;
-$accent-color:               $brand-primary !default;
+
+$base-color-dark:            $gray-dark !default;
+$base-color:                 $gray !default;
+$base-color-light:           $gray-light !default;
+$base-color-lighter:         $gray-lighter !default;
+
+//$accent-color:               $brand-primary !default;
 
 
 /* -------------------- *\
@@ -31,12 +35,12 @@ $accent-color:               $brand-primary !default;
 \* -------------------- */
 
 //TODO: not currently used - required?
-@include media-breakpoint-up(sm) {
+/*@include media-breakpoint-up(sm) {
   .x2b-nwrp {
     overflow: hidden;
     white-space: nowrap;
   }
-}
+}*/
 
 .x2b-shdw {
   text-shadow: $shadow;
@@ -50,6 +54,14 @@ $accent-color:               $brand-primary !default;
 .x2b-sbtl-lnk {
   @include plain-hover-focus {
     color: $body-color;
+    text-decoration: none !important;
+  }
+}
+
+.x2b-bs-lnk {
+  color: $base-color-dark;
+  @include hover-focus {
+    color: lighten($base-color-dark, 15%);
     text-decoration: none !important;
   }
 }
@@ -115,7 +127,7 @@ $accent-color:               $brand-primary !default;
   box-shadow: none;
 }
 .sps--blw {
-  background-color: $gray-lighter;
+  background-color: $base-color-lighter;
   box-shadow: $shadow;
 }
 
@@ -144,7 +156,7 @@ $accent-color:               $brand-primary !default;
 .x2b-sdbr-sctn {
   font-size: $font-size-lg;
 }
-.x2b-sdbr-lnk {
+.x2b-sdbr-entry {
   margin: (0.5 * $spacer-y) 0;
 }
 

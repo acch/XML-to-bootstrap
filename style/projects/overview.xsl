@@ -76,7 +76,7 @@
 
             <!-- project title -->
             <h3 class="card-title">
-              <a class="x2b-sbtl-lnk" href="{$site.url}project/{$filename}.html">
+              <a class="x2b-bs-lnk" href="{$site.url}project/{$filename}.html">
                 <xsl:value-of select="title" />
               </a>
             </h3>

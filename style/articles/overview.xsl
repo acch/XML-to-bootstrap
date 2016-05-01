@@ -69,7 +69,7 @@
 
         <!-- article title -->
         <h3 class="x2b-anchr" id="{@id}">
-          <a class="x2b-sbtl-lnk" href="{$site.url}article/{$filename}.html">
+          <a class="x2b-bs-lnk" href="{$site.url}article/{$filename}.html">
             <xsl:value-of select="title" />
           </a>
         </h3>
