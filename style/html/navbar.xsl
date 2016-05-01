@@ -42,6 +42,12 @@
             <xsl:value-of select="$site.title" />
           </a>
 
+          <!-- divider -->
+          <div class="navbar-divider hidden-xs-down">
+            <!-- prevent tag from collapsing -->
+            <xsl:text> </xsl:text>
+          </div>
+
           <ul class="nav navbar-nav">
 
             <!-- optional articles component -->
@@ -125,6 +131,9 @@
             <!--li class="navbar-brand hidden-xs-down pull-sm-right">
               by <xsl:value-of select="$site.author" />
             </li-->
+
+            <!-- button -->
+            <button type="button" class="[ btn btn-primary-outline ] hidden-sm-down pull-xs-right" data-toggle="button" aria-pressed="false">It's fresh!</button>
 
           </ul>
 
