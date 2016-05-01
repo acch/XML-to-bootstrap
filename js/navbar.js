@@ -12,7 +12,7 @@
 \* -------------------------------------------------------------------------- */
 
 (function() {
-  
+
   // construct Headroom
   var headroom  = new Headroom(document.querySelector(".js-nvbr"), {
     "offset": Options.navbarOffset,
@@ -26,7 +26,7 @@
   document.addEventListener("DOMContentLoaded", function() {
 
     // choose elements to add click event to
-    var elements = document.getElementsByClassName("x2b-sdbr-lnk");
+    var elements = document.getElementsByClassName("x2b-sdbr-entry");
 
     // iterate over elements
     for (var i = 0; elements[i]; ++i) {
