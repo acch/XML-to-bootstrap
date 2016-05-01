@@ -62,6 +62,7 @@ $navbar-height:              ($font-size-lg * $line-height + 0.5 + 2 * $navbar-p
 
 .x2b-bs-lnk {
   color: $base-color-dark;
+
   @include hover-focus {
     color: lighten($base-color-dark, 15%);
     text-decoration: none !important;
@@ -102,7 +103,6 @@ $navbar-height:              ($font-size-lg * $line-height + 0.5 + 2 * $navbar-p
 \* -------------------- */
 
 .x2b-bdy {
-  padding-top: ($navbar-height);
   font-kerning: normal;
   font-variant-ligatures: common-ligatures;
   font-feature-settings: "liga" on, "clig" on, "kern" on;
@@ -144,6 +144,19 @@ $navbar-height:              ($font-size-lg * $line-height + 0.5 + 2 * $navbar-p
 .headroom--unpinned {
   transform: translateY(-100%);
   box-shadow: none !important;
+}
+
+
+/* -------------------- *\
+       Banner styles
+\* -------------------- */
+
+.x2b-bnnr {
+  padding-top: ($jumbotron-padding + $navbar-height);
+
+  @include media-breakpoint-up(sm) {
+    padding-top: (2 * $jumbotron-padding + $navbar-height);
+  }
 }
 
 
