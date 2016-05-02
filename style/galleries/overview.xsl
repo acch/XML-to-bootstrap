@@ -40,69 +40,76 @@
     <!-- spacing -->
     <hr class="invisible m-y-1" />
 
-    <xsl:if test="not(gallery)">
-      <p><strong>
-        There are no galleries, yet. Why don't you create one?
-      </strong></p>
-    </xsl:if>
+    <xsl:choose>
+      <xsl:when test="not(gallery)">
 
-    <!-- project cards -->
-    <div class="row">
+        <p><strong>
+          There are no galleries, yet. Why don't you create one?
+        </strong></p>
 
-      <!-- iterate over all galleries -->
-      <xsl:for-each select="gallery">
-        <xsl:sort select="date" order="descending" />
+      </xsl:when>
+      <xsl:otherwise>
 
-        <!-- format filename -->
-        <xsl:variable name="filename">
-          <xsl:call-template name="format.filename">
-            <xsl:with-param name="string" select="title" />
-          </xsl:call-template>
-        </xsl:variable>
+        <!-- gallery cards -->
+        <div class="row">
 
-        <!-- format date -->
-        <xsl:variable name="date">
-          <xsl:call-template name="format.date">
-            <xsl:with-param name="date" select="date" />
-          </xsl:call-template>
-        </xsl:variable>
+          <!-- iterate over all galleries -->
+          <xsl:for-each select="gallery">
+            <xsl:sort select="date" order="descending" />
 
-        <!-- responsive column -->
-        <div class="{$style.cardcolumn}">
+            <!-- format filename -->
+            <xsl:variable name="filename">
+              <xsl:call-template name="format.filename">
+                <xsl:with-param name="string" select="title" />
+              </xsl:call-template>
+            </xsl:variable>
 
-          <!-- gallery card -->
-          <!-- TODO: add semantic vocabulary/description -->
-          <article class="card card-block">
+            <!-- format date -->
+            <xsl:variable name="date">
+              <xsl:call-template name="format.date">
+                <xsl:with-param name="date" select="date" />
+              </xsl:call-template>
+            </xsl:variable>
 
-            <!-- gallery title -->
-            <h3 class="card-title">
-              <a class="x2b-bs-lnk" href="{$site.url}gallery/{$filename}.html">
-                <xsl:value-of select="title" />
-              </a>
-            </h3>
+            <!-- responsive column -->
+            <div class="{$style.cardcolumn}">
 
-            <a class="x2b-sbtl-lnk" href="{$site.url}gallery/{$filename}.html">
+              <!-- gallery card -->
+              <!-- TODO: add semantic vocabulary/description -->
+              <article class="card card-block">
 
-              <!-- gallery description -->
-              <p class="card-text">
-                <xsl:value-of select="short" />
+                <!-- gallery title -->
+                <h3 class="card-title">
+                  <a class="x2b-bs-lnk" href="{$site.url}gallery/{$filename}.html">
+                    <xsl:value-of select="title" />
+                  </a>
+                </h3>
 
-                <xsl:text> </xsl:text>
+                <a class="x2b-sbtl-lnk" href="{$site.url}gallery/{$filename}.html">
 
-                <span class="text-muted">
-                  //&#160;<xsl:value-of select="$date" />
-                </span>
-              </p>
+                  <!-- gallery description -->
+                  <p class="card-text">
+                    <xsl:value-of select="short" />
 
-            </a>
+                    <xsl:text> </xsl:text>
 
-          </article><!-- /card -->
+                    <span class="text-muted">
+                      //&#160;<xsl:value-of select="$date" />
+                    </span>
+                  </p>
 
-        </div><!-- /column -->
+                </a>
 
-      </xsl:for-each>
+              </article><!-- /card -->
 
-    </div><!-- /gallery cards -->
+            </div><!-- /column -->
+
+          </xsl:for-each>
+
+        </div><!-- /gallery cards -->
+
+      </xsl:otherwise>
+    </xsl:choose>
 
   </xsl:template>
 

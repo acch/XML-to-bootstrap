@@ -40,68 +40,75 @@
     <!-- spacing -->
     <hr class="invisible m-t-2 m-b-0" />
 
-    <xsl:if test="not(article)">
-      <p><strong>
-        There are no articles, yet. Why don't you create one?
-      </strong></p>
-    </xsl:if>
+    <xsl:choose>
+      <xsl:when test="not(article)">
 
-    <!-- iterate over all articles -->
-    <xsl:for-each select="article">
-      <xsl:sort select="date" order="descending" />
+        <p><strong>
+          There are no articles, yet. Why don't you create one?
+        </strong></p>
 
-      <!-- format filename -->
-      <xsl:variable name="filename">
-        <xsl:call-template name="format.filename">
-          <xsl:with-param name="string" select="title" />
-        </xsl:call-template>
-      </xsl:variable>
+      </xsl:when>
+      <xsl:otherwise>
 
-      <!-- format date -->
-      <xsl:variable name="date">
-        <xsl:call-template name="format.date">
-          <xsl:with-param name="date" select="date" />
-        </xsl:call-template>
-      </xsl:variable>
+        <!-- iterate over all articles -->
+        <xsl:for-each select="article">
+          <xsl:sort select="date" order="descending" />
 
-      <!-- TODO: add semantic vocabulary/description -->
-      <article>
+          <!-- format filename -->
+          <xsl:variable name="filename">
+            <xsl:call-template name="format.filename">
+              <xsl:with-param name="string" select="title" />
+            </xsl:call-template>
+          </xsl:variable>
 
-        <!-- article title -->
-        <h3 class="x2b-anchr" id="{@id}">
-          <a class="x2b-bs-lnk" href="{$site.url}article/{$filename}.html">
-            <xsl:value-of select="title" />
-          </a>
-        </h3>
+          <!-- format date -->
+          <xsl:variable name="date">
+            <xsl:call-template name="format.date">
+              <xsl:with-param name="date" select="date" />
+            </xsl:call-template>
+          </xsl:variable>
 
-        <a class="x2b-sbtl-lnk" href="{$site.url}article/{$filename}.html">
+          <!-- TODO: add semantic vocabulary/description -->
+          <article>
 
-          <!-- article subtitle -->
-          <p><strong>
-            <xsl:value-of select="subtitle" />
-          </strong></p>
+            <!-- article title -->
+            <h3 class="x2b-anchr" id="{@id}">
+              <a class="x2b-bs-lnk" href="{$site.url}article/{$filename}.html">
+                <xsl:value-of select="title" />
+              </a>
+            </h3>
 
-          <!-- article description -->
-          <p>
-            <xsl:value-of select="short" />
+            <a class="x2b-sbtl-lnk" href="{$site.url}article/{$filename}.html">
 
-            <xsl:text> </xsl:text>
+              <!-- article subtitle -->
+              <p><strong>
+                <xsl:value-of select="subtitle" />
+              </strong></p>
 
-            <span class="text-muted">
-              //&#160;<xsl:value-of select="$date" />
-            </span>
-          </p>
+              <!-- article description -->
+              <p>
+                <xsl:value-of select="short" />
 
-        </a>
+                <xsl:text> </xsl:text>
 
-      </article>
+                <span class="text-muted">
+                  //&#160;<xsl:value-of select="$date" />
+                </span>
+              </p>
 
-      <!-- divider -->
-      <xsl:if test="position() != last()">
-        <hr class="m-t-3 m-b-2" />
-      </xsl:if>
+            </a>
 
-    </xsl:for-each>
+          </article>
+
+          <!-- divider -->
+          <xsl:if test="position() != last()">
+            <hr class="m-t-3 m-b-2" />
+          </xsl:if>
+
+        </xsl:for-each>
+
+      </xsl:otherwise>
+    </xsl:choose>
 
   </xsl:template>
 

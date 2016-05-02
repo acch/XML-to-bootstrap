@@ -40,74 +40,81 @@
     <!-- spacing -->
     <hr class="invisible m-y-1" />
 
-    <xsl:if test="not(project)">
-      <p><strong>
-        There are no projects, yet. Why don't you create one?
-      </strong></p>
-    </xsl:if>
+    <xsl:choose>
+      <xsl:when test="not(project)">
 
-    <!-- project cards -->
-    <div class="row">
+        <p><strong>
+          There are no projects, yet. Why don't you create one?
+        </strong></p>
 
-      <!-- iterate over all projects -->
-      <xsl:for-each select="project">
-        <xsl:sort select="date" order="descending" />
+      </xsl:when>
+      <xsl:otherwise>
 
-        <!-- format filename -->
-        <xsl:variable name="filename">
-          <xsl:call-template name="format.filename">
-            <xsl:with-param name="string" select="title" />
-          </xsl:call-template>
-        </xsl:variable>
+        <!-- project cards -->
+        <div class="row">
 
-        <!-- format date -->
-        <xsl:variable name="date">
-          <xsl:call-template name="format.date">
-            <xsl:with-param name="date" select="date" />
-          </xsl:call-template>
-        </xsl:variable>
+          <!-- iterate over all projects -->
+          <xsl:for-each select="project">
+            <xsl:sort select="date" order="descending" />
 
-        <!-- responsive column -->
-        <div class="{$style.cardcolumn}">
+            <!-- format filename -->
+            <xsl:variable name="filename">
+              <xsl:call-template name="format.filename">
+                <xsl:with-param name="string" select="title" />
+              </xsl:call-template>
+            </xsl:variable>
 
-          <!-- project card -->
-          <!-- TODO: add semantic vocabulary/description -->
-          <article class="card card-block">
+            <!-- format date -->
+            <xsl:variable name="date">
+              <xsl:call-template name="format.date">
+                <xsl:with-param name="date" select="date" />
+              </xsl:call-template>
+            </xsl:variable>
 
-            <!-- project title -->
-            <h3 class="card-title">
-              <a class="x2b-bs-lnk" href="{$site.url}project/{$filename}.html">
-                <xsl:value-of select="title" />
-              </a>
-            </h3>
+            <!-- responsive column -->
+            <div class="{$style.cardcolumn}">
 
-            <a class="x2b-sbtl-lnk" href="{$site.url}project/{$filename}.html">
+              <!-- project card -->
+              <!-- TODO: add semantic vocabulary/description -->
+              <article class="card card-block">
 
-              <!-- project subtitle -->
-              <p class="card-text"><strong>
-                <xsl:value-of select="subtitle" />
-              </strong></p>
+                <!-- project title -->
+                <h3 class="card-title">
+                  <a class="x2b-bs-lnk" href="{$site.url}project/{$filename}.html">
+                    <xsl:value-of select="title" />
+                  </a>
+                </h3>
 
-              <!-- project description -->
-              <p class="card-text">
-                <xsl:value-of select="short" />
+                <a class="x2b-sbtl-lnk" href="{$site.url}project/{$filename}.html">
 
-                <xsl:text> </xsl:text>
+                  <!-- project subtitle -->
+                  <p class="card-text"><strong>
+                    <xsl:value-of select="subtitle" />
+                  </strong></p>
 
-                <span class="text-muted">
-                  //&#160;<xsl:value-of select="$date" />
-                </span>
-              </p>
+                  <!-- project description -->
+                  <p class="card-text">
+                    <xsl:value-of select="short" />
 
-            </a>
+                    <xsl:text> </xsl:text>
 
-          </article><!-- /card -->
+                    <span class="text-muted">
+                      //&#160;<xsl:value-of select="$date" />
+                    </span>
+                  </p>
 
-        </div><!-- /column -->
+                </a>
 
-      </xsl:for-each>
+              </article><!-- /card -->
 
-    </div><!-- /project cards -->
+            </div><!-- /column -->
+
+          </xsl:for-each>
+
+        </div><!-- /project cards -->
+
+      </xsl:otherwise>
+    </xsl:choose>
 
   </xsl:template>
 
