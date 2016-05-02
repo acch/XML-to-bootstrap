@@ -62,10 +62,10 @@ $navbar-height:              ($font-size-lg * $line-height + 0.5 + 2 * $navbar-p
 }
 
 .x2b-bs-lnk {
-  color: $base-color-dark;
+  color: lighten($base-color-dark, 10%);
 
   @include hover-focus {
-    color: lighten($base-color-dark, 15%);
+    color: darken($base-color-dark, 5%);
     text-decoration: none !important;
   }
 }
@@ -153,7 +153,6 @@ $navbar-height:              ($font-size-lg * $line-height + 0.5 + 2 * $navbar-p
 \* -------------------- */
 
 .x2b-bnnr {
-  border: $border;
   padding-top: ($jumbotron-padding + $navbar-height);
 
   @include media-breakpoint-up(sm) {
