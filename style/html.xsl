@@ -65,6 +65,7 @@
 
         <!-- main content area -->
         <div class="container">
+
           <div class="row">
 
             <!-- width of main column depends on sidebar -->
@@ -103,7 +104,7 @@
 
           <!-- footer -->
           <xsl:call-template name="html.footer" />
-          
+
         </div><!-- /container -->
 
         <!-- scripts -->
