@@ -100,10 +100,11 @@
             </xsl:if>
 
           </div><!-- /row -->
-        </div><!-- /container -->
 
-        <!-- footer -->
-        <xsl:call-template name="html.footer" />
+          <!-- footer -->
+          <xsl:call-template name="html.footer" />
+          
+        </div><!-- /container -->
 
         <!-- scripts -->
         <xsl:call-template name="html.script" />
