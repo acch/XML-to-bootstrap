@@ -133,7 +133,7 @@
             </li-->
 
             <!-- button -->
-            <button type="button" class="[ btn btn-primary-outline ] hidden-sm-down pull-xs-right" data-toggle="button" aria-pressed="false">It's fresh!</button>
+            <button type="button" class="[ btn btn-primary-outline ] hidden-sm-down pull-xs-right" data-toggle="button" aria-pressed="false" autocomplete="off">It's fresh!</button>
 
           </ul>
 
