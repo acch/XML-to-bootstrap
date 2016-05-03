@@ -207,7 +207,7 @@
       </xsl:choose>
     </xsl:variable>
 
-    <button type="button" class="btn {$btn.class}">
+    <button type="button" class="[ btn {$btn.class} ] x2b-bttn">
       <xsl:if test="$disabled">
         <xsl:attribute name="disabled" />
       </xsl:if>

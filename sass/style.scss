@@ -20,17 +20,17 @@
          Variables
 \* -------------------- */
 
-$shadow:                     0 1px 2px rgba(0, 0, 0, .2), 0 4px 10px rgba(0, 0, 0, .19) !default;
-$border:                     $border-width solid $hr-border-color;
+$shadow:                     0 1px 2px rgba(0, 0, 0, .2), 0 1px 10px rgba(0, 0, 0, .19) !default;
+$shadow-up:                  0 4px 3px rgba(0, 0, 0, .25), 0 4px 12px rgba(0, 0, 0, .24) !default;
 
 $base-color-dark:            $gray-dark !default;
 $base-color:                 $gray-lighter !default;
 $base-color-light:           $gray-lightest !default;
 //$base-color-lighter:         $gray-lighter !default;
 
-//$accent-color:               $brand-primary !default;
+$border:                     $border-width solid $hr-border-color;
 
-$navbar-height:              ($font-size-lg * $line-height + 0.5 + 2 * $navbar-padding-vertical);
+$navbar-height:              ($font-size-lg * $line-height + .5rem + 2 * $navbar-padding-vertical);
 
 
 /* -------------------- *\
@@ -47,6 +47,21 @@ $navbar-height:              ($font-size-lg * $line-height + 0.5 + 2 * $navbar-p
 
 .x2b-shdw {
   text-shadow: $shadow;
+}
+
+
+/* -------------------- *\
+       Button styles
+\* -------------------- */
+
+.x2b-bttn {
+  box-shadow: $shadow;
+  transition: background-color .2s ease,
+              box-shadow .2s ease;
+
+  @include hover-focus {
+    box-shadow: $shadow-up;
+  }
 }
 
 
@@ -115,9 +130,9 @@ $navbar-height:              ($font-size-lg * $line-height + 0.5 + 2 * $navbar-p
 \* -------------------- */
 
 .x2b-nvbr {
-  transition: transform .25s,
-              background-color .25s linear,
-              box-shadow .25s linear;
+  transition: transform .2s,
+              background-color .2s linear,
+              box-shadow .2s linear;
 }
 
 
@@ -160,7 +175,7 @@ $navbar-height:              ($font-size-lg * $line-height + 0.5 + 2 * $navbar-p
   }
 }
 .x2b-bnnr::after {
-  background-image: radial-gradient(ellipse at 50% 0% , rgba(0, 0, 0, .5) 0, transparent 80%);
+  background-image: radial-gradient(ellipse at 50% -50% , rgba(0, 0, 0, .3) 0, transparent 80%);
   content: " ";
   display: block;
   height: .5rem;
@@ -176,6 +191,13 @@ $navbar-height:              ($font-size-lg * $line-height + 0.5 + 2 * $navbar-p
 
 .x2b-brdcrmb {
   border: $border;
+}
+.x2b-brdcrmb::before {
+  background-image: radial-gradient(ellipse at 50% -50% , rgba(0, 0, 0, .3) 0, transparent 80%);
+  content: " ";
+  display: block;
+  height: .5rem;
+  margin-top: (-$breadcrumb-padding-vertical);
 }
 
 
@@ -204,7 +226,14 @@ $navbar-height:              ($font-size-lg * $line-height + 0.5 + 2 * $navbar-p
 }
 
 .x2b-ftr-pnl {
-  padding: .5rem;
-  margin: 0;
   background-color: $base-color-light;
+  margin: 0;
+  padding: .5rem;
+}
+.x2b-ftr-pnl::before {
+  background-image: radial-gradient(ellipse at 50% -50% , rgba(0, 0, 0, .3) 0, transparent 80%);
+  content: " ";
+  display: block;
+  height: .5rem;
+  margin-top: (-.5rem);
 }
