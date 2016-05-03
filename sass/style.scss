@@ -20,7 +20,7 @@
          Variables
 \* -------------------- */
 
-$shadow:                     0 1px 2px rgba(0, 0, 0, 0.25) !default;
+$shadow:                     0 1px 2px rgba(0, 0, 0, .2), 0 4px 10px rgba(0, 0, 0, .19) !default;
 $border:                     $border-width solid $hr-border-color;
 
 $base-color-dark:            $gray-dark !default;
@@ -62,10 +62,10 @@ $navbar-height:              ($font-size-lg * $line-height + 0.5 + 2 * $navbar-p
 }
 
 .x2b-bs-lnk {
-  color: lighten($base-color-dark, 10%);
+  color: $base-color-dark;
 
   @include hover-focus {
-    color: darken($base-color-dark, 5%);
+    color: darken($base-color-dark, 15%);
     text-decoration: none !important;
   }
 }
@@ -159,6 +159,20 @@ $navbar-height:              ($font-size-lg * $line-height + 0.5 + 2 * $navbar-p
     padding-top: (2 * $jumbotron-padding + $navbar-height);
   }
 }
+.x2b-bnnr::after {
+  background-image: radial-gradient(ellipse at 50% 0% , rgba(0, 0, 0, .5) 0, transparent 80%);
+  content: " ";
+  display: block;
+  height: .5rem;
+
+  margin-bottom: (-$jumbotron-padding - .5rem);
+  margin-top: ($jumbotron-padding);
+
+  @include media-breakpoint-up(sm) {
+    margin-bottom: (-2 * $jumbotron-padding - .5rem);
+    margin-top: (2 * $jumbotron-padding);
+  }
+}
 
 .x2b-brdcrmb {
   border: $border;
@@ -177,7 +191,7 @@ $navbar-height:              ($font-size-lg * $line-height + 0.5 + 2 * $navbar-p
   font-size: $font-size-lg;
 }
 .x2b-sdbr-entry {
-  margin: (0.5 * $spacer-y) 0;
+  margin: (.5 * $spacer-y) 0;
 }
 
 
