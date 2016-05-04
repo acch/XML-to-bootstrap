@@ -2,10 +2,14 @@ FROM nginx:latest
 MAINTAINER Achim Christ
 
 # Install prerequisites
-RUN apt-get update
-RUN apt-get install -y git xsltproc nodejs npm
+RUN apt-get update && apt-get install -y \
+  git \
+  nodejs \
+  npm \
+  xsltproc \
+&& rm -rf /var/lib/apt/lists/*
 
-# Temporary workaround for node-sass
+# Temporary workaround for node-sass on Debian
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 WORKDIR /build
