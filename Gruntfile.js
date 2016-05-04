@@ -304,8 +304,7 @@ module.exports = function(grunt) {
     'sass',
     'autoprefixer',
     'cssmin',
-    'htmlmin',
-    'connect']);
+    'htmlmin']);
 
   // no minification but linting (use this for development)
   grunt.registerTask('debug', [
@@ -319,6 +318,5 @@ module.exports = function(grunt) {
     'autoprefixer',
     'csslint',
     'htmllint',
-    'prettify',
-    'connect']);
+    'prettify']);
 };
