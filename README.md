@@ -32,7 +32,8 @@ XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https:/
 
   On Debian-like Linux:
 
-      # sudo apt-get install xsltproc nodejs
+      # sudo apt-get install xsltproc nodejs npm
+      # sudo ln -s /usr/bin/nodejs /usr/bin/node
 
   On Arch-like Linux:
 
