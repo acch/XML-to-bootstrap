@@ -25,8 +25,7 @@ $shadow-up:                  0 4px 4px rgba(0, 0, 0, .25), 0 4px 12px rgba(0, 0,
 
 $base-color-dark:            $gray-dark !default;
 $base-color:                 $gray-lighter !default;
-$base-color-light:           $gray-lightest !default;
-//$base-color-lighter:         $gray-lighter !default;
+$base-color-light:           $base-color !default;
 
 $border:                     $border-width solid $hr-border-color;
 
