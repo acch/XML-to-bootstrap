@@ -26,5 +26,5 @@ RUN npm install -g bower
 RUN grunt
 
 # Publish results
-cp -r publish/* /usr/share/nginx/html
+RUN cp -r publish/* /usr/share/nginx/html
 
