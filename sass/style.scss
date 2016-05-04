@@ -62,6 +62,11 @@ $navbar-height:              ($font-size-lg * $line-height + .5rem + 2 * $navbar
     box-shadow: $shadow-up;
   }
 }
+.x2b-bttn:disabled {
+  @include hover-focus {
+    box-shadow: $shadow;
+  }
+}
 
 
 /* -------------------- *\
