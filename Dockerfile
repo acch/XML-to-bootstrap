@@ -5,23 +5,24 @@ MAINTAINER Achim Christ
 RUN apt-get update
 RUN apt-get install -y git xsltproc nodejs npm
 
-# Get the code
-RUN git clone https://github.com/acch/XML-to-bootstrap.git /build
-
-# Get the submodules
-RUN git submodule init
-RUN git submodule update
-
 # Temporary workaround for node-sass
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
+WORKDIR /build
+
+# Get the code
+RUN git clone https://github.com/acch/XML-to-bootstrap.git .
+
+# Get submodules
+RUN git submodule init
+RUN git submodule update
+
 # Install build tools
-cd /build
 RUN npm install
 RUN npm install -g grunt-cli
 RUN npm install -g bower
 
-# Build the code
+# Build the site
 RUN grunt
 
 # Publish results
