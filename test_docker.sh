@@ -5,10 +5,10 @@ docker stop x2b-test-1
 docker rm x2b-test-1
 
 # Delete image
-#docker rmi XML-to-Bootstrap
+#docker rmi x2b
 
 # Build image based on Dockerfile
-docker build -t XML-to-Bootstrap .
+docker build -t x2b .
 
 # Run container based on image
-docker run --name x2b-test-1 -d -p 9000:80 XML-to-Bootstrap
+docker run --name x2b-test-1 -d -p 8000:80 x2b
