@@ -52,7 +52,7 @@
 
       <!-- iterate over all social links -->
       <xsl:for-each select="/site/options/option[@name = 'site.sociallinks']/sociallink">
-        <a class="x2b-bs-lnk">
+        <a class="x2b-alt-lnk">
 
           <!-- copy attributes from XML directly -->
           <xsl:for-each select="@*">

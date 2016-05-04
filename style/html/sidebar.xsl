@@ -37,7 +37,7 @@
 
           <!-- nav link -->
           <li class="nav-item x2b-sdbr-entry">
-            <a class="nav-link x2b-bs-lnk" href="{@href}">
+            <a class="nav-link x2b-alt-lnk" href="{@href}">
               <xsl:value-of select="@title" />
             </a>
           </li>
@@ -68,7 +68,7 @@
 
                 <!-- nav link inside section -->
                 <li class="nav-item x2b-sdbr-entry">
-                  <a class="nav-link x2b-bs-lnk" href="{@href}">
+                  <a class="nav-link x2b-alt-lnk" href="{@href}">
                     <xsl:value-of select="@title" />
                   </a>
                 </li>
