@@ -6,6 +6,7 @@ docker rm x2b-test-1
 
 # Delete image
 #docker rmi x2b
+#docker images --filter dangling=true -q | xargs docker rmi
 
 # Build image based on Dockerfile
 docker build -t x2b .

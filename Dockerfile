@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
   npm \
   xsltproc \
 && rm -rf /var/lib/apt/lists/*
+RUN npm install -g grunt-cli bower
 
 # Temporary workaround for node-sass on Debian
 RUN ln -s /usr/bin/nodejs /usr/bin/node
@@ -23,12 +24,13 @@ RUN git submodule update
 
 # Install build tools
 RUN npm install
-RUN npm install -g grunt-cli
-RUN npm install -g bower
+
+# Copy custom content
+COPY src/*.xml src/
+COPY sass/customvars.scss sass/
 
 # Build the site
 RUN grunt
 
 # Publish results
 RUN cp -r publish/* /usr/share/nginx/html
-
