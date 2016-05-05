@@ -22,9 +22,11 @@
 
 $shadow:                     0 1px 2px rgba(0, 0, 0, .2), 0 1px 8px rgba(0, 0, 0, .19) !default;
 $shadow-up:                  0 4px 4px rgba(0, 0, 0, .25), 0 4px 12px rgba(0, 0, 0, .24) !default;
+$shadow-round:               radial-gradient(ellipse at 50% -50% , rgba(0, 0, 0, .3) 0, transparent 80%) !default;
 
 $base-color-dark:            $gray-dark !default;
 $base-color:                 $gray-lighter !default;
+$base-color-light:           $gray-lightest !default;
 
 $border:                     $border-width solid $hr-border-color;
 
@@ -178,7 +180,7 @@ $navbar-height:              ($font-size-lg * $line-height + .5rem + 2 * $navbar
   }
 }
 .x2b-bnnr::after {
-  background-image: radial-gradient(ellipse at 50% -50% , rgba(0, 0, 0, .3) 0, transparent 80%);
+  background-image: $shadow-round;
   content: " ";
   display: block;
   height: .5rem;
@@ -193,10 +195,11 @@ $navbar-height:              ($font-size-lg * $line-height + .5rem + 2 * $navbar
 }
 
 .x2b-brdcrmb {
+  background-color: $base-color-light;
   border: $border;
 }
 .x2b-brdcrmb::before {
-  background-image: radial-gradient(ellipse at 50% -50% , rgba(0, 0, 0, .3) 0, transparent 80%);
+  background-image: $shadow-round;
   content: " ";
   display: block;
   height: .5rem;
@@ -229,12 +232,13 @@ $navbar-height:              ($font-size-lg * $line-height + .5rem + 2 * $navbar
 }
 
 .x2b-ftr-pnl {
-  background-color: $breadcrumb-bg;
+  background-color: $base-color-light;
+  border: $border;
   margin: 0;
   padding: .5rem;
 }
 .x2b-ftr-pnl::before {
-  background-image: radial-gradient(ellipse at 50% -50% , rgba(0, 0, 0, .3) 0, transparent 80%);
+  background-image: $shadow-round;
   content: " ";
   display: block;
   height: .5rem;
