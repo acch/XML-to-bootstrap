@@ -5,11 +5,11 @@
   "license": "MIT",
   "homepage": "https://github.com/acch/XML-to-bootstrap",
   "devDependencies": {
-    "font-awesome": "*",
+    "font-awesome": "^4.6.2",
     "headroom.js": "https://npmcdn.com/headroom.js@0.9.3/bower.zip",
-    "jquery": "*",
-    "photoswipe": "*",
-    "scrollpos-styler": "*"
+    "jquery": "^2.2.2",
+    "photoswipe": "^4.1.1",
+    "scrollpos-styler": "^0.6.0"
   },
   "exportsOverride": {
     "font-awesome": {
