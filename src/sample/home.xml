@@ -11,7 +11,7 @@
     </p>
     <collapse>
       <p>
-        To get started with your own content, simply modify the source files in <code>src/</code> directory and rebuild using Grunt.
+        To get started with your own content, simply modify the source files in <code>src/</code> directory and rebuild using <code>grunt</code>.
         Don't worry, your modifications will not be overwritten by future updates of XML-to-Bootstrap.
       </p><p>
         Demo pages use an unmodified version of Bootstrap &#8212; the default theme.
