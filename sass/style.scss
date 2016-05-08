@@ -146,8 +146,12 @@ $navbar-height:              ($font-size-lg * $line-height + .5rem + 2 * $navbar
 \* ------------------------------------- */
 
 .sps--abv {
-  background-color: transparent;
+  background-color: $base-color;
   box-shadow: none;
+
+  @include media-breakpoint-up(sm) {
+    background-color: transparent;
+  }
 }
 .sps--blw {
   background-color: $base-color;
