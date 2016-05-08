@@ -44,7 +44,7 @@ XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https:/
 2. Several options are available for getting the code:
 
    - Download the latest [release](https://github.com/acch/XML-to-bootstrap/releases/latest) and extract to a local directory
-   - Clone the repo: `git clone https://github.com/acch/XML-to-bootstrap.git`
+   - Clone the repository: `git clone https://github.com/acch/XML-to-bootstrap.git`
 
 3. Once code is downloaded, `cd` into the directory and install necessary prerequisites (including [Grunt](https://gruntjs.com/) and [Bower](https://bower.io/)):
 
@@ -52,7 +52,7 @@ XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https:/
         # npm install -g grunt-cli
         # npm install -g bower
 
-4. Bootstrap is integrated as a git [submodule](https://git-scm.com/docs/git-submodule). Fetch it with the following commands:
+4. Bootstrap is integrated as a Git [submodule](https://git-scm.com/docs/git-submodule). Fetch it with the following commands:
 
         # git submodule init
         # git submodule update
@@ -101,4 +101,4 @@ Please consider making your modifications and extensions available to others. Re
 
 ## Copyright and license
 
-Copyright 2015 Achim Christ, released under the [MIT license](LICENSE).
+Copyright Achim Christ, released under the [MIT license](LICENSE).
