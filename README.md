@@ -18,11 +18,13 @@ Take a look at the [Demo](https://acch.github.io/XML-to-bootstrap/) site to lear
 - Fully themable with custom Bootstrap builds
 - Uses [schema.org](https://schema.org) vocabularies to optimize pages for search engines [WIP]
 
-### Differentiation and Limitations
+### Differentiation and limitations
 
 XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https://jekyllrb.com/), [GitBook](https://www.gitbook.com/), or [Pelican](http://blog.getpelican.com/). But as opposed to these projects, which provide flexible general purpose tools, XML-to-Bootstrap (currently) focuses on a single, very specific use case. It only generates a certain type of web page. So if you're looking for something more customizable then I strongly suggest to check out Jekyll or [the like](https://www.staticgen.com/).
 
 ## Installation
+
+### Manual installation
 
 1. XML-to-Bootstrap requires a XSLT processor such as [xsltproc](http://xmlsoft.org/XSLT/xsltproc2.html), as well as [Node.js](https://www.nodejs.org/):
 
@@ -61,27 +63,37 @@ XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https:/
 
 6. If all goes well you end up with a set of static web pages in the `/publish` directory. Transfer them to your web server and enjoy!
 
+### Deploy a container
+
+The installation can also be performed automatically by building a [Docker](https://www.docker.com/) image and running a container from it:
+
+        # docker build -t x2b .
+        # docker run --name x2b-1 -d -p 8000:80 x2b
+
 ## Usage
+
+To get started with your own content, simply modify the source files in `src/` directory and rebuild using `grunt`.
 
 The following Grunt tasks are available:
 
 Task | Description
 --- | ---
-clean | Deletes previously generated output and temprorary files
+clean | Deletes previously generated output and temporary files
 default | Generates minified output - use this for production
 debug | Skips minification and instead generates readable output - use this for development
+connect | Start a minimal web server on port 8000 used for development
 
 When populating the XML document with your own content, remember to use character entity numbers instead of names. Character entity names are not defined in XML. For example, `&nbsp;` will not work - you will need to use `&#160;` instead. Refer to the [HTML5 Reference](https://dev.w3.org/html5/html-author/charref) for a complete list with mappings.
 
 Here are some popular characters to use:
 
-| Entity Name | Entity Number | Description
---- | ---|---|---
+&#160; | Entity Name | Entity Number | Description
+--- | --- | --- | ---
 &#160; | &amp;nbsp; | &amp;#160; | Non-breaking space
 &#8212; | &amp;mdash; | &amp;#8212; | Em dash
 &#8230; | &amp;hellip; | &amp;#8230; | Ellipsis
 
-## Development and Extension
+## Development and extension
 
 TODO: How to read the code.
 
