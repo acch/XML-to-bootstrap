@@ -95,14 +95,14 @@ $navbar-height:              ($font-size-lg * $line-height + .5rem + 2 * $navbar
    Collapsed section styles
 \* ------------------------ */
 
-.x2b-expnd.collapsed {
-  height: (2 * $spacer-y);
-}
 .x2b-expnd {
   display: block;
   height: 0;
   overflow: hidden;
   transition: height .35s ease;
+}
+.x2b-expnd.collapsed {
+  height: (2 * $spacer-y);
 }
 
 
@@ -146,11 +146,12 @@ $navbar-height:              ($font-size-lg * $line-height + .5rem + 2 * $navbar
 \* ------------------------------------- */
 
 .sps--abv {
-  background-color: $base-color;
+  background-color: transparent;
   box-shadow: none;
 
-  @include media-breakpoint-up(sm) {
-    background-color: transparent;
+  @include media-breakpoint-down(xs) {
+    background-color: $base-color;
+    box-shadow: $shadow;
   }
 }
 .sps--blw {
