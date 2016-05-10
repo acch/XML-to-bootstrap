@@ -29,6 +29,8 @@
 
     <!-- credits -->
     <footer class="x2b-ftr [ m-t-2 p-y-2 ]" role="contentinfo">
+
+      <!-- centered -->
       <div class="text-xs-center text-muted">
 
         <p class="m-a-0">
@@ -39,7 +41,7 @@
           This site uses <a href="//getbootstrap.com">Bootstrap</a>, <a href="//fontawesome.io">Font Awesome</a> and <a href="//wicky.nillia.ms/headroom.js/">Headroom.js</a>.
         </p>
 
-      </div><!-- /container -->
+      </div><!-- /centered -->
     </footer>
 
   </xsl:template>
@@ -47,8 +49,8 @@
   <!-- social links -->
   <xsl:template name="html.sociallinks">
 
-    <!-- footer panel -->
-    <div class="[ card card-block ] text-xs-center x2b-ftr-pnl">
+    <!-- centered -->
+    <div class="text-xs-center">
 
       <!-- iterate over all social links -->
       <xsl:for-each select="/site/options/option[@name = 'site.sociallinks']/sociallink">
@@ -61,16 +63,14 @@
 
           <!-- generate icon -->
           <xsl:call-template name="element.icon">
-            <xsl:with-param name="icon">
-              <xsl:value-of select="." />
-            </xsl:with-param>
+            <xsl:with-param name="icon" select="text()" />
             <xsl:with-param name="size">fa-2x</xsl:with-param>
           </xsl:call-template>
 
         </a>
       </xsl:for-each>
 
-    </div><!-- /card -->
+    </div><!-- /centered -->
 
   </xsl:template>
 

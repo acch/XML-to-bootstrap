@@ -234,17 +234,3 @@ $navbar-height:              ($font-size-lg * $line-height + .5rem + 2 * $navbar
 .x2b-ftr {
   border-top: $border;
 }
-
-.x2b-ftr-pnl {
-  background-color: $base-color-light;
-  border: $border;
-  margin: 0;
-  padding: .5rem;
-}
-.x2b-ftr-pnl::before {
-  background-image: $shadow-round;
-  content: " ";
-  display: block;
-  height: .5rem;
-  margin-top: (-.5rem);
-}
