@@ -30,15 +30,20 @@
       <div class="container">
 
         <!-- button -->
-        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#cllpsNvbr">
+        <button class="navbar-toggler hidden-sm-up pull-xs-left" type="button" data-toggle="collapse" data-target="#cllpsNvbr" aria-controls="cllpsNvbr">
           &#9776;
         </button>
+
+        <!-- site title -->
+        <a class="navbar-brand m-x-1 hidden-sm-up" href="{$site.url}">
+          <xsl:value-of select="$site.title" />
+        </a>
 
         <!-- collapsing navbar -->
         <div class="collapse navbar-toggleable-xs" id="cllpsNvbr">
 
           <!-- site title -->
-          <a class="navbar-brand m-x-1" href="{$site.url}">
+          <a class="navbar-brand m-x-1 hidden-xs-down" href="{$site.url}">
             <xsl:value-of select="$site.title" />
           </a>
 
@@ -136,7 +141,6 @@
             <button type="button" class="[ btn btn-primary-outline ] hidden-sm-down pull-xs-right" data-toggle="button" aria-pressed="false" autocomplete="off">It's fresh!</button>
 
           </ul>
-
 
         </div><!-- /navbar-collapse -->
 
