@@ -202,13 +202,6 @@ $navbar-height:              ($font-size-lg * $line-height + .5rem + 2 * $navbar
   background-color: $base-color-light;
   border: $border;
 }
-.x2b-brdcrmb::before {
-  background-image: $shadow-round;
-  content: " ";
-  display: block;
-  height: .5rem;
-  margin-top: (-$breadcrumb-padding-vertical);
-}
 
 
 /* -------------------- *\
