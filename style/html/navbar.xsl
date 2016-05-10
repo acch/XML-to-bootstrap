@@ -37,7 +37,7 @@
           </button>
 
           <!-- site title -->
-          <a class="navbar-brand m-x-1 hidden-sm-up" href="{$site.url}">
+          <a class="navbar-brand hidden-sm-up" href="{$site.url}">
             <xsl:value-of select="$site.title" />
           </a>
 
