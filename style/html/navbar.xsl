@@ -29,15 +29,19 @@
     <nav class="[ navbar navbar-fixed-top navbar-light ] x2b-nvbr js-nvbr [ sps sps--abv ] headroom--pinned">
       <div class="container">
 
-        <!-- button -->
-        <button class="navbar-toggler hidden-sm-up pull-xs-left" type="button" data-toggle="collapse" data-target="#cllpsNvbr" aria-controls="cllpsNvbr">
-          &#9776;
-        </button>
+        <div class="container-fluid p-x-0">
 
-        <!-- site title -->
-        <a class="navbar-brand m-x-1 hidden-sm-up" href="{$site.url}">
-          <xsl:value-of select="$site.title" />
-        </a>
+          <!-- button -->
+          <button class="navbar-toggler pull-xs-left hidden-sm-up" type="button" data-toggle="collapse" data-target="#cllpsNvbr" aria-controls="cllpsNvbr">
+            &#9776;
+          </button>
+
+          <!-- site title -->
+          <a class="navbar-brand m-x-1 hidden-sm-up" href="{$site.url}">
+            <xsl:value-of select="$site.title" />
+          </a>
+
+        </div><!-- /container -->
 
         <!-- collapsing navbar -->
         <div class="collapse navbar-toggleable-xs" id="cllpsNvbr">
