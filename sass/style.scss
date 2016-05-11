@@ -37,14 +37,6 @@ $navbar-height:              ($font-size-lg * $line-height + .5rem + 2 * $navbar
       Generic styles
 \* -------------------- */
 
-//TODO: not currently used - required?
-/*@include media-breakpoint-up(sm) {
-  .x2b-nwrp {
-    overflow: hidden;
-    white-space: nowrap;
-  }
-}*/
-
 .x2b-shdw {
   text-shadow: $shadow;
 }
@@ -56,11 +48,14 @@ $navbar-height:              ($font-size-lg * $line-height + .5rem + 2 * $navbar
 
 .x2b-bttn {
   box-shadow: $shadow;
-  transition: background-color .2s ease,
-              box-shadow .2s ease;
 
   @include hover-focus {
     box-shadow: $shadow-up;
+  }
+
+  @include media-breakpoint-up(sm) {
+    transition: background-color .2s ease,
+                box-shadow .2s ease;
   }
 }
 .x2b-bttn:disabled {
@@ -140,6 +135,14 @@ $navbar-height:              ($font-size-lg * $line-height + .5rem + 2 * $navbar
               box-shadow .2s linear;
 }
 
+@include media-breakpoint-down(xs) {
+  .x2b-nvbr-cllps {
+    border-top: $border-width solid rgba(0,0,0,.075);
+    margin-top: (.5 * $spacer-y);
+    padding-top: (.5 * $spacer-y);
+  }
+}
+
 
 /* ------------------------------------- *\
    Navbar animation (scrollPosStyler.js)
@@ -199,9 +202,22 @@ $navbar-height:              ($font-size-lg * $line-height + .5rem + 2 * $navbar
   }
 }
 
+
+/* -------------------- *\
+     Breadcrumb styles
+\* -------------------- */
+
 .x2b-brdcrmb {
   background-color: $base-color-light;
   border: $border;
+}
+.x2b-brdcrmb::after {
+  background-image: $shadow-round;
+  content: " ";
+  display: block;
+  height: .5rem;
+  margin-bottom: (-$breadcrumb-padding-vertical - .5rem);
+  margin-top: ($spacer-y + $breadcrumb-padding-vertical + .5rem);
 }
 
 
@@ -213,9 +229,11 @@ $navbar-height:              ($font-size-lg * $line-height + .5rem + 2 * $navbar
   position: sticky;
   top: ($navbar-height + 2 * $spacer-y);
 }
+
 .x2b-sdbr-sctn {
   font-size: $font-size-lg;
 }
+
 .x2b-sdbr-entry {
   margin: (.5 * $spacer-y) 0;
 }

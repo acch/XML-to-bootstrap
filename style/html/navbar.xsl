@@ -27,8 +27,9 @@
 
     <!-- bootstrap navbar -->
     <nav class="[ navbar navbar-fixed-top navbar-light ] x2b-nvbr js-nvbr [ sps sps--abv ] headroom--pinned">
-      <div class="container">
+      <div class="container p-x-0">
 
+        <!-- make toggler full width so that collapsing content wraps to the next line -->
         <div class="container-fluid p-x-0">
 
           <!-- button -->
@@ -37,14 +38,16 @@
           </button>
 
           <!-- site title -->
-          <a class="navbar-brand hidden-sm-up" href="{$site.url}">
+          <a class="navbar-brand m-x-1 hidden-sm-up" href="{$site.url}">
             <xsl:value-of select="$site.title" />
           </a>
 
-        </div><!-- /container -->
+        </div><!-- /container-fluid -->
 
         <!-- collapsing navbar -->
         <div class="collapse navbar-toggleable-xs" id="cllpsNvbr">
+
+        <div class="container-fluid x2b-nvbr-cllps p-x-0">
 
           <!-- site title -->
           <a class="navbar-brand m-x-1 hidden-xs-down" href="{$site.url}">
@@ -146,7 +149,9 @@
 
           </ul>
 
-        </div><!-- /navbar-collapse -->
+        </div>
+
+        </div><!-- /collapse -->
 
       </div><!-- /container -->
     </nav>
