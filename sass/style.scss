@@ -53,7 +53,7 @@ $navbar-height:              ($font-size-lg * $line-height + .5rem + 2 * $navbar
     box-shadow: $shadow-up;
   }
 
-  @include media-breakpoint-up(sm) {
+  @include media-breakpoint-up(lg) {
     transition: background-color .2s ease,
                 box-shadow .2s ease;
   }
@@ -118,10 +118,19 @@ $navbar-height:              ($font-size-lg * $line-height + .5rem + 2 * $navbar
        Body styles
 \* -------------------- */
 
-.x2b-bdy {
+html {
   font-kerning: normal;
   font-variant-ligatures: common-ligatures;
   font-feature-settings: "liga" on, "clig" on, "kern" on;
+
+  //font-size: 16px;
+
+  @include media-breakpoint-up(md) {
+    font-size: 17px;
+  }
+  @include media-breakpoint-up(lg) {
+    font-size: 18px;
+  }
 }
 
 

@@ -49,7 +49,7 @@
       </xsl:call-template>
 
       <!-- document body -->
-      <body class="x2b-bdy">
+      <body>
 
         <!-- navbar -->
         <xsl:call-template name="html.navbar">

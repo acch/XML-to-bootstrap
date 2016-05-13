@@ -53,8 +53,8 @@
   <xsl:variable name="style.maincolumn">col-xs-12</xsl:variable>
   <xsl:variable name="style.sidebar.maincolumn">col-xs-12 col-md-8</xsl:variable>
   <xsl:variable name="style.sidebar.sidecolumn">hidden-sm-down [ col-md-4 col-lg-3 col-lg-offset-1 ]</xsl:variable>
-  <xsl:variable name="style.textcolumn">col-xs-12 col-lg-10 col-xl-8 col-lg-offset-1 col-xl-offset-2</xsl:variable>
-  <xsl:variable name="style.sidebar.textcolumn">col-xs-12 col-xl-10 col-xl-offset-1</xsl:variable>
+  <xsl:variable name="style.textcolumn">col-xs-12 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2</xsl:variable>
+  <xsl:variable name="style.sidebar.textcolumn">col-xs-12</xsl:variable>
   <xsl:variable name="style.cardcolumn">col-xs-12 col-md-6 col-lg-4</xsl:variable>
 
 
