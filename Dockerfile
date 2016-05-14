@@ -4,7 +4,6 @@ MAINTAINER Achim Christ
 # Install prerequisites
 RUN apt-get update && apt-get install -y \
   git \
-  nodejs \
   npm \
   xsltproc \
 && rm -rf /var/lib/apt/lists/*
