@@ -20,7 +20,7 @@ Take a look at the [Demo](https://acch.github.io/XML-to-bootstrap/) site to lear
 
 ### Differentiation and limitations
 
-XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https://jekyllrb.com/), [GitBook](https://www.gitbook.com/), or [Pelican](http://blog.getpelican.com/). But as opposed to these projects, which provide flexible general purpose tools, XML-to-Bootstrap (currently) focuses on a single, very specific use case. It only generates a certain type of web page. So if you're looking for something more customizable then I strongly suggest to check out Jekyll or [the like](https://www.staticgen.com/).
+XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https://jekyllrb.com/), [GitBook](https://www.gitbook.com/), or [Pelican](http://blog.getpelican.com/). But as opposed to these projects, which provide flexible general purpose tools, XML-to-Bootstrap (currently) focuses on a single, very specific use case. It only generates a certain type of web page. If you're looking for something more customizable then I strongly suggest to check out Jekyll or [the like](https://www.staticgen.com/).
 
 ## Installation
 
@@ -28,23 +28,23 @@ XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https:/
 
 1. XML-to-Bootstrap requires a XSLT processor such as [xsltproc](http://xmlsoft.org/XSLT/xsltproc2.html), as well as [Node.js](https://www.nodejs.org/):
 
-  On Red Hat-like Linux:
+  On RedHat-like Linux:
 
-      # sudo dnf install libxslt nodejs
+      # sudo dnf install libxslt npm
 
   On Debian-like Linux:
 
-      # sudo apt-get install xsltproc nodejs npm
+      # sudo apt-get install xsltproc npm
       # sudo ln -s /usr/bin/nodejs /usr/bin/node
 
   On Arch-like Linux:
 
-      # sudo pacman -S libxslt nodejs
+      # sudo pacman -S libxslt npm
 
 2. Several options are available for getting the code:
 
    - Download the latest [release](https://github.com/acch/XML-to-bootstrap/releases/latest) and extract to a local directory
-   - Clone the repository: `git clone https://github.com/acch/XML-to-bootstrap.git`
+   - Clone the Git repository: `git clone https://github.com/acch/XML-to-bootstrap.git`
 
 3. Once code is downloaded, `cd` into the directory and install necessary prerequisites (including [Grunt](https://gruntjs.com/) and [Bower](https://bower.io/)):
 
@@ -63,7 +63,7 @@ XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https:/
 
 6. If all goes well you end up with a set of static web pages in the `/publish` directory. Transfer them to your web server and enjoy!
 
-### Deploy a container
+### Container deployment
 
 The installation can also be performed automatically by building a [Docker](https://www.docker.com/) image and running a container from it:
 
@@ -95,9 +95,11 @@ Here are some popular characters to use:
 
 ## Development and extension
 
-TODO: How to read the code.
+You have a question, found a bug, or have an idea how to make this tool better? Great - your feedback is highly appreciated! Please use the [issue tracker](https://github.com/acch/XML-to-bootstrap/issues) to get in touch.
 
 Please consider making your modifications and extensions available to others. Refer to the [CONTRIBUTING](CONTRIBUTING.md) document for details.
+
+TODO: How to read the code.
 
 ## Copyright and license
 
