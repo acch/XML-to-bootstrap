@@ -18,8 +18,7 @@ WORKDIR /build
 RUN git clone https://github.com/acch/XML-to-bootstrap.git .
 
 # Get submodules
-RUN git submodule init
-RUN git submodule update
+RUN git submodule update --init
 
 # Install build tools
 RUN npm install

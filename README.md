@@ -52,10 +52,9 @@ XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https:/
         # npm install -g grunt-cli
         # npm install -g bower
 
-4. Bootstrap is integrated as a Git [submodule](https://git-scm.com/docs/git-submodule). Fetch it with the following commands:
+4. Bootstrap is integrated as a Git [submodule](https://git-scm.com/docs/git-submodule). Fetch it with the following command:
 
-        # git submodule init
-        # git submodule update
+        # git submodule update --init
 
 5. With all prerequisites installed and submodules updated, build the project:
 
