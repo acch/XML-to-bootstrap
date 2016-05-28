@@ -12,6 +12,11 @@ RUN npm install -g grunt-cli bower
 # Temporary workaround for node-sass on Debian
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
+# Switch to non-root user
+RUN useradd -d /build build
+RUN mkdir /build && chown build:build /build
+USER build
+
 WORKDIR /build
 
 # Get the code
@@ -29,6 +34,9 @@ COPY sass/customvars.scss sass/
 
 # Build the site
 RUN grunt
+
+# Switch back to root user
+USER root
 
 # Publish results
 RUN cp -r publish/* /usr/share/nginx/html
