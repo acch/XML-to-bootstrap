@@ -32,14 +32,14 @@
     for (var i = 0; elements[i]; ++i) {
 
       // add click event
-      elements[i].onclick = function() {
+      elements[i].addEventListener("click", function() {
 
         // fudge scroll position to make Headroom pin
         headroom.lastKnownScrollY = headroom.getScrollerHeight();
 
         // make Headroom pin even if scroll position has not changed
         window.requestAnimationFrame(function() { headroom.pin() });
-      }
+      });
     }
   });
 })();
