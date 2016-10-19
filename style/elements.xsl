@@ -102,52 +102,34 @@
     <xsl:variable name="next.page" select="ext:node-set($next)/page" />
     <xsl:variable name="prev.page" select="ext:node-set($prev)/page" />
 
-    <!-- check if there is a next page -->
-    <xsl:variable name="next.disabled">
-      <xsl:if test="not($next.page)"> disabled</xsl:if>
-    </xsl:variable>
-
-    <!-- check if there is a previous page -->
-    <xsl:variable name="prev.disabled">
-      <xsl:if test="not($prev.page)"> disabled</xsl:if>
-    </xsl:variable>
-
     <!-- bootstrap buttons as pager -->
     <nav>
 
-      <a rel="prev">
-        <xsl:if test="$prev.page">
-          <xsl:attribute name="title">
-            <xsl:value-of select="$prev.page/@title" />
-          </xsl:attribute>
-          <xsl:attribute name="href">
-            <xsl:value-of select="$prev.page/@href" />
-          </xsl:attribute>
-        </xsl:if>
-        <button type="button" class="btn btn-outline-primary{$prev.disabled}">
-          <xsl:call-template name="element.icon">
-            <xsl:with-param name="icon">fa-arrow-left</xsl:with-param>
-          </xsl:call-template>
-          Previous
-        </button>
-      </a><!-- /previous -->
+      <!-- check if there is a previous page -->
+      <xsl:if test="$prev.page">
+        <a rel="prev" title="{$prev.page/@title}" href="{$prev.page/@href}">
+          <button type="button" class="[ btn btn-outline-primary ] x2b-bttn">
+            <xsl:call-template name="element.icon">
+              <xsl:with-param name="icon">fa-arrow-left</xsl:with-param>
+            </xsl:call-template>
+            Previous
+            <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
+          </button>
+        </a><!-- /prev -->
+      </xsl:if>
 
-      <a rel="next">
-        <xsl:if test="$next.page">
-          <xsl:attribute name="title">
-            <xsl:value-of select="$next.page/@title" />
-          </xsl:attribute>
-          <xsl:attribute name="href">
-            <xsl:value-of select="$next.page/@href" />
-          </xsl:attribute>
-        </xsl:if>
-        <button type="button" class="pull-xs-right [ btn btn-outline-primary{$next.disabled} ]">
-          Next
-          <xsl:call-template name="element.icon">
-            <xsl:with-param name="icon">fa-arrow-right</xsl:with-param>
-          </xsl:call-template>
-        </button>
-      </a><!-- /next -->
+      <!-- check if there is a next page -->
+      <xsl:if test="$next.page">
+        <a rel="next" title="{$next.page/@title}" href="{$next.page/@href}">
+          <button type="button" class="pull-xs-right [ btn btn-outline-primary ] x2b-bttn">
+            <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
+            Next
+            <xsl:call-template name="element.icon">
+              <xsl:with-param name="icon">fa-arrow-right</xsl:with-param>
+            </xsl:call-template>
+          </button>
+        </a><!-- /next -->
+      </xsl:if>
 
     </nav>
 
