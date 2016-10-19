@@ -17,17 +17,17 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <!--link rel="stylesheet" href="//cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" /-->
     <!--link rel="stylesheet" href="css/font-awesome.min.css" /-->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
   </option>
 
   <!-- scripts to import -->
   <option name="cdn.scripts">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <!--script src="//code.jquery.com/jquery-2.2.2.min.js" /-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!--script src="//code.jquery.com/jquery-2.2.4.min.js" /-->
     <script><![CDATA[window.jQuery || document.write('<script src="SITE.URLjs/jquery.min.js"><\/script>')]]></script>
     <!--script src="js/bootstrap.min.js" /-->
     <script src="//cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js" />
-    <!--script src="//cdnjs.cloudflare.com/ajax/libs/headroom/0.7.0/headroom.min.js" /-->
+    <!--script src="//cdnjs.cloudflare.com/ajax/libs/headroom/0.9.3/headroom.min.js" /-->
   </option>
 
   <!-- social links -->
