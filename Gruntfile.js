@@ -27,6 +27,7 @@ module.exports = function(grunt) {
     'fontawesome':     'lib/font-awesome',
     'headroom':        'lib/headroom.js',
     'jquery':          'lib/jquery',
+    'tether':          'lib/tether',
     'photoswipe':      'lib/photoswipe',
     'scrollposstyler': 'lib/scrollpos-styler'
   };
@@ -109,6 +110,14 @@ module.exports = function(grunt) {
             nonull: true,
             cwd: pathdef.jquery,
             src: '**/jquery.min.js',
+            dest: 'publish/js/'
+          },
+          {
+            expand: true,
+            flatten: true,
+            nonull: true,
+            cwd: pathdef.tether,
+            src: '**/tether.min.js',
             dest: 'publish/js/'
           },
           {

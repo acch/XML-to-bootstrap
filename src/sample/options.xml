@@ -15,18 +15,24 @@
   <!-- stylesheets to import -->
   <option name="cdn.stylesheets">
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <!--link rel="stylesheet" href="//cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" /-->
+    <!--link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" /-->
+
     <!--link rel="stylesheet" href="css/font-awesome.min.css" /-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
   </option>
 
   <!-- scripts to import -->
   <option name="cdn.scripts">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js" />
     <!--script src="//code.jquery.com/jquery-2.2.4.min.js" /-->
     <script><![CDATA[window.jQuery || document.write('<script src="SITE.URLjs/jquery.min.js"><\/script>')]]></script>
+
+    <!--script src="js/tether.min.js" /-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" />
+
     <!--script src="js/bootstrap.min.js" /-->
-    <script src="//cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js" />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" />
+
     <!--script src="//cdnjs.cloudflare.com/ajax/libs/headroom/0.9.3/headroom.min.js" /-->
   </option>
 
