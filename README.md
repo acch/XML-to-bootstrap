@@ -49,8 +49,8 @@ XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https:/
 3. Once code is downloaded, `cd` into the directory and install necessary prerequisites (including [Grunt](https://gruntjs.com/) and [Bower](https://bower.io/)):
 
         # npm install
-        # npm install -g grunt-cli
-        # npm install -g bower
+        # sudo npm install -g grunt-cli
+        # sudo npm install -g bower
 
 4. Bootstrap is integrated as a Git [submodule](https://git-scm.com/docs/git-submodule). Fetch it with the following command:
 
@@ -92,13 +92,27 @@ Here are some popular characters to use:
 &#8212; | &amp;mdash; | &amp;#8212; | Em dash
 &#8230; | &amp;hellip; | &amp;#8230; | Ellipsis
 
+## Contents
+
+The project comprises files in the following directories:
+
+Directory | Description
+--- | ---
+. | Contains build instructions and documentation
+./css | Contains 3rd party CSS stylesheets during build
+./js | Contains JavaScript code during build
+./modules | Contains Git submodules such as Bootstrap
+./publish | Contains the generated static web pages
+./sass | Contains SASS templates which are compiled into CSS stylesheets during build
+./src | Contains XML document
+./src/sample | Contains sample XML document
+./style | Contains XSLT stylesheets
+
 ## Development and extension
 
 You have a question, found a bug, or have an idea how to make this tool better? Great - your feedback is highly appreciated! Please use the [issue tracker](https://github.com/acch/XML-to-bootstrap/issues) to get in touch.
 
 Please consider making your modifications and extensions available to others. Refer to the [CONTRIBUTING](CONTRIBUTING.md) document for details.
-
-TODO: How to read the code.
 
 ## Copyright and license
 
