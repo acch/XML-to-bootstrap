@@ -9,7 +9,7 @@ rm scss/customvars.scss
 # Fetch updates
 git checkout master
 git pull --rebase
-git checkout v4.0.0-alpha.2
+git checkout v4.0.0-alpha.4
 
 # Link and import our custom variables
 sed -i -e '1i@import "customvars";\' scss/_variables.scss

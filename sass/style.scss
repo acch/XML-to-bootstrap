@@ -30,7 +30,7 @@ $base-color-light:           $gray-lightest !default;
 
 $border:                     $border-width solid $hr-border-color;
 
-$navbar-height:              ($font-size-lg * $line-height + .5rem + 2 * $navbar-padding-vertical);
+$navbar-height:              ($font-size-lg * $line-height + .5rem + 2 * $navbar-padding-y);
 
 
 /* -------------------- *\
@@ -225,8 +225,8 @@ html {
   content: " ";
   display: block;
   height: .5rem;
-  margin-bottom: (-$breadcrumb-padding-vertical - .5rem);
-  margin-top: ($spacer-y + $breadcrumb-padding-vertical + .5rem);
+  margin-bottom: (-$breadcrumb-padding-y - .5rem);
+  margin-top: ($spacer-y + $breadcrumb-padding-y + .5rem);
 }
 
 
