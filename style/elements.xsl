@@ -37,25 +37,23 @@
     <xsl:variable name="parent.page" select="ext:node-set($parent)/page" />
 
     <!-- bootstrap breadcrumps -->
-    <ol class="breadcrumb x2b-brdcrmb">
+    <nav class="breadcrumb x2b-brdcrmb">
 
-      <li>
-        <a href="{$site.url}">Home</a>
-      </li>
+      <a class="breadcrumb-item" href="{$site.url}">
+        Home
+      </a>
 
       <xsl:if test="$parent.page">
-        <li>
-          <a href="{$parent.page/@href}">
-            <xsl:value-of select="$parent.page/@title" />
-          </a>
-        </li>
+        <a class="breadcrumb-item" href="{$parent.page/@href}">
+          <xsl:value-of select="$parent.page/@title" />
+        </a>
       </xsl:if>
 
-      <li class="active">
+      <span class="breadcrumb-item active">
         <xsl:value-of select="$current" />
-      </li>
+      </span>
 
-    </ol><!-- /breadcrump -->
+    </nav><!-- /breadcrump -->
 
   </xsl:template>
 
