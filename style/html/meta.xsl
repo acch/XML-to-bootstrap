@@ -100,6 +100,9 @@
           <xsl:value-of select="@href" />
 
         </xsl:attribute>
+
+        <!-- copy subresource integrity attributes -->
+        <xsl:copy-of select="@integrity|@crossorigin" />
       </link>
 
     </xsl:for-each>
@@ -137,9 +140,11 @@
 
             </xsl:attribute>
 
+            <!-- copy subresource integrity attributes -->
+            <xsl:copy-of select="@integrity|@crossorigin" />
+
             <!-- prevent script tag from collapsing -->
             <xsl:text> </xsl:text>
-
           </script>
 
         </xsl:when>
