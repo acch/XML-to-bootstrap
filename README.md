@@ -66,8 +66,8 @@ XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https:/
 
 The installation can also be performed automatically by building a [Docker](https://www.docker.com/) image and running a container from it:
 
-        # docker build -t x2b .
-        # docker run --name x2b-1 -d -p 8000:80 x2b
+    # docker build -t x2b .
+    # docker run --name x2b-1 -d -p 8000:80 x2b
 
 ## Usage
 
@@ -98,15 +98,18 @@ The project comprises files in the following directories:
 
 Directory | Description
 --- | ---
-. | Contains build instructions and documentation
-./css | Contains 3rd party CSS stylesheets during build
-./js | Contains JavaScript code during build
-./modules | Contains Git submodules such as Bootstrap
-./publish | Contains the generated static web pages
-./sass | Contains SASS templates which are compiled into CSS stylesheets during build
-./src | Contains XML document
-./src/sample | Contains sample XML document
-./style | Contains XSLT stylesheets
+`.` | Contains build instructions and documentation
+`./css` | Contains 3rd party CSS stylesheets used during build
+`./js` | Contains JavaScript code used during build
+`./lib` | Contains 3rd party libraries used during build and fetched with bower
+`./modules` | Contains Git submodules such as Bootstrap
+`./publish` | Contains the final generated static web pages
+`./sass` | Contains SCSS templates which are compiled into CSS stylesheets
+`./src` | Contains the XML document describing the web pages
+`./src/sample` | Contains sample XML document to act as template for new web pages
+`./style` | Contains XSL stylesheets used to generate web pages from the XML document
+
+`css`, `lib` and `publish` are temporary directories which can be deleted. They will be recreated during build.
 
 ## Development and extension
 
