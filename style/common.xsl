@@ -22,12 +22,23 @@
 
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+<!-- variables herein represent global constants, such as the ones used for the
+     grid layout. templates herein are helper functions used in other
+     templates. -->
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      Constants
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-  <!-- define the site's base URL -->
+  <!-- define our grid layout -->
+  <xsl:variable name="style.maincolumn">col-xs-12</xsl:variable>
+  <xsl:variable name="style.sidebar.maincolumn">col-xs-12 col-md-8</xsl:variable>
+  <xsl:variable name="style.sidebar.sidecolumn">hidden-sm-down [ col-md-4 col-lg-3 offset-lg-1 ]</xsl:variable>
+  <xsl:variable name="style.textcolumn">col-xs-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2</xsl:variable>
+  <xsl:variable name="style.sidebar.textcolumn">col-xs-12</xsl:variable>
+  <xsl:variable name="style.cardcolumn">col-xs-12 col-md-6 col-lg-4</xsl:variable>
+
+  <!-- generate the site's base URL -->
   <xsl:variable name="site.url">
 
     <!-- get base URL from options -->
@@ -49,14 +60,6 @@
 
   </xsl:variable>
 
-  <!-- define our grid layout -->
-  <xsl:variable name="style.maincolumn">col-xs-12</xsl:variable>
-  <xsl:variable name="style.sidebar.maincolumn">col-xs-12 col-md-8</xsl:variable>
-  <xsl:variable name="style.sidebar.sidecolumn">hidden-sm-down [ col-md-4 col-lg-3 offset-lg-1 ]</xsl:variable>
-  <xsl:variable name="style.textcolumn">col-xs-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2</xsl:variable>
-  <xsl:variable name="style.sidebar.textcolumn">col-xs-12</xsl:variable>
-  <xsl:variable name="style.cardcolumn">col-xs-12 col-md-6 col-lg-4</xsl:variable>
-
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      Date format
@@ -66,10 +69,12 @@
   <xsl:template name="format.date">
     <xsl:param name="date" /><!-- string (format 'YYYY-MM-DD') -->
 
+    <!-- extract date -->
     <xsl:variable name="year" select="substring-before($date, '-')" />
     <xsl:variable name="month" select="format-number(substring-before(substring-after($date, '-'), '-'), '00')" />
     <xsl:variable name="day" select="format-number(substring-after(substring-after($date, '-'), '-'), '0')" />
 
+    <!-- generate format (D)D.MM.YYYY -->
     <xsl:value-of select="concat($day, '.', $month, '.', $year)" />
 
   </xsl:template>
@@ -93,7 +98,7 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <!-- helper for copying child element nodes and attributes (but no namespaces)
-       from XML. also, adds anchor CSS class to elements with id attribute -->
+       from XML. also, adds anchor CSS class to elements with id attribute. -->
   <xsl:template name="copy.content">
     <xsl:param name="content" /><!-- node-set -->
     <xsl:param name="exclude" /><!-- string -->
@@ -143,7 +148,7 @@
         <xsl:value-of select="$string" disable-output-escaping="yes" />
       </xsl:when>
 
-      <!-- check if text cotains string -->
+      <!-- check if text contains string -->
       <xsl:when test="contains($string, $search)">
 
         <!-- replace first occurence -->
@@ -159,7 +164,7 @@
 
       </xsl:when>
 
-      <!-- string not found -->
+      <!-- string not found (any more) -->
       <xsl:otherwise>
         <xsl:value-of select="$string" disable-output-escaping="yes" />
       </xsl:otherwise>

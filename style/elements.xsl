@@ -20,15 +20,17 @@
 
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<!-- Currently includes:
+<!-- templates herein generate various elements which can optionally be used on
+     pages. this currently includes:
      - Breadcrumps
-     - Text column
+     - Responsive text column
      - Pager
      - Icons (normal / on circle / in box) -->
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      Breadcrumps
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
   <xsl:template name="element.breadcrumps">
     <xsl:param name="parent" /><!-- node-set (page) -->
     <xsl:param name="current" /><!-- string -->
@@ -39,16 +41,19 @@
     <!-- bootstrap breadcrumps -->
     <nav class="breadcrumb x2b-brdcrmb">
 
+      <!-- home -->
       <a class="breadcrumb-item" href="{$site.url}">
         Home
       </a>
 
+      <!-- optional category page -->
       <xsl:if test="$parent.page">
         <a class="breadcrumb-item" href="{$parent.page/@href}">
           <xsl:value-of select="$parent.page/@title" />
         </a>
       </xsl:if>
 
+      <!-- current page -->
       <span class="breadcrumb-item active">
         <xsl:value-of select="$current" />
       </span>
@@ -59,8 +64,9 @@
 
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     Text column
+     Responsive text column
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
   <xsl:template name="element.textcolumn">
     <xsl:param name="content" /><!-- node-set -->
     <xsl:param name="exclude" /><!-- string -->
@@ -68,17 +74,20 @@
 
     <!-- width of text column depends on sidebar -->
     <xsl:variable name="textcolumn">
+
       <xsl:choose>
         <xsl:when test="$sidebar">
           <xsl:value-of select="$style.sidebar.textcolumn" />
         </xsl:when>
+
         <xsl:otherwise>
           <xsl:value-of select="$style.textcolumn" />
         </xsl:otherwise>
       </xsl:choose>
+
     </xsl:variable>
 
-    <!-- ensure that text lines don't get to long -->
+    <!-- ensure that text lines don't get too long -->
     <div class="row">
       <div class="{$textcolumn}">
 
@@ -94,6 +103,7 @@
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      Pager
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
   <xsl:template name="element.pager">
     <xsl:param name="next" /><!-- node-set (page) -->
     <xsl:param name="prev" /><!-- node-set (page) -->
@@ -102,11 +112,13 @@
     <xsl:variable name="next.page" select="ext:node-set($next)/page" />
     <xsl:variable name="prev.page" select="ext:node-set($prev)/page" />
 
-    <!-- bootstrap buttons as pager -->
+    <!-- bootstrap buttons used as pager -->
     <nav>
 
       <!-- check if there is a previous page -->
       <xsl:if test="$prev.page">
+
+        <!-- previous button -->
         <a rel="prev" title="{$prev.page/@title}" href="{$prev.page/@href}">
           <button type="button" class="[ btn btn-outline-primary ] x2b-bttn">
             <xsl:call-template name="element.icon">
@@ -116,10 +128,13 @@
             <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
           </button>
         </a><!-- /prev -->
+
       </xsl:if>
 
       <!-- check if there is a next page -->
       <xsl:if test="$next.page">
+
+        <!-- next button -->
         <a rel="next" title="{$next.page/@title}" href="{$next.page/@href}">
           <button type="button" class="pull-xs-right [ btn btn-outline-primary ] x2b-bttn">
             <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
@@ -129,6 +144,7 @@
             </xsl:call-template>
           </button>
         </a><!-- /next -->
+
       </xsl:if>
 
     </nav>
@@ -145,30 +161,34 @@
     <xsl:param name="icon" /><!-- string-->
     <xsl:param name="size" select="fa-lg" /><!-- string -->
 
+    <!-- fontawesome icon -->
     <span class="fa {$icon} {$size} fa-fw" aria-hidden="true">
-      <!-- prevent tag from collapsing -->
-      <xsl:text> </xsl:text>
+      <xsl:text> </xsl:text><!-- prevent tag from collapsing -->
     </span>
 
   </xsl:template>
 
-  <!-- icon on circle (inverted) -->
+
+  <!-- icon in circle (inverted) -->
   <xsl:template name="element.icon.circled">
     <xsl:param name="icon" /><!-- string-->
     <xsl:param name="size" select="fa-lg" /><!-- string -->
 
+    <!-- two fontawesome icons stacked onto each other -->
     <span class="fa-stack {$size}" aria-hidden="true">
+
       <span class="fa fa-circle fa-stack-2x">
-        <!-- prevent tag from collapsing -->
-        <xsl:text> </xsl:text>
+        <xsl:text> </xsl:text><!-- prevent tag from collapsing -->
       </span>
+
       <span class="fa {$icon} fa-stack-1x fa-inverse">
-        <!-- prevent tag from collapsing -->
-        <xsl:text> </xsl:text>
+        <xsl:text> </xsl:text><!-- prevent tag from collapsing -->
       </span>
+
     </span>
 
   </xsl:template>
+
 
   <!-- icon in squared box (button) -->
   <xsl:template name="element.icon.squared">
@@ -176,6 +196,7 @@
     <xsl:param name="size" select="fa-lg" /><!-- string -->
     <xsl:param name="disabled" select="false()" /><!-- boolean -->
 
+    <!-- style depends on disabled state -->
     <xsl:variable name="btn.class">
       <xsl:choose>
         <xsl:when test="$disabled">btn-secondary</xsl:when>
@@ -183,14 +204,17 @@
       </xsl:choose>
     </xsl:variable>
 
+    <!-- bootstrap button with fontawesome icon inside -->
     <button type="button" class="[ btn {$btn.class} ] x2b-bttn">
+
       <xsl:if test="$disabled">
         <xsl:attribute name="disabled" />
       </xsl:if>
+
       <span class="fa {$icon} {$size} fa-fw" aria-hidden="true">
-        <!-- prevent tag from collapsing -->
-        <xsl:text> </xsl:text>
+        <xsl:text> </xsl:text><!-- prevent tag from collapsing -->
       </span>
+
     </button>
 
   </xsl:template>

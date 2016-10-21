@@ -42,6 +42,8 @@
 
     <!-- document head -->
     <head>
+
+      <!-- document title -->
       <title>
         <xsl:value-of select="$page.title" />
         <xsl:text> </xsl:text>&#183;<xsl:text> </xsl:text>
@@ -89,6 +91,7 @@
     <!-- stylesheets from options (CDN) -->
     <xsl:for-each select="/site/options/option[@name = 'cdn.stylesheets']/link">
 
+      <!-- stylesheet link -->
       <link rel="stylesheet">
         <xsl:attribute name="href">
 
@@ -143,7 +146,7 @@
             <!-- copy subresource integrity attributes -->
             <xsl:copy-of select="@integrity|@crossorigin" />
 
-            <!-- prevent script tag from collapsing -->
+            <!-- prevent tag from collapsing -->
             <xsl:text> </xsl:text>
           </script>
 
@@ -169,10 +172,7 @@
 
     <!-- custom script -->
     <script src="{$site.url}js/script.js">
-
-      <!-- prevent script tag from collapsing -->
-      <xsl:text> </xsl:text>
-
+      <xsl:text> </xsl:text><!-- prevent tag from collapsing -->
     </script>
 
   </xsl:template>
