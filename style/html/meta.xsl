@@ -2,7 +2,9 @@
 
 <xsl:stylesheet
   version="1.0"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:ext="http://exslt.org/common"
+  extension-element-prefixes="ext">
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      HTML meta elements
@@ -36,6 +38,7 @@
   <!-- this template generates HTML code for document head -->
   <xsl:template name="html.head">
     <xsl:param name="page.title" /><!-- string -->
+    <xsl:param name="meta" /><!-- node-set -->
 
     <!-- options -->
     <xsl:variable name="site.title" select="/site/options/option[@name = 'site.title']" />
@@ -55,6 +58,9 @@
 
       <!-- generate stylesheet links -->
       <xsl:call-template name="html.head.link" />
+
+      <!-- copy additional meta tags directly -->
+      <xsl:copy-of select="ext:node-set($meta)" />
 
     </head>
 
