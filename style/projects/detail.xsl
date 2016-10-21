@@ -57,11 +57,13 @@
               //&#160;<xsl:value-of select="$date.formatted" />
             </span>
 
-            <br />
+            <xsl:if test="short">
+              <br />
 
-            <strong>
-              <xsl:value-of select="short" />
-            </strong>
+              <strong>
+                <xsl:value-of select="short" />
+              </strong>
+            </xsl:if>
           </p>
 
           <!-- spacing -->
@@ -81,7 +83,7 @@
         <xsl:variable name="prev">
           <xsl:call-template name="date.prev.title">
             <xsl:with-param name="date" select="date" />
-            <xsl:with-param name="elements" select="../project" />
+            <xsl:with-param name="elements" select="../project[not(@draft)]" />
           </xsl:call-template>
         </xsl:variable>
 
@@ -89,7 +91,7 @@
         <xsl:variable name="next">
           <xsl:call-template name="date.next.title">
             <xsl:with-param name="date" select="date" />
-            <xsl:with-param name="elements" select="../project" />
+            <xsl:with-param name="elements" select="../project[not(@draft)]" />
           </xsl:call-template>
         </xsl:variable>
 

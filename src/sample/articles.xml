@@ -110,4 +110,15 @@
     </content>
   </article>
 
+  <article draft="draft">
+    <date>2016-10-21</date>
+    <title>Draft Article</title>
+    <subtitle>This article is not done, yet</subtitle>
+    <content>
+      <p>Draft articles are not published. This means that they are not shown in the overview and are not linked in navigation elements. In addition, draft articles will be excluded from search engines by including a 'noindex' meta tag. However, pages are still being generated so that the content can be previewed.</p>
+      <p>An article is considered draft if there's an attribute 'draft' in the 'article' element.</p>
+      <p>Simply remove the 'draft' attribute once the article is to be published.</p>
+    </content>
+  </article>
+
 </articles>

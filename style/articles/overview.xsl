@@ -51,7 +51,7 @@
       <xsl:otherwise>
 
         <!-- iterate over all articles -->
-        <xsl:for-each select="article">
+        <xsl:for-each select="article[not(@draft)]">
           <xsl:sort select="date" order="descending" />
 
           <!-- format filename -->
@@ -125,7 +125,7 @@
       <!-- find all years -->
       <xsl:variable name="years">
         <xsl:call-template name="date.years">
-          <xsl:with-param name="elements" select="ext:node-set($content)/article" />
+          <xsl:with-param name="elements" select="ext:node-set($content)/article[@id][not(@draft)]" />
         </xsl:call-template>
       </xsl:variable>
 
@@ -137,7 +137,7 @@
         <section title="{text()}">
 
           <!-- find all articles from current year -->
-          <xsl:for-each select="ext:node-set($content)/article[@id][starts-with(date, current())]">
+          <xsl:for-each select="ext:node-set($content)/article[@id][not(@draft)][starts-with(date, current())]">
             <xsl:sort select="date" order="descending" />
 
             <!-- nav link -->

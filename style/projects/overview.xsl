@@ -54,7 +54,7 @@
         <div class="row">
 
           <!-- iterate over all projects -->
-          <xsl:for-each select="project">
+          <xsl:for-each select="project[not(@draft)]">
             <xsl:sort select="date" order="descending" />
 
             <!-- format filename -->
