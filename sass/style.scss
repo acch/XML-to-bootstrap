@@ -119,9 +119,9 @@ $navbar-height:              ($font-size-lg * $line-height + .5rem + 2 * $navbar
 \* -------------------- */
 
 html {
+  font-feature-settings: "liga" on, "clig" on, "kern" on;
   font-kerning: normal;
   font-variant-ligatures: common-ligatures;
-  font-feature-settings: "liga" on, "clig" on, "kern" on;
 
   //font-size: 16px;
 
@@ -139,9 +139,9 @@ html {
 \* -------------------- */
 
 .x2b-nvbr {
-  transition: transform .2s,
-              background-color .2s linear,
-              box-shadow .2s linear;
+  transition: background-color .2s linear,
+              box-shadow .2s linear,
+              transform .2s;
 }
 
 @include media-breakpoint-down(xs) {
@@ -180,8 +180,8 @@ html {
   transform: translateY(0%);
 }
 .headroom--unpinned {
-  transform: translateY(-100%);
   box-shadow: none !important;
+  transform: translateY(-100%);
 }
 
 
@@ -220,14 +220,14 @@ html {
   background-color: $base-color-light;
   border: $border;
 }
-.x2b-brdcrmb::after {
+/*.x2b-brdcrmb::after {
   background-image: $shadow-round;
   content: " ";
   display: block;
   height: .5rem;
   margin-bottom: (-$breadcrumb-padding-y - .5rem);
   margin-top: ($spacer-y + $breadcrumb-padding-y + .5rem);
-}
+}*/
 
 
 /* -------------------- *\
