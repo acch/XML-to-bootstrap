@@ -54,7 +54,7 @@
         <div class="row">
 
           <!-- iterate over all galleries -->
-          <xsl:for-each select="gallery">
+          <xsl:for-each select="gallery[not(@draft)]">
             <xsl:sort select="date" order="descending" />
 
             <!-- format filename -->

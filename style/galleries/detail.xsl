@@ -69,7 +69,7 @@
     <xsl:variable name="prev">
       <xsl:call-template name="date.prev.title">
         <xsl:with-param name="date" select="date" />
-        <xsl:with-param name="elements" select="../gallery" />
+        <xsl:with-param name="elements" select="../gallery[not(@draft)]" />
       </xsl:call-template>
     </xsl:variable>
 
@@ -77,7 +77,7 @@
     <xsl:variable name="next">
       <xsl:call-template name="date.next.title">
         <xsl:with-param name="date" select="date" />
-        <xsl:with-param name="elements" select="../gallery" />
+        <xsl:with-param name="elements" select="../gallery[not(@draft)]" />
       </xsl:call-template>
     </xsl:variable>
 
