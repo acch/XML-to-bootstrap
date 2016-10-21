@@ -136,7 +136,7 @@
 
         <!-- next button -->
         <a rel="next" title="{$next.page/@title}" href="{$next.page/@href}">
-          <button type="button" class="pull-xs-right [ btn btn-outline-primary ] x2b-bttn">
+          <button type="button" class="float-xs-right [ btn btn-outline-primary ] x2b-bttn">
             <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
             Next
             <xsl:call-template name="element.icon">
