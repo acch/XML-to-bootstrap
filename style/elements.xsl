@@ -21,23 +21,23 @@
 
 <!-- templates herein generate various elements which can optionally be used on
      pages. this currently includes:
-     - Breadcrumps
+     - Breadcrumbs
      - Responsive text column
      - Pager
      - Icons (normal / on circle / in box) -->
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     Breadcrumps
+     Breadcrumbs
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-  <xsl:template name="element.breadcrumps">
+  <xsl:template name="element.breadcrumbs">
     <xsl:param name="parent" /><!-- node-set (page) -->
     <xsl:param name="current" /><!-- string -->
 
     <!-- convert parent parameter to node-set -->
     <xsl:variable name="parent.page" select="ext:node-set($parent)/page" />
 
-    <!-- bootstrap breadcrumps -->
+    <!-- bootstrap breadcrumbs -->
     <nav class="breadcrumb x2b-brdcrmb">
 
       <!-- home -->
@@ -57,7 +57,7 @@
         <xsl:value-of select="$current" />
       </span>
 
-    </nav><!-- /breadcrump -->
+    </nav><!-- /breadcrumb -->
 
   </xsl:template>
 

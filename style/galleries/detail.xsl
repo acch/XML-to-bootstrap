@@ -32,8 +32,8 @@
       </xsl:call-template>
     </xsl:variable>
 
-    <!-- navigation breadcrumps -->
-    <xsl:call-template name="element.breadcrumps">
+    <!-- navigation breadcrumbs -->
+    <xsl:call-template name="element.breadcrumbs">
       <xsl:with-param name="parent">
         <page title="{/site/galleries/title}" href="{$site.url}galleries.html" />
       </xsl:with-param>
