@@ -42,6 +42,7 @@
         </p>
 
       </div><!-- /centered -->
+
     </footer>
 
   </xsl:template>
@@ -57,9 +58,7 @@
         <a class="x2b-alt-lnk">
 
           <!-- copy attributes from XML directly -->
-          <xsl:for-each select="@*">
-            <xsl:copy />
-          </xsl:for-each>
+          <xsl:copy-of select="@*" />
 
           <!-- generate icon -->
           <xsl:call-template name="element.icon">
