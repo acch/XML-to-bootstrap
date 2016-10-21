@@ -41,7 +41,7 @@
     </xsl:call-template>
 
     <!-- spacing -->
-    <hr class="invisible m-y-1" />
+    <hr class="invisible my-1" />
 
     <!-- put content inside a text column -->
     <xsl:call-template name="element.textcolumn">
@@ -65,7 +65,7 @@
           </p>
 
           <!-- spacing -->
-          <hr class="invisible m-y-1" />
+          <hr class="invisible my-1" />
 
           <!-- copy actual content from XML -->
           <xsl:call-template name="copy.content">
@@ -75,7 +75,7 @@
         </article>
 
         <!-- spacing -->
-        <hr class="invisible m-y-1" />
+        <hr class="invisible my-1" />
 
         <!-- find latest article before current one -->
         <xsl:variable name="prev">

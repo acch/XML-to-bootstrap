@@ -27,10 +27,10 @@
 
     <!-- bootstrap navbar -->
     <nav class="[ navbar navbar-fixed-top navbar-light ] x2b-nvbr js-nvbr [ sps sps--abv ] headroom--pinned">
-      <div class="container p-x-0">
+      <div class="container px-0">
 
         <!-- make toggler full width so that collapsing content wraps to the next line -->
-        <div class="container-fluid p-x-0">
+        <div class="container-fluid px-0">
 
           <!-- button -->
           <button class="navbar-toggler pull-xs-left hidden-sm-up" type="button" data-toggle="collapse" data-target="#cllpsNvbr" aria-controls="cllpsNvbr">
@@ -38,7 +38,7 @@
           </button>
 
           <!-- site title -->
-          <a class="navbar-brand m-x-1 hidden-sm-up" href="{$site.url}">
+          <a class="navbar-brand mx-1 hidden-sm-up" href="{$site.url}">
             <xsl:value-of select="$site.title" />
           </a>
 
@@ -47,10 +47,10 @@
         <!-- collapsing navbar -->
         <div class="collapse navbar-toggleable-xs" id="cllpsNvbr">
 
-        <div class="container-fluid x2b-nvbr-cllps p-x-0">
+        <div class="container-fluid x2b-nvbr-cllps px-0">
 
           <!-- site title -->
-          <a class="navbar-brand m-x-1 hidden-xs-down" href="{$site.url}">
+          <a class="navbar-brand mx-1 hidden-xs-down" href="{$site.url}">
             <xsl:value-of select="$site.title" />
           </a>
 
@@ -70,7 +70,7 @@
                 <xsl:if test="$title = /site/articles/title"> active</xsl:if>
               </xsl:variable>
 
-              <li class="nav-item{$active} m-x-1">
+              <li class="nav-item{$active} mx-1">
                 <a class="nav-link" href="{$site.url}articles.html">
 
                   <!-- icon and title -->
@@ -96,7 +96,7 @@
                 <xsl:if test="$title = /site/projects/title"> active</xsl:if>
               </xsl:variable>
 
-              <li class="nav-item{$active} m-x-1">
+              <li class="nav-item{$active} mx-1">
                 <a class="nav-link" href="{$site.url}projects.html">
 
                   <!-- icon and title -->
@@ -122,7 +122,7 @@
                 <xsl:if test="$title = /site/galleries/title"> active</xsl:if>
               </xsl:variable>
 
-              <li class="nav-item{$active} m-x-1">
+              <li class="nav-item{$active} mx-1">
                 <a class="nav-link" href="{$site.url}galleries.html">
 
                   <!-- icon and title -->

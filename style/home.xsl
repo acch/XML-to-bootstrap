@@ -61,7 +61,7 @@
           </div>
 
           <!-- link to expand collapsed section -->
-          <a class="x2b-expnd collapsed m-b-1" data-toggle="collapse" href="#intrdctn" aria-expanded="false" aria-controls="intrdctn">
+          <a class="x2b-expnd collapsed mb-1" data-toggle="collapse" href="#intrdctn" aria-expanded="false" aria-controls="intrdctn">
             More&#8230;
           </a>
 
@@ -77,7 +77,7 @@
       <div class="{$style.cardcolumn}">
 
         <!-- articles card -->
-        <div class="[ card card-block ] m-b-2">
+        <div class="[ card card-block ] mb-2">
 
           <!-- card heading -->
           <h3 class="card-title">
@@ -132,7 +132,7 @@
       <div class="{$style.cardcolumn}">
 
         <!-- projects card -->
-        <div class="[ card card-block ] m-b-2">
+        <div class="[ card card-block ] mb-2">
 
           <!-- card heading -->
           <h3 class="card-title">
@@ -187,7 +187,7 @@
       <div class="{$style.cardcolumn}">
 
         <!-- galleries card -->
-        <div class="[ card card-block ] m-b-2">
+        <div class="[ card card-block ] mb-2">
 
           <!-- card heading -->
           <h3 class="card-title">

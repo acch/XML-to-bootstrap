@@ -31,14 +31,14 @@
     </xsl:call-template>
 
     <!-- spacing -->
-    <!--hr class="invisible m-y-1" /-->
+    <!--hr class="invisible my-1" /-->
 
     <!--p class="text-muted">
       Click on the title to continue reading&#8230;
     </p-->
 
     <!-- spacing -->
-    <hr class="invisible m-t-2 m-b-0" />
+    <hr class="invisible mt-2 mb-0" />
 
     <xsl:choose>
       <xsl:when test="not(article)">
@@ -102,7 +102,7 @@
 
           <!-- divider -->
           <xsl:if test="position() != last()">
-            <hr class="m-t-3 m-b-2" />
+            <hr class="mt-3 mb-2" />
           </xsl:if>
 
         </xsl:for-each>

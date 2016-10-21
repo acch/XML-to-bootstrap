@@ -31,14 +31,14 @@
     </xsl:call-template>
 
     <!-- spacing -->
-    <!--hr class="invisible m-y-1" /-->
+    <!--hr class="invisible my-1" /-->
 
     <!--p class="text-muted">
       Click on the title to continue reading&#8230;
     </p-->
 
     <!-- spacing -->
-    <hr class="invisible m-y-1" />
+    <hr class="invisible my-1" />
 
     <xsl:choose>
       <xsl:when test="not(project)">

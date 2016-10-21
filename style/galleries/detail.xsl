@@ -41,7 +41,7 @@
     </xsl:call-template>
 
     <!-- spacing -->
-    <hr class="invisible m-y-1" />
+    <hr class="invisible my-1" />
 
     <!-- gallery introduction -->
     <p>
@@ -55,7 +55,7 @@
     </p>
 
     <!-- spacing -->
-    <hr class="invisible m-y-1" />
+    <hr class="invisible my-1" />
 
     <!-- copy content from XML directly -->
     <xsl:call-template name="copy.content">
@@ -63,7 +63,7 @@
     </xsl:call-template>
 
     <!-- spacing -->
-    <hr class="invisible m-y-1" />
+    <hr class="invisible my-1" />
 
     <!-- find latest gallery before current one -->
     <xsl:variable name="prev">

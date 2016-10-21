@@ -57,11 +57,11 @@
 
             <!-- section spacing -->
             <xsl:variable name="spacing">
-              <xsl:if test="position() != last()"> m-b-1</xsl:if>
+              <xsl:if test="position() != last()"> mb-1</xsl:if>
             </xsl:variable>
 
             <!-- section nav links -->
-            <ul class="nav m-l-1{$spacing}">
+            <ul class="nav ml-1{$spacing}">
 
               <!-- iterate over all nav links in section -->
               <xsl:for-each select="link">

@@ -22,22 +22,22 @@
   <xsl:template name="html.footer">
 
     <!-- spacing to main content -->
-    <hr class="invisible m-y-1 p-y-3" />
+    <hr class="invisible my-1 py-3" />
 
     <!-- generate social links -->
     <xsl:call-template name="html.sociallinks" />
 
     <!-- credits -->
-    <footer class="x2b-ftr [ m-t-2 p-y-2 ]" role="contentinfo">
+    <footer class="x2b-ftr [ mt-2 py-2 ]" role="contentinfo">
 
       <!-- centered -->
       <div class="text-xs-center text-muted">
 
-        <p class="m-a-0">
+        <p class="my-0">
           Generated using <a href="//github.com/acch/XML-to-bootstrap">XML-to-Bootstrap</a> for your viewing pleasure.
         </p>
 
-        <p class="m-a-0">
+        <p class="my-0">
           This site uses <a href="//getbootstrap.com">Bootstrap</a>, <a href="//fontawesome.io">Font Awesome</a> and <a href="//wicky.nillia.ms/headroom.js/">Headroom.js</a>.
         </p>
 
