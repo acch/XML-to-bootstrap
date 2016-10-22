@@ -77,7 +77,7 @@ module.exports = function(grunt) {
             flatten: true,
             nonull: true,
             cwd: pathdef.bootstrap,
-            src: '**/bootstrap*.min.css',
+            src: '**/bootstrap.min.css',
             dest: 'publish/css/'
           },
           {
