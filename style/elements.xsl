@@ -76,11 +76,11 @@
 
       <xsl:choose>
         <xsl:when test="$sidebar">
-          <xsl:value-of select="$style.sidebar.textcolumn" />
+          <xsl:value-of select="$grid.sidebar.textcolumn" />
         </xsl:when>
 
         <xsl:otherwise>
-          <xsl:value-of select="$style.textcolumn" />
+          <xsl:value-of select="$grid.textcolumn" />
         </xsl:otherwise>
       </xsl:choose>
 

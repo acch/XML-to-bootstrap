@@ -30,12 +30,20 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <!-- define our grid layout -->
-  <xsl:variable name="style.maincolumn">col-xs-12</xsl:variable>
-  <xsl:variable name="style.sidebar.maincolumn">col-xs-12 col-md-8</xsl:variable>
-  <xsl:variable name="style.sidebar.sidecolumn">hidden-sm-down [ col-md-4 col-lg-3 offset-lg-1 ]</xsl:variable>
-  <xsl:variable name="style.textcolumn">col-xs-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2</xsl:variable>
-  <xsl:variable name="style.sidebar.textcolumn">col-xs-12</xsl:variable>
-  <xsl:variable name="style.cardcolumn">col-xs-12 col-md-6 col-lg-4</xsl:variable>
+  <xsl:variable name="grid.maincolumn">col-xs-12</xsl:variable>
+  <xsl:variable name="grid.sidebar.maincolumn">col-xs-12 col-md-8</xsl:variable>
+  <xsl:variable name="grid.sidebar.sidecolumn">hidden-sm-down [ col-md-4 col-lg-3 offset-lg-1 ]</xsl:variable>
+  <xsl:variable name="grid.textcolumn">col-xs-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2</xsl:variable>
+  <xsl:variable name="grid.sidebar.textcolumn">col-xs-12</xsl:variable>
+  <xsl:variable name="grid.cardcolumn">col-xs-12 col-md-6 col-lg-4</xsl:variable>
+
+  <!-- define meta tags -->
+  <xsl:variable name="meta.noindex">
+    <meta name="robots" content="noindex" />
+  </xsl:variable>
+  <xsl:variable name="meta.noindex.follow">
+    <meta name="robots" content="noindex,follow" />
+  </xsl:variable>
 
   <!-- generate the site's base URL -->
   <xsl:variable name="site.url">

@@ -73,10 +73,10 @@
             <xsl:variable name="maincolumn">
               <xsl:choose>
                 <xsl:when test="$sidebar">
-                 <xsl:value-of select="$style.sidebar.maincolumn" />
+                 <xsl:value-of select="$grid.sidebar.maincolumn" />
                </xsl:when>
                <xsl:otherwise>
-                 <xsl:value-of select="$style.maincolumn" />
+                 <xsl:value-of select="$grid.maincolumn" />
                </xsl:otherwise>
               </xsl:choose>
             </xsl:variable>
@@ -91,7 +91,7 @@
 
             <xsl:if test="$sidebar">
               <!-- sidebar column -->
-              <aside class="x2b-sdbr {$style.sidebar.sidecolumn}">
+              <aside class="x2b-sdbr {$grid.sidebar.sidecolumn}">
 
                 <!-- sidebar -->
                 <xsl:call-template name="html.sidebar">

@@ -72,7 +72,7 @@
             </xsl:variable>
 
             <!-- responsive column -->
-            <div class="{$style.cardcolumn}">
+            <div class="{$grid.cardcolumn}">
 
               <!-- gallery card -->
               <!-- TODO: add semantic vocabulary/description -->

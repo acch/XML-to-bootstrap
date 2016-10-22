@@ -73,7 +73,7 @@
     <div class="row text-xs-center">
 
       <!-- responsive column -->
-      <div class="{$style.cardcolumn}">
+      <div class="{$grid.cardcolumn}">
 
         <!-- articles card -->
         <div class="[ card card-block ] mb-2">
@@ -128,7 +128,7 @@
         </div><!-- /card -->
 
       </div><!-- /column -->
-      <div class="{$style.cardcolumn}">
+      <div class="{$grid.cardcolumn}">
 
         <!-- projects card -->
         <div class="[ card card-block ] mb-2">
@@ -183,7 +183,7 @@
         </div><!-- /card -->
 
       </div><!-- /column -->
-      <div class="{$style.cardcolumn}">
+      <div class="{$grid.cardcolumn}">
 
         <!-- galleries card -->
         <div class="[ card card-block ] mb-2">
