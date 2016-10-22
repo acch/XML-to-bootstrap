@@ -76,6 +76,11 @@
               <xsl:with-param name="content" select="." />
             </xsl:call-template>
           </xsl:with-param>
+          <xsl:with-param name="meta">
+            <xsl:if test="@draft">
+              <xsl:copy-of select="$meta.noindex" />
+            </xsl:if>
+          </xsl:with-param>
         </xsl:call-template>
 
       </ext:document>

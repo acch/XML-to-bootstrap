@@ -66,6 +66,11 @@
           <xsl:with-param name="title" select="title" />
           <xsl:with-param name="subtitle" select="subtitle" />
           <xsl:with-param name="content" select="." />
+          <xsl:with-param name="meta">
+            <xsl:if test="@draft">
+              <xsl:copy-of select="$meta.noindex" />
+            </xsl:if>
+          </xsl:with-param>
         </xsl:call-template>
 
       </ext:document>
