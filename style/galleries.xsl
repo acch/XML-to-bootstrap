@@ -39,6 +39,7 @@
         <xsl:with-param name="title" select="/site/galleries/title" />
         <xsl:with-param name="subtitle" select="/site/galleries/subtitle" />
         <xsl:with-param name="content" select="/site/galleries" />
+        <xsl:with-param name="meta" select="$meta.noindex.follow" />
       </xsl:call-template>
 
     </ext:document>

@@ -44,6 +44,7 @@
             <xsl:with-param name="content" select="/site/articles" />
           </xsl:call-template>
         </xsl:with-param>
+        <xsl:with-param name="meta" select="$meta.noindex.follow" />
       </xsl:call-template>
 
     </ext:document>
