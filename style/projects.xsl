@@ -39,6 +39,7 @@
         <xsl:with-param name="title" select="/site/projects/title" />
         <xsl:with-param name="subtitle" select="/site/projects/subtitle" />
         <xsl:with-param name="content" select="/site/projects" />
+        <xsl:with-param name="url">projects.html</xsl:with-param>
         <xsl:with-param name="meta" select="$meta.noindex.follow" />
       </xsl:call-template>
 
@@ -65,12 +66,13 @@
         <xsl:call-template name="html.page">
           <xsl:with-param name="title" select="title" />
           <xsl:with-param name="subtitle" select="subtitle" />
-          <xsl:with-param name="content" select="." />
+          <xsl:with-param name="content" select="current()" />
           <xsl:with-param name="content.sidebar">
             <xsl:call-template name="project.sidebar">
-              <xsl:with-param name="content" select="." />
+              <xsl:with-param name="content" select="current()" />
             </xsl:call-template>
           </xsl:with-param>
+          <xsl:with-param name="url">project/{$filename}.html</xsl:with-param>
           <xsl:with-param name="meta">
             <xsl:if test="@draft">
               <xsl:copy-of select="$meta.noindex" />

@@ -34,6 +34,7 @@
     <xsl:param name="content" /><!-- node-set -->
     <xsl:param name="content.sidebar" /><!-- node-set (nav) -->
     <xsl:param name="banner.style" /><!-- string -->
+    <xsl:param name="url" /><!-- string -->
     <xsl:param name="meta" /><!-- node-set -->
 
     <!-- check for sidebar content -->
@@ -46,6 +47,7 @@
       <!-- generate document head -->
       <xsl:call-template name="html.head">
         <xsl:with-param name="page.title" select="$title" />
+        <xsl:with-param name="page.url" select="$url" />
         <xsl:with-param name="meta" select="$meta" />
       </xsl:call-template>
 

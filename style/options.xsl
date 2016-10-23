@@ -31,7 +31,7 @@
       encoding="utf-8"
       indent="yes">var Options = {
 <xsl:for-each select="/site/options/export[@type = 'js']/option">
-  "<xsl:value-of select="@name" />": <xsl:value-of select="." /><xsl:choose>
+  "<xsl:value-of select="@name" />": <xsl:value-of select="current()" /><xsl:choose>
     <xsl:when test="position() != last()">,</xsl:when>
   </xsl:choose>
 </xsl:for-each>

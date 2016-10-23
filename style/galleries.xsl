@@ -39,6 +39,7 @@
         <xsl:with-param name="title" select="/site/galleries/title" />
         <xsl:with-param name="subtitle" select="/site/galleries/subtitle" />
         <xsl:with-param name="content" select="/site/galleries" />
+        <xsl:with-param name="url">galleries.html</xsl:with-param>
         <xsl:with-param name="meta" select="$meta.noindex.follow" />
       </xsl:call-template>
 
@@ -65,7 +66,8 @@
         <xsl:call-template name="html.page">
           <xsl:with-param name="title" select="title" />
           <xsl:with-param name="subtitle" select="subtitle" />
-          <xsl:with-param name="content" select="." />
+          <xsl:with-param name="content" select="current()" />
+          <xsl:with-param name="url">gallery/{$filename}.html</xsl:with-param>
           <xsl:with-param name="meta">
             <xsl:if test="@draft">
               <xsl:copy-of select="$meta.noindex" />

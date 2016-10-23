@@ -38,6 +38,7 @@
   <!-- this template generates HTML code for document head -->
   <xsl:template name="html.head">
     <xsl:param name="page.title" /><!-- string -->
+    <xsl:param name="page.url" /><!-- string -->
     <xsl:param name="meta" /><!-- node-set -->
 
     <!-- options -->
@@ -55,6 +56,29 @@
 
       <!-- generate meta elements -->
       <xsl:call-template name="html.head.meta" />
+
+      <!-- canonical page URL -->
+      <xsl:if test="$page.url">
+
+        <!-- generate page URL -->
+        <xsl:variable name="url">
+          <xsl:choose>
+
+            <!-- remove trailing slash if necessary -->
+            <xsl:when test="starts-with($page.url, '/')">
+              <xsl:value-of select="substring-after($page.url, '/')" />
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="$page.url" />
+            </xsl:otherwise>
+
+          </xsl:choose>
+        </xsl:variable>
+
+        <!-- concatenate site URL and page URL -->
+        <link rel="canonical" href="https:{$site.url}{$url}" />
+
+      </xsl:if>
 
       <!-- generate stylesheet links -->
       <xsl:call-template name="html.head.link" />

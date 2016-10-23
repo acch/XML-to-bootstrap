@@ -26,6 +26,7 @@
       <xsl:with-param name="subtitle" select="/site/home/subtitle" />
       <xsl:with-param name="content" select="/site/home" />
       <xsl:with-param name="banner.style">text-xs-center</xsl:with-param>
+      <xsl:with-param name="url">/</xsl:with-param>
     </xsl:call-template>
 
   </xsl:template>
