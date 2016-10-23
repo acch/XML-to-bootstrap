@@ -39,7 +39,7 @@
 
   <!-- define meta tags -->
   <xsl:variable name="meta.noindex">
-    <meta name="robots" content="noindex" />
+    <meta name="robots" content="noindex,nofollow" />
   </xsl:variable>
   <xsl:variable name="meta.noindex.follow">
     <meta name="robots" content="noindex,follow" />
