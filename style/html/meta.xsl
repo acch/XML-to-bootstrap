@@ -38,7 +38,7 @@
   <!-- this template generates HTML code for document head -->
   <xsl:template name="html.head">
     <xsl:param name="page.title" /><!-- string -->
-    <xsl:param name="page.url" /><!-- string -->
+    <xsl:param name="page.uri" /><!-- string -->
     <xsl:param name="meta" /><!-- node-set -->
 
     <!-- options -->
@@ -57,34 +57,16 @@
       <!-- generate meta elements -->
       <xsl:call-template name="html.head.meta" />
 
-      <!-- canonical page URL -->
-      <xsl:if test="$page.url">
+      <!-- copy additional meta tags directly -->
+      <xsl:copy-of select="ext:node-set($meta)" />
 
-        <!-- generate page URL -->
-        <xsl:variable name="url">
-          <xsl:choose>
-
-            <!-- remove trailing slash if necessary -->
-            <xsl:when test="starts-with($page.url, '/')">
-              <xsl:value-of select="substring-after($page.url, '/')" />
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:value-of select="$page.url" />
-            </xsl:otherwise>
-
-          </xsl:choose>
-        </xsl:variable>
-
-        <!-- concatenate site URL and page URL -->
-        <link rel="canonical" href="https:{$site.url}{$url}" />
-
-      </xsl:if>
+      <!-- generate canonical link -->
+      <xsl:call-template name="html.head.canonical">
+        <xsl:with-param name="page.uri" select="$page.uri" />
+      </xsl:call-template>
 
       <!-- generate stylesheet links -->
       <xsl:call-template name="html.head.link" />
-
-      <!-- copy additional meta tags directly -->
-      <xsl:copy-of select="ext:node-set($meta)" />
 
     </head>
 
@@ -106,6 +88,37 @@
     <meta name="author" content="{$site.author}" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
+
+  </xsl:template>
+
+
+  <!-- this template generates HTML code for canonical page URI in document
+       head -->
+  <xsl:template name="html.head.canonical">
+    <xsl:param name="page.uri" /><!-- string -->
+
+    <!-- check page URI -->
+    <xsl:if test="$page.uri">
+
+      <!-- generate canonical page URI -->
+      <xsl:variable name="uri">
+
+        <!-- remove trailing slash if necessary -->
+        <xsl:choose>
+          <xsl:when test="starts-with($page.uri, '/')">
+            <xsl:value-of select="substring-after($page.uri, '/')" />
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="$page.uri" />
+          </xsl:otherwise>
+        </xsl:choose>
+
+      </xsl:variable>
+
+      <!-- concatenate site URL and page URI -->
+      <link rel="canonical" href="https:{$site.url}{$uri}" />
+
+    </xsl:if>
 
   </xsl:template>
 
