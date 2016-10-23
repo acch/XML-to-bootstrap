@@ -41,7 +41,7 @@
     <hr class="invisible my-1" />
 
     <xsl:choose>
-      <xsl:when test="not(gallery)">
+      <xsl:when test="not(gallery[not(@draft)])">
 
         <p><strong>
           There are no galleries, yet. Why don't you create one?

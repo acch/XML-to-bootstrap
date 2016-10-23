@@ -41,7 +41,7 @@
     <hr class="invisible mt-2 mb-0" />
 
     <xsl:choose>
-      <xsl:when test="not(article)">
+      <xsl:when test="not(article[not(@draft)])">
 
         <p><strong>
           There are no articles, yet. Why don't you create one?

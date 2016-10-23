@@ -41,7 +41,7 @@
     <hr class="invisible my-1" />
 
     <xsl:choose>
-      <xsl:when test="not(project)">
+      <xsl:when test="not(project[not(@draft)])">
 
         <p><strong>
           There are no projects, yet. Why don't you create one?
