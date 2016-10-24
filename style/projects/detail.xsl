@@ -52,7 +52,7 @@
         <article>
 
           <!-- project introduction -->
-          <p>
+          <header><p>
             <span class="text-muted">
               //&#160;<xsl:value-of select="$date.formatted" />
             </span>
@@ -64,7 +64,7 @@
                 <xsl:value-of select="short" />
               </strong>
             </xsl:if>
-          </p>
+          </p></header>
 
           <!-- spacing -->
           <hr class="invisible my-1" />

@@ -44,7 +44,7 @@
     <hr class="invisible my-1" />
 
     <!-- gallery introduction -->
-    <p>
+    <header><p>
       <span class="text-muted">
         //&#160;<xsl:value-of select="$date.formatted" />
       </span>
@@ -52,7 +52,7 @@
       <br />
 
       <xsl:value-of select="short" />
-    </p>
+    </p></header>
 
     <!-- spacing -->
     <hr class="invisible my-1" />
