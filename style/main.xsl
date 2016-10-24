@@ -47,7 +47,7 @@
     method="xml"
     omit-xml-declaration="yes"
     encoding="utf-8"
-    indent="yes" />
+    indent="no" />
 
 
 <!--~~~~~~~~~~~~~~~~~~~~

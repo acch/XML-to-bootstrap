@@ -33,7 +33,7 @@
       method="xml"
       omit-xml-declaration="yes"
       encoding="utf-8"
-      indent="yes">
+      indent="no">
 
       <xsl:call-template name="html.page">
         <xsl:with-param name="title" select="/site/galleries/title" />
@@ -61,7 +61,7 @@
         method="xml"
         omit-xml-declaration="yes"
         encoding="utf-8"
-        indent="yes">
+        indent="no">
 
         <xsl:call-template name="html.page">
           <xsl:with-param name="title" select="title" />
