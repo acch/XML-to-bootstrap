@@ -190,8 +190,8 @@
   </xsl:template>
 
 
-  <!-- icon in squared box (button) -->
-  <xsl:template name="element.icon.squared">
+  <!-- icon in button (squared box) -->
+  <xsl:template name="element.icon.button">
     <xsl:param name="title" /><!-- string-->
     <xsl:param name="href" /><!-- string-->
     <xsl:param name="icon" /><!-- string-->

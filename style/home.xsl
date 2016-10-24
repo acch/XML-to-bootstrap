@@ -108,7 +108,7 @@
           </p>
 
           <!-- icon -->
-          <xsl:call-template name="element.icon.squared">
+          <xsl:call-template name="element.icon.button">
             <xsl:with-param name="title">
               <xsl:if test="$articles">
                 <xsl:value-of select="/site/articles/title" />
@@ -161,7 +161,7 @@
           </p>
 
           <!-- icon -->
-          <xsl:call-template name="element.icon.squared">
+          <xsl:call-template name="element.icon.button">
             <xsl:with-param name="title">
               <xsl:if test="$projects">
                 <xsl:value-of select="/site/projects/title" />
@@ -214,7 +214,7 @@
           </p>
 
           <!-- icon -->
-          <xsl:call-template name="element.icon.squared">
+          <xsl:call-template name="element.icon.button">
             <xsl:with-param name="title">
               <xsl:if test="$galleries">
                 <xsl:value-of select="/site/galleries/title" />
