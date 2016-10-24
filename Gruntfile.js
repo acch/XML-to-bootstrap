@@ -318,6 +318,6 @@ module.exports = function(grunt) {
     'sass',
     'autoprefixer',
     'csslint',
-    'htmllint',
-    'prettify']);
+    'prettify',
+    'htmllint']);
 };
