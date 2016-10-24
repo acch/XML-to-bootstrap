@@ -108,23 +108,21 @@
           </p>
 
           <!-- icon -->
-          <xsl:choose>
-            <xsl:when test="$articles">
-              <a href="{$site.url}articles.html">
-                <xsl:call-template name="element.icon.squared">
-                  <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
-                  <xsl:with-param name="size">fa-3x</xsl:with-param>
-                </xsl:call-template>
-              </a>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:call-template name="element.icon.squared">
-                <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
-                <xsl:with-param name="size">fa-3x</xsl:with-param>
-                <xsl:with-param name="disabled" select="true()" />
-              </xsl:call-template>
-            </xsl:otherwise>
-          </xsl:choose>
+          <xsl:call-template name="element.icon.squared">
+            <xsl:with-param name="title">
+              <xsl:if test="$articles">
+                <xsl:value-of select="/site/articles/title" />
+              </xsl:if>
+            </xsl:with-param>
+            <xsl:with-param name="href">
+              <xsl:if test="$articles">
+                <xsl:value-of select="$site.url" />articles.html
+              </xsl:if>
+            </xsl:with-param>
+            <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
+            <xsl:with-param name="size">fa-3x</xsl:with-param>
+            <xsl:with-param name="disabled" select="not($articles)" />
+          </xsl:call-template>
 
         </div><!-- /card -->
 
@@ -163,23 +161,21 @@
           </p>
 
           <!-- icon -->
-          <xsl:choose>
-            <xsl:when test="$projects">
-              <a href="{$site.url}projects.html">
-                <xsl:call-template name="element.icon.squared">
-                  <xsl:with-param name="icon">fa-rocket</xsl:with-param>
-                  <xsl:with-param name="size">fa-3x</xsl:with-param>
-                </xsl:call-template>
-              </a>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:call-template name="element.icon.squared">
-                <xsl:with-param name="icon">fa-rocket</xsl:with-param>
-                <xsl:with-param name="size">fa-3x</xsl:with-param>
-                <xsl:with-param name="disabled" select="true()" />
-              </xsl:call-template>
-            </xsl:otherwise>
-          </xsl:choose>
+          <xsl:call-template name="element.icon.squared">
+            <xsl:with-param name="title">
+              <xsl:if test="$projects">
+                <xsl:value-of select="/site/projects/title" />
+              </xsl:if>
+            </xsl:with-param>
+            <xsl:with-param name="href">
+              <xsl:if test="$projects">
+                <xsl:value-of select="$site.url" />projects.html
+              </xsl:if>
+            </xsl:with-param>
+            <xsl:with-param name="icon">fa-rocket</xsl:with-param>
+            <xsl:with-param name="size">fa-3x</xsl:with-param>
+            <xsl:with-param name="disabled" select="not($projects)" />
+          </xsl:call-template>
 
         </div><!-- /card -->
 
@@ -218,23 +214,21 @@
           </p>
 
           <!-- icon -->
-          <xsl:choose>
-            <xsl:when test="$galleries">
-              <a href="{$site.url}galleries.html">
-                <xsl:call-template name="element.icon.squared">
-                  <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
-                  <xsl:with-param name="size">fa-3x</xsl:with-param>
-                </xsl:call-template>
-              </a>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:call-template name="element.icon.squared">
-                <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
-                <xsl:with-param name="size">fa-3x</xsl:with-param>
-                <xsl:with-param name="disabled" select="true()" />
-              </xsl:call-template>
-            </xsl:otherwise>
-          </xsl:choose>
+          <xsl:call-template name="element.icon.squared">
+            <xsl:with-param name="title">
+              <xsl:if test="$galleries">
+                <xsl:value-of select="/site/galleries/title" />
+              </xsl:if>
+            </xsl:with-param>
+            <xsl:with-param name="href">
+              <xsl:if test="$galleries">
+                <xsl:value-of select="$site.url" />galleries.html
+              </xsl:if>
+            </xsl:with-param>
+            <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
+            <xsl:with-param name="size">fa-3x</xsl:with-param>
+            <xsl:with-param name="disabled" select="not($galleries)" />
+          </xsl:call-template>
 
         </div><!-- /card -->
 

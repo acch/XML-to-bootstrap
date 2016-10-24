@@ -121,14 +121,12 @@
         <xsl:if test="$prev.page">
 
           <!-- previous button -->
-          <a rel="prev" title="{$prev.page/@title}" href="{$prev.page/@href}">
-            <button type="button" class="[ btn btn-outline-primary ] x2b-bttn">
-              <xsl:call-template name="element.icon">
-                <xsl:with-param name="icon">fa-arrow-left</xsl:with-param>
-              </xsl:call-template>
-              Previous
-              <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
-            </button>
+          <a class="[ btn btn-outline-primary ] x2b-bttn" rel="prev" title="{$prev.page/@title}" href="{$prev.page/@href}" role="button">
+            <xsl:call-template name="element.icon">
+              <xsl:with-param name="icon">fa-arrow-left</xsl:with-param>
+            </xsl:call-template>
+            Previous
+            <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
           </a><!-- /prev -->
 
         </xsl:if>
@@ -137,14 +135,12 @@
         <xsl:if test="$next.page">
 
           <!-- next button -->
-          <a rel="next" title="{$next.page/@title}" href="{$next.page/@href}">
-            <button type="button" class="float-xs-right [ btn btn-outline-primary ] x2b-bttn">
-              <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
-              Next
-              <xsl:call-template name="element.icon">
-                <xsl:with-param name="icon">fa-arrow-right</xsl:with-param>
-              </xsl:call-template>
-            </button>
+          <a class="float-xs-right [ btn btn-outline-primary ] x2b-bttn" rel="next" title="{$next.page/@title}" href="{$next.page/@href}" role="button">
+            <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
+            Next
+            <xsl:call-template name="element.icon">
+              <xsl:with-param name="icon">fa-arrow-right</xsl:with-param>
+            </xsl:call-template>
           </a><!-- /next -->
 
         </xsl:if>
@@ -196,6 +192,8 @@
 
   <!-- icon in squared box (button) -->
   <xsl:template name="element.icon.squared">
+    <xsl:param name="title" /><!-- string-->
+    <xsl:param name="href" /><!-- string-->
     <xsl:param name="icon" /><!-- string-->
     <xsl:param name="size" select="fa-lg" /><!-- string -->
     <xsl:param name="disabled" select="false()" /><!-- boolean -->
@@ -203,23 +201,33 @@
     <!-- style depends on disabled state -->
     <xsl:variable name="btn.class">
       <xsl:choose>
-        <xsl:when test="$disabled">btn-secondary</xsl:when>
+        <xsl:when test="$disabled">btn-secondary disabled</xsl:when>
         <xsl:otherwise>btn-primary</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
 
     <!-- bootstrap button with fontawesome icon inside -->
-    <button type="button" class="[ btn {$btn.class} ] x2b-bttn">
+    <a class="[ btn {$btn.class} ] x2b-bttn" role="button">
 
-      <xsl:if test="$disabled">
-        <xsl:attribute name="disabled" />
+      <!-- optional title -->
+      <xsl:if test="$title != ''">
+        <xsl:attribute name="title">
+          <xsl:value-of select="$title" />
+        </xsl:attribute>
+      </xsl:if>
+
+      <!-- optional href -->
+      <xsl:if test="$href != ''">
+        <xsl:attribute name="href">
+          <xsl:value-of select="$href" />
+        </xsl:attribute>
       </xsl:if>
 
       <span class="fa {$icon} {$size} fa-fw" aria-hidden="true">
         <xsl:text> </xsl:text><!-- prevent tag from collapsing -->
       </span>
 
-    </button>
+    </a>
 
   </xsl:template>
 
