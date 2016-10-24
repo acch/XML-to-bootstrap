@@ -226,7 +226,9 @@ module.exports = function(grunt) {
 
     htmllint: {
       options: {
-
+        ignore: [
+          'The “contentinfo” role is unnecessary for element “footer”.'
+        ]
       },
       src: 'publish/**/*.html'
     },
