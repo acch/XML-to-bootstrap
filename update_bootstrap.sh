@@ -12,7 +12,7 @@ git pull --rebase
 git checkout v4.0.0-alpha.5
 
 # Link and import our custom variables
-sed -i -e '1i@import "customvars";\' scss/_variables.scss
+echo '@import "customvars";' >> scss/_custom.scss
 ln -s ../../../sass/customvars.scss scss/
 
 # Rebuild Bootstrap
