@@ -226,17 +226,9 @@ module.exports = function(grunt) {
 
     htmllint: {
       options: {
-        force: true,
-        'attr-name-style': false,
-        'id-class-style': false,
-        'indent-width': false,
-        'line-end-style': false
+
       },
-      publish: {
-        expand: true,
-        nonull: true,
-        src: 'publish/**/*.html'
-      }
+      src: 'publish/**/*.html'
     },
 
     htmlmin: {

@@ -23,7 +23,7 @@
     "grunt-contrib-cssmin": ">=1.0.2",
     "grunt-contrib-htmlmin": ">=2.0.0",
     "grunt-contrib-uglify": ">=2.0.0",
-    "grunt-htmllint": ">=0.2.7",
+    "grunt-html": ">=8.0.2",
     "grunt-prettify": ">=0.4.0",
     "grunt-sass": ">=1.2.1",
     "grunt-xsltproc": ">=0.6.1",
