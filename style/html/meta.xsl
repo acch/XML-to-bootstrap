@@ -38,6 +38,7 @@
   <!-- this template generates HTML code for document head -->
   <xsl:template name="html.head">
     <xsl:param name="page.title" /><!-- string -->
+    <xsl:param name="page.subtitle" /><!-- string -->
     <xsl:param name="page.uri" /><!-- string -->
     <xsl:param name="meta" /><!-- node-set -->
 
@@ -49,9 +50,20 @@
 
       <!-- document title -->
       <title>
+
+        <!-- page title -->
         <xsl:value-of select="$page.title" />
+
+        <!-- optional subtitle -->
+        <xsl:if test="$page.subtitle">
+          <xsl:text>: </xsl:text>
+          <xsl:value-of select="$page.subtitle" />
+        </xsl:if>
+
+        <!-- site title -->
         <xsl:text> </xsl:text>&#183;<xsl:text> </xsl:text>
         <xsl:value-of select="$site.title" />
+
       </title>
 
       <!-- generate meta elements -->

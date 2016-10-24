@@ -47,6 +47,7 @@
       <!-- generate document head -->
       <xsl:call-template name="html.head">
         <xsl:with-param name="page.title" select="$title" />
+        <xsl:with-param name="page.subtitle" select="$subtitle" />
         <xsl:with-param name="page.uri" select="$uri" />
         <xsl:with-param name="meta" select="$meta" />
       </xsl:call-template>
