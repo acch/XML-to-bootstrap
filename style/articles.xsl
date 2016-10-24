@@ -77,7 +77,7 @@
               <xsl:with-param name="content" select="current()" />
             </xsl:call-template>
           </xsl:with-param>
-          <xsl:with-param name="uri">article/{$filename}.html</xsl:with-param>
+          <xsl:with-param name="uri">article/<xsl:value-of select="$filename" />.html</xsl:with-param>
           <xsl:with-param name="meta">
             <xsl:if test="@draft">
               <xsl:copy-of select="$meta.noindex" />

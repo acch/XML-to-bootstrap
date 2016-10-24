@@ -67,7 +67,7 @@
           <xsl:with-param name="title" select="title" />
           <xsl:with-param name="subtitle" select="subtitle" />
           <xsl:with-param name="content" select="current()" />
-          <xsl:with-param name="uri">gallery/{$filename}.html</xsl:with-param>
+          <xsl:with-param name="uri">gallery/<xsl:value-of select="$filename" />.html</xsl:with-param>
           <xsl:with-param name="meta">
             <xsl:if test="@draft">
               <xsl:copy-of select="$meta.noindex" />
