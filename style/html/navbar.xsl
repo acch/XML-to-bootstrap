@@ -141,12 +141,12 @@
 
               </xsl:if><!-- $galleries -->
 
-            </ul>
+              <!-- author info -->
+              <li class="navbar-text hidden-sm-down float-xs-right text-muted pr-1">
+                by <xsl:value-of select="$site.author" />
+              </li>
 
-            <!-- author info -->
-            <li class="navbar-text hidden-sm-down float-xs-right text-muted pr-1">
-              by <xsl:value-of select="$site.author" />
-            </li>
+            </ul>
 
           </div><!-- /container-fluid -->
 
