@@ -16,7 +16,7 @@ Take a look at the [Demo](https://acch.github.io/XML-to-bootstrap/) site to lear
 - Generates static web pages compatible with any web server
 - Compatible with latest and greatest Bootstrap v4
 - Fully themable with custom Bootstrap builds
-- Uses [schema.org](https://schema.org) vocabularies to optimize pages for search engines [WIP]
+- Uses [Schema.org](https://schema.org) microdata to optimize pages for search engines
 
 ### Differentiation and limitations
 
