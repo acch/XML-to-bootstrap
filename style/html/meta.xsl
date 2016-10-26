@@ -46,10 +46,10 @@
     <xsl:variable name="site.title" select="/site/options/option[@name = 'site.title']" />
 
     <!-- document head -->
-    <head>
+    <head itemscope="itemscope" itemtype="http://schema.org/WebSite">
 
       <!-- document title -->
-      <title>
+      <title itemprop="name">
 
         <!-- page title -->
         <xsl:value-of select="$page.title" />
@@ -129,6 +129,7 @@
 
       <!-- concatenate site URL and page URI -->
       <link rel="canonical" href="https:{$site.url}{$uri}" />
+      <link itemprop="url" href="https:{$site.url}{$uri}" />
 
     </xsl:if>
 
