@@ -48,14 +48,20 @@
       <xsl:with-param name="sidebar" select="content/*[@id]" />
       <xsl:with-param name="content">
 
-        <!-- TODO: add semantic vocabulary/description -->
-        <article>
+        <!-- semantic vocabulary 'CreativeWork' -->
+        <main itemscope="itemscope" itemtype="http://schema.org/CreativeWork" role="main">
+
+          <!-- add meta tags -->
+          <xsl:call-template name="element.data.meta">
+            <xsl:with-param name="title" select="title" />
+            <xsl:with-param name="subtitle" select="subtitle" />
+          </xsl:call-template>
 
           <!-- project introduction -->
-          <header><p>
-            <span class="text-muted">
+          <header itemprop="description"><p>
+            <time class="text-muted" itemprop="datePublished dateModified" datetime="{date}">
               //&#160;<xsl:value-of select="$date.formatted" />
-            </span>
+            </time>
 
             <xsl:if test="short">
               <br />
@@ -64,7 +70,7 @@
                 <xsl:value-of select="short" />
               </strong>
             </xsl:if>
-          </p></header>
+          </p></header><!-- /description -->
 
           <!-- spacing -->
           <hr class="invisible my-1" />
@@ -74,7 +80,7 @@
             <xsl:with-param name="content" select="content" />
           </xsl:call-template>
 
-        </article>
+        </main>
 
         <!-- spacing -->
         <hr class="invisible my-1" />

@@ -48,38 +48,18 @@
       <xsl:with-param name="sidebar" select="content/*[@id]" />
       <xsl:with-param name="content">
 
-        <!-- semantic vocabulary -->
-        <article itemscope="itemscope" itemtype="http://schema.org/Article">
+        <!-- semantic vocabulary 'Article' -->
+        <main itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 
-          <!-- Schema.org microdata -->
-          <meta itemprop="name headline">
-            <xsl:attribute name="content">
-
-              <!-- page title -->
-              <xsl:value-of select="title" />
-
-              <!-- optional subtitle -->
-              <xsl:if test="subtitle">
-                <xsl:text>: </xsl:text>
-                <xsl:value-of select="subtitle" />
-              </xsl:if>
-
-            </xsl:attribute>
-          </meta>
-
-          <xsl:variable name="author" select="/site/options/option[@name = 'site.author']" />
-          <xsl:variable name="publisher" select="/site/options/option[@name = 'site.title']" />
-
-          <div itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
-            <meta itemprop="name" content="{$author}" />
-          </div>
-          <div itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization">
-            <meta itemprop="name" content="{$publisher}" />
-          </div>
+          <!-- add meta tags -->
+          <xsl:call-template name="element.data.meta">
+            <xsl:with-param name="title" select="title" />
+            <xsl:with-param name="subtitle" select="subtitle" />
+          </xsl:call-template>
 
           <!-- article introduction -->
           <header itemprop="description"><p>
-            <time class="text-muted" itemprop="datePublished" datetime="{date}">
+            <time class="text-muted" itemprop="datePublished dateModified" datetime="{date}">
               //&#160;<xsl:value-of select="$date.formatted" />
             </time>
 
@@ -90,22 +70,17 @@
                 <xsl:value-of select="short" />
               </strong>
             </xsl:if>
-          </p></header>
+          </p></header><!-- /description -->
 
           <!-- spacing -->
           <hr class="invisible my-1" />
 
-          <!-- main content -->
-          <div itemprop="articleBody">
+          <!-- copy actual content from XML -->
+          <xsl:call-template name="copy.content">
+            <xsl:with-param name="content" select="content" />
+          </xsl:call-template>
 
-            <!-- copy actual content from XML -->
-            <xsl:call-template name="copy.content">
-              <xsl:with-param name="content" select="content" />
-            </xsl:call-template>
-
-          </div><!-- /articleBody -->
-
-        </article>
+        </main>
 
         <!-- spacing -->
         <hr class="invisible my-1" />

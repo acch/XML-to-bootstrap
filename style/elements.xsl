@@ -24,7 +24,8 @@
      - Breadcrumbs
      - Responsive text column
      - Pager
-     - Icons (normal / on circle / in box) -->
+     - Icons (normal / in circle / in button)
+     - Semantic data (microdata) -->
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      Breadcrumbs
@@ -37,7 +38,7 @@
     <!-- convert parent parameter to node-set -->
     <xsl:variable name="parent.page" select="ext:node-set($parent)/page" />
 
-    <!-- bootstrap breadcrumbs -->
+    <!-- Bootstrap breadcrumbs -->
     <nav class="breadcrumb x2b-brdcrmb">
 
       <!-- home -->
@@ -114,7 +115,7 @@
     <!-- check if pager is necessary -->
     <xsl:if test="$next.page or $prev.page">
 
-      <!-- bootstrap buttons used as pager -->
+      <!-- Bootstrap buttons used as pager -->
       <nav>
 
         <!-- check if there is a previous page -->
@@ -206,7 +207,7 @@
       </xsl:choose>
     </xsl:variable>
 
-    <!-- bootstrap button with fontawesome icon inside -->
+    <!-- Bootstrap button with fontawesome icon inside -->
     <a class="[ btn {$btn.class} ] x2b-bttn" role="button">
 
       <!-- optional title -->
@@ -228,6 +229,45 @@
       </span>
 
     </a>
+
+  </xsl:template>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Semantic data (microdata)
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <!-- this template generates (invisible) meta tags with semantic
+       information -->
+  <xsl:template name="element.data.meta">
+    <xsl:param name="title" /><!-- string-->
+    <xsl:param name="subtitle" /><!-- string-->
+
+    <!-- Schema.org microdata -->
+    <meta itemprop="name headline">
+      <xsl:attribute name="content">
+
+        <!-- page title -->
+        <xsl:value-of select="$title" />
+
+        <!-- optional subtitle -->
+        <xsl:if test="$subtitle != ''">
+          <xsl:text>: </xsl:text>
+          <xsl:value-of select="subtitle" />
+        </xsl:if>
+
+      </xsl:attribute>
+    </meta>
+
+    <xsl:variable name="author" select="/site/options/option[@name = 'site.author']" />
+    <xsl:variable name="publisher" select="/site/options/option[@name = 'site.title']" />
+
+    <div itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="{$author}" />
+    </div>
+    <div itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="{$publisher}" />
+    </div>
 
   </xsl:template>
 

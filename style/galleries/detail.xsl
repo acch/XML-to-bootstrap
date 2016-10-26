@@ -43,24 +43,39 @@
     <!-- spacing -->
     <hr class="invisible my-1" />
 
-    <!-- gallery introduction -->
-    <header><p>
-      <span class="text-muted">
-        //&#160;<xsl:value-of select="$date.formatted" />
-      </span>
+    <!-- semantic vocabulary 'CreativeWork' -->
+    <main itemscope="itemscope" itemtype="http://schema.org/CreativeWork" role="main">
 
-      <br />
+      <!-- add meta tags -->
+      <xsl:call-template name="element.data.meta">
+        <xsl:with-param name="title" select="title" />
+        <xsl:with-param name="subtitle" select="subtitle" />
+      </xsl:call-template>
 
-      <xsl:value-of select="short" />
-    </p></header>
+      <!-- gallery introduction -->
+      <header itemprop="description"><p>
+        <time class="text-muted" itemprop="datePublished dateModified" datetime="{date}">
+          //&#160;<xsl:value-of select="$date.formatted" />
+        </time>
 
-    <!-- spacing -->
-    <hr class="invisible my-1" />
+        <xsl:if test="short">
+          <br />
 
-    <!-- copy content from XML directly -->
-    <xsl:call-template name="copy.content">
-      <xsl:with-param name="content" select="content" />
-    </xsl:call-template>
+          <strong>
+            <xsl:value-of select="short" />
+          </strong>
+        </xsl:if>
+      </p></header><!-- /description -->
+
+      <!-- spacing -->
+      <hr class="invisible my-1" />
+
+      <!-- copy content from XML directly -->
+      <xsl:call-template name="copy.content">
+        <xsl:with-param name="content" select="content" />
+      </xsl:call-template>
+
+    </main>
 
     <!-- spacing -->
     <hr class="invisible my-1" />
