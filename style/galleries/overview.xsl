@@ -93,9 +93,9 @@
 
                     <xsl:text> </xsl:text>
 
-                    <span class="text-muted">
+                    <time class="text-muted">
                       //&#160;<xsl:value-of select="$date" />
-                    </span>
+                    </time>
                   </p>
 
                 </a>
