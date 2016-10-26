@@ -43,7 +43,6 @@
       <xsl:with-param name="content">
 
         <!-- introduction -->
-        <!-- TODO: add semantic vocabulary/description -->
         <main class="text-xs-center" role="main">
 
           <!-- copy introduction from XML directly, excluding collapsed text -->
