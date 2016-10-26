@@ -62,7 +62,7 @@
           </xsl:variable>
 
           <!-- format date -->
-          <xsl:variable name="date">
+          <xsl:variable name="date.formatted">
             <xsl:call-template name="format.date">
               <xsl:with-param name="date" select="date" />
             </xsl:call-template>
@@ -91,9 +91,9 @@
 
                 <xsl:text> </xsl:text>
 
-                <span class="text-muted">
-                  //&#160;<xsl:value-of select="$date" />
-                </span>
+                <time class="text-muted" datetime="{date}">
+                  //&#160;<xsl:value-of select="$date.formatted" />
+                </time>
               </p>
 
             </a>
