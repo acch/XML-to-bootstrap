@@ -75,7 +75,6 @@
             <div class="{$grid.cardcolumn}">
 
               <!-- gallery card -->
-              <!-- TODO: add semantic vocabulary/description -->
               <article class="card card-block">
 
                 <!-- gallery title -->

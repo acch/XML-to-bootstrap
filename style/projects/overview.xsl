@@ -75,10 +75,9 @@
             <div class="{$grid.cardcolumn}">
 
               <!-- project card -->
-              <!-- TODO: add semantic vocabulary/description -->
               <article class="card card-block">
 
-                <!-- project title -->
+                <!-- main title -->
                 <h3 class="card-title">
                   <a class="x2b-alt-lnk" href="{$site.url}project/{$filename}.html">
                     <xsl:value-of select="title" />
@@ -87,10 +86,12 @@
 
                 <a class="x2b-sbtl-lnk" href="{$site.url}project/{$filename}.html">
 
-                  <!-- project subtitle -->
-                  <p class="card-text"><strong>
-                    <xsl:value-of select="subtitle" />
-                  </strong></p>
+                  <!-- optional subtitle -->
+                  <xsl:if test="subtitle">
+                    <p class="card-text"><strong>
+                      <xsl:value-of select="subtitle" />
+                    </strong></p>
+                  </xsl:if>
 
                   <!-- project description -->
                   <p class="card-text">

@@ -68,10 +68,10 @@
             </xsl:call-template>
           </xsl:variable>
 
-          <!-- TODO: add semantic vocabulary/description -->
+          <!-- article entry -->
           <article>
 
-            <!-- article title -->
+            <!-- main title -->
             <h3 class="x2b-anchr" id="{@id}">
               <a class="x2b-alt-lnk" href="{$site.url}article/{$filename}.html">
                 <xsl:value-of select="title" />
@@ -80,10 +80,12 @@
 
             <a class="x2b-sbtl-lnk" href="{$site.url}article/{$filename}.html">
 
-              <!-- article subtitle -->
-              <p><strong>
-                <xsl:value-of select="subtitle" />
-              </strong></p>
+              <!-- optional subtitle -->
+              <xsl:if test="subtitle">
+                <p><strong>
+                  <xsl:value-of select="subtitle" />
+                </strong></p>
+              </xsl:if>
 
               <!-- article description -->
               <p>

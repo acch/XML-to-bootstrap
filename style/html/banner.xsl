@@ -40,10 +40,12 @@
           <xsl:value-of select="$title" />
         </h1>
 
-        <!-- subtitle -->
-        <p class="lead">
-          <xsl:value-of select="$subtitle" />
-        </p>
+        <!-- optional subtitle -->
+        <xsl:if test="$subtitle">
+          <p class="lead">
+            <xsl:value-of select="$subtitle" />
+          </p>
+        </xsl:if>
 
       </div><!-- /container -->
     </header>
