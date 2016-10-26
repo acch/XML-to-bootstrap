@@ -44,7 +44,7 @@
 
         <!-- introduction -->
         <!-- TODO: add semantic vocabulary/description -->
-        <article class="text-xs-center">
+        <main class="text-xs-center" role="main">
 
           <!-- copy introduction from XML directly, excluding collapsed text -->
           <xsl:call-template name="copy.content">
@@ -65,7 +65,7 @@
             More&#8230;
           </a>
 
-        </article><!-- /introduction -->
+        </main><!-- /introduction -->
 
       </xsl:with-param>
     </xsl:call-template>
