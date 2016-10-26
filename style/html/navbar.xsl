@@ -25,7 +25,7 @@
     <xsl:variable name="site.title" select="/site/options/option[@name = 'site.title']" />
     <xsl:variable name="site.author" select="/site/options/option[@name = 'site.author']" />
 
-    <!-- bootstrap navbar -->
+    <!-- Bootstrap navbar -->
     <nav class="[ navbar navbar-fixed-top navbar-light ] x2b-nvbr js-nvbr [ sps sps--abv ] headroom--pinned">
       <div class="container px-0">
 
