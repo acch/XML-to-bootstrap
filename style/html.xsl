@@ -31,6 +31,8 @@
   <xsl:template name="html.page">
     <xsl:param name="title" /><!-- string -->
     <xsl:param name="subtitle" /><!-- string -->
+    <xsl:param name="head.title" select="true()" /><!-- boolean -->
+    <xsl:param name="head.subtitle" select="true()" /><!-- boolean -->
     <xsl:param name="content" /><!-- node-set -->
     <xsl:param name="content.sidebar" /><!-- node-set (nav) -->
     <xsl:param name="banner.style" /><!-- string -->
@@ -46,8 +48,16 @@
 
       <!-- generate document head -->
       <xsl:call-template name="html.head">
-        <xsl:with-param name="page.title" select="$title" />
-        <xsl:with-param name="page.subtitle" select="$subtitle" />
+        <xsl:with-param name="page.title">
+          <xsl:if test="$head.title">
+            <xsl:value-of select="$title" />
+          </xsl:if>
+        </xsl:with-param>
+        <xsl:with-param name="page.subtitle">
+          <xsl:if test="$head.subtitle">
+            <xsl:value-of select="$subtitle" />
+          </xsl:if>
+        </xsl:with-param>
         <xsl:with-param name="page.uri" select="$uri" />
         <xsl:with-param name="meta" select="$meta" />
       </xsl:call-template>

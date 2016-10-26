@@ -24,6 +24,8 @@
     <xsl:call-template name="html.page">
       <xsl:with-param name="title" select="/site/home/title" />
       <xsl:with-param name="subtitle" select="/site/home/subtitle" />
+      <xsl:with-param name="head.title" select="false()" /><!-- don't promote title in head -->
+      <xsl:with-param name="head.subtitle" select="false()" /><!-- don't promote subtitle in head -->
       <xsl:with-param name="content" select="/site/home" />
       <xsl:with-param name="banner.style">text-xs-center</xsl:with-param>
       <xsl:with-param name="uri">/</xsl:with-param>

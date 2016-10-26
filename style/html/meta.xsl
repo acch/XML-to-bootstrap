@@ -51,17 +51,21 @@
       <!-- document title -->
       <title itemprop="name">
 
-        <!-- page title -->
-        <xsl:value-of select="$page.title" />
+        <!-- optional page title -->
+        <xsl:if test="$page.title != ''">
+          <xsl:value-of select="$page.title" />
 
-        <!-- optional subtitle -->
-        <xsl:if test="$page.subtitle">
-          <xsl:text>: </xsl:text>
-          <xsl:value-of select="$page.subtitle" />
+          <!-- optional subtitle -->
+          <xsl:if test="$page.subtitle != ''">
+            <xsl:text>: </xsl:text>
+            <xsl:value-of select="$page.subtitle" />
+          </xsl:if>
+
+          <!-- separator -->
+          <xsl:text> </xsl:text>&#183;<xsl:text> </xsl:text>
         </xsl:if>
 
         <!-- site title -->
-        <xsl:text> </xsl:text>&#183;<xsl:text> </xsl:text>
         <xsl:value-of select="$site.title" />
 
       </title>
