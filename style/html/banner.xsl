@@ -31,8 +31,8 @@
       </xsl:if>
     </xsl:variable>
 
-    <!-- bootstrap jumbotron -->
-    <header class="[ jumbotron jumbotron-fluid ] x2b-bnnr{$style.class}">
+    <!-- Bootstrap jumbotron -->
+    <header class="[ jumbotron jumbotron-fluid ] x2b-bnnr{$style.class}" role="banner">
       <div class="container">
 
         <!-- main title -->

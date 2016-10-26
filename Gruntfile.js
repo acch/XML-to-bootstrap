@@ -15,7 +15,6 @@ module.exports = function(grunt) {
   "use strict";
 
   //TODO:
-  //  - htmllint task
   //  - scsslint task?
 
   // dependencies
@@ -227,7 +226,9 @@ module.exports = function(grunt) {
     htmllint: {
       options: {
         ignore: [
-          'The “contentinfo” role is unnecessary for element “footer”.'
+          'The "contentinfo" role is unnecessary for element "footer".',
+          'The "banner" role is unnecessary for element "header".',
+          'Element "main" does not need a "role" attribute.'
         ]
       },
       src: 'publish/**/*.html'
