@@ -126,7 +126,7 @@
             <xsl:call-template name="element.icon">
               <xsl:with-param name="icon">fa-arrow-left</xsl:with-param>
             </xsl:call-template>
-            Previous
+            <xsl:text>Previous</xsl:text>
             <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
           </a><!-- /prev -->
 
@@ -138,7 +138,7 @@
           <!-- next button -->
           <a class="float-xs-right [ btn btn-outline-primary ] x2b-bttn" rel="next" title="{$next.page/@title}" href="{$next.page/@href}" role="button">
             <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
-            Next
+            <xsl:text>Next</xsl:text>
             <xsl:call-template name="element.icon">
               <xsl:with-param name="icon">fa-arrow-right</xsl:with-param>
             </xsl:call-template>
@@ -160,7 +160,7 @@
   <!-- normal icon (fixed-width) -->
   <xsl:template name="element.icon">
     <xsl:param name="icon" /><!-- string-->
-    <xsl:param name="size" select="fa-lg" /><!-- string -->
+    <xsl:param name="size">fa-lg</xsl:param><!-- string -->
 
     <!-- fontawesome icon -->
     <span class="fa {$icon} {$size} fa-fw" aria-hidden="true">
@@ -173,7 +173,7 @@
   <!-- icon in circle (inverted) -->
   <xsl:template name="element.icon.circled">
     <xsl:param name="icon" /><!-- string-->
-    <xsl:param name="size" select="fa-lg" /><!-- string -->
+    <xsl:param name="size">fa-lg</xsl:param><!-- string -->
 
     <!-- two fontawesome icons stacked onto each other -->
     <span class="fa-stack {$size}" aria-hidden="true">
@@ -196,7 +196,7 @@
     <xsl:param name="title" /><!-- string-->
     <xsl:param name="href" /><!-- string-->
     <xsl:param name="icon" /><!-- string-->
-    <xsl:param name="size" select="fa-lg" /><!-- string -->
+    <xsl:param name="size">fa-lg</xsl:param><!-- string -->
     <xsl:param name="disabled" select="false()" /><!-- boolean -->
 
     <!-- style depends on disabled state -->
