@@ -8,7 +8,7 @@
 
   <!-- the following options will be exported to JavaScript -->
   <export type="js">
-    <option name="navbarOffset">240</option>
+    <option name="navbarOffset">300</option>
     <option name="navbarTolerance">5</option>
   </export>
 
