@@ -34,7 +34,7 @@
 
           <!-- button -->
           <button class="navbar-toggler float-xs-left hidden-sm-up" type="button" data-toggle="collapse" data-target="#cllpsNvbr" aria-controls="cllpsNvbr" aria-expanded="false" aria-label="Toggle navigation">
-            <!--&#9776;--><!-- hamburger -->
+            <&#9776;><!-- hamburger -->
             <xsl:text> </xsl:text><!-- prevent tag from collapsing -->
           </button>
 
