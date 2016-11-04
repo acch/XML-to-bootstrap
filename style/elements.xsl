@@ -42,9 +42,7 @@
     <nav class="breadcrumb x2b-brdcrmb">
 
       <!-- home -->
-      <a class="breadcrumb-item" href="{$site.url}">
-        Home
-      </a>
+      <a class="breadcrumb-item" href="{$site.url}">Home</a>
 
       <!-- optional category page -->
       <xsl:if test="$parent.page">

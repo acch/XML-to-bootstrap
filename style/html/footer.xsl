@@ -33,13 +33,9 @@
       <!-- centered -->
       <div class="text-xs-center text-muted">
 
-        <p class="my-0">
-          Generated using <a href="//github.com/acch/XML-to-bootstrap">XML-to-Bootstrap</a> for your viewing pleasure.
-        </p>
+        <p class="my-0">Generated using <a href="//github.com/acch/XML-to-bootstrap">XML-to-Bootstrap</a> for your viewing pleasure.</p>
 
-        <p class="my-0">
-          This site uses <a href="//getbootstrap.com">Bootstrap</a>, <a href="//fontawesome.io">Font Awesome</a> and <a href="//wicky.nillia.ms/headroom.js/">Headroom.js</a>.
-        </p>
+        <p class="my-0">This site uses <a href="//getbootstrap.com">Bootstrap</a>, <a href="//fontawesome.io">Font Awesome</a> and <a href="//wicky.nillia.ms/headroom.js/">Headroom.js</a>.</p>
 
       </div><!-- /centered -->
 

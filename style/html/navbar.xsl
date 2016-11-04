@@ -143,7 +143,8 @@
 
               <!-- author info -->
               <li class="navbar-text hidden-sm-down float-xs-right text-muted pr-1">
-                by <xsl:value-of select="$site.author" />
+                <xsl:text>by </xsl:text>
+                <xsl:value-of select="$site.author" />
               </li>
 
             </ul>

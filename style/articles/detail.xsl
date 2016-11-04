@@ -65,10 +65,7 @@
 
             <xsl:if test="short">
               <br />
-
-              <strong>
-                <xsl:value-of select="short" />
-              </strong>
+              <strong><xsl:value-of select="short" /></strong>
             </xsl:if>
           </p></header><!-- /description -->
 
