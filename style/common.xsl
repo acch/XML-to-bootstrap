@@ -104,8 +104,8 @@
      Copy contents
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-  <!-- helper for copying child element nodes and attributes (but no namespaces)
-       from XML. also, adds anchor CSS class to elements with id attribute. -->
+  <!-- helper for copying child element nodes and attributes (but no
+       namespaces) from XML -->
   <xsl:template name="copy.content">
     <xsl:param name="content" /><!-- node-set -->
     <xsl:param name="exclude" /><!-- string -->
@@ -114,26 +114,30 @@
     <xsl:for-each select="ext:node-set($content)/*[not(name() = $exclude)]">
 
       <!-- generate element without namespace -->
-      <xsl:element name="{name()}">
-
-        <!-- add anchor class to elements with id attribute -->
-        <xsl:if test="@id">
-          <xsl:attribute name="class">x2b-anchr</xsl:attribute>
-        </xsl:if>
-
-        <!-- copy attributes and child nodes -->
-        <xsl:apply-templates select="node()|@*" />
-
-      </xsl:element>
+      <xsl:apply-templates select="current()" />
 
     </xsl:for-each>
 
   </xsl:template>
 
   <xsl:template match="node()|@*" priority="-1">
+
+    <!-- copy attributes and child nodes -->
     <xsl:copy>
       <xsl:apply-templates select="node()|@*" />
     </xsl:copy>
+
+  </xsl:template>
+
+  <!-- add anchor CSS class to elements with id attribute -->
+  <xsl:template match="*[@id]">
+
+    <!-- generate element with anchor class -->
+    <xsl:element name="{name()}">
+      <xsl:attribute name="class">x2b-anchr</xsl:attribute>
+      <xsl:apply-templates select="node()|@*" />
+    </xsl:element>
+
   </xsl:template>
 
 
