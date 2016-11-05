@@ -15,7 +15,11 @@ module.exports = function(grunt) {
   "use strict";
 
   //TODO:
+  //  - jshint task? (inkl. .jshintrc)
   //  - scsslint task?
+  //  - imagemin task
+  //  - uncss task
+  //  - image-resize
 
   // dependencies
   var path = require('path');
