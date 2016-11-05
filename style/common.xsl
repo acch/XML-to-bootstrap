@@ -45,20 +45,35 @@
     <meta name="robots" content="noindex,follow" />
   </xsl:variable>
 
+  <!-- determine which URLs to fetch -->
+  <xsl:variable name="mode">
+    <xsl:choose>
+      <xsl:when test="$devmode">dev</xsl:when>
+      <xsl:otherwise>prod</xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
   <!-- generate the site's base URL -->
   <xsl:variable name="site.url">
-
-    <!-- determine which URL to fetch -->
-    <xsl:variable name="mode">
-      <xsl:choose>
-        <xsl:when test="$devmode">dev</xsl:when>
-        <xsl:otherwise>prod</xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
 
     <!-- get base URL from options -->
     <xsl:variable name="url">
       <xsl:value-of select="/site/options/option[@name = 'site.url'][@devmode = $mode]" />
+    </xsl:variable>
+
+    <!-- ensure url has two leading slashes and one trailing slash -->
+    <xsl:call-template name="format.url">
+      <xsl:with-param name="url" select="$url" />
+    </xsl:call-template>
+
+  </xsl:variable>
+
+  <!-- generate the site's static URL -->
+  <xsl:variable name="site.static.url">
+
+    <!-- get static URL from options -->
+    <xsl:variable name="url">
+      <xsl:value-of select="/site/options/option[@name = 'site.static.url'][@devmode = $mode]" />
     </xsl:variable>
 
     <!-- ensure url has two leading slashes and one trailing slash -->
@@ -153,6 +168,7 @@
 
   </xsl:template>
 
+
   <!-- add anchor CSS class to elements with id attribute -->
   <xsl:template match="*[@id]">
 
@@ -161,6 +177,18 @@
       <xsl:attribute name="class">x2b-anchr</xsl:attribute>
       <xsl:apply-templates select="node()|@*" />
     </xsl:element>
+
+  </xsl:template>
+
+
+  <!-- replace img elements with responsive pictures -->
+  <xsl:template match="img">
+
+    <!-- generate responsive picture element for images -->
+    <xsl:call-template name="element.picture">
+      <xsl:with-param name="src" select="@src" />
+      <xsl:with-param name="alt" select="@alt" />
+    </xsl:call-template>
 
   </xsl:template>
 

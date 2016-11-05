@@ -25,7 +25,8 @@
      - Responsive text column
      - Pager
      - Icons (normal / in circle / in button)
-     - Semantic data (microdata) -->
+     - Semantic data (microdata)
+     - Responsive picture -->
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      Breadcrumbs
@@ -264,6 +265,47 @@
     <div itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="{$publisher}" />
     </div>
+
+  </xsl:template>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Responsive picture
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <xsl:template name="element.picture">
+    <xsl:param name="src" /><!-- string -->
+    <xsl:param name="alt" /><!-- string -->
+
+    <!-- responsive image element -->
+    <picture>
+
+      <!-- fallback and default -->
+      <img alt="{$alt}">
+
+        <!-- add prefix to src attribute -->
+        <xsl:attribute name="src">
+
+          <!-- prepend static URL if necessary -->
+          <xsl:if test="not(starts-with($src, '//'))">
+            <xsl:value-of select="$site.static.url" />
+          </xsl:if>
+
+          <!-- remove trailing slash if necessary -->
+          <xsl:choose>
+            <xsl:when test="starts-with($src, '/') and not(starts-with($src, '//'))">
+              <xsl:value-of select="substring-after($src, '/')" />
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="$src" />
+            </xsl:otherwise>
+          </xsl:choose>
+
+        </xsl:attribute>
+
+      </img>
+
+    </picture>
 
   </xsl:template>
 
