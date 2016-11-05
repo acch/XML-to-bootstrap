@@ -78,7 +78,7 @@
       <div class="{$grid.cardcolumn}">
 
         <!-- articles card -->
-        <div class="[ card card-block ] mb-2">
+        <div class="[ card card-block ] x2b-crd mb-2">
 
           <!-- card heading -->
           <h3 class="card-title">
@@ -129,7 +129,7 @@
       <div class="{$grid.cardcolumn}">
 
         <!-- projects card -->
-        <div class="[ card card-block ] mb-2">
+        <div class="[ card card-block ] x2b-crd mb-2">
 
           <!-- card heading -->
           <h3 class="card-title">
@@ -180,7 +180,7 @@
       <div class="{$grid.cardcolumn}">
 
         <!-- galleries card -->
-        <div class="[ card card-block ] mb-2">
+        <div class="[ card card-block ] x2b-crd mb-2">
 
           <!-- card heading -->
           <h3 class="card-title">
