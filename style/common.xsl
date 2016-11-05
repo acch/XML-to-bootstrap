@@ -48,22 +48,23 @@
   <!-- generate the site's base URL -->
   <xsl:variable name="site.url">
 
-    <!-- get base URL from options -->
-    <xsl:variable name="url">
-      <xsl:value-of select="/site/options/option[@name = 'site.url']" />
+    <!-- determine which URL to fetch -->
+    <xsl:variable name="mode">
+      <xsl:choose>
+        <xsl:when test="$devmode">dev</xsl:when>
+        <xsl:otherwise>prod</xsl:otherwise>
+      </xsl:choose>
     </xsl:variable>
 
-    <!-- prepend leading slashes if necessary -->
-    <xsl:if test="not(starts-with($url, '//'))">
-      <xsl:text>//</xsl:text>
-    </xsl:if>
+    <!-- get base URL from options -->
+    <xsl:variable name="url">
+      <xsl:value-of select="/site/options/option[@name = 'site.url'][@devmode = $mode]" />
+    </xsl:variable>
 
-    <xsl:value-of select="$url" />
-
-    <!-- append trailing slash if necessary -->
-    <xsl:if test="not(substring($url, string-length($url)) = '/')"><!-- ends-with($url, '/') -->
-      <xsl:text>/</xsl:text>
-    </xsl:if>
+    <!-- ensure url has two leading slashes and one trailing slash -->
+    <xsl:call-template name="format.url">
+      <xsl:with-param name="url" select="$url" />
+    </xsl:call-template>
 
   </xsl:variable>
 
@@ -96,6 +97,29 @@
     <xsl:param name="string" /><!-- string -->
 
     <xsl:value-of select="translate($string, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ äöüÄÖÜ', 'abcdefghijklmnopqrstuvwxyz-aouaou')" />
+
+  </xsl:template>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     URL format
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <!-- ensure url has two leading slashes and one trailing slash -->
+  <xsl:template name="format.url">
+    <xsl:param name="url" /><!-- string -->
+
+    <!-- prepend leading slashes if necessary -->
+    <xsl:if test="not(starts-with($url, '//'))">
+      <xsl:text>//</xsl:text>
+    </xsl:if>
+
+    <xsl:value-of select="$url" />
+
+    <!-- append trailing slash if necessary -->
+    <xsl:if test="not(substring($url, string-length($url)) = '/')"><!-- not(ends-with($url, '/')) -->
+      <xsl:text>/</xsl:text>
+    </xsl:if>
 
   </xsl:template>
 
