@@ -76,10 +76,15 @@
       <!-- copy additional meta tags directly -->
       <xsl:copy-of select="ext:node-set($meta)" />
 
-      <!-- generate canonical link -->
-      <xsl:call-template name="html.head.canonical">
-        <xsl:with-param name="page.uri" select="$page.uri" />
-      </xsl:call-template>
+      <!-- check page URI -->
+      <xsl:if test="$page.uri">
+
+        <!-- generate canonical link -->
+        <xsl:call-template name="html.head.canonical">
+          <xsl:with-param name="page.uri" select="$page.uri" />
+        </xsl:call-template>
+
+      </xsl:if>
 
       <!-- generate stylesheet links -->
       <xsl:call-template name="html.head.link" />
@@ -113,29 +118,24 @@
   <xsl:template name="html.head.canonical">
     <xsl:param name="page.uri" /><!-- string -->
 
-    <!-- check page URI -->
-    <xsl:if test="$page.uri">
+    <!-- generate canonical page URI -->
+    <xsl:variable name="uri">
 
-      <!-- generate canonical page URI -->
-      <xsl:variable name="uri">
+      <!-- remove trailing slash if necessary -->
+      <xsl:choose>
+        <xsl:when test="starts-with($page.uri, '/')">
+          <xsl:value-of select="substring-after($page.uri, '/')" />
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="$page.uri" />
+        </xsl:otherwise>
+      </xsl:choose>
 
-        <!-- remove trailing slash if necessary -->
-        <xsl:choose>
-          <xsl:when test="starts-with($page.uri, '/')">
-            <xsl:value-of select="substring-after($page.uri, '/')" />
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:value-of select="$page.uri" />
-          </xsl:otherwise>
-        </xsl:choose>
+    </xsl:variable>
 
-      </xsl:variable>
-
-      <!-- concatenate site URL and page URI -->
-      <link rel="canonical" href="https:{$site.url}{$uri}" />
-      <link itemprop="url" href="https:{$site.url}{$uri}" />
-
-    </xsl:if>
+    <!-- concatenate site URL and page URI -->
+    <link rel="canonical" href="https:{$site.url}{$uri}" />
+    <link itemprop="url" href="https:{$site.url}{$uri}" />
 
   </xsl:template>
 
