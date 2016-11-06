@@ -95,19 +95,19 @@ Here are some popular characters to use:
 
 The project comprises files in the following directories:
 
-Directory | Description
---- | ---
-`.` | Contains build instructions and documentation
-*`css/`* | Contains 3rd party CSS stylesheets used during build
-`js/` | Contains JavaScript code used during build
-*`lib/`* | Contains 3rd party libraries fetched with Bower and used during build
-`modules/` | Contains Git submodules such as Bootstrap
-*`publish/`* | Contains the final generated static web pages
-`sass/` | Contains SCSS templates which are compiled into CSS stylesheets
-`sass/sample/` | Contains sample SCSS to act as template for overriding Bootstrap variables
-`src/` | Contains the XML document describing the web pages
-`src/sample/` | Contains sample XML to act as template for new web pages
-`style/` | Contains XSL stylesheets used to generate static web pages from the XML document
+```
+XML-to-bootstrap/       Contains build instructions and documentation
+├── css/                Contains 3rd party CSS stylesheets used during build
+├── js/                 Contains JavaScript code used during build
+├── lib/                Contains 3rd party libraries fetched with Bower and used during build
+├── modules/            Contains Git submodules such as Bootstrap
+├── publish/            Contains the final generated static web pages
+├── sass/               Contains SCSS templates which are compiled into CSS stylesheets
+│   └── sample/         Contains sample SCSS to act as template for overriding Bootstrap variables
+├── src/                Contains the XML document describing the web pages
+│   └── sample/         Contains sample XML to act as template for new web pages
+└── style/              Contains XSL stylesheets used to generate static web pages from the XML document
+```
 
 `css`, `lib` and `publish` are temporary directories which can be deleted. They will be recreated during build.
 
