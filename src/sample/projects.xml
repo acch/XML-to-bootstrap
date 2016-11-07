@@ -9,6 +9,8 @@
     Showcase for some projects. Not much.
   </introduction>
 
+  <path>project/</path>
+
   <project id="erstes">
     <date>2013-06-19</date>
     <title>Really cool project</title>

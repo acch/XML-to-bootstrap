@@ -9,6 +9,8 @@
     Browse some pictures. Keep cool.
   </introduction>
 
+  <path>gallery/</path>
+
   <gallery id="erste">
     <date>2015-08-01</date>
     <title>Amsterdam</title>

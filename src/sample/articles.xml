@@ -9,6 +9,8 @@
     Contains some articles. Nothing special.
   </introduction>
 
+  <path>article/</path>
+
   <article id="zweiter">
     <date>2015-01-12</date>
     <title>Second Entry</title>
@@ -69,7 +71,7 @@
     </content>
   </article>
 
-  <article>
+  <article id="vierter">
     <date>2015-03-12</date>
     <title>The Fourth Entry</title>
     <subtitle>Even better than number three</subtitle>
@@ -103,6 +105,7 @@
       <p>Quisque ultricies, massa vel euismod tempor, lectus felis placerat justo, eu ultrices risus velit ac justo. Donec eleifend diam vitae nisl ultrices, in elementum sem hendrerit. Morbi dictum, lectus sit amet venenatis luctus, arcu lorem cursus erat, ut convallis massa ex quis erat. Mauris quis dolor feugiat elit accumsan mollis. Nulla magna diam, condimentum malesuada neque vel, molestie tincidunt velit. Aenean efficitur velit ut dui tincidunt lacinia. Praesent sagittis, purus mollis tempus elementum, elit turpis mattis leo, eget iaculis purus nisi ut nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam erat volutpat. Phasellus aliquam elit ac tellus vulputate, ac viverra sapien facilisis. Sed mollis, odio in tincidunt egestas, risus ante cursus diam, efficitur convallis eros est eu enim. Cras eleifend eros vitae ipsum auctor, a ornare nisl interdum. Vivamus aliquet ante non sapien iaculis semper. Fusce rhoncus vestibulum lectus, quis iaculis justo tristique ac.</p>
       <p>Maecenas vestibulum ante et mattis lacinia. Aliquam ac gravida erat, ac rhoncus nisl. Maecenas id facilisis diam, et tristique augue. Aenean imperdiet odio vel sapien bibendum iaculis. Vestibulum ut dignissim neque. Fusce porttitor consectetur massa, in porttitor justo suscipit ac. Aenean eget lectus congue, mattis elit in, lobortis dolor.</p>
       <p>Sed mattis elit non scelerisque lacinia. Aliquam interdum dignissim justo, vel varius ex condimentum nec. Aliquam erat volutpat. Donec ac tristique felis. Phasellus eu tristique ante. Praesent eget justo maximus velit finibus faucibus hendrerit ac lacus. Vestibulum eu lorem non diam dapibus vehicula vitae non quam. Praesent diam odio, aliquam in leo sit amet, vulputate consequat nisi. Maecenas gravida sem ac tellus euismod, at dignissim odio varius. Quisque diam urna, facilisis eget mi ornare, cursus suscipit nisi. Duis eget sem vel urna rhoncus pellentesque. Donec ac mi accumsan velit mollis volutpat et a dui. Morbi ac vehicula felis. Donec mattis tortor vitae convallis congue. Aliquam venenatis nec risus eu feugiat.</p>
+      <img src="test.jpg" alt="Test image" />
       <h3 id="end">Proin massa ipsum</h3>
       <p>Proin massa ipsum, mollis at dictum quis, semper non arcu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec semper at arcu at interdum. Duis varius vitae orci in porttitor. Praesent tristique pulvinar mauris eu pellentesque. Nullam risus tellus, placerat ac augue ut, elementum aliquet velit. Curabitur vel orci lacinia, tincidunt lorem eu, dignissim orci. Morbi ac malesuada nisi. Mauris interdum lorem et pretium molestie. Suspendisse cursus euismod efficitur. In blandit tortor suscipit consequat feugiat. Ut nec ex sodales, efficitur massa vel, vulputate sem. Fusce accumsan ipsum lectus, sit amet lobortis nisl vehicula sed. Nunc condimentum, neque vel porttitor sollicitudin, erat purus luctus ex, iaculis fringilla enim purus eget metus.</p>
       <p>In lacinia diam interdum lectus dapibus, quis euismod tellus dictum. Maecenas quis laoreet orci. Nulla aliquam aliquet mi in pulvinar. Donec rutrum quis orci vel molestie. Aliquam vestibulum fermentum nibh, id posuere enim aliquet nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus vitae erat quis justo faucibus dignissim. Aliquam et neque et diam malesuada aliquam quis sit amet dolor. Nunc faucibus finibus nisl et egestas. Praesent sit amet enim mauris.</p>
