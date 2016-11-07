@@ -275,6 +275,7 @@
 
   <xsl:template name="element.picture">
     <xsl:param name="src" /><!-- string -->
+    <xsl:param name="path" /><!-- string -->
     <xsl:param name="alt" /><!-- string -->
 
     <!-- responsive image element -->
@@ -291,7 +292,12 @@
             <xsl:value-of select="$site.static.url" />
           </xsl:if>
 
-          <!-- remove trailing slash if necessary -->
+          <!-- add path -->
+          <xsl:call-template name="format.path">
+            <xsl:with-param name="path" select="$path" />
+          </xsl:call-template>
+
+          <!-- remove leading slash if necessary -->
           <xsl:choose>
             <xsl:when test="starts-with($src, '/') and not(starts-with($src, '//'))">
               <xsl:value-of select="substring-after($src, '/')" />

@@ -79,12 +79,12 @@
 
                 <!-- gallery title -->
                 <h3 class="card-title">
-                  <a class="x2b-alt-lnk" href="{$site.url}gallery/{$filename}.html">
+                  <a class="x2b-alt-lnk" href="{$site.url}{$gallery.path}{$filename}.html">
                     <xsl:value-of select="title" />
                   </a>
                 </h3>
 
-                <a class="x2b-sbtl-lnk" href="{$site.url}gallery/{$filename}.html">
+                <a class="x2b-sbtl-lnk" href="{$site.url}{$gallery.path}{$filename}.html">
 
                   <!-- gallery description -->
                   <p class="card-text">

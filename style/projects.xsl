@@ -23,6 +23,13 @@
   <xsl:import href="projects/overview.xsl" />
   <xsl:import href="projects/detail.xsl" />
 
+  <!-- generate project path -->
+  <xsl:variable name="project.path">
+    <xsl:call-template name="format.path">
+      <xsl:with-param name="path" select="/site/projects/path" />
+    </xsl:call-template>
+  </xsl:variable>
+
   <!-- this template generates HTML code for project overview and detail
        pages -->
   <xsl:template name="projects">
@@ -58,7 +65,7 @@
 
       <!-- generate project detail page -->
       <ext:document
-        href="project/{$filename}.html"
+        href="{$project.path}{$filename}.html"
         method="xml"
         omit-xml-declaration="yes"
         encoding="utf-8"
@@ -73,7 +80,11 @@
               <xsl:with-param name="content" select="current()" />
             </xsl:call-template>
           </xsl:with-param>
-          <xsl:with-param name="uri">project/<xsl:value-of select="$filename" />.html</xsl:with-param>
+          <xsl:with-param name="uri">
+            <xsl:value-of select="$project.path" />
+            <xsl:value-of select="$filename" />
+            <xsl:text>.html</xsl:text>
+          </xsl:with-param>
           <xsl:with-param name="meta">
             <xsl:if test="@draft">
               <xsl:copy-of select="$meta.noindex" />

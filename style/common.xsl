@@ -140,6 +140,32 @@
 
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Path format
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <!-- ensure path has no leading slashes and one trailing slash -->
+  <xsl:template name="format.path">
+    <xsl:param name="path" /><!-- string -->
+
+    <!-- remove leading slash if necessary -->
+    <xsl:choose>
+      <xsl:when test="starts-with($path, '/')">
+        <xsl:value-of select="substring-after($path, '/')" />
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$path" />
+      </xsl:otherwise>
+    </xsl:choose>
+
+    <!-- append trailing slash if necessary -->
+    <xsl:if test="not(substring($path, string-length($path)) = '/')"><!-- not(ends-with($path, '/')) -->
+      <xsl:text>/</xsl:text>
+    </xsl:if>
+
+  </xsl:template>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      Copy contents
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
@@ -184,9 +210,24 @@
   <!-- replace img elements with responsive pictures -->
   <xsl:template match="img">
 
+    <!-- generate image path -->
+    <xsl:variable name="path">
+
+      <!-- path for category (article/, project/, gallery/) -->
+      <xsl:call-template name="format.path">
+        <xsl:with-param name="path" select="../../../path" />
+      </xsl:call-template>
+
+      <!-- path for specific entry (id attribute) -->
+      <xsl:value-of select="../../@id" />
+      <xsl:text>/</xsl:text>
+
+    </xsl:variable>
+
     <!-- generate responsive picture element for images -->
     <xsl:call-template name="element.picture">
       <xsl:with-param name="src" select="@src" />
+      <xsl:with-param name="path" select="$path" />
       <xsl:with-param name="alt" select="@alt" />
     </xsl:call-template>
 

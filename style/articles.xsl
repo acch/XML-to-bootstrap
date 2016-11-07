@@ -23,6 +23,13 @@
   <xsl:import href="articles/overview.xsl" />
   <xsl:import href="articles/detail.xsl" />
 
+  <!-- generate article path -->
+  <xsl:variable name="article.path">
+    <xsl:call-template name="format.path">
+      <xsl:with-param name="path" select="/site/articles/path" />
+    </xsl:call-template>
+  </xsl:variable>
+
   <!-- this template generates HTML code for article overview and detail
        pages -->
   <xsl:template name="articles">
@@ -63,7 +70,7 @@
 
       <!-- generate article detail page -->
       <ext:document
-        href="article/{$filename}.html"
+        href="{$article.path}{$filename}.html"
         method="xml"
         omit-xml-declaration="yes"
         encoding="utf-8"
@@ -78,7 +85,11 @@
               <xsl:with-param name="content" select="current()" />
             </xsl:call-template>
           </xsl:with-param>
-          <xsl:with-param name="uri">article/<xsl:value-of select="$filename" />.html</xsl:with-param>
+          <xsl:with-param name="uri">
+            <xsl:value-of select="$article.path" />
+            <xsl:value-of select="$filename" />
+            <xsl:text>.html</xsl:text>
+          </xsl:with-param>
           <xsl:with-param name="meta">
             <xsl:if test="@draft">
               <xsl:copy-of select="$meta.noindex" />

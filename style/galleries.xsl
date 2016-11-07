@@ -23,6 +23,13 @@
   <xsl:import href="galleries/overview.xsl" />
   <xsl:import href="galleries/detail.xsl" />
 
+  <!-- generate gallery path -->
+  <xsl:variable name="gallery.path">
+    <xsl:call-template name="format.path">
+      <xsl:with-param name="path" select="/site/galleries/path" />
+    </xsl:call-template>
+  </xsl:variable>
+
   <!-- this template generates HTML code for gallery overview and detail
        pages -->
   <xsl:template name="galleries">
@@ -58,7 +65,7 @@
 
       <!-- generate gallery detail page -->
       <ext:document
-        href="gallery/{$filename}.html"
+        href="{$gallery.path}{$filename}.html"
         method="xml"
         omit-xml-declaration="yes"
         encoding="utf-8"
@@ -68,7 +75,11 @@
           <xsl:with-param name="title" select="title" />
           <xsl:with-param name="subtitle" select="subtitle" />
           <xsl:with-param name="content" select="current()" />
-          <xsl:with-param name="uri">gallery/<xsl:value-of select="$filename" />.html</xsl:with-param>
+          <xsl:with-param name="uri">
+            <xsl:value-of select="$gallery.path" />
+            <xsl:value-of select="$filename" />
+            <xsl:text>.html</xsl:text>
+          </xsl:with-param>
           <xsl:with-param name="meta">
             <xsl:if test="@draft">
               <xsl:copy-of select="$meta.noindex" />
