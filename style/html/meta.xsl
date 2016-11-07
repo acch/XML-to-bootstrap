@@ -121,7 +121,7 @@
     <!-- generate canonical page URI -->
     <xsl:variable name="uri">
 
-      <!-- remove trailing slash if necessary -->
+      <!-- remove leading slash if necessary -->
       <xsl:choose>
         <xsl:when test="starts-with($page.uri, '/')">
           <xsl:value-of select="substring-after($page.uri, '/')" />
