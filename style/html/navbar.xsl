@@ -34,7 +34,7 @@
 
           <!-- button -->
           <button class="navbar-toggler float-xs-left hidden-sm-up" type="button" data-toggle="collapse" data-target="#cllpsNvbr" aria-controls="cllpsNvbr" aria-expanded="false" aria-label="Toggle navigation">
-            &#9776;<!-- hamburger -->
+            <xsl:text>&#9776;</xsl:text><!-- hamburger -->
             <!--xsl:text> </xsl:text--><!-- prevent tag from collapsing -->
           </button>
 
@@ -78,7 +78,9 @@
                     <!-- icon and title -->
                     <xsl:call-template name="element.icon">
                       <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
-                    </xsl:call-template>&#160;<xsl:value-of select="/site/articles/title" />
+                    </xsl:call-template>
+                    <xsl:text>&#160;</xsl:text>
+                    <xsl:value-of select="/site/articles/title" />
 
                     <!-- mark active item for screen readers -->
                     <xsl:if test="$title = /site/articles/title">
@@ -104,7 +106,9 @@
                     <!-- icon and title -->
                     <xsl:call-template name="element.icon">
                       <xsl:with-param name="icon">fa-rocket</xsl:with-param>
-                    </xsl:call-template>&#160;<xsl:value-of select="/site/projects/title" />
+                    </xsl:call-template>
+                    <xsl:text>&#160;</xsl:text>
+                    <xsl:value-of select="/site/projects/title" />
 
                     <!-- mark active item for screen readers -->
                     <xsl:if test="$title = /site/projects/title">
@@ -130,7 +134,9 @@
                     <!-- icon and title -->
                     <xsl:call-template name="element.icon">
                       <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
-                    </xsl:call-template>&#160;<xsl:value-of select="/site/galleries/title" />
+                    </xsl:call-template>
+                    <xsl:text>&#160;</xsl:text>
+                    <xsl:value-of select="/site/galleries/title" />
 
                     <!-- mark active item for screen readers -->
                     <xsl:if test="$title = /site/galleries/title">

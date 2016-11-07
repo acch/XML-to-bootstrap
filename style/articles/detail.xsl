@@ -60,7 +60,8 @@
           <!-- article introduction -->
           <header itemprop="description"><p>
             <time class="text-muted" itemprop="datePublished dateModified" datetime="{date}">
-              <xsl:text>//</xsl:text>&#160;<xsl:value-of select="$date.formatted" />
+              <xsl:text>//&#160;</xsl:text>
+              <xsl:value-of select="$date.formatted" />
             </time>
 
             <xsl:if test="short">

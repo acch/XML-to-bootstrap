@@ -5,9 +5,7 @@
   <title>Articles</title>
   <subtitle>This page contains some articles. Nothing special.</subtitle>
 
-  <introduction>
-    Contains some articles. Nothing special.
-  </introduction>
+  <introduction>Contains some articles. Nothing special.</introduction>
 
   <path>article/</path>
 
@@ -15,9 +13,9 @@
     <date>2015-01-12</date>
     <title>Second Entry</title>
     <subtitle>Better than the first one</subtitle>
-    <short>
-      Morbi nec lacus vestibulum, placerat metus sit amet, dapibus sapien. Vivamus tempus neque venenatis ligula iaculis, nec vulputate orci laoreet. Phasellus semper ultrices ipsum eu sodales. In vitae risus maximus, pulvinar turpis quis, tincidunt metus. Nullam aliquet risus ex, quis scelerisque sem blandit quis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse nec magna id velit laoreet fermentum eu eu leo. Quisque sit amet fermentum augue. Pellentesque vitae neque ut libero volutpat malesuada pharetra id purus. Donec in elit dignissim, fringilla lectus id, feugiat turpis.
-    </short>
+
+    <short>Morbi nec lacus vestibulum, placerat metus sit amet, dapibus sapien. Vivamus tempus neque venenatis ligula iaculis, nec vulputate orci laoreet. Phasellus semper ultrices ipsum eu sodales. In vitae risus maximus, pulvinar turpis quis, tincidunt metus. Nullam aliquet risus ex, quis scelerisque sem blandit quis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse nec magna id velit laoreet fermentum eu eu leo. Quisque sit amet fermentum augue. Pellentesque vitae neque ut libero volutpat malesuada pharetra id purus. Donec in elit dignissim, fringilla lectus id, feugiat turpis.</short>
+
     <content>
       <h3 id="start">Interdum et malesuada fames ac ante ipsum primis in faucibus</h3>
       <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin suscipit nibh in est semper rhoncus. Quisque sodales mauris et dui rhoncus varius. Suspendisse potenti. Nam neque ipsum, euismod ut bibendum vel, gravida varius diam. Phasellus congue sollicitudin commodo. Nam a tincidunt eros. Fusce eu tortor lectus. Fusce nisl nunc, efficitur id lacinia id, finibus eget neque. Curabitur ultrices nibh eget risus pretium, vitae luctus elit congue.</p>
@@ -36,9 +34,9 @@
     <date>2014-03-01</date>
     <title>First Entry</title>
     <subtitle>Bob <code>Dylan</code></subtitle>
-    <short>
-      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec imperdiet interdum dignissim. Proin porta facilisis ornare. Curabitur sit amet urna lorem. Sed lacinia id ligula in condimentum. Nam finibus libero in nulla gravida, pellentesque congue ante consequat. Ut euismod venenatis sollicitudin. In ac sem ligula. Donec lacinia sit amet nisi eu aliquam. Ut aliquam metus felis.
-    </short>
+
+    <short>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec imperdiet interdum dignissim. Proin porta facilisis ornare. Curabitur sit amet urna lorem. Sed lacinia id ligula in condimentum. Nam finibus libero in nulla gravida, pellentesque congue ante consequat. Ut euismod venenatis sollicitudin. In ac sem ligula. Donec lacinia sit amet nisi eu aliquam. Ut aliquam metus felis.</short>
+
     <content>
       <h3 id="start">Lorem ipsum dolor sit amet</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis quam nec metus mattis ornare. Sed pharetra, nisi nec ornare rutrum, eros nibh euismod nulla, sagittis rutrum arcu justo nec metus. Nullam commodo ornare dolor, eu tempor arcu auctor in. Nulla et dui scelerisque, iaculis erat ac, luctus ligula. Donec egestas dui ut lorem efficitur, in tristique diam dignissim. Proin sed ipsum massa. Proin et sagittis nisi. Pellentesque fringilla augue vitae orci sollicitudin aliquet. Ut rutrum velit a purus consequat congue. Vestibulum risus velit, varius facilisis nunc a, interdum dapibus nulla. Phasellus convallis dapibus sapien semper ornare. Quisque pretium augue arcu, id ultrices purus pellentesque vel. Quisque eu ornare orci. Praesent vestibulum diam ex, sed dapibus odio convallis at. Suspendisse rhoncus tellus non urna finibus gravida. Mauris cursus ex neque, consequat pulvinar dolor cursus id.</p>
@@ -58,9 +56,9 @@
     <date>2015-02-27</date>
     <title>Entry Number Three</title>
     <subtitle>Even better than the second one</subtitle>
-    <short>
-      Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc ut sollicitudin enim. Donec elementum, mauris nec finibus gravida, orci mi vestibulum ipsum, eget aliquet lorem velit ut sapien. Suspendisse in eleifend lorem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum efficitur enim ut nunc accumsan scelerisque. Donec commodo, turpis id varius congue, ex quam tempus augue, ac tempor risus magna ac neque. In hac habitasse platea dictumst. Vestibulum eget gravida dolor, eget ullamcorper ligula. Fusce maximus erat a leo mattis hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eros mi, hendrerit vitae nulla vitae, tempus ornare nisi. Proin in libero blandit, viverra arcu quis, auctor metus. Ut fermentum tellus sed nisi lobortis convallis. Sed euismod pharetra vulputate.
-    </short>
+
+    <short>Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc ut sollicitudin enim. Donec elementum, mauris nec finibus gravida, orci mi vestibulum ipsum, eget aliquet lorem velit ut sapien. Suspendisse in eleifend lorem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum efficitur enim ut nunc accumsan scelerisque. Donec commodo, turpis id varius congue, ex quam tempus augue, ac tempor risus magna ac neque. In hac habitasse platea dictumst. Vestibulum eget gravida dolor, eget ullamcorper ligula. Fusce maximus erat a leo mattis hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eros mi, hendrerit vitae nulla vitae, tempus ornare nisi. Proin in libero blandit, viverra arcu quis, auctor metus. Ut fermentum tellus sed nisi lobortis convallis. Sed euismod pharetra vulputate.</short>
+
     <content>
       <p>Aliquam eget purus cursus, commodo quam sit amet, egestas arcu. Aliquam vitae erat vehicula erat egestas aliquam. Aenean non ex ante. Pellentesque ullamcorper, leo dictum hendrerit suscipit, tellus nisl consectetur nisl, nec pharetra arcu libero ac eros. Etiam lacinia ac lectus nec porta. In ac fringilla lorem. Mauris et enim tincidunt, efficitur nisl et, venenatis metus. Phasellus vitae vehicula dolor, id maximus velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse tortor erat, luctus et nunc vitae, porta pretium erat. In efficitur rutrum neque.</p>
       <p>Suspendisse consequat pulvinar turpis, ut lobortis erat. Suspendisse non tristique tortor, non fermentum ante. Cras posuere sodales ligula, id tempor massa maximus eu. Quisque volutpat quam tellus, quis sollicitudin erat dapibus sed. Donec sed iaculis arcu, ut ultricies sem. Suspendisse potenti. Ut eget lorem tellus. Proin quis est nibh. Integer sodales tortor at purus ullamcorper facilisis. Pellentesque at orci eu nisl convallis pretium ac non purus.</p>
@@ -75,9 +73,9 @@
     <date>2015-03-12</date>
     <title>The Fourth Entry</title>
     <subtitle>Even better than number three</subtitle>
-    <short>
-      Curabitur sagittis sollicitudin est. Duis scelerisque, odio luctus ullamcorper placerat, nisl velit cursus nibh, eget cursus magna risus ut nulla. Morbi vel orci eget est euismod vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris sollicitudin arcu pulvinar, vehicula turpis id, convallis neque. Vestibulum vel turpis ut tortor ornare facilisis. Proin bibendum convallis purus, mollis sodales enim consectetur sit amet. Etiam vitae ante libero. Nulla facilisi. Morbi eu cursus arcu. Proin auctor turpis eu erat molestie euismod. Mauris tempor sapien eget lorem sagittis elementum. Aliquam commodo, nulla a elementum scelerisque, orci dolor tempus massa, eget ultricies lacus justo at libero.
-    </short>
+
+    <short>Curabitur sagittis sollicitudin est. Duis scelerisque, odio luctus ullamcorper placerat, nisl velit cursus nibh, eget cursus magna risus ut nulla. Morbi vel orci eget est euismod vehicula. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris sollicitudin arcu pulvinar, vehicula turpis id, convallis neque. Vestibulum vel turpis ut tortor ornare facilisis. Proin bibendum convallis purus, mollis sodales enim consectetur sit amet. Etiam vitae ante libero. Nulla facilisi. Morbi eu cursus arcu. Proin auctor turpis eu erat molestie euismod. Mauris tempor sapien eget lorem sagittis elementum. Aliquam commodo, nulla a elementum scelerisque, orci dolor tempus massa, eget ultricies lacus justo at libero.</short>
+
     <content>
       <h3 id="start">Aenean nec mollis ex</h3>
       <p>Aenean nec mollis ex, in malesuada diam. Proin convallis elit ac rhoncus luctus. Cras mollis mauris turpis, a lacinia tellus hendrerit in. Vestibulum eu augue luctus, porta nulla ac, iaculis quam. Cras aliquet id justo vitae lacinia. Sed dictum mi odio, non hendrerit nisi varius non. Nullam augue sem, volutpat quis nunc non, placerat scelerisque libero. Morbi justo lectus, eleifend vitae aliquam ac, vestibulum nec elit. Fusce commodo sem ac lacus auctor consectetur. Maecenas ac erat egestas, auctor justo et, tincidunt quam. In sed neque at lacus fermentum elementum. Nulla facilisi. Proin eget dolor tempus, tempus dolor id, elementum ante. Suspendisse sollicitudin, dui quis consectetur viverra, nibh nibh molestie tortor, iaculis porttitor est sem ut tortor. Donec rhoncus turpis at tellus molestie, ut placerat ex vehicula. Cras dapibus condimentum porttitor.</p>
@@ -95,10 +93,10 @@
   <article id="five">
     <date>2015-03-13</date>
     <title>Article Number Five</title>
-    <subtitle>The very best of all... and with a very very very very very very long subtitle... don't get me wrong - the subtitle is very long... not just long, but incredibly super duper long... it probably would have made for a separate paragraph on its own</subtitle>
-    <short>
-      Aenean eget ex orci. Duis vulputate turpis at sem rutrum semper. Maecenas eu consectetur leo. Integer placerat tincidunt diam, et porttitor diam dapibus sit amet. Sed congue laoreet suscipit. Sed lacinia egestas orci quis feugiat. Proin maximus elit a elementum posuere.
-    </short>
+    <subtitle>The very best of all&#8230; and with a very very very very very very long subtitle&#8230; don't get me wrong - the subtitle is very long&#8230; not just long, but incredibly super duper long&#8230; it probably would have made for a separate paragraph on its own</subtitle>
+
+    <short>Aenean eget ex orci. Duis vulputate turpis at sem rutrum semper. Maecenas eu consectetur leo. Integer placerat tincidunt diam, et porttitor diam dapibus sit amet. Sed congue laoreet suscipit. Sed lacinia egestas orci quis feugiat. Proin maximus elit a elementum posuere.</short>
+
     <content>
       <p> Mauris eget nisl fermentum tellus consectetur congue ac nec ex. Donec vel pulvinar ex. Aliquam erat volutpat. Sed cursus hendrerit augue, dictum luctus dui facilisis sit amet. Pellentesque erat nisi, varius et ornare quis, suscipit sit amet ante. Aenean euismod ac nisl eu sagittis. Suspendisse laoreet, libero in vehicula elementum, massa quam semper risus, eu lobortis est lorem eu dolor.</p>
       <h3 id="start">Quisque ultricies</h3>
@@ -117,6 +115,7 @@
     <date>2016-10-21</date>
     <title>Draft Article</title>
     <subtitle>This article is not done, yet</subtitle>
+
     <content>
       <p>Draft articles are not published. This means that they are not shown in the overview and are not linked in navigation elements. In addition, draft articles will be excluded from search engines by including a 'noindex' meta tag. However, pages are still being generated so that the content can be previewed.</p>
       <p>An article is considered draft if there's an attribute 'draft' in the 'article' element.</p>

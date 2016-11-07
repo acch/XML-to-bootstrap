@@ -5,18 +5,16 @@
   <title>Gallery</title>
   <subtitle>This page contains some pictures. Keep cool.</subtitle>
 
-  <introduction>
-    Browse some pictures. Keep cool.
-  </introduction>
+  <introduction>Browse some pictures. Keep cool.</introduction>
 
   <path>gallery/</path>
 
   <gallery id="erste">
     <date>2015-08-01</date>
     <title>Amsterdam</title>
-    <short>
-      A weekend trip to the Dutch capital.
-    </short>
+
+    <short>A weekend trip to the Dutch capital.</short>
+    
     <content>
       Coming soon&#8230;
     </content>

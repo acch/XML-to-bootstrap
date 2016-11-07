@@ -124,7 +124,8 @@
           <a class="[ btn btn-outline-primary ] x2b-bttn" rel="prev" title="{$prev.page/@title}" href="{$prev.page/@href}" role="button">
             <xsl:call-template name="element.icon">
               <xsl:with-param name="icon">fa-arrow-left</xsl:with-param>
-            </xsl:call-template>&#160;<xsl:text>Previous</xsl:text>
+            </xsl:call-template>
+            <xsl:text>&#160;Previous</xsl:text>
             <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
           </a><!-- /prev -->
 
@@ -136,7 +137,8 @@
           <!-- next button -->
           <a class="float-xs-right [ btn btn-outline-primary ] x2b-bttn" rel="next" title="{$next.page/@title}" href="{$next.page/@href}" role="button">
             <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
-            <xsl:text>Next</xsl:text>&#160;<xsl:call-template name="element.icon">
+            <xsl:text>Next&#160;</xsl:text>
+            <xsl:call-template name="element.icon">
               <xsl:with-param name="icon">fa-arrow-right</xsl:with-param>
             </xsl:call-template>
           </a><!-- /next -->

@@ -62,7 +62,7 @@
           </xsl:if>
 
           <!-- separator -->
-          <xsl:text> </xsl:text>&#183;<xsl:text> </xsl:text>
+          <xsl:text> &#183; </xsl:text>
         </xsl:if>
 
         <!-- site title -->
