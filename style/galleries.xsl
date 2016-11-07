@@ -25,9 +25,15 @@
 
   <!-- generate gallery path -->
   <xsl:variable name="gallery.path">
-    <xsl:call-template name="format.path">
-      <xsl:with-param name="path" select="/site/galleries/path" />
-    </xsl:call-template>
+    <xsl:choose>
+      <xsl:when test="/site/galleries/path">
+        <xsl:call-template name="format.path">
+          <xsl:with-param name="path" select="/site/galleries/path" />
+        </xsl:call-template>
+      </xsl:when>
+      <!-- default path -->
+      <xsl:otherwise>gallery/</xsl:otherwise>
+    </xsl:choose>
   </xsl:variable>
 
   <!-- this template generates HTML code for gallery overview and detail

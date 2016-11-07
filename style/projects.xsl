@@ -25,9 +25,15 @@
 
   <!-- generate project path -->
   <xsl:variable name="project.path">
-    <xsl:call-template name="format.path">
-      <xsl:with-param name="path" select="/site/projects/path" />
-    </xsl:call-template>
+    <xsl:choose>
+      <xsl:when test="/site/projects/path">
+        <xsl:call-template name="format.path">
+          <xsl:with-param name="path" select="/site/projects/path" />
+        </xsl:call-template>
+      </xsl:when>
+      <!-- default path -->
+      <xsl:otherwise>project/</xsl:otherwise>
+    </xsl:choose>
   </xsl:variable>
 
   <!-- this template generates HTML code for project overview and detail

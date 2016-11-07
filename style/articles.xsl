@@ -25,9 +25,15 @@
 
   <!-- generate article path -->
   <xsl:variable name="article.path">
-    <xsl:call-template name="format.path">
-      <xsl:with-param name="path" select="/site/articles/path" />
-    </xsl:call-template>
+    <xsl:choose>
+      <xsl:when test="/site/articles/path">
+        <xsl:call-template name="format.path">
+          <xsl:with-param name="path" select="/site/articles/path" />
+        </xsl:call-template>
+      </xsl:when>
+      <!-- default path -->
+      <xsl:otherwise>article/</xsl:otherwise>
+    </xsl:choose>
   </xsl:variable>
 
   <!-- this template generates HTML code for article overview and detail
