@@ -36,6 +36,16 @@ $navbar-height:              ($font-size-lg * $line-height-base + .5rem + 2 * $n
 
 
 /* -------------------- *\
+          Layout
+\* -------------------- */
+
+img {
+  width: 100%;
+  margin-bottom: (1 * $spacer-y);
+}
+
+
+/* -------------------- *\
       Generic styles
 \* -------------------- */
 
@@ -257,6 +267,7 @@ html {
 
 .x2b-crd {
   box-shadow: $shadow-diffuse;
+  margin-bottom: (1.5 * $spacer-y);
 }
 
 
@@ -264,6 +275,8 @@ html {
        Footer styles
 \* -------------------- */
 
-.x2b-ftr {
+footer {
   border-top: $border;
+  margin-top: (1.5 * $spacer-y);
+  padding: (1.5 * $spacer-y) 0;
 }

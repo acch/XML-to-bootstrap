@@ -41,7 +41,7 @@
     </xsl:call-template>
 
     <!-- spacing -->
-    <hr class="invisible my-1" />
+    <hr class="invisible" />
 
     <!-- put content inside a text column -->
     <xsl:call-template name="element.textcolumn">
@@ -70,9 +70,6 @@
             </xsl:if>
           </p></header><!-- /description -->
 
-          <!-- spacing -->
-          <hr class="invisible my-1" />
-
           <!-- copy actual content from XML -->
           <xsl:call-template name="copy.content">
             <xsl:with-param name="content" select="content" />
@@ -81,7 +78,7 @@
         </main>
 
         <!-- spacing -->
-        <hr class="invisible my-1" />
+        <hr class="invisible" />
 
         <!-- find latest project before current one -->
         <xsl:variable name="prev">

@@ -30,15 +30,12 @@
       <xsl:with-param name="current" select="title" />
     </xsl:call-template>
 
-    <!-- spacing -->
-    <!--hr class="invisible my-1" /-->
-
     <!--p class="text-muted">
       Click on the title to continue reading&#8230;
     </p-->
 
     <!-- spacing -->
-    <hr class="invisible my-1" />
+    <hr class="invisible" />
 
     <xsl:choose>
       <xsl:when test="not(project[not(@draft)])">

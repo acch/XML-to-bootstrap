@@ -22,13 +22,13 @@
   <xsl:template name="html.footer">
 
     <!-- spacing to main content -->
-    <hr class="invisible my-1 py-3" />
+    <hr class="invisible [ my-1 py-3 ]" />
 
     <!-- generate social links -->
     <xsl:call-template name="html.sociallinks" />
 
     <!-- credits -->
-    <footer class="x2b-ftr [ mt-2 py-2 ]" role="contentinfo">
+    <footer role="contentinfo">
 
       <!-- centered -->
       <div class="text-xs-center text-muted">

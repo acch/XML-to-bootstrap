@@ -41,7 +41,7 @@
     </xsl:call-template>
 
     <!-- spacing -->
-    <hr class="invisible my-1" />
+    <hr class="invisible" />
 
     <!-- semantic vocabulary 'CreativeWork' -->
     <main itemscope="itemscope" itemtype="http://schema.org/CreativeWork" role="main">
@@ -68,9 +68,6 @@
         </xsl:if>
       </p></header><!-- /description -->
 
-      <!-- spacing -->
-      <hr class="invisible my-1" />
-
       <!-- copy content from XML directly -->
       <xsl:call-template name="copy.content">
         <xsl:with-param name="content" select="content" />
@@ -79,7 +76,7 @@
     </main>
 
     <!-- spacing -->
-    <hr class="invisible my-1" />
+    <hr class="invisible" />
 
     <!-- find latest gallery before current one -->
     <xsl:variable name="prev">
