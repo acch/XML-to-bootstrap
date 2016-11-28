@@ -66,15 +66,19 @@ XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https:/
 The installation can also be performed automatically by building a [Docker](https://www.docker.com/) image and running a container from it.
 
 Use the following command to build a Docker image. This will copy the XML document from the `src/` directory into the image, and compile it into an HTML document.
+
     # docker build -t x2b .
 
 Use the following command to run a container from the image. This will start a web server inside the container so that you can preview the result. To do so, point your browser of choice to http://localhost:8000.
+
     # docker run --name x2b-1 -d -p 8000:80 x2b
 
 Repeat the above commands after making changes to the XML document in the `src/` directory. This will build a new Docker image and run a container from it.
+
     # docker stop x2b-1 && docker rm x2b-1 && docker build -t x2b . && docker run --name x2b-1 -d -p 8000:80 x2b
 
 Once you are satisfied with the result you can fetch the compiled HTML document from the container using the following command:
+
     # docker cp x2b-1:/build/publish publish/
 
 ## Usage
