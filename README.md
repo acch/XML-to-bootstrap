@@ -69,7 +69,7 @@ Use the following command to build a Docker image. This will copy the XML docume
 
     # docker build -t x2b .
 
-Use the following command to run a container from the image. This will start a web server inside the container so that you can preview the result. To do so, point your browser of choice to http://localhost:8000.
+Use the following command to run a container from the image. This will start a web server inside the container so that you can preview the result. To do so, point your browser of choice to [http://localhost:8000](http://localhost:8000).
 
     # docker run --name x2b-1 -d -p 8000:80 x2b
 
