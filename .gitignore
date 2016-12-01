@@ -1,6 +1,7 @@
 bower_components
 node_modules
 src/*.xml
+src/img
 publish
 sass/customvars.scss
 css

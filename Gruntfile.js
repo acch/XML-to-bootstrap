@@ -258,6 +258,17 @@ module.exports = function(grunt) {
       }
     },
 
+    imagemin: {
+      publish: {
+        files: [{
+          expand: true,
+          cwd: 'src/img/',
+          src: ['**/*.{png,jpg,gif}'],
+          dest: 'publish/static/'
+        }]
+      }
+    },
+
     connect: {
       server: {
         options: {
@@ -312,7 +323,8 @@ module.exports = function(grunt) {
     'sass',
     'autoprefixer',
     'cssmin',
-    'htmlmin']);
+    'htmlmin',
+    'imagemin']);
 
   // no minification but linting (use this for development)
   grunt.registerTask('debug', [
@@ -326,5 +338,6 @@ module.exports = function(grunt) {
     'autoprefixer',
     'csslint',
     'prettify',
-    'htmllint']);
+    'htmllint',
+    'imagemin']);
 };
