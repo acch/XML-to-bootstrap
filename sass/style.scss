@@ -72,7 +72,7 @@ img {
 }
 .x2b-bttn.disabled {
   @include plain-hover-focus {
-    box-shadow: none !important;
+    box-shadow: none;
   }
 }
 
