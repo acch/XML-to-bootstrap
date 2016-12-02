@@ -36,7 +36,7 @@ $navbar-height:              ($font-size-lg * $line-height-base + .5rem + 2 * $n
 
 
 /* -------------------- *\
-          Layout
+       Image styles
 \* -------------------- */
 
 img {
@@ -70,9 +70,9 @@ img {
                 box-shadow .2s ease;
   }
 }
-.x2b-bttn:disabled {
-  @include hover-focus {
-    box-shadow: $shadow;
+.x2b-bttn.disabled {
+  @include plain-hover-focus {
+    box-shadow: none !important;
   }
 }
 

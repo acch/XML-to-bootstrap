@@ -223,6 +223,11 @@
         </xsl:attribute>
       </xsl:if>
 
+      <!-- optional disabled state -->
+      <xsl:if test="$disabled">
+        <xsl:attribute name="aria-disabled">true</xsl:attribute>
+      </xsl:if>
+
       <span class="fa {$icon} {$size} fa-fw" aria-hidden="true">
         <xsl:text> </xsl:text><!-- prevent tag from collapsing -->
       </span>
