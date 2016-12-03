@@ -131,7 +131,7 @@ Here are some popular characters to use:
 
 ### Image resources
 
-Image resources are stored in subdirectories underneath `src/img/`. You need to create a separate subdirectory for each article and for each project using images. The naming convention is `src/img/[article|project]/<id>`. Note that the directory name must match the *id* of the article / project (as defined with the `id` attribute), not it's name. Here is an example:
+Image resources are stored in subdirectories underneath `src/img/`. You need to create a separate subdirectory for each article and for each project using images. The naming convention is `src/img/[article|project]/<id>`. Note that the directory name must match the *id* of the article / project (as defined with the `id` attribute), not its name. Here's an example:
 
 ```
 src/
@@ -153,7 +153,7 @@ src/
             └ bestpic.jpg
 ```
 
-When generating the HTML document, XML-to-Bootstrap will automatically append this path to the image's `src` attribute. This means that in the XML document you can simply use the following element to insert images:
+When generating the HTML document, XML-to-Bootstrap will automatically append this path to the image's `src` attribute. This means that in the XML document you can simply use the following syntax to insert images:
 
 ```
 <img src="somepic.jpg" />
