@@ -61,29 +61,54 @@ XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https:/
 
 6. If all goes well you end up with a set of static web pages in the `publish/` directory. Transfer them to your web server and enjoy!
 
+To get started with your own content simply modify the source files in `src/` directory and rebuild using `grunt`. Don't worry, your modifications will not be overwritten by future updates of XML-to-Bootstrap.
+
 ### Container deployment
 
 The installation can also be performed automatically by building a [Docker](https://www.docker.com/) image and running a container from it.
 
-Use the following command to build a Docker image. This will copy the XML document from the `src/` directory into the image, and compile it into an HTML document.
+1. Use the following command to build a Docker image. This will copy the XML document from the `src/` directory into the image, and compile it into an HTML document.
 
-    # docker build -t x2b .
+        # docker build -t x2b .
 
-Use the following command to run a container from the image. This will start a web server inside the container so that you can preview the result. To do so, point your browser of choice to [http://localhost:8000](http://localhost:8000).
+2. The following command will run a container from the image. This will start a web server inside the container so that you can preview the result. To do so, point your browser of choice to [http://localhost:8000](http://localhost:8000).
 
-    # docker run --name x2b-1 -d -p 8000:80 x2b
+        # docker run --name x2b-1 -d -p 8000:80 x2b
 
-Repeat the above commands after making changes to the XML document in the `src/` directory. This will build a new Docker image and run a container from it.
+3. After you've successfully built and run the demo pages you can get started with your own content. To do so, copy the XML files from the sample directory to `src/` and modify them according to your needs.
 
-    # docker stop x2b-1 && docker rm x2b-1 && docker build -t x2b . && docker run --name x2b-1 -d -p 8000:80 x2b
+        # cp src/sample/*.xml src/
 
-Once you are satisfied with the result you can fetch the compiled HTML document from the container using the following command:
+4. Repeat the above commands after making changes to the XML document in the `src/` directory. This will build a new Docker image and run a container from it.
 
-    # docker cp x2b-1:/build/publish publish/
+        # docker stop x2b-1 && docker rm x2b-1 && docker build -t x2b . && docker run --name x2b-1 -d -p 8000:80 x2b
+
+5. Once you are satisfied with the result you can fetch the compiled HTML document from the container using the following command:
+
+        # docker cp x2b-1:/build/publish/ .
+
+## Contents
+
+The project comprises files in the following directories:
+
+```
+XML-to-bootstrap/       Contains build instructions and documentation
+├── css/                Contains 3rd party CSS stylesheets used during build
+├── js/                 Contains JavaScript code used during build
+├── lib/                Contains 3rd party libraries fetched with Bower and used during build
+├── modules/            Contains Git submodules such as Bootstrap
+├── publish/            Contains the generated static web pages
+├── sass/               Contains SCSS templates which are compiled into CSS stylesheets
+│   └── sample/         Contains sample SCSS to act as template for overriding Bootstrap variables
+├── src/                Contains the XML document describing the web pages
+│   ├── img/            Contains image resources for web pages
+│   └── sample/         Contains sample XML to act as template for new web pages
+└── style/              Contains XSL stylesheets used to generate static web pages from the XML document
+```
+
+`css`, `lib` and `publish` are temporary directories which can be deleted. They will be recreated during build.
 
 ## Usage
-
-To get started with your own content, simply modify the source files in `src/` directory and rebuild using `grunt`.
 
 The following Grunt tasks are available:
 
@@ -104,25 +129,43 @@ Here are some popular characters to use:
 &#8212; | &amp;mdash; | &amp;#8212; | Em dash
 &#8230; | &amp;hellip; | &amp;#8230; | Ellipsis
 
-## Contents
+### Image resources
 
-The project comprises files in the following directories:
+Image resources are stored in subdirectories underneath `src/img/`. You need to create a separate subdirectory for each article and for each project using images. The naming convention is `src/img/[article|project]/<id>`. Note that the directory name must match the *id* of the article / project (as defined with the `id` attribute), not it's name. Here is an example:
 
 ```
-XML-to-bootstrap/       Contains build instructions and documentation
-├── css/                Contains 3rd party CSS stylesheets used during build
-├── js/                 Contains JavaScript code used during build
-├── lib/                Contains 3rd party libraries fetched with Bower and used during build
-├── modules/            Contains Git submodules such as Bootstrap
-├── publish/            Contains the final generated static web pages
-├── sass/               Contains SCSS templates which are compiled into CSS stylesheets
-│   └── sample/         Contains sample SCSS to act as template for overriding Bootstrap variables
-├── src/                Contains the XML document describing the web pages
-│   └── sample/         Contains sample XML to act as template for new web pages
-└── style/              Contains XSL stylesheets used to generate static web pages from the XML document
+src/
+└── img/
+    ├── article/
+    │   ├── first_article/
+    │   │   └ somepic.jpg
+    │   ├── another_article/
+    │   │   └ somepic.png
+    │   └── yet_another_article/
+    │       ├ somepic.gif
+    │       └ anotherpic.jpg
+    └── project/
+        ├── project_one/
+        │   └ goodpic.jpg
+        ├── project_two/
+        │   └ betterpic.jpg
+        └── project_three/
+            └ bestpic.jpg
 ```
 
-`css`, `lib` and `publish` are temporary directories which can be deleted. They will be recreated during build.
+When generating the HTML document, XML-to-Bootstrap will automatically append this path to the image's `src` attribute. This means that in the XML document you can simply use the following element to insert images:
+
+```
+<img src="somepic.jpg" />
+```
+
+### Publishing
+
+...TBD...
+
+### Custom Bootstrap theme
+
+...TBD...
 
 ## Development and extension
 
