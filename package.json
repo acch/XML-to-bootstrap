@@ -4,9 +4,10 @@
   "description": "Transforms a generic XML document into Bootstrap HTML pages",
   "author": "Achim Christ",
   "license": "MIT",
+  "homepage": "https://github.com/acch/XML-to-bootstrap#readme",
   "repository": {
     "type": "git",
-    "url": "git://github.com/acch/XML-to-bootstrap.git"
+    "url": "git+https://github.com/acch/XML-to-bootstrap.git"
   },
   "bugs": {
     "url": "https://github.com/acch/XML-to-bootstrap/issues"
