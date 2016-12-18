@@ -5,16 +5,19 @@
   "license": "MIT",
   "homepage": "https://github.com/acch/XML-to-bootstrap",
   "devDependencies": {
-    "font-awesome": ">=4.6.3",
+    "font-awesome": ">=4.7.0",
     "headroom.js": "https://npmcdn.com/headroom.js@0.9.3/bower.zip",
     "jquery": ">=3.1.1",
-    "tether": ">=1.3.7",
+    "tether": ">=1.4.0",
     "photoswipe": ">=4.1.1",
     "scrollpos-styler": ">=0.6.0"
   },
   "exportsOverride": {
     "font-awesome": {
       "css": "css/font-awesome.min.css"
+    },
+    "headroom.js": {
+      "js": "dist/headroom.js"  
     },
     "jquery": {
       "js": "dist/jquery.min.js"
