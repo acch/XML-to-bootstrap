@@ -32,7 +32,7 @@
     </xsl:variable>
 
     <!-- Bootstrap jumbotron -->
-    <header class="[ jumbotron jumbotron-fluid ] x2b-bnnr{$style.class}" role="banner">
+    <header class="[ jumbotron jumbotron-fluid ]{$style.class}" role="banner">
       <div class="container">
 
         <!-- main title -->

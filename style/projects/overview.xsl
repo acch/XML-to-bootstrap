@@ -72,7 +72,7 @@
             <div class="{$grid.cardcolumn}">
 
               <!-- project card -->
-              <article class="[ card card-block ] x2b-crd">
+              <article class="card card-block">
 
                 <!-- main title -->
                 <h3 class="card-title">

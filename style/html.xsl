@@ -104,7 +104,7 @@
 
             <xsl:if test="$sidebar">
               <!-- sidebar column -->
-              <aside class="x2b-sdbr {$grid.sidebar.sidecolumn}">
+              <aside class="{$grid.sidebar.sidecolumn}">
 
                 <!-- sidebar -->
                 <xsl:call-template name="html.sidebar">

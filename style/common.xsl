@@ -195,18 +195,6 @@
   </xsl:template>
 
 
-  <!-- add anchor CSS class to elements with id attribute -->
-  <xsl:template match="*[@id]">
-
-    <!-- generate element with anchor class -->
-    <xsl:element name="{name()}">
-      <xsl:attribute name="class">x2b-anchr</xsl:attribute>
-      <xsl:apply-templates select="node()|@*" />
-    </xsl:element>
-
-  </xsl:template>
-
-
   <!-- replace img elements with responsive pictures -->
   <xsl:template match="img">
 

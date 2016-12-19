@@ -27,7 +27,7 @@
     <xsl:variable name="content.nav" select="ext:node-set($content)/nav" />
 
     <!-- Bootstrap card component -->
-    <nav class="[ card card-block ] x2b-crd">
+    <nav class="card card-block">
 
       <!-- top-level nav links -->
       <ul class="nav">

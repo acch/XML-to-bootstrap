@@ -40,7 +40,7 @@
     <xsl:variable name="parent.page" select="ext:node-set($parent)/page" />
 
     <!-- Bootstrap breadcrumbs -->
-    <nav class="breadcrumb x2b-brdcrmb">
+    <nav class="breadcrumb">
 
       <!-- home -->
       <a class="breadcrumb-item" href="{$site.url}">Home</a>
@@ -121,7 +121,7 @@
         <xsl:if test="$prev.page">
 
           <!-- previous button -->
-          <a class="[ btn btn-outline-primary ] x2b-bttn" rel="prev" title="{$prev.page/@title}" href="{$prev.page/@href}" role="button">
+          <a class="btn btn-outline-primary" rel="prev" title="{$prev.page/@title}" href="{$prev.page/@href}" role="button">
             <xsl:call-template name="element.icon">
               <xsl:with-param name="icon">fa-arrow-left</xsl:with-param>
             </xsl:call-template>
@@ -135,7 +135,7 @@
         <xsl:if test="$next.page">
 
           <!-- next button -->
-          <a class="float-xs-right [ btn btn-outline-primary ] x2b-bttn" rel="next" title="{$next.page/@title}" href="{$next.page/@href}" role="button">
+          <a class="[ btn btn-outline-primary ] float-xs-right" rel="next" title="{$next.page/@title}" href="{$next.page/@href}" role="button">
             <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
             <xsl:text>Next&#160;</xsl:text>
             <xsl:call-template name="element.icon">
@@ -207,7 +207,7 @@
     </xsl:variable>
 
     <!-- Bootstrap button with fontawesome icon inside -->
-    <a class="[ btn {$btn.class} ] x2b-bttn" role="button">
+    <a class="btn {$btn.class}" role="button">
 
       <!-- optional title -->
       <xsl:if test="$title != ''">

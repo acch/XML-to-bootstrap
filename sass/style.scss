@@ -58,7 +58,7 @@ img {
        Button styles
 \* -------------------- */
 
-.x2b-bttn {
+.btn {
   box-shadow: $shadow;
 
   @include hover-focus {
@@ -70,7 +70,7 @@ img {
                 box-shadow .2s ease;
   }
 }
-.x2b-bttn.disabled {
+.btn.disabled {
   @include plain-hover-focus {
     box-shadow: none;
   }
@@ -117,7 +117,11 @@ img {
        Anchor styles
 \* -------------------- */
 
-.x2b-anchr::before {
+h2[id]::before,
+h3[id]::before,
+h4[id]::before,
+h5[id]::before,
+h6[id]::before {
     content: " ";
     display: block;
     height: ($navbar-height + $spacer-y);
@@ -150,7 +154,7 @@ html {
        Navbar styles
 \* -------------------- */
 
-.x2b-nvbr {
+.navbar {
   transition: background-color .2s linear,
               box-shadow .2s linear,
               transform .2s;
@@ -201,7 +205,7 @@ html {
        Banner styles
 \* -------------------- */
 
-.x2b-bnnr {
+.jumbotron {
   background: radial-gradient(circle farthest-side at center, $base-color-light 0%, $base-color 100%);
   padding-top: ($jumbotron-padding + $navbar-height);
 
@@ -209,7 +213,7 @@ html {
     padding-top: (2 * $jumbotron-padding + $navbar-height);
   }
 }
-.x2b-bnnr::after {
+.jumbotron::after {
   background-image: $shadow-round;
   content: " ";
   display: block;
@@ -229,11 +233,11 @@ html {
      Breadcrumb styles
 \* -------------------- */
 
-.x2b-brdcrmb {
+.breadcrumb {
   background-color: $base-color-light;
   border: $border;
 }
-/*.x2b-brdcrmb::after {
+/*.breadcrumb::after {
   background-image: $shadow-round;
   content: " ";
   display: block;
@@ -247,8 +251,8 @@ html {
    Sidebar panel styles
 \* -------------------- */
 
-.x2b-sdbr {
-  position: sticky;
+aside {
+  position: sticky !important;
   top: ($navbar-height + 2 * $spacer-y);
 }
 
@@ -265,7 +269,7 @@ html {
         Card styles
 \* -------------------- */
 
-.x2b-crd {
+.card {
   box-shadow: $shadow-diffuse;
   margin-bottom: (1.5 * $spacer-y);
 }

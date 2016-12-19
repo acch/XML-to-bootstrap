@@ -26,7 +26,7 @@
     <xsl:variable name="site.author" select="/site/options/option[@name = 'site.author']" />
 
     <!-- Bootstrap navbar -->
-    <nav class="[ navbar navbar-fixed-top navbar-light ] x2b-nvbr js-nvbr [ sps sps--abv ] headroom--pinned">
+    <nav class="[ navbar navbar-fixed-top navbar-light ] js-nvbr [ sps sps--abv ] headroom--pinned">
       <div class="container px-0">
 
         <!-- make toggler full width so that collapsing content wraps to the next line -->
@@ -35,6 +35,7 @@
           <!-- button -->
           <button class="navbar-toggler float-xs-left hidden-sm-up" type="button" data-toggle="collapse" data-target="#cllpsNvbr" aria-controls="cllpsNvbr" aria-expanded="false" aria-label="Toggle navigation">
             <xsl:text>&#9776;</xsl:text><!-- hamburger -->
+            <!--xsl:text>MENU</xsl:text-->
             <!--xsl:text> </xsl:text--><!-- prevent tag from collapsing -->
           </button>
 
