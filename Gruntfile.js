@@ -307,8 +307,16 @@ module.exports = function(grunt) {
     // copy XML samples
     copySampleIfNotExist('src');
 
-    // copy sass samples
+    // copy Sass samples
     copySampleIfNotExist('sass');
+
+    // copy sample images only if directory doesn't exist, yet
+    if (! grunt.file.isDir('src/img/')) {
+
+      // copy sample images
+      grunt.log.writeln('Copying sample images');
+      grunt.file.copy('src/sampleimg/', 'src/img/');
+    }
   });
 
   // no linting but minification (use this for production)
