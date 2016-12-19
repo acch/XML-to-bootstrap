@@ -51,9 +51,9 @@
           <li>
 
             <!-- section title -->
-            <span class="text-muted x2b-sdbr-sctn">
+            <h5 class="text-muted">
               <xsl:value-of select="@title" />
-            </span>
+            </h5>
 
             <!-- section spacing -->
             <xsl:variable name="spacing">
