@@ -24,7 +24,9 @@
 $shadow:                     0 1px 2px rgba(0, 0, 0, .2), 0 4px 8px rgba(0, 0, 0, .19) !default;
 $shadow-up:                  0 4px 4px rgba(0, 0, 0, .25), 0 4px 12px rgba(0, 0, 0, .24) !default;
 $shadow-diffuse:             0 4px 8px rgba(0, 0, 0, .05), 0 12px 24px rgba(0, 0, 0, .04) !default;
+
 $shadow-round:               radial-gradient(ellipse at 50% -50%, rgba(0, 0, 0, .3) 0, transparent 75%) !default;
+$shadow-linear:              linear-gradient(0deg, transparent, rgba(0, 0, 0, .3)) !default;
 
 $base-color-dark:            $gray-dark !default;
 $base-color:                 $gray-lighter !default;
@@ -119,10 +121,15 @@ html {
   }
 }
 .jumbotron::after {
-  background-image: $shadow-round;
   content: " ";
   display: block;
   height: .5rem;
+
+  background-image: $shadow-round;
+
+  @include media-breakpoint-up(lg) {
+    background-image: $shadow-linear;
+  }
 
   margin-bottom: (-$jumbotron-padding - .5rem);
   margin-top: ($jumbotron-padding);
