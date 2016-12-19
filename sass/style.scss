@@ -276,11 +276,18 @@ h3[id]::before,
 h4[id]::before,
 h5[id]::before,
 h6[id]::before {
-    content: " ";
-    display: block;
-    height: ($navbar-height + $spacer-y);
-    margin-top: (-$navbar-height - $spacer-y);
-    visibility: hidden;
+  content: " ";
+  display: block;
+  height: ($navbar-height + $spacer-y);
+  margin-top: (-$navbar-height - $spacer-y);
+  visibility: hidden;
+}
+
+h2:not(:first-child) {
+  margin-top: (3 * $spacer-y);
+}
+h3:not(:first-child) {
+  margin-top: (2 * $spacer-y);
 }
 
 
