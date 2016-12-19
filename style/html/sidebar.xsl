@@ -36,7 +36,7 @@
         <xsl:for-each select="$content.nav/link">
 
           <!-- nav link -->
-          <li class="nav-item x2b-sdbr-entry">
+          <li class="nav-item x2b-sdbr-itm">
             <a class="nav-link x2b-alt-lnk" href="{@href}">
               <xsl:value-of select="@title" />
             </a>
@@ -67,7 +67,7 @@
               <xsl:for-each select="link">
 
                 <!-- nav link inside section -->
-                <li class="nav-item x2b-sdbr-entry">
+                <li class="nav-item x2b-sdbr-itm">
                   <a class="nav-link x2b-alt-lnk" href="{@href}">
                     <xsl:value-of select="@title" />
                   </a>

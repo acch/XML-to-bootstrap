@@ -26,7 +26,7 @@
   document.addEventListener("DOMContentLoaded", function() {
 
     // choose elements to add click event to
-    var elements = document.getElementsByClassName("x2b-sdbr-entry");
+    var elements = document.getElementsByClassName("x2b-sdbr-itm");
 
     // iterate over elements
     for (var i = 0; elements[i]; ++i) {
