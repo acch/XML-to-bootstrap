@@ -36,102 +36,7 @@ $navbar-height:              ($font-size-lg * $line-height-base + .5rem + 2 * $n
 
 
 /* -------------------- *\
-       Image styles
-\* -------------------- */
-
-img {
-  width: 100%;
-  margin-bottom: (1 * $spacer-y);
-}
-
-
-/* -------------------- *\
-      Generic styles
-\* -------------------- */
-
-.x2b-shdw {
-  text-shadow: $shadow;
-}
-
-
-/* -------------------- *\
-       Button styles
-\* -------------------- */
-
-.btn {
-  box-shadow: $shadow;
-
-  @include hover-focus {
-    box-shadow: $shadow-up;
-  }
-
-  @include media-breakpoint-up(lg) {
-    transition: background-color .2s ease,
-                box-shadow .2s ease;
-  }
-}
-.btn.disabled {
-  @include plain-hover-focus {
-    box-shadow: none;
-  }
-}
-
-
-/* -------------------- *\
-        Link styles
-\* -------------------- */
-
-.x2b-sbtl-lnk {
-  @include plain-hover-focus {
-    color: $body-color;
-    text-decoration: none !important;
-  }
-}
-
-.x2b-alt-lnk {
-  color: $base-color-dark;
-
-  @include hover-focus {
-    color: darken($link-color, 15%);
-    text-decoration: none !important;
-  }
-}
-
-
-/* ------------------------ *\
-   Collapsed section styles
-\* ------------------------ */
-
-.x2b-expnd {
-  display: block;
-  height: 0;
-  overflow: hidden;
-  transition: height .35s ease;
-}
-.x2b-expnd.collapsed {
-  height: (2 * $spacer-y);
-}
-
-
-/* -------------------- *\
-       Anchor styles
-\* -------------------- */
-
-h2[id]::before,
-h3[id]::before,
-h4[id]::before,
-h5[id]::before,
-h6[id]::before {
-    content: " ";
-    display: block;
-    height: ($navbar-height + $spacer-y);
-    margin-top: (-$navbar-height - $spacer-y);
-    visibility: hidden;
-}
-
-
-/* -------------------- *\
-       Body styles
+        Body styles
 \* -------------------- */
 
 html {
@@ -230,24 +135,6 @@ html {
 
 
 /* -------------------- *\
-     Breadcrumb styles
-\* -------------------- */
-
-.breadcrumb {
-  background-color: $base-color-light;
-  border: $border;
-}
-/*.breadcrumb::after {
-  background-image: $shadow-round;
-  content: " ";
-  display: block;
-  height: .5rem;
-  margin-bottom: (-$breadcrumb-padding-y - .5rem);
-  margin-top: ($spacer-y + $breadcrumb-padding-y + .5rem);
-}*/
-
-
-/* -------------------- *\
    Sidebar panel styles
 \* -------------------- */
 
@@ -266,6 +153,50 @@ aside {
 
 
 /* -------------------- *\
+       Footer styles
+\* -------------------- */
+
+footer {
+  border-top: $border;
+  margin-top: (1.5 * $spacer-y);
+  padding: (1.5 * $spacer-y) 0;
+}
+
+
+/* ------------------------ *\
+   Collapsed section styles
+\* ------------------------ */
+
+.x2b-expnd {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  transition: height .35s ease;
+}
+.x2b-expnd.collapsed {
+  height: (2 * $spacer-y);
+}
+
+
+/* -------------------- *\
+     Breadcrumb styles
+\* -------------------- */
+
+.breadcrumb {
+  background-color: $base-color-light;
+  border: $border;
+}
+/*.breadcrumb::after {
+  background-image: $shadow-round;
+  content: " ";
+  display: block;
+  height: .5rem;
+  margin-bottom: (-$breadcrumb-padding-y - .5rem);
+  margin-top: ($spacer-y + $breadcrumb-padding-y + .5rem);
+}*/
+
+
+/* -------------------- *\
         Card styles
 \* -------------------- */
 
@@ -276,11 +207,80 @@ aside {
 
 
 /* -------------------- *\
-       Footer styles
+       Image styles
 \* -------------------- */
 
-footer {
-  border-top: $border;
-  margin-top: (1.5 * $spacer-y);
-  padding: (1.5 * $spacer-y) 0;
+img {
+  width: 100%;
+  margin-bottom: (1 * $spacer-y);
+}
+
+
+/* -------------------- *\
+       Button styles
+\* -------------------- */
+
+.btn {
+  box-shadow: $shadow;
+
+  @include hover-focus {
+    box-shadow: $shadow-up;
+  }
+
+  @include media-breakpoint-up(lg) {
+    transition: background-color .2s ease,
+                box-shadow .2s ease;
+  }
+}
+.btn.disabled {
+  @include plain-hover-focus {
+    box-shadow: none;
+  }
+}
+
+
+/* -------------------- *\
+        Link styles
+\* -------------------- */
+
+.x2b-alt-lnk {
+  color: $base-color-dark;
+
+  @include hover-focus {
+    color: darken($link-color, 15%);
+    text-decoration: none !important;
+  }
+}
+
+.x2b-sbtl-lnk {
+  @include plain-hover-focus {
+    color: $body-color;
+    text-decoration: none !important;
+  }
+}
+
+
+/* -------------------- *\
+       Anchor styles
+\* -------------------- */
+
+h2[id]::before,
+h3[id]::before,
+h4[id]::before,
+h5[id]::before,
+h6[id]::before {
+    content: " ";
+    display: block;
+    height: ($navbar-height + $spacer-y);
+    margin-top: (-$navbar-height - $spacer-y);
+    visibility: hidden;
+}
+
+
+/* -------------------- *\
+      Generic styles
+\* -------------------- */
+
+.x2b-shdw {
+  text-shadow: $shadow;
 }
