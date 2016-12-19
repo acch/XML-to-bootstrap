@@ -69,11 +69,11 @@
           <article>
 
             <!-- main title -->
-            <h3 id="{@id}">
+            <h2 id="{@id}">
               <a class="x2b-alt-lnk" href="{$site.url}{$article.path}{$filename}.html">
                 <xsl:value-of select="title" />
               </a>
-            </h3>
+            </h2>
 
             <a class="x2b-sbtl-lnk" href="{$site.url}{$article.path}{$filename}.html">
 

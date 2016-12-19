@@ -75,11 +75,11 @@
               <article class="card card-block">
 
                 <!-- main title -->
-                <h3 class="card-title">
+                <h2 class="card-title">
                   <a class="x2b-alt-lnk" href="{$site.url}{$project.path}{$filename}.html">
                     <xsl:value-of select="title" />
                   </a>
-                </h3>
+                </h2>
 
                 <a class="x2b-sbtl-lnk" href="{$site.url}{$project.path}{$filename}.html">
 

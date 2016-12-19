@@ -81,7 +81,7 @@
         <div class="card card-block">
 
           <!-- card heading -->
-          <h3 class="card-title">
+          <h2 class="card-title">
             <xsl:choose>
               <xsl:when test="$articles">
                 <a class="x2b-alt-lnk" href="{$site.url}articles.html">
@@ -92,7 +92,7 @@
                 <xsl:value-of select="/site/articles/title" />
               </xsl:otherwise>
             </xsl:choose>
-          </h3>
+          </h2>
 
           <!-- card body -->
           <p class="card-text">
@@ -132,7 +132,7 @@
         <div class="card card-block">
 
           <!-- card heading -->
-          <h3 class="card-title">
+          <h2 class="card-title">
             <xsl:choose>
               <xsl:when test="$projects">
                 <a class="x2b-alt-lnk" href="{$site.url}projects.html">
@@ -143,7 +143,7 @@
                 <xsl:value-of select="/site/projects/title" />
               </xsl:otherwise>
             </xsl:choose>
-          </h3>
+          </h2>
 
           <!-- card body -->
           <p class="card-text">
@@ -183,7 +183,7 @@
         <div class="card card-block">
 
           <!-- card heading -->
-          <h3 class="card-title">
+          <h2 class="card-title">
             <xsl:choose>
               <xsl:when test="$galleries">
                 <a class="x2b-alt-lnk" href="{$site.url}galleries.html">
@@ -194,7 +194,7 @@
                 <xsl:value-of select="/site/galleries/title" />
               </xsl:otherwise>
             </xsl:choose>
-          </h3>
+          </h2>
 
           <!-- card body -->
           <p class="card-text">
