@@ -27,6 +27,7 @@
   <xsl:import href="projects.xsl" />
   <xsl:import href="galleries.xsl" />
 
+  <xsl:import href="sitemap.xsl" />
   <xsl:import href="options.xsl" />
 
 
@@ -74,6 +75,9 @@
     <xsl:if test="$galleries">
       <xsl:call-template name="galleries" />
     </xsl:if>
+
+    <!-- generate sitemap -->
+    <xsl:call-template name="sitemap" />
 
     <!-- export options -->
     <xsl:call-template name="options" />
