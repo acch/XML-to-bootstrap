@@ -280,45 +280,73 @@
      Responsive picture
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-  <xsl:template name="element.picture">
-    <xsl:param name="src" /><!-- string -->
-    <xsl:param name="path" /><!-- string -->
-    <xsl:param name="alt" /><!-- string -->
+  <!-- replace img element with responsive picture -->
+  <xsl:template match="img">
 
-    <!-- responsive image element -->
-    <picture>
+    <!-- check for internal-, or external uri -->
+    <xsl:choose>
+      <xsl:when test="starts-with(@src, '//')">
 
-      <!-- fallback and default -->
-      <img alt="{$alt}">
+        <!-- external resource - copy element as is -->
+        <xsl:copy>
+          <xsl:apply-templates select="node()|@*" />
+        </xsl:copy>
 
-        <!-- add prefix to src attribute -->
-        <xsl:attribute name="src">
+      </xsl:when>
+      <xsl:otherwise><!-- not(starts-with(@src, '//')) -->
 
-          <!-- prepend static URL if necessary -->
-          <xsl:if test="not(starts-with($src, '//'))">
-            <xsl:value-of select="$site.static.url" />
-          </xsl:if>
+        <!-- internal resource - compute base uri -->
+        <xsl:variable name="baseuri">
 
-          <!-- add path -->
+          <!-- site (static) url -->
+          <xsl:value-of select="$site.static.url" />
+
+          <!-- path of category (articles|projects|galleries) -->
           <xsl:call-template name="format.path">
-            <xsl:with-param name="path" select="$path" />
+            <xsl:with-param name="path" select="../../../path" />
           </xsl:call-template>
 
-          <!-- remove leading slash if necessary -->
-          <xsl:choose>
-            <xsl:when test="starts-with($src, '/') and not(starts-with($src, '//'))">
-              <xsl:value-of select="substring-after($src, '/')" />
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:value-of select="$src" />
-            </xsl:otherwise>
-          </xsl:choose>
+          <!-- path of entry (id attribute of article|project|gallery) -->
+          <xsl:value-of select="../../@id" />
 
-        </xsl:attribute>
+          <!-- slash if necessary -->
+          <xsl:if test="not(starts-with(@src, '/'))">
+            <xsl:text>/</xsl:text>
+          </xsl:if>
 
-      </img>
+          <!-- remove name suffix -->
+          <xsl:value-of select="substring-before(@src, '.')" />
 
-    </picture>
+        </xsl:variable>
+
+        <!-- responsive picture element -->
+        <picture>
+
+          <!-- image resource for large screens -->
+          <source media="(min-width: 992px)"><!-- Bootstrap 'lg' breakpoint -->
+            <xsl:attribute name="srcset">
+              <xsl:value-of select="$baseuri" />
+              <xsl:text>-730.</xsl:text>
+              <xsl:value-of select="substring-after(@src, '.')" />
+            </xsl:attribute>
+          </source>
+
+          <!-- image resource for small screens (default) -->
+          <img>
+            <xsl:attribute name="src">
+              <xsl:value-of select="$baseuri" />
+              <xsl:text>-510.</xsl:text>
+              <xsl:value-of select="substring-after(@src, '.')" />
+            </xsl:attribute>
+
+            <!-- copy remaining img attributes -->
+            <xsl:apply-templates select="@*[local-name() != 'src']" />
+
+          </img>
+        </picture>
+
+      </xsl:otherwise><!-- /not(starts-with(@src, '//')) -->
+    </xsl:choose>
 
   </xsl:template>
 

@@ -195,33 +195,6 @@
   </xsl:template>
 
 
-  <!-- replace img elements with responsive pictures -->
-  <xsl:template match="img">
-
-    <!-- generate image path -->
-    <xsl:variable name="path">
-
-      <!-- path for category (article/, project/, gallery/) -->
-      <xsl:call-template name="format.path">
-        <xsl:with-param name="path" select="../../../path" />
-      </xsl:call-template>
-
-      <!-- path for specific entry (id attribute) -->
-      <xsl:value-of select="../../@id" />
-      <xsl:text>/</xsl:text>
-
-    </xsl:variable>
-
-    <!-- generate responsive picture element for images -->
-    <xsl:call-template name="element.picture">
-      <xsl:with-param name="src" select="@src" />
-      <xsl:with-param name="path" select="$path" />
-      <xsl:with-param name="alt" select="@alt" />
-    </xsl:call-template>
-
-  </xsl:template>
-
-
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      Replace strings
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -236,8 +209,10 @@
 
       <!-- check if one of the parameters is empty -->
       <xsl:when test="$string = '' or $search = ''">
+
         <!-- prevent this routine from hanging -->
         <xsl:value-of select="$string" disable-output-escaping="yes" />
+
       </xsl:when>
 
       <!-- check if text contains string -->
