@@ -63,7 +63,7 @@ module.exports = function(grunt) {
     },
 
     bower: {
-      install: {
+      publish: {
         options: {
           cleanTargetDir: true,
           cleanBowerDir: false,
@@ -148,6 +148,15 @@ module.exports = function(grunt) {
             dest: 'js/'
           }
         ]
+      },
+
+      static: {
+        files: [{
+          expand: true,
+          cwd: 'img/',
+          src: '**/*.{png,jpg,gif}',
+          dest: 'publish/static/'
+        }]
       }
     },
 
@@ -235,7 +244,7 @@ module.exports = function(grunt) {
           'Element "main" does not need a "role" attribute.'
         ]
       },
-      src: 'publish/**/*.html'
+      publish: 'publish/**/*.html'
     },
 
     htmlmin: {
@@ -259,18 +268,18 @@ module.exports = function(grunt) {
     },
 
     imagemin: {
-      publish: {
+      static: {
         files: [{
           expand: true,
           cwd: 'src/img/',
           src: ['**/*.{png,jpg,gif}'],
-          dest: 'publish/static/'
+          dest: 'img/'
         }]
       }
     },
 
     connect: {
-      server: {
+      publish: {
         options: {
           port: 8000,
           base: 'publish',
@@ -323,7 +332,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'clean',
     'bower',
-    'copy',
+    'copy:publish',
     'copy_samples',
     'xsltproc',
     'concat',
@@ -332,13 +341,14 @@ module.exports = function(grunt) {
     'autoprefixer',
     'cssmin',
     'htmlmin',
-    'imagemin']);
+    'newer:imagemin',
+    'copy:static']);
 
   // no minification but linting (use this for development)
   grunt.registerTask('debug', [
     'clean',
     'bower',
-    'copy',
+    'copy:publish',
     'copy_samples',
     'xsltproc',
     'concat',
@@ -347,5 +357,6 @@ module.exports = function(grunt) {
     'csslint',
     'prettify',
     'htmllint',
-    'imagemin']);
+    'newer:imagemin',
+    'copy:static']);
 };

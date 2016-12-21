@@ -2,11 +2,10 @@ bower_components
 node_modules
 src/*.xml
 src/img
-publish
 sass/customvars.scss
 css
-js/options.json
-js/headroom.js
-js/photoswipe*.js
-js/scrollPosStyler.js
+img
+js/*
+!js/navbar.js
 lib
+publish

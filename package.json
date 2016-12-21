@@ -26,6 +26,7 @@
     "grunt-contrib-imagemin": ">=1.0.1",
     "grunt-contrib-uglify": ">=2.0.0",
     "grunt-html": ">=8.1.0",
+    "grunt-newer": ">= 1.2.0",
     "grunt-prettify": ">=0.4.0",
     "grunt-sass": ">=2.0.0",
     "grunt-xsltproc": ">=0.6.1",

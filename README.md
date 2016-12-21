@@ -94,23 +94,25 @@ The project comprises files in the following directories:
 ```
 XML-to-bootstrap/       Contains build instructions and documentation
 ├── css/                Contains 3rd party CSS stylesheets used during build
+├── img/                Contains image resources used during build
 ├── js/                 Contains JavaScript code used during build
 ├── lib/                Contains 3rd party libraries fetched with Bower and used during build
 ├── modules/            Contains Git submodules such as Bootstrap
 ├── publish/            Contains the generated static web pages
 ├── sass/               Contains SCSS templates which are compiled into CSS stylesheets
 │   └── sample/         Contains sample SCSS to act as template for overriding Bootstrap variables
-├── src/                Contains the XML document describing the web pages
-│   ├── img/            Contains image resources for web pages
-│   └── sample/         Contains sample XML to act as template for new web pages
+├── src/                Contains the XML document describing your web pages
+│   ├── img/            Contains image resources for your web pages
+│   ├── sample/         Contains sample XML to act as template for new web pages
+│   └── sampleimg/      Contains sample image resources for demo web pages
 └── style/              Contains XSL stylesheets used to generate static web pages from the XML document
 ```
 
-`css`, `lib` and `publish` are temporary directories which can be deleted. They will be recreated during build.
+`css`, `img`, `lib` and `publish` are temporary directories which can be deleted. They will be recreated during build.
 
 ## Usage
 
-The following Grunt tasks are available:
+The [Grunt](https://gruntjs.com/) task runner is used to build static web pages. The following Grunt tasks are available:
 
 Task | Description
 --- | ---
@@ -156,16 +158,20 @@ src/
 When generating the HTML document, XML-to-Bootstrap will automatically append this path to the image's `src` attribute. This means that in the XML document you can simply use the following syntax to insert images:
 
 ```
-<img src="somepic.jpg" />
+<article id="first_article">
+  ...
+  <img src="somepic.jpg" />
+  ...
+</article>
 ```
 
 ### Publishing
 
-...TBD...
+...TBD... explain 'devmode' parameter and 'site.url','site.static.url' options
 
 ### Custom Bootstrap theme
 
-...TBD...
+...TBD... explain 'customvars.scss' and how it integrates into Bootstrap
 
 ## Development and extension
 
