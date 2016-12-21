@@ -17,9 +17,7 @@ module.exports = function(grunt) {
   //TODO:
   //  - jshint task? (inkl. .jshintrc)
   //  - scsslint task?
-  //  - imagemin task
-  //  - uncss task
-  //  - image-resize
+  //  - uncss task?
 
   // dependencies
   var path = require('path');
@@ -151,12 +149,10 @@ module.exports = function(grunt) {
       },
 
       static: {
-        files: [{
-          expand: true,
-          cwd: 'img/',
-          src: '**/*.{png,jpg,gif}',
-          dest: 'publish/static/'
-        }]
+        expand: true,
+        cwd: 'img/min/',
+        src: '**/*.{png,jpg,gif}',
+        dest: 'publish/static/'
       }
     },
 
@@ -206,7 +202,7 @@ module.exports = function(grunt) {
 
     autoprefixer: {
 //      options: {
-//        'browsers': '> 1%, last 2 versions'
+//        browsers: '> 1%, last 2 versions'
 //      },
       publish: {
         files: {
@@ -267,14 +263,34 @@ module.exports = function(grunt) {
       }
     },
 
+    responsive_images: {
+      options: {
+        concurrency: 2,
+        sizes: [
+          {
+            name: '510',
+            width: 510
+          },
+          {
+            name: '730',
+            width: 730
+          }
+        ]
+      },
+      static: {
+        expand: true,
+        cwd: 'src/img/',
+        src: '**/*.{png,jpg,gif}',
+        dest: 'img/'
+      }
+    },
+
     imagemin: {
       static: {
-        files: [{
-          expand: true,
-          cwd: 'src/img/',
-          src: ['**/*.{png,jpg,gif}'],
-          dest: 'img/'
-        }]
+        expand: true,
+        cwd: 'img/',
+        src: [ '**/*.{png,jpg,gif}', '!min/**' ],
+        dest: 'img/min/'
       }
     },
 
@@ -341,6 +357,7 @@ module.exports = function(grunt) {
     'autoprefixer',
     'cssmin',
     'htmlmin',
+    'responsive_images',
     'newer:imagemin',
     'copy:static']);
 
@@ -357,6 +374,7 @@ module.exports = function(grunt) {
     'csslint',
     'prettify',
     'htmllint',
+    'responsive_images',
     'newer:imagemin',
     'copy:static']);
 };
