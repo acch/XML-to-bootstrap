@@ -26,20 +26,20 @@ XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https:/
 
 ### Manual installation
 
-1. XML-to-Bootstrap requires a XSLT processor such as [xsltproc](http://xmlsoft.org/XSLT/xsltproc2.html), as well as [Node.js](https://www.nodejs.org/):
+1. XML-to-Bootstrap requires an XSLT processor such as [xsltproc](http://xmlsoft.org/XSLT/xsltproc2.html), [GraphicsMagick](http://www.graphicsmagick.org/), as well as [Node.js](https://www.nodejs.org/):
 
   On RedHat-like Linux:
 
-      # sudo dnf install libxslt npm
+      # sudo dnf install libxslt GraphicsMagick npm
 
   On Debian-like Linux:
 
-      # sudo apt-get install xsltproc npm
+      # sudo apt-get install xsltproc graphicsmagick npm
       # sudo ln -s /usr/bin/nodejs /usr/bin/node
 
   On Arch-like Linux:
 
-      # sudo pacman -S libxslt npm
+      # sudo pacman -S libxslt graphicsmagick npm
 
 2. Several options are available for getting the code:
 
