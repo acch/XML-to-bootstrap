@@ -32,7 +32,7 @@
 
       <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-        <!-- home page uri -->
+        <!-- home page URL -->
         <url>
           <loc>
             <xsl:text>https:</xsl:text>
@@ -51,7 +51,7 @@
               </xsl:call-template>
             </xsl:variable>
 
-            <!-- article detail page uri -->
+            <!-- article detail page URL -->
             <url>
               <loc>
                 <xsl:text>https:</xsl:text>
@@ -79,7 +79,7 @@
               </xsl:call-template>
             </xsl:variable>
 
-            <!-- project detail page uri -->
+            <!-- project detail page URL -->
             <url>
               <loc>
                 <xsl:text>https:</xsl:text>
@@ -107,7 +107,7 @@
               </xsl:call-template>
             </xsl:variable>
 
-            <!-- article detail page uri -->
+            <!-- article detail page URL -->
             <url>
               <loc>
                 <xsl:text>https:</xsl:text>

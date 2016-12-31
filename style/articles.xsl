@@ -58,7 +58,7 @@
             <xsl:with-param name="content" select="/site/articles" />
           </xsl:call-template>
         </xsl:with-param>
-        <xsl:with-param name="uri">articles.html</xsl:with-param>
+        <xsl:with-param name="url">articles.html</xsl:with-param>
         <xsl:with-param name="meta" select="$meta.noindex.follow" />
       </xsl:call-template>
 
@@ -91,7 +91,7 @@
               <xsl:with-param name="content" select="current()" />
             </xsl:call-template>
           </xsl:with-param>
-          <xsl:with-param name="uri">
+          <xsl:with-param name="url">
             <xsl:value-of select="$article.path" />
             <xsl:value-of select="$filename" />
             <xsl:text>.html</xsl:text>

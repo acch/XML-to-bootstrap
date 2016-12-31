@@ -61,7 +61,7 @@
       <xsl:value-of select="/site/options/option[@name = 'site.url'][@devmode = $mode]" />
     </xsl:variable>
 
-    <!-- ensure url has two leading slashes and one trailing slash -->
+    <!-- ensure URL has two leading slashes and one trailing slash -->
     <xsl:call-template name="format.url">
       <xsl:with-param name="url" select="$url" />
     </xsl:call-template>
@@ -76,7 +76,7 @@
       <xsl:value-of select="/site/options/option[@name = 'site.static.url'][@devmode = $mode]" />
     </xsl:variable>
 
-    <!-- ensure url has two leading slashes and one trailing slash -->
+    <!-- ensure URL has two leading slashes and one trailing slash -->
     <xsl:call-template name="format.url">
       <xsl:with-param name="url" select="$url" />
     </xsl:call-template>
@@ -120,7 +120,7 @@
      URL format
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-  <!-- ensure url has two leading slashes and one trailing slash -->
+  <!-- ensure URL has two leading slashes and one trailing slash -->
   <xsl:template name="format.url">
     <xsl:param name="url" /><!-- string -->
 

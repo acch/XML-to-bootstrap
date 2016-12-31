@@ -28,7 +28,7 @@
       <xsl:with-param name="head.subtitle" select="false()" /><!-- don't promote subtitle in head -->
       <xsl:with-param name="content" select="/site/home" />
       <xsl:with-param name="banner.style">text-xs-center</xsl:with-param>
-      <xsl:with-param name="uri">/</xsl:with-param>
+      <xsl:with-param name="url">/</xsl:with-param>
     </xsl:call-template>
 
   </xsl:template>
@@ -116,7 +116,10 @@
               </xsl:if>
             </xsl:with-param>
             <xsl:with-param name="href">
-              <xsl:if test="$articles"><xsl:value-of select="$site.url" />articles.html</xsl:if>
+              <xsl:if test="$articles">
+                <xsl:value-of select="$site.url" />
+                <xsl:text>articles.html</xsl:text>
+              </xsl:if>
             </xsl:with-param>
             <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
             <xsl:with-param name="size">fa-3x</xsl:with-param>
@@ -167,7 +170,10 @@
               </xsl:if>
             </xsl:with-param>
             <xsl:with-param name="href">
-              <xsl:if test="$projects"><xsl:value-of select="$site.url" />projects.html</xsl:if>
+              <xsl:if test="$projects">
+                <xsl:value-of select="$site.url" />
+                <xsl:text>projects.html</xsl:text>
+              </xsl:if>
             </xsl:with-param>
             <xsl:with-param name="icon">fa-rocket</xsl:with-param>
             <xsl:with-param name="size">fa-3x</xsl:with-param>
@@ -218,7 +224,10 @@
               </xsl:if>
             </xsl:with-param>
             <xsl:with-param name="href">
-              <xsl:if test="$galleries"><xsl:value-of select="$site.url" />galleries.html</xsl:if>
+              <xsl:if test="$galleries">
+                <xsl:value-of select="$site.url" />
+                <xsl:text>galleries.html</xsl:text>
+              </xsl:if>
             </xsl:with-param>
             <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
             <xsl:with-param name="size">fa-3x</xsl:with-param>

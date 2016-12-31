@@ -53,7 +53,7 @@
         <xsl:with-param name="subtitle" select="/site/projects/subtitle" />
         <xsl:with-param name="head.subtitle" select="false()" /><!-- don't promote subtitle in head -->
         <xsl:with-param name="content" select="/site/projects" />
-        <xsl:with-param name="uri">projects.html</xsl:with-param>
+        <xsl:with-param name="url">projects.html</xsl:with-param>
         <xsl:with-param name="meta" select="$meta.noindex.follow" />
       </xsl:call-template>
 
@@ -86,7 +86,7 @@
               <xsl:with-param name="content" select="current()" />
             </xsl:call-template>
           </xsl:with-param>
-          <xsl:with-param name="uri">
+          <xsl:with-param name="url">
             <xsl:value-of select="$project.path" />
             <xsl:value-of select="$filename" />
             <xsl:text>.html</xsl:text>

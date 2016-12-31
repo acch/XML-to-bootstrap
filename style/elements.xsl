@@ -283,7 +283,7 @@
   <!-- replace img element with responsive picture -->
   <xsl:template match="img">
 
-    <!-- check for internal-, or external uri -->
+    <!-- check for internal-, or external URL -->
     <xsl:choose>
       <xsl:when test="starts-with(@src, '//')">
 
@@ -295,10 +295,10 @@
       </xsl:when>
       <xsl:otherwise><!-- not(starts-with(@src, '//')) -->
 
-        <!-- internal resource - compute base uri -->
-        <xsl:variable name="baseuri">
+        <!-- internal resource - compute base URL -->
+        <xsl:variable name="baseurl">
 
-          <!-- site (static) url -->
+          <!-- site (static) URL -->
           <xsl:value-of select="$site.static.url" />
 
           <!-- path of category (articles|projects|galleries) -->
@@ -325,7 +325,7 @@
           <!-- image resource for large screens -->
           <source media="(min-width: 992px)"><!-- Bootstrap 'lg' breakpoint -->
             <xsl:attribute name="srcset">
-              <xsl:value-of select="$baseuri" />
+              <xsl:value-of select="$baseurl" />
               <xsl:text>-730.</xsl:text>
               <xsl:value-of select="substring-after(@src, '.')" />
             </xsl:attribute>
@@ -334,7 +334,7 @@
           <!-- image resource for small screens (default) -->
           <img>
             <xsl:attribute name="src">
-              <xsl:value-of select="$baseuri" />
+              <xsl:value-of select="$baseurl" />
               <xsl:text>-510.</xsl:text>
               <xsl:value-of select="substring-after(@src, '.')" />
             </xsl:attribute>
