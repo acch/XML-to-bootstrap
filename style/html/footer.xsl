@@ -22,7 +22,7 @@
   <xsl:template name="html.footer">
 
     <!-- spacing to main content -->
-    <hr class="invisible [ my-1 py-3 ]" />
+    <hr class="invisible [ my-4 py-5 ]" />
 
     <!-- generate social links -->
     <xsl:call-template name="html.sociallinks" />
@@ -31,7 +31,7 @@
     <footer role="contentinfo">
 
       <!-- centered -->
-      <div class="text-xs-center text-muted">
+      <div class="text-center text-muted">
 
         <p class="my-0">Generated using <a href="//github.com/acch/XML-to-bootstrap#readme">XML-to-Bootstrap</a> for your viewing pleasure.</p>
 
@@ -47,7 +47,7 @@
   <xsl:template name="html.sociallinks">
 
     <!-- centered -->
-    <div class="text-xs-center">
+    <div class="text-center">
 
       <!-- iterate over all social links -->
       <xsl:for-each select="/site/options/option[@name = 'site.sociallinks']/sociallink">

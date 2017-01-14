@@ -87,7 +87,7 @@
     </xsl:variable>
 
     <!-- ensure that text lines don't get too long -->
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="{$textcolumn}">
 
         <!-- copy content directly -->
@@ -115,7 +115,7 @@
     <xsl:if test="$next.page or $prev.page">
 
       <!-- Bootstrap buttons used as pager -->
-      <nav>
+      <nav class="d-flex">
 
         <!-- check if there is a previous page -->
         <xsl:if test="$prev.page">
@@ -135,7 +135,7 @@
         <xsl:if test="$next.page">
 
           <!-- next button -->
-          <a class="[ btn btn-outline-primary ] float-xs-right" rel="next" title="{$next.page/@title}" href="{$next.page/@href}" role="button">
+          <a class="[ btn btn-outline-primary ] ml-auto" rel="next" title="{$next.page/@title}" href="{$next.page/@href}" role="button">
             <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
             <xsl:text>Next&#160;</xsl:text>
             <xsl:call-template name="element.icon">
@@ -207,7 +207,7 @@
     </xsl:variable>
 
     <!-- Bootstrap button with fontawesome icon inside -->
-    <a class="btn {$btn.class}" role="button">
+    <a class="[ btn {$btn.class} ] mx-auto" role="button">
 
       <!-- optional title -->
       <xsl:if test="$title != ''">

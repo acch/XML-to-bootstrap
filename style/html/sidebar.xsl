@@ -27,16 +27,16 @@
     <xsl:variable name="content.nav" select="ext:node-set($content)/nav" />
 
     <!-- Bootstrap card component -->
-    <nav class="card card-block">
+    <nav class="[ card card-block ] x2b-stcky">
 
       <!-- top-level nav links -->
-      <ul class="nav">
+      <ul class="nav flex-column">
 
         <!-- iterate over all nav links -->
         <xsl:for-each select="$content.nav/link">
 
           <!-- nav link -->
-          <li class="nav-item x2b-sdbr-itm">
+          <li class="nav-item">
             <a class="nav-link x2b-alt-lnk" href="{@href}">
               <xsl:value-of select="@title" />
             </a>
@@ -57,17 +57,17 @@
 
             <!-- section spacing -->
             <xsl:variable name="spacing">
-              <xsl:if test="position() != last()"> mb-1</xsl:if>
+              <xsl:if test="position() != last()"> mb-2</xsl:if>
             </xsl:variable>
 
             <!-- section nav links -->
-            <ul class="nav ml-1{$spacing}">
+            <ul class="nav{$spacing}">
 
               <!-- iterate over all nav links in section -->
               <xsl:for-each select="link">
 
                 <!-- nav link inside section -->
-                <li class="nav-item x2b-sdbr-itm">
+                <li class="nav-item">
                   <a class="nav-link x2b-alt-lnk" href="{@href}">
                     <xsl:value-of select="@title" />
                   </a>
