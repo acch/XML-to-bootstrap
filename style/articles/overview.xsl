@@ -102,7 +102,7 @@
 
           <!-- divider -->
           <xsl:if test="position() != last()">
-            <hr class="mt-3 mb-2" />
+            <hr class="mt-5 mb-4" />
           </xsl:if>
 
         </xsl:for-each>
