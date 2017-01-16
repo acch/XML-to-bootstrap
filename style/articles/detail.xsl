@@ -49,7 +49,7 @@
       <xsl:with-param name="content">
 
         <!-- semantic vocabulary 'Article' -->
-        <main itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+        <main itemscope="itemscope" itemtype="http://schema.org/Article">
 
           <!-- add meta tags -->
           <xsl:call-template name="element.data.meta">

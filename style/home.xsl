@@ -27,8 +27,8 @@
       <xsl:with-param name="head.title" select="false()" /><!-- don't promote title in head -->
       <xsl:with-param name="head.subtitle" select="false()" /><!-- don't promote subtitle in head -->
       <xsl:with-param name="content" select="/site/home" />
-      <xsl:with-param name="banner.style">text-xs-center</xsl:with-param>
-      <xsl:with-param name="url">/</xsl:with-param>
+      <xsl:with-param name="banner.style">text-center</xsl:with-param>
+      <xsl:with-param name="uri">/</xsl:with-param>
     </xsl:call-template>
 
   </xsl:template>
@@ -45,7 +45,7 @@
       <xsl:with-param name="content">
 
         <!-- introduction -->
-        <main class="text-xs-center" role="main">
+        <main class="text-center">
 
           <!-- copy introduction from XML directly, excluding collapsed text -->
           <xsl:call-template name="copy.content">
@@ -62,7 +62,7 @@
           </div>
 
           <!-- link to expand collapsed section -->
-          <a class="x2b-expnd collapsed mb-1" data-toggle="collapse" href="#intrdctn" aria-expanded="false" aria-controls="intrdctn">
+          <a class="x2b-expnd collapsed mb-2" data-toggle="collapse" href="#intrdctn" aria-expanded="false" aria-controls="intrdctn">
             <xsl:text>More&#8230;</xsl:text>
           </a>
 
@@ -72,7 +72,7 @@
     </xsl:call-template>
 
     <!-- section cards -->
-    <div class="row text-xs-center">
+    <div class="row text-center">
 
       <!-- responsive column -->
       <div class="{$grid.cardcolumn}">

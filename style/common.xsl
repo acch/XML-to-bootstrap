@@ -30,12 +30,12 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <!-- define our grid layout -->
-  <xsl:variable name="grid.maincolumn">col-xs-12</xsl:variable>
-  <xsl:variable name="grid.sidebar.maincolumn">col-xs-12 col-md-8</xsl:variable>
+  <xsl:variable name="grid.maincolumn">col-12</xsl:variable>
+  <xsl:variable name="grid.sidebar.maincolumn">col-12 col-md-8</xsl:variable>
   <xsl:variable name="grid.sidebar.sidecolumn">hidden-sm-down [ col-md-4 col-lg-3 offset-lg-1 ]</xsl:variable>
-  <xsl:variable name="grid.textcolumn">col-xs-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2</xsl:variable>
-  <xsl:variable name="grid.sidebar.textcolumn">col-xs-12</xsl:variable>
-  <xsl:variable name="grid.cardcolumn">col-xs-12 col-md-6 col-lg-4</xsl:variable>
+  <xsl:variable name="grid.textcolumn">col-12 col-lg-10 col-xl-8</xsl:variable>
+  <xsl:variable name="grid.sidebar.textcolumn">col-12</xsl:variable>
+  <xsl:variable name="grid.cardcolumn">col-12 col-md-6 col-lg-4</xsl:variable>
 
   <!-- define meta tags -->
   <xsl:variable name="meta.noindex">
@@ -68,7 +68,7 @@
 
   </xsl:variable>
 
-  <!-- generate the site's static URL -->
+  <!-- generate the site's asset URL -->
   <xsl:variable name="site.static.url">
 
     <!-- get static URL from options -->

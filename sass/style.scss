@@ -67,8 +67,15 @@ html {
               transform .2s;
 }
 
-@include media-breakpoint-down(xs) {
-  .x2b-nvbr-cllps {
+.navbar-divider {
+  background-color: rgba(0,0,0,.075);
+  margin-left: $spacer-x;
+  margin-right: $spacer-x;
+  width: $border-width;
+}
+
+@include media-breakpoint-down(sm) {
+  .navbar-collapse {
     border-top: $border-width solid rgba(0,0,0,.075);
     margin-top: (.5 * $spacer-y);
     padding-top: (.5 * $spacer-y);
@@ -84,7 +91,7 @@ html {
   background-color: transparent;
   box-shadow: none;
 
-  @include media-breakpoint-down(xs) {
+  @include media-breakpoint-down(sm) {
     background-color: $base-color;
     box-shadow: $shadow;
   }
@@ -145,13 +152,9 @@ html {
    Sidebar panel styles
 \* -------------------- */
 
-aside {
+.x2b-stcky {
   position: sticky !important;
   top: ($navbar-height + 2 * $spacer-y);
-}
-
-.x2b-sdbr-itm {
-  margin: (.5 * $spacer-y) 0;
 }
 
 

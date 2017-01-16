@@ -44,7 +44,7 @@
     <hr class="invisible" />
 
     <!-- semantic vocabulary 'CreativeWork' -->
-    <main itemscope="itemscope" itemtype="http://schema.org/CreativeWork" role="main">
+    <main itemscope="itemscope" itemtype="http://schema.org/CreativeWork">
 
       <!-- add meta tags -->
       <xsl:call-template name="element.data.meta">
