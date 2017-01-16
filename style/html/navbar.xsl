@@ -60,7 +60,7 @@
                 <xsl:if test="$title = /site/articles/title"> active</xsl:if>
               </xsl:variable>
 
-              <li class="nav-item{$active} mx-2">
+              <li class="[ nav-item{$active} ] mx-2">
                 <a class="nav-link" href="{$site.url}articles.html">
 
                   <!-- icon and title -->
@@ -88,7 +88,7 @@
                 <xsl:if test="$title = /site/projects/title"> active</xsl:if>
               </xsl:variable>
 
-              <li class="nav-item{$active} mx-2">
+              <li class="[ nav-item{$active} ] mx-2">
                 <a class="nav-link" href="{$site.url}projects.html">
 
                   <!-- icon and title -->
@@ -116,7 +116,7 @@
                 <xsl:if test="$title = /site/galleries/title"> active</xsl:if>
               </xsl:variable>
 
-              <li class="nav-item{$active} mx-2">
+              <li class="[ nav-item{$active} ] mx-2">
                 <a class="nav-link" href="{$site.url}galleries.html">
 
                   <!-- icon and title -->
