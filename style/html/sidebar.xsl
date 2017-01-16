@@ -35,9 +35,14 @@
         <!-- iterate over all nav links -->
         <xsl:for-each select="$content.nav/link">
 
+          <!-- link spacing -->
+          <xsl:variable name="link_spacing">
+            <xsl:if test="position() != last()"> mb-2</xsl:if>
+          </xsl:variable>
+
           <!-- nav link -->
-          <li class="nav-item">
-            <a class="nav-link x2b-alt-lnk" href="{@href}">
+          <li class="nav-item js-sdbr-itm">
+            <a class="nav-link x2b-alt-lnk p-0{$link_spacing}" href="{@href}">
               <xsl:value-of select="@title" />
             </a>
           </li>
@@ -56,19 +61,24 @@
             </h5>
 
             <!-- section spacing -->
-            <xsl:variable name="spacing">
+            <xsl:variable name="section_spacing">
               <xsl:if test="position() != last()"> mb-2</xsl:if>
             </xsl:variable>
 
             <!-- section nav links -->
-            <ul class="nav{$spacing}">
+            <ul class="nav flex-column ml-2{$section_spacing}">
 
               <!-- iterate over all nav links in section -->
               <xsl:for-each select="link">
 
+                <!-- section link spacing -->
+                <xsl:variable name="section_link_spacing">
+                  <xsl:if test="position() != last()"> mb-1</xsl:if>
+                </xsl:variable>
+
                 <!-- nav link inside section -->
-                <li class="nav-item">
-                  <a class="nav-link x2b-alt-lnk" href="{@href}">
+                <li class="nav-item js-sdbr-itm">
+                  <a class="nav-link x2b-alt-lnk p-0{$section_link_spacing}" href="{@href}">
                     <xsl:value-of select="@title" />
                   </a>
                 </li>
