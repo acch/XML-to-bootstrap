@@ -62,7 +62,7 @@
           </div>
 
           <!-- link to expand collapsed section -->
-          <a class="x2b-expnd collapsed mb-3" data-toggle="collapse" href="#intrdctn" aria-expanded="false" aria-controls="intrdctn">
+          <a class="x2b-expnd collapsed" data-toggle="collapse" href="#intrdctn" aria-expanded="false" aria-controls="intrdctn">
             <xsl:text>More&#8230;</xsl:text>
           </a>
 

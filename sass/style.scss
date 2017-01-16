@@ -176,6 +176,7 @@ footer {
 .x2b-expnd {
   display: block;
   height: 0;
+  margin-bottom: $spacer-y;
   overflow: hidden;
   transition: height .35s ease;
 }
