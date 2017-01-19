@@ -34,7 +34,7 @@ $base-color-light:           $gray-lightest !default;
 
 $border:                     $border-width solid $hr-border-color;
 
-$navbar-height:              ($font-size-lg * $line-height-base + .5rem + 2 * $navbar-padding-y);
+$navbar-height:              ($font-size-base * $line-height-base + 2 * $navbar-padding-y + $spacer-y);
 
 
 /* -------------------- *\
