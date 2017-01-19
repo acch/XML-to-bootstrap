@@ -85,9 +85,10 @@
 
                   <!-- gallery description -->
                   <p class="card-text">
-                    <xsl:value-of select="short" />
-
-                    <xsl:text> </xsl:text>
+                    <xsl:if test="short">
+                      <xsl:value-of select="short" />
+                      <xsl:text> </xsl:text>
+                    </xsl:if>
 
                     <time class="text-muted" datetime="{date}">
                       <xsl:text>//&#160;</xsl:text>
