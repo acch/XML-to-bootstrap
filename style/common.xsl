@@ -69,11 +69,11 @@
   </xsl:variable>
 
   <!-- generate the site's asset URL -->
-  <xsl:variable name="site.static.url">
+  <xsl:variable name="site.assets.url">
 
     <!-- get static URL from options -->
     <xsl:variable name="url">
-      <xsl:value-of select="/site/options/option[@name = 'site.static.url'][@devmode = $mode]" />
+      <xsl:value-of select="/site/options/option[@name = 'site.assets.url'][@devmode = $mode]" />
     </xsl:variable>
 
     <!-- ensure URL has two leading slashes and one trailing slash -->

@@ -299,7 +299,7 @@
         <xsl:variable name="baseurl">
 
           <!-- site (static) URL -->
-          <xsl:value-of select="$site.static.url" />
+          <xsl:value-of select="$site.assets.url" />
 
           <!-- path of category (articles|projects|galleries) -->
           <xsl:call-template name="format.path">

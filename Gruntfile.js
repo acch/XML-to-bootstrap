@@ -148,11 +148,11 @@ module.exports = function(grunt) {
         ]
       },
 
-      static: {
+      assets: {
         expand: true,
         cwd: 'img/min/',
         src: '**/*.{png,jpg,gif}',
-        dest: 'publish/static/'
+        dest: 'publish/assets/'
       }
     },
 
@@ -277,7 +277,7 @@ module.exports = function(grunt) {
           }
         ]
       },
-      static: {
+      assets: {
         expand: true,
         cwd: 'src/img/',
         src: '**/*.{png,jpg,gif}',
@@ -286,7 +286,7 @@ module.exports = function(grunt) {
     },
 
     imagemin: {
-      static: {
+      assets: {
         expand: true,
         cwd: 'img/',
         src: [ '**/*.{png,jpg,gif}', '!min/**' ],
@@ -359,7 +359,7 @@ module.exports = function(grunt) {
     'htmlmin',
     'responsive_images',
     'newer:imagemin',
-    'copy:static']);
+    'copy:assets']);
 
   // no minification but linting (use this for development)
   grunt.registerTask('debug', [
@@ -376,5 +376,5 @@ module.exports = function(grunt) {
     'htmllint',
     'responsive_images',
     'newer:imagemin',
-    'copy:static']);
+    'copy:assets']);
 };
