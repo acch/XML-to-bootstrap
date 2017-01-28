@@ -14,7 +14,7 @@ Take a look at the [Demo](https://acch.github.io/XML-to-bootstrap/) site to lear
 
 - Produces clean, fast HTML5 code
 - Generates static web pages compatible with any web server
-- Compatible with latest and greatest Bootstrap v4
+- Compatible with latest and greatest [Bootstrap](https://getbootstrap.com/) v4
 - Fully themable with custom Bootstrap builds
 - Uses [Schema.org](https://schema.org) microdata to optimize pages for search engines
 
