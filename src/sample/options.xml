@@ -6,8 +6,8 @@
   <option name="site.author">Achim Christ</option>
   <option name="site.url" devmode="dev">//localhost:8000/</option>
   <option name="site.url" devmode="prod">//acch.github.io/XML-to-bootstrap/</option>
-  <option name="site.assets.url" devmode="dev">//localhost:8000/static/</option>
-  <option name="site.assets.url" devmode="prod">//acch.github.io/XML-to-bootstrap/static/</option>
+  <option name="site.assets.url" devmode="dev">//localhost:8000/assets/</option>
+  <option name="site.assets.url" devmode="prod">//acch.github.io/XML-to-bootstrap/assets/</option>
 
   <!-- the following options will be exported to JavaScript -->
   <export type="js">
