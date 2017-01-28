@@ -19,7 +19,7 @@ RUN useradd -d /build build \
 # Switch to non-root user
 USER build
 
-# Switch to build directory
+# Change to build directory
 WORKDIR /build
 
 # Get the code
@@ -48,5 +48,4 @@ RUN grunt default
 USER root
 
 # Publish results
-#RUN cp -r publish/* /usr/share/nginx/html/
 RUN ln -sf /build/publish/* /usr/share/nginx/html/
