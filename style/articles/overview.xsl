@@ -46,68 +46,70 @@
 
       </xsl:when>
       <xsl:otherwise>
+        <div><!-- articles -->
 
-        <!-- iterate over all articles -->
-        <xsl:for-each select="article[not(@draft)]">
-          <xsl:sort select="date" order="descending" />
+          <!-- iterate over all articles -->
+          <xsl:for-each select="article[not(@draft)]">
+            <xsl:sort select="date" order="descending" />
 
-          <!-- format filename -->
-          <xsl:variable name="filename">
-            <xsl:call-template name="format.filename">
-              <xsl:with-param name="string" select="title" />
-            </xsl:call-template>
-          </xsl:variable>
+            <!-- format filename -->
+            <xsl:variable name="filename">
+              <xsl:call-template name="format.filename">
+                <xsl:with-param name="string" select="title" />
+              </xsl:call-template>
+            </xsl:variable>
 
-          <!-- format date -->
-          <xsl:variable name="date.formatted">
-            <xsl:call-template name="format.date">
-              <xsl:with-param name="date" select="date" />
-            </xsl:call-template>
-          </xsl:variable>
+            <!-- format date -->
+            <xsl:variable name="date.formatted">
+              <xsl:call-template name="format.date">
+                <xsl:with-param name="date" select="date" />
+              </xsl:call-template>
+            </xsl:variable>
 
-          <!-- article entry -->
-          <article>
+            <!-- article entry -->
+            <article>
 
-            <!-- main title -->
-            <h2 id="{@id}">
-              <a class="x2b-alt-lnk" href="{$site.url}{$article.path}{$filename}.html">
-                <xsl:value-of select="title" />
-              </a>
-            </h2>
+              <!-- main title -->
+              <h2 id="{@id}">
+                <a class="x2b-alt-lnk" href="{$site.url}{$article.path}{$filename}.html">
+                  <xsl:value-of select="title" />
+                </a>
+              </h2>
 
-            <a class="x2b-sbtl-lnk" href="{$site.url}{$article.path}{$filename}.html">
+              <a class="x2b-sbtl-lnk" href="{$site.url}{$article.path}{$filename}.html">
 
-              <!-- optional subtitle -->
-              <xsl:if test="subtitle">
-                <p><strong>
-                  <xsl:value-of select="subtitle" />
-                </strong></p>
-              </xsl:if>
-
-              <!-- article description -->
-              <p>
-                <xsl:if test="short">
-                  <xsl:value-of select="short" />
-                  <xsl:text> </xsl:text>
+                <!-- optional subtitle -->
+                <xsl:if test="subtitle">
+                  <p><strong>
+                    <xsl:value-of select="subtitle" />
+                  </strong></p>
                 </xsl:if>
 
-                <time class="text-muted" datetime="{date}">
-                  <xsl:text>//&#160;</xsl:text>
-                  <xsl:value-of select="$date.formatted" />
-                </time>
-              </p>
+                <!-- article description -->
+                <p>
+                  <xsl:if test="short">
+                    <xsl:value-of select="short" />
+                    <xsl:text> </xsl:text>
+                  </xsl:if>
 
-            </a>
+                  <time class="text-muted" datetime="{date}">
+                    <xsl:text>//&#160;</xsl:text>
+                    <xsl:value-of select="$date.formatted" />
+                  </time>
+                </p>
 
-          </article>
+              </a>
 
-          <!-- divider -->
-          <xsl:if test="position() != last()">
-            <hr class="mt-5 mb-4" />
-          </xsl:if>
+            </article>
 
-        </xsl:for-each>
+            <!-- divider -->
+            <!--xsl:if test="position() != last()">
+              <hr class="mt-5 mb-4" />
+            </xsl:if-->
 
+          </xsl:for-each>
+
+        </div><!-- /articles -->
       </xsl:otherwise>
     </xsl:choose>
 

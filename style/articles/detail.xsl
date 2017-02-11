@@ -49,7 +49,7 @@
       <xsl:with-param name="content">
 
         <!-- semantic vocabulary 'Article' -->
-        <main itemscope="itemscope" itemtype="http://schema.org/Article">
+        <article itemscope="itemscope" itemtype="http://schema.org/Article">
 
           <!-- add meta tags -->
           <xsl:call-template name="element.data.meta">
@@ -71,11 +71,13 @@
           </p></header><!-- /description -->
 
           <!-- copy actual content from XML -->
-          <xsl:call-template name="copy.content">
-            <xsl:with-param name="content" select="content" />
-          </xsl:call-template>
+          <div><!-- content -->
+            <xsl:call-template name="copy.content">
+              <xsl:with-param name="content" select="content" />
+            </xsl:call-template>
+          </div><!-- /content -->
 
-        </main>
+        </article>
 
         <!-- spacing -->
         <hr class="invisible" />

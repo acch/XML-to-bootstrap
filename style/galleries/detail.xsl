@@ -44,7 +44,7 @@
     <hr class="invisible" />
 
     <!-- semantic vocabulary 'CreativeWork' -->
-    <main itemscope="itemscope" itemtype="http://schema.org/CreativeWork">
+    <article itemscope="itemscope" itemtype="http://schema.org/CreativeWork">
 
       <!-- add meta tags -->
       <xsl:call-template name="element.data.meta">
@@ -69,11 +69,13 @@
       </p></header><!-- /description -->
 
       <!-- copy content from XML directly -->
-      <xsl:call-template name="copy.content">
-        <xsl:with-param name="content" select="content" />
-      </xsl:call-template>
+      <div><!-- content -->
+        <xsl:call-template name="copy.content">
+          <xsl:with-param name="content" select="content" />
+        </xsl:call-template>
+      </div><!-- /content -->
 
-    </main>
+    </article>
 
     <!-- spacing -->
     <hr class="invisible" />
