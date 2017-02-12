@@ -53,11 +53,31 @@ module.exports = function(grunt) {
     xsltproc: {
       options: {
         stylesheet: 'style/main.xsl',
+        params: {
+          'articles': 'true()',
+          'projects': 'true()',
+          'galleries': 'false()'
+        },
         xinclude: true
       },
-      publish: {
+      dev: {
         files: {
           'publish/index.html': 'src/main.xml'
+        },
+        options: {
+          params: {
+            'devmode': 'true()'
+          }
+        }
+      },
+      prod: {
+        files: {
+          'publish/index.html': 'src/main.xml'
+        },
+        options: {
+          params: {
+            'devmode': 'false()'
+          }
         }
       }
     },
@@ -248,8 +268,7 @@ module.exports = function(grunt) {
       options: {
         ignore: [
           'The "contentinfo" role is unnecessary for element "footer".',
-          'The "banner" role is unnecessary for element "header".',
-          'Element "main" does not need a "role" attribute.'
+          'The "banner" role is unnecessary for element "header".'
         ]
       },
       publish: 'publish/**/*.html'
@@ -356,30 +375,13 @@ module.exports = function(grunt) {
     }
   });
 
-  // no linting but minification (use this for production)
-  grunt.registerTask('default', [
-    'clean',
-    'bower',
-    'copy:publish',
-    'copy_samples',
-    'xsltproc',
-    'concat',
-    'uglify',
-    'sass',
-    'autoprefixer',
-    'cssmin',
-    'htmlmin',
-    'responsive_images',
-    'newer:imagemin',
-    'copy:assets']);
-
   // no minification but linting (use this for development)
   grunt.registerTask('debug', [
     'clean',
     'bower',
     'copy:publish',
     'copy_samples',
-    'xsltproc',
+    'xsltproc:dev',
     'concat',
     'sass',
     'autoprefixer',
@@ -388,5 +390,43 @@ module.exports = function(grunt) {
     'htmllint',
     'responsive_images',
     'newer:imagemin',
-    'copy:assets']);
+    'copy:assets'
+  ]);
+
+  // no linting but minification (use this for development)
+  grunt.registerTask('default', [
+    'clean',
+    'bower',
+    'copy:publish',
+    'copy_samples',
+    'xsltproc:dev',
+    'concat',
+    'uglify',
+    'sass',
+    'autoprefixer',
+    'cssmin',
+    'htmlmin',
+    'responsive_images',
+    'newer:imagemin',
+    'copy:assets'
+  ]);
+
+  // no linting but minification (use this for production)
+  grunt.registerTask('prod', [
+    'clean',
+    'bower',
+    'copy:publish',
+    'copy_samples',
+    'xsltproc:prod',
+    'concat',
+    'uglify',
+    'sass',
+    'autoprefixer',
+    'cssmin',
+    'htmlmin',
+    'responsive_images',
+    'newer:imagemin',
+    'copy:assets'
+  ]);
+
 };
