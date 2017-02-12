@@ -39,6 +39,7 @@
 
         // make Headroom pin even if scroll position has not changed
         window.requestAnimationFrame(function() { headroom.pin() });
+
       });
     }
   });
