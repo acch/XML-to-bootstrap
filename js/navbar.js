@@ -22,25 +22,31 @@
   // initialize Headroom
   headroom.init();
 
-  // add click events to sidebar nav links
+  // add click events on DOMContentLoaded
   document.addEventListener("DOMContentLoaded", function() {
 
+    // private function to add click event to elements
+    function addClickEvent(elements) {
+
+      // iterate over elements
+      for (var i = 0; elements[i]; ++i) {
+
+        // add click event
+        elements[i].addEventListener("click", function() {
+
+          // fudge scroll position to make Headroom pin
+          headroom.lastKnownScrollY = headroom.getScrollerHeight();
+
+          // make Headroom pin even if scroll position has not changed
+          window.requestAnimationFrame(function() { headroom.pin() });
+
+        });
+      }
+    };
+
     // choose elements to add click event to
-    var elements = document.getElementsByClassName("js-sdbr-itm");
+    addClickEvent(document.getElementsByClassName("js-sdbr-itm"));
+    addClickEvent(document.getElementsByClassName("anchorjs-link"));
 
-    // iterate over elements
-    for (var i = 0; elements[i]; ++i) {
-
-      // add click event
-      elements[i].addEventListener("click", function() {
-
-        // fudge scroll position to make Headroom pin
-        headroom.lastKnownScrollY = headroom.getScrollerHeight();
-
-        // make Headroom pin even if scroll position has not changed
-        window.requestAnimationFrame(function() { headroom.pin() });
-
-      });
-    }
   });
 })();

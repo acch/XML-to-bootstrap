@@ -26,7 +26,8 @@
      - Pager
      - Icons (normal / in circle / in button)
      - Semantic data (microdata)
-     - Responsive picture -->
+     - Responsive picture
+     - Anchored headings -->
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      Breadcrumbs
@@ -347,6 +348,28 @@
 
       </xsl:otherwise><!-- /not(starts-with(@src, '//')) -->
     </xsl:choose>
+
+  </xsl:template>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Anchored headings
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <!-- replace headings with anchored equivalent -->
+  <xsl:template match="h2|h3|h4|h5|h6">
+
+    <xsl:copy>
+
+      <!-- add .anchored class -->
+      <xsl:attribute name="class">
+        <xsl:text>anchored</xsl:text>
+      </xsl:attribute>
+
+      <!-- copy attributes and child nodes -->
+      <xsl:apply-templates select="node()|@*" />
+
+    </xsl:copy>
 
   </xsl:template>
 

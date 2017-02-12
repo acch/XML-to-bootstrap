@@ -271,6 +271,12 @@ img {
        Anchor styles
 \* -------------------- */
 
+.anchorjs-link {
+  @include hover-focus {
+    text-decoration: none !important;
+  }
+}
+
 h2[id]::before,
 h3[id]::before,
 h4[id]::before,

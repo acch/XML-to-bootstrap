@@ -30,7 +30,8 @@ module.exports = function(grunt) {
     'jquery':          'lib/jquery',
     'tether':          'lib/tether',
     'photoswipe':      'lib/photoswipe',
-    'scrollposstyler': 'lib/scrollpos-styler'
+    'scrollposstyler': 'lib/scrollpos-styler',
+    'anchor':          'lib/anchor-js'
   };
 
   // project configuration
@@ -44,7 +45,8 @@ module.exports = function(grunt) {
         'js/options.json',
         'js/headroom.js',
         'js/photoswipe*.js',
-        'js/scrollPosStyler.js'
+        'js/scrollPosStyler.js',
+        'js/anchor.js'
       ]
     },
 
@@ -144,6 +146,14 @@ module.exports = function(grunt) {
             cwd: pathdef.scrollposstyler,
             src: '**/scrollPosStyler.js',
             dest: 'js/'
+          },
+          {
+            expand: true,
+            flatten: true,
+            nonull: true,
+            cwd: pathdef.anchor,
+            src: '**/anchor.js',
+            dest: 'js/'
           }
         ]
       },
@@ -163,8 +173,10 @@ module.exports = function(grunt) {
             src: [
               'js/options.json',
               'js/headroom.js',
-              'js/navbar.js',
-              'js/scrollPosStyler.js'
+              'js/scrollPosStyler.js',
+              'js/anchor.js',
+              'js/headings.js',
+              'js/navbar.js'
             ],
             dest: 'publish/js/script.js'
           },
