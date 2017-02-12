@@ -102,11 +102,6 @@
 
             </article>
 
-            <!-- divider -->
-            <!--xsl:if test="position() != last()">
-              <hr class="mt-5 mb-4" />
-            </xsl:if-->
-
           </xsl:for-each>
 
         </div><!-- /articles -->

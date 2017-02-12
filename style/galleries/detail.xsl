@@ -69,11 +69,9 @@
       </p></header><!-- /description -->
 
       <!-- copy content from XML directly -->
-      <div><!-- content -->
-        <xsl:call-template name="copy.content">
-          <xsl:with-param name="content" select="content" />
-        </xsl:call-template>
-      </div><!-- /content -->
+      <xsl:call-template name="copy.content">
+        <xsl:with-param name="content" select="content" />
+      </xsl:call-template>
 
     </article>
 

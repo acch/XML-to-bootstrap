@@ -283,16 +283,17 @@ h6[id]::before {
   visibility: hidden;
 }
 
-h2:not(:first-child),
-article:not(:first-child) {
-  border-top: $border;
-  margin-top: (2 * $spacer-y);
-  padding-top: (1 * $spacer-y);
+h2:not(:first-child) {
+  margin-top: (3 * $spacer-y);
 }
 h3:not(:first-child) {
+  margin-top: (2 * $spacer-y);
+}
+
+article:not(:first-child) {
   border-top: $border;
-  margin-top: (1 * $spacer-y);
-  padding-top: (1 * $spacer-y);
+  margin-top: (3 * $spacer-y);
+  padding-top: (2 * $spacer-y);
 }
 
 
