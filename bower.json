@@ -20,9 +20,6 @@
     "font-awesome": {
       "css": "css/font-awesome.min.css"
     },
-    "headroom.js": {
-      "js": "dist/headroom.js"  
-    },
     "jquery": {
       "js": "dist/jquery.min.js"
     },
