@@ -53,11 +53,6 @@ module.exports = function(grunt) {
     xsltproc: {
       options: {
         stylesheet: 'style/main.xsl',
-        params: {
-          'articles': 'true()',
-          'projects': 'true()',
-          'galleries': 'false()'
-        },
         xinclude: true
       },
       dev: {
