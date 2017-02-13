@@ -4,7 +4,7 @@ MAINTAINER Achim Christ
 # Install prerequisites
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get -qq update \
-&& apt-get install -qqy \
+&& apt-get -qqy install \
   curl \
   git \
   graphicsmagick \
