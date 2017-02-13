@@ -13,3 +13,6 @@ push:
 
 test:
 	$(DOCKER) run --rm $(DOCKER_IMAGE_NAME) /bin/echo "Success."
+
+clean:
+	$(DOCKER) images -qf dangling=true | xargs --no-run-if-empty docker rmi
