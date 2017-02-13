@@ -2,14 +2,20 @@ FROM nginx:latest
 MAINTAINER Achim Christ
 
 # Install prerequisites
-RUN apt-get -qq update && apt-get install -yqq \
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get -qq update \
+&& apt-get install -qqy \
+  curl \
   git \
   graphicsmagick \
   npm \
   xsltproc \
 && rm -rf /var/lib/apt/lists/* \
 && ln -s /usr/bin/nodejs /usr/bin/node \
-&& npm install -g grunt-cli
+&& npm install -g \
+  grunt-cli \
+  n \
+&& n stable # Update Nodejs to latest version
 
 # Create non-root user
 RUN useradd -d /build build \
@@ -23,10 +29,8 @@ USER build
 WORKDIR /build
 
 # Get the code
-RUN git clone https://github.com/acch/XML-to-bootstrap.git .
-
-# Get submodules
-RUN git submodule update --init
+RUN git clone https://github.com/acch/XML-to-bootstrap.git . \
+&& git submodule update --init
 
 # TODO: optionally build custom bootstrap theme
 #RUN echo '@import "customvars";' >> modules/bootstrap/scss/_custom.scss \
