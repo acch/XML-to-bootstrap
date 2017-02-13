@@ -2,7 +2,7 @@ FROM nginx:latest
 MAINTAINER Achim Christ
 
 # Install prerequisites
-RUN apt-get update && apt-get install -y \
+RUN apt-get -qq update && apt-get install -yqq \
   git \
   graphicsmagick \
   npm \
