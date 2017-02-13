@@ -80,7 +80,7 @@
     <subtitle>This project is not done, yet</subtitle>
 
     <content>
-      <h2>Work in progress</h2>
+      <h2>This is a draft</h2>
       <p>Draft projects are not published. This means that they are not shown in the overview and are not linked in navigation elements. In addition, draft projects will be excluded from search engines by including a 'noindex' meta tag. However, pages are still being generated so that the content can be previewed.</p>
       <p>A project is considered draft if there's an attribute 'draft' in the 'project' element.</p>
       <p>Simply remove the 'draft' attribute once the project is to be published.</p>
