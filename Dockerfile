@@ -1,4 +1,4 @@
-FROM nginx:latest
+FROM debian:jessie
 MAINTAINER Achim Christ
 
 # Install prerequisites
@@ -13,9 +13,8 @@ RUN apt-get -qq update \
 && rm -rf /var/lib/apt/lists/* \
 && ln -s /usr/bin/nodejs /usr/bin/node \
 && npm install -g \
-  grunt-cli \
   n \
-&& n stable # Update Nodejs to latest version
+&& n -q stable  # update Nodejs to latest version
 
 # Create non-root user
 RUN useradd -d /build build \
@@ -41,15 +40,12 @@ RUN git clone https://github.com/acch/XML-to-bootstrap.git . \
 # Install build tools
 RUN npm install
 
-# Copy custom content
-COPY sass/ sass/
-COPY src/ src/
+# Expose ports
+EXPOSE 8000
 
-# Build the site
-RUN grunt default
+# Expose volumes
+VOLUME ["/build/src", "/build/sass", "/build/publish"]
 
-# Switch back to root user
-USER root
-
-# Publish results
-RUN ln -sf /build/publish/* /usr/share/nginx/html/
+# Declare Grunt as entrypoint
+ENTRYPOINT ["/build/node_modules/grunt/bin/grunt"]
+CMD ["default"]

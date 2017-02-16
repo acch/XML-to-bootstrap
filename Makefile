@@ -1,7 +1,7 @@
 DOCKER=/bin/docker
 DOCKER_IMAGE_NAME=acch/x2b
-DOCKER_BASE_NAME=nginx
-DOCKER_BASE_VERSION=latest
+DOCKER_BASE_NAME=debian
+DOCKER_BASE_VERSION=jessie
 
 default: build
 
@@ -14,7 +14,8 @@ push:
 	$(DOCKER) push $(DOCKER_IMAGE_NAME)
 
 test:
-	$(DOCKER) run --rm $(DOCKER_IMAGE_NAME) /bin/echo "Success."
+	$(DOCKER) run --rm $(DOCKER_IMAGE_NAME) --version
 
 clean:
 	$(DOCKER) images -qf dangling=true | xargs --no-run-if-empty docker rmi
+	#$(DOCKER) volume prune -f

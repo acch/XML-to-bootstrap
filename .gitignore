@@ -9,4 +9,5 @@ js/*
 !js/navbar.js
 !js/headings.js
 lib
-publish
+publish/*
+!publish/.gitkeep

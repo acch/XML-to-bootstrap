@@ -65,27 +65,30 @@ To get started with your own content simply modify the source files in `src/` di
 
 ### Container deployment
 
-The installation can also be performed automatically by building a [Docker](https://www.docker.com/) image and running a container from it.
+The installation can also be performed automatically by building a [Docker](https://www.docker.com/) image and running a container from it. You can simply use the pre-built image [acch/XML-to-Bootstrap](https://hub.docker.com/r/acch/XML-to-Bootstrap/), unless you want to customize the Bootstrap theme. For custom Boootstrap builds you will need to build your own Docker image as explained below.
 
-1. Use the following command to build a Docker image. This will copy the XML document from the `src/` directory into the image, and compile it into an HTML document.
+1. Use the following commands to build a Docker image. This will download the necessary code, compile Bootstrap, and install all prerequisites necessary to build the project. Be patient, this may take a while.
 
-        # docker build -t x2b .
+        # git clone https://github.com/acch/XML-to-bootstrap.git
+        # cd XML-to-bootstrap && docker build -t x2b .
 
-2. The following command will run a container from the image. This will start a web server inside the container so that you can preview the result. To do so, point your browser of choice to [http://localhost:8000](http://localhost:8000).
+2. The following command will run a container from the image, in turn building the project:
 
-        # docker run --name x2b-1 -d -p 8000:80 x2b
+        # docker run --rm -v $(pwd)/src:/build/src -v $(pwd)/publish:/build/publish x2b
 
-3. After you've successfully built and run the demo pages you can get started with your own content. To do so, copy the XML files from the sample directory to `src/` and modify them according to your needs.
+   Any further arguments will be passed to Grunt directly. Thus, in order to build a debug version of the project simply run:
 
-        # cp src/sample/*.xml src/
+        # docker run --rm -v $(pwd)/src:/build/src -v $(pwd)/publish:/build/publish x2b debug
 
-4. Repeat the above commands after making changes to the XML document in the `src/` directory. This will build a new Docker image and run a container from it.
+   If you've customized the Bootstrap theme then you need to make the `sass/` directory available to the container as well:
 
-        # docker stop x2b-1 && docker rm x2b-1 && docker build -t x2b . && docker run --name x2b-1 -d -p 8000:80 x2b
+        # docker run --rm -v $(pwd)/src:/build/src -v $(pwd)/sass:/build/sass -v $(pwd)/publish:/build/publish x2b
 
-5. Once you are satisfied with the result you can fetch the compiled HTML document from the container using the following command:
+   Grunt provides a minimal web server, which can be used to preview the results. To do so, run the following command and point your browser to [http://localhost:8000](http://localhost:8000):
 
-        # docker cp x2b-1:/build/publish/ .
+        # docker run --rm -v publish:/build/publish -p 8000:8000 x2b connect
+
+3. After you've successfully built and run the demo pages you can get started with your own content. To do so, modify the XML files in the `src/` directory according to your needs. Your static web pages are available in the `publish/` directory after you've run a container to build them.
 
 ## Contents
 
@@ -108,7 +111,7 @@ XML-to-bootstrap/       Contains build instructions and documentation
 └── style/              Contains XSL stylesheets used to generate static web pages from the XML document
 ```
 
-`css`, `img`, `lib` and `publish` are temporary directories which can be deleted. They will be recreated during build.
+`css`, `img` and `lib` are temporary directories which can be deleted. They will be recreated during build.
 
 ## Usage
 
@@ -117,8 +120,9 @@ The [Grunt](https://gruntjs.com/) task runner is used to build static web pages.
 Task | Description
 --- | ---
 clean | Deletes previously generated output and temporary files
-default | Generates minified output - use this for production
+default | Generates minified output with development URLs - use this for development
 debug | Skips minification and instead generates readable output - use this for development
+prod | Generates minified output with production URLs - use this for production
 connect | Start a minimal web server on port 8000 used for development
 
 When populating the XML document with your own content, remember to use character entity numbers instead of names. Character entity names are not defined in XML. For example, `&nbsp;` will not work - you will need to use `&#160;` instead. Refer to the [HTML5 Reference](https://dev.w3.org/html5/html-author/charref) for a complete list with mappings.
@@ -167,11 +171,11 @@ When generating the HTML document, XML-to-Bootstrap will automatically append th
 
 ### Publishing
 
-...TBD... explain 'devmode' parameter and 'site.url','site.static.url' options
+...TBD... explain 'devmode' parameter and 'site.url','site.static.url' options. explain 'prod' grunt target.
 
 ### Custom Bootstrap theme
 
-...TBD... explain 'customvars.scss' and how it integrates into Bootstrap
+...TBD... explain 'customvars.scss' and how it integrates into Bootstrap. note that
 
 ## Development and extension
 
