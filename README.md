@@ -65,7 +65,7 @@ To get started with your own content simply modify the source files in `src/` di
 
 ### Container deployment
 
-The installation can also be performed automatically by building a [Docker](https://www.docker.com/) image and running a container from it. You can simply use the pre-built image [acch/XML-to-Bootstrap](https://hub.docker.com/r/acch/XML-to-Bootstrap/), unless you want to customize the Bootstrap theme. For custom Boootstrap builds you will need to build your own Docker image as explained below.
+The installation can also be performed automatically by building a [Docker](https://www.docker.com/) image and running a container from it. You can simply use the pre-built image [acch/xml-to-bootstrap](https://hub.docker.com/r/acch/xml-to-bootstrap/), unless you want to customize the Bootstrap theme. For custom Boootstrap builds you will need to build your own Docker image as explained below.
 
 1. Use the following commands to build a Docker image. This will download the necessary code, compile Bootstrap, and install all prerequisites necessary to build the project. Be patient, this may take a while.
 
