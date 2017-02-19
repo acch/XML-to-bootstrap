@@ -1,13 +1,13 @@
 bower_components
-node_modules
-src/*.xml
-src/img
-sass/customvars.scss
 css
 img
 js/*
 !js/navbar.js
 !js/headings.js
 lib
+node_modules
 publish/*
 !publish/.gitkeep
+sass/customvars.scss
+src/*.xml
+src/img
