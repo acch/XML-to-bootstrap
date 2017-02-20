@@ -30,16 +30,22 @@ XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https:/
 
   On RedHat-like Linux:
 
-      # sudo dnf install libxslt GraphicsMagick npm
+  ```
+  # sudo dnf install libxslt GraphicsMagick npm
+  ```
 
   On Debian-like Linux:
 
-      # sudo apt-get install xsltproc graphicsmagick npm
-      # sudo ln -s /usr/bin/nodejs /usr/bin/node
+  ```
+  # sudo apt-get install xsltproc graphicsmagick npm
+  # sudo ln -s /usr/bin/nodejs /usr/bin/node
+  ```
 
   On Arch-like Linux:
 
-      # sudo pacman -S libxslt graphicsmagick npm
+  ```
+  # sudo pacman -S libxslt graphicsmagick npm
+  ```
 
 2. Several options are available for getting the code:
 
@@ -48,16 +54,22 @@ XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https:/
 
 3. Once code is downloaded, `cd` into the directory and install necessary prerequisites (including [Grunt](https://gruntjs.com/) and [Bower](https://bower.io/)):
 
-        # npm install
-        # sudo npm install -g grunt-cli
+  ```
+  # npm install
+  # sudo npm install -g grunt-cli
+  ```
 
 4. Bootstrap is integrated as a Git [submodule](https://git-scm.com/docs/git-submodule). Fetch it with the following command:
 
-        # git submodule update --init
+  ```
+  # git submodule update --init
+  ```
 
 5. With all prerequisites installed and submodules updated, build the project:
 
-        # grunt
+  ```
+  # grunt
+  ```
 
 6. If all goes well you end up with a set of static web pages in the `publish/` directory. Transfer them to your web server and enjoy!
 
@@ -69,24 +81,34 @@ The installation can also be performed automatically by building a [Docker](http
 
 1. Use the following commands to build a Docker image. This will download the necessary code, compile Bootstrap, and install all prerequisites necessary to build the project. Be patient, this may take a while.
 
-        # git clone https://github.com/acch/XML-to-bootstrap.git
-        # cd XML-to-bootstrap && docker build -t x2b .
+  ```
+  # git clone https://github.com/acch/XML-to-bootstrap.git
+  # cd XML-to-bootstrap && docker build -t x2b .
+  ```
 
 2. The following command will run a container from the image, in turn building the project:
 
-        # docker run --rm -v $(pwd)/src:/build/src -v $(pwd)/publish:/build/publish x2b
+  ```
+  # docker run --rm -v $(pwd)/src:/build/src -v $(pwd)/publish:/build/publish x2b
+  ```
 
    Any further arguments will be passed to Grunt directly. Thus, in order to build a debug version of the project simply run:
 
-        # docker run --rm -v $(pwd)/src:/build/src -v $(pwd)/publish:/build/publish x2b debug
+   ```
+   # docker run --rm -v $(pwd)/src:/build/src -v $(pwd)/publish:/build/publish x2b debug
+   ```
 
    If you've customized the Bootstrap theme then you need to make the `sass/` directory available to the container as well:
 
-        # docker run --rm -v $(pwd)/src:/build/src -v $(pwd)/sass:/build/sass -v $(pwd)/publish:/build/publish x2b
+   ```
+   # docker run --rm -v $(pwd)/src:/build/src -v $(pwd)/sass:/build/sass -v $(pwd)/publish:/build/publish x2b
+   ```
 
    Grunt provides a minimal web server, which can be used to preview the results. To do so, run the following command and point your browser to [http://localhost:8000](http://localhost:8000):
 
-        # docker run --rm -v publish:/build/publish -p 8000:8000 x2b connect
+   ```
+   # docker run --rm -v publish:/build/publish -p 8000:8000 x2b connect
+   ```
 
 3. After you've successfully built and run the demo pages you can get started with your own content. To do so, modify the XML files in the `src/` directory according to your needs. Your static web pages are available in the `publish/` directory after you've run a container to build them.
 
