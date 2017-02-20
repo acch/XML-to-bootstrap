@@ -8,6 +8,7 @@ RUN apt-get -qq update \
   curl \
   git \
   graphicsmagick \
+  default-jre \
   npm \
   xsltproc \
 && rm -rf /var/lib/apt/lists/* \
