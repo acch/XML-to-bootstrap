@@ -39,11 +39,13 @@ RUN git clone https://github.com/acch/XML-to-bootstrap.git . \
 # Install build tools
 RUN npm install
 
+# Populate and expose volumes
+COPY sass/ /build/sass
+COPY src/ /build/src
+VOLUME ["/build/src", "/build/sass", "/build/publish"]
+
 # Expose ports
 EXPOSE 8000
-
-# Expose volumes
-VOLUME ["/build/src", "/build/sass", "/build/publish"]
 
 # Declare Grunt as entrypoint
 ENTRYPOINT ["/build/node_modules/grunt/bin/grunt"]
