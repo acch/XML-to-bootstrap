@@ -193,11 +193,11 @@ When generating the HTML document, XML-to-Bootstrap will automatically append th
 
 ### Publishing
 
-...TBD... explain 'devmode' parameter and 'site.url','site.static.url' options. explain 'prod' grunt target.
+...TBD... explain `devmode` parameter and `site.url`,`site.static.url` options. explain `prod` grunt target.
 
 ### Custom Bootstrap theme
 
-...TBD... explain 'customvars.scss' and how it integrates into Bootstrap. note that
+...TBD... explain `customvars.scss` and how it integrates into Bootstrap. note that users need to build their own Docker image to leverage custom Bootstrap themes.
 
 ## Development and extension
 
