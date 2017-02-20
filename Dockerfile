@@ -12,8 +12,7 @@ RUN apt-get -qq update \
   xsltproc \
 && rm -rf /var/lib/apt/lists/* \
 && ln -s /usr/bin/nodejs /usr/bin/node \
-&& npm install -g \
-  n \
+&& npm install -g n \
 && n -q stable  # update Nodejs to latest version
 
 # Create non-root user
