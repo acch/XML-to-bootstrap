@@ -28,24 +28,24 @@ XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https:/
 
 1. XML-to-Bootstrap requires an XSLT processor such as [xsltproc](http://xmlsoft.org/XSLT/xsltproc2.html), [GraphicsMagick](http://www.graphicsmagick.org/), as well as [Node.js](https://www.nodejs.org/):
 
-  On RedHat-like Linux:
+   On RedHat-like Linux:
 
-  ```
-  # sudo dnf install libxslt GraphicsMagick npm
-  ```
+   ```
+   # sudo dnf install libxslt GraphicsMagick npm
+   ```
 
-  On Debian-like Linux:
+   On Debian-like Linux:
 
-  ```
-  # sudo apt-get install xsltproc graphicsmagick npm
-  # sudo ln -s /usr/bin/nodejs /usr/bin/node
-  ```
+   ```
+   # sudo apt-get install xsltproc graphicsmagick npm
+   # sudo ln -s /usr/bin/nodejs /usr/bin/node
+   ```
 
-  On Arch-like Linux:
+   On Arch-like Linux:
 
-  ```
-  # sudo pacman -S libxslt graphicsmagick npm
-  ```
+   ```
+   # sudo pacman -S libxslt graphicsmagick npm
+   ```
 
 2. Several options are available for getting the code:
 
@@ -54,22 +54,22 @@ XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https:/
 
 3. Once code is downloaded, `cd` into the directory and install necessary prerequisites (including [Grunt](https://gruntjs.com/) and [Bower](https://bower.io/)):
 
-  ```
-  # npm install
-  # sudo npm install -g grunt-cli
-  ```
+   ```
+   # npm install
+   # sudo npm install -g grunt-cli
+   ```
 
 4. Bootstrap is integrated as a Git [submodule](https://git-scm.com/docs/git-submodule). Fetch it with the following command:
 
-  ```
-  # git submodule update --init
-  ```
+   ```
+   # git submodule update --init
+   ```
 
 5. With all prerequisites installed and submodules updated, build the project:
 
-  ```
-  # grunt
-  ```
+   ```
+   # grunt
+   ```
 
 6. If all goes well you end up with a set of static web pages in the `publish/` directory. Transfer them to your web server and enjoy!
 
@@ -81,10 +81,10 @@ The installation can also be performed automatically by building a [Docker](http
 
 1. Use the following commands to build a Docker image. This will download the necessary code, compile Bootstrap, and install all prerequisites necessary to build the project. Be patient, this may take a while.
 
-  ```
-  # git clone https://github.com/acch/XML-to-bootstrap.git
-  # cd XML-to-bootstrap && docker build -t x2b .
-  ```
+   ```
+   # git clone https://github.com/acch/XML-to-bootstrap.git
+   # cd XML-to-bootstrap && docker build -t x2b .
+   ```
 
 2. The following command will run a container from the image, in turn building the project:
 
