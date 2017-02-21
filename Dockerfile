@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:stretch
 MAINTAINER Achim Christ
 
 # Install prerequisites
@@ -8,7 +8,7 @@ RUN apt-get -qq update \
   curl \
   git \
   graphicsmagick \
-  default-jre \
+  openjdk-8-jre \
   npm \
   xsltproc \
 && rm -rf /var/lib/apt/lists/* \

@@ -1,7 +1,7 @@
 DOCKER=/bin/docker
 DOCKER_IMAGE_NAME=acch/x2b
 DOCKER_BASE_NAME=debian
-DOCKER_BASE_VERSION=jessie
+DOCKER_BASE_VERSION=stretch
 
 default: build
 
