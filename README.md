@@ -88,9 +88,9 @@ The installation can also be performed automatically by building a [Docker](http
 
 2. The following command will run a container from the image, in turn building the project:
 
-  ```
-  # docker run --rm -v $(pwd)/src:/build/src -v $(pwd)/publish:/build/publish x2b
-  ```
+   ```
+   # docker run --rm -v $(pwd)/src:/build/src -v $(pwd)/publish:/build/publish x2b
+   ```
 
    Any further arguments will be passed to Grunt directly. Thus, in order to build a debug version of the project simply run:
 
@@ -107,7 +107,7 @@ The installation can also be performed automatically by building a [Docker](http
    Grunt provides a minimal web server, which can be used to preview the results. To do so, run the following command and point your browser to [http://localhost:8000](http://localhost:8000):
 
    ```
-   # docker run --rm -v publish:/build/publish -p 8000:8000 x2b connect
+   # docker run -d -v $(pwd)/publish:/build/publish -p 8000:8000 x2b connect
    ```
 
 3. After you've successfully built and run the demo pages you can get started with your own content. To do so, modify the XML files in the `src/` directory according to your needs. Your static web pages are available in the `publish/` directory after you've run a container to build them.
