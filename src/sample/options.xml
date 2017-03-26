@@ -4,6 +4,7 @@
   <!-- side-wide options -->
   <option name="site.title">XML-to-Bootstrap</option>
   <option name="site.author">Achim Christ</option>
+  <option name="site.about">//github.com/acch/XML-to-bootstrap</option>
   <option name="site.url" devmode="dev">//localhost:8000/</option>
   <option name="site.url" devmode="prod">//acch.github.io/XML-to-bootstrap/</option>
   <option name="site.assets.url" devmode="dev">//localhost:8000/assets/</option>

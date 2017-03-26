@@ -24,6 +24,7 @@
     <!-- options -->
     <xsl:variable name="site.title" select="/site/options/option[@name = 'site.title']" />
     <xsl:variable name="site.author" select="/site/options/option[@name = 'site.author']" />
+    <xsl:variable name="site.about" select="/site/options/option[@name = 'site.about']" />
 
     <!-- Bootstrap navbar -->
     <nav class="[ navbar navbar-toggleable-sm fixed-top navbar-light ] js-nvbr [ sps sps--abv ] headroom--pinned">
@@ -50,7 +51,7 @@
             <xsl:text> </xsl:text><!-- prevent tag from collapsing -->
           </div>
 
-          <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav w-100">
 
             <!-- optional articles component -->
             <xsl:if test="$articles">
@@ -135,13 +136,14 @@
 
             </xsl:if><!-- $galleries -->
 
-          </ul>
+            <!-- optional about link -->
+            <xsl:if test="$site.about">
+              <li class="nav-item hidden-sm-down ml-auto">
+                <a class="nav-link" href="{$site.about}">About</a>
+              </li>
+            </xsl:if>
 
-          <!-- author info -->
-          <span class="navbar-text hidden-sm-down text-muted">
-            <xsl:text>by </xsl:text>
-            <xsl:value-of select="$site.author" />
-          </span>
+          </ul>
 
         </div><!-- /collapse -->
 
