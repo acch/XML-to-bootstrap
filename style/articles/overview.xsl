@@ -100,6 +100,18 @@
 
               </a>
 
+              <!-- article button -->
+              <nav class="d-flex">
+                <a class="[ btn btn-outline-primary ] ml-auto" title="{title}" href="{$site.url}{$article.path}{$filename}.html" role="button">
+                  <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
+                  <xsl:value-of select="translate(@id, $lowercase, $uppercase)" />
+                  <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
+                  <xsl:call-template name="element.icon">
+                    <xsl:with-param name="icon">fa-arrow-right</xsl:with-param>
+                  </xsl:call-template>
+                </a>
+              </nav>
+
             </article>
 
           </xsl:for-each>

@@ -29,6 +29,10 @@
      Constants
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+  <!-- define letter case -->
+  <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyz'" />
+  <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
+
   <!-- define our grid layout -->
   <xsl:variable name="grid.maincolumn">col-12</xsl:variable>
   <xsl:variable name="grid.sidebar.maincolumn">col-12 col-md-8</xsl:variable>

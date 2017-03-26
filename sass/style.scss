@@ -298,7 +298,7 @@ h3:not(:first-child) {
 
 article:not(:first-child) {
   border-top: $border;
-  margin-top: (3 * $spacer-y);
+  margin-top: (2 * $spacer-y);
   padding-top: (2 * $spacer-y);
 }
 
