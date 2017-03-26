@@ -1,3 +1,4 @@
 [submodule "bootstrap"]
 	path = modules/bootstrap
 	url = https://github.com/twbs/bootstrap.git
+	ignore = dirty
