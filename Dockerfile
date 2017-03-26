@@ -1,21 +1,20 @@
-FROM nginx:latest
+FROM debian:stretch
 MAINTAINER Achim Christ
 
 # Install prerequisites
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get -qq update \
-&& apt-get install -qqy \
+&& apt-get -qqy install \
   curl \
   git \
   graphicsmagick \
+  openjdk-8-jre \
   npm \
   xsltproc \
 && rm -rf /var/lib/apt/lists/* \
 && ln -s /usr/bin/nodejs /usr/bin/node \
-&& npm install -g \
-  grunt-cli \
-  n \
-&& n stable # Update Nodejs to latest version
+&& npm install -g n \
+&& n -q stable  # update Nodejs to latest version
 
 # Create non-root user
 RUN useradd -d /build build \
@@ -41,15 +40,14 @@ RUN git clone https://github.com/acch/XML-to-bootstrap.git . \
 # Install build tools
 RUN npm install
 
-# Copy custom content
-COPY sass/ sass/
-COPY src/ src/
+# Populate and expose volumes
+COPY sass/ /build/sass
+COPY src/ /build/src
+VOLUME ["/build/src", "/build/sass", "/build/publish"]
 
-# Build the site
-RUN grunt default
+# Expose ports
+EXPOSE 8000
 
-# Switch back to root user
-USER root
-
-# Publish results
-RUN ln -sf /build/publish/* /usr/share/nginx/html/
+# Declare Grunt as entrypoint
+ENTRYPOINT ["/build/node_modules/grunt/bin/grunt"]
+CMD ["default"]
