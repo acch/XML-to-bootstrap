@@ -80,6 +80,7 @@ module.exports = function(grunt) {
     bower: {
       publish: {
         options: {
+          copy: true,
           cleanTargetDir: true,
           cleanBowerDir: false,
           layout: 'byComponent'
