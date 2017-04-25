@@ -24,14 +24,14 @@ module.exports = function(grunt) {
 
   // path definitions
   var pathdef = {
+    'anchor':          'lib/anchor-js',
     'bootstrap':       'modules/bootstrap/dist',
     'fontawesome':     'lib/font-awesome',
     'headroom':        'lib/headroom.js',
     'jquery':          'lib/jquery',
-    'tether':          'lib/tether',
     'photoswipe':      'lib/photoswipe',
     'scrollposstyler': 'lib/scrollpos-styler',
-    'anchor':          'lib/anchor-js'
+    'tether':          'lib/tether'
   };
 
   // project configuration
@@ -40,41 +40,12 @@ module.exports = function(grunt) {
 
     clean: {
       publish: [
-        'publish/*',
         'css/*',
-        'js/options.json',
-        'js/headroom.js',
-        'js/photoswipe*.js',
-        'js/scrollPosStyler.js',
-        'js/anchor.js'
+        'js/*',
+        '!js/headings.js',
+        '!js/navbar.js',
+        'publish/*',
       ]
-    },
-
-    xsltproc: {
-      options: {
-        stylesheet: 'style/main.xsl',
-        xinclude: true
-      },
-      dev: {
-        files: {
-          'publish/index.html': 'src/main.xml'
-        },
-        options: {
-          params: {
-            'devmode': 'true()'
-          }
-        }
-      },
-      prod: {
-        files: {
-          'publish/index.html': 'src/main.xml'
-        },
-        options: {
-          params: {
-            'devmode': 'false()'
-          }
-        }
-      }
     },
 
     bower: {
@@ -182,15 +153,42 @@ module.exports = function(grunt) {
       }
     },
 
+    xsltproc: {
+      options: {
+        stylesheet: 'style/main.xsl',
+        xinclude: true
+      },
+      dev: {
+        files: {
+          'publish/index.html': 'src/main.xml'
+        },
+        options: {
+          params: {
+            'devmode': 'true()'
+          }
+        }
+      },
+      prod: {
+        files: {
+          'publish/index.html': 'src/main.xml'
+        },
+        options: {
+          params: {
+            'devmode': 'false()'
+          }
+        }
+      }
+    },
+
     concat: {
       publish: {
         files: [
           {
             src: [
               'js/options.json',
+              'js/anchor.js',
               'js/headroom.js',
               'js/scrollPosStyler.js',
-              'js/anchor.js',
               'js/headings.js',
               'js/navbar.js'
             ],
