@@ -32,6 +32,7 @@
   <!-- define letter case -->
   <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyz'" />
   <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
+  <xsl:variable name="specialcase" select="'@$:/\()#%'" />
 
   <!-- define our grid layout -->
   <xsl:variable name="grid.maincolumn">col-12</xsl:variable>
@@ -115,7 +116,7 @@
   <xsl:template name="format.filename">
     <xsl:param name="string" /><!-- string -->
 
-    <xsl:value-of select="translate($string, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ äöüÄÖÜ', 'abcdefghijklmnopqrstuvwxyz-aouaou')" />
+    <xsl:value-of select="translate($string, concat($uppercase, ' äöüÄÖÜ', $specialcase), concat($lowercase, '-aouaou'))" />
 
   </xsl:template>
 
