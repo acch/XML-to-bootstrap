@@ -145,7 +145,14 @@ module.exports = function(grunt) {
         ]
       },
 
-      assets: {
+      assets_pre: {
+        expand: true,
+        cwd: 'src/img/',
+        src: '*.{png,jpg,gif}',
+        dest: 'img/'
+      },
+
+      assets_post: {
         expand: true,
         cwd: 'img/min/',
         src: '**/*.{png,jpg,gif}',
@@ -305,7 +312,7 @@ module.exports = function(grunt) {
       assets: {
         expand: true,
         cwd: 'src/img/',
-        src: '**/*.{png,jpg,gif}',
+        src: '*/**/*.{png,jpg,gif}',
         dest: 'img/'
       }
     },
@@ -382,9 +389,10 @@ module.exports = function(grunt) {
     'csslint',
     'prettify',
     'htmllint',
+    'copy:assets_pre',
     'responsive_images',
     'newer:imagemin',
-    'copy:assets'
+    'copy:assets_post'
   ]);
 
   // no linting but minification (use this for development)
@@ -400,9 +408,10 @@ module.exports = function(grunt) {
     'autoprefixer',
     'cssmin',
     'htmlmin',
+    'copy:assets_pre',
     'responsive_images',
     'newer:imagemin',
-    'copy:assets'
+    'copy:assets_post'
   ]);
 
   // no linting but minification (use this for production)
@@ -418,9 +427,10 @@ module.exports = function(grunt) {
     'autoprefixer',
     'cssmin',
     'htmlmin',
+    'copy:assets_pre',
     'responsive_images',
     'newer:imagemin',
-    'copy:assets'
+    'copy:assets_post'
   ]);
 
 };

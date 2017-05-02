@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <options>
+
   <!-- side-wide options -->
   <option name="site.title">XML-to-Bootstrap</option>
   <option name="site.author">Achim Christ</option>
   <option name="site.about">//github.com/acch/XML-to-bootstrap</option>
+
   <option name="site.url" devmode="dev">//localhost:8000/</option>
   <option name="site.url" devmode="prod">//acch.github.io/XML-to-bootstrap/</option>
   <option name="site.assets.url" devmode="dev">//localhost:8000/assets/</option>
@@ -38,14 +40,15 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous" />
 
     <!-- the following scripts are installed via bower and compiled into the main script.js file -->
-    <!--script src="//cdnjs.cloudflare.com/ajax/libs/headroom/0.9.3/headroom.min.js" /-->
     <!--script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.2/anchor.min.js /-->
+    <!--script src="//cdnjs.cloudflare.com/ajax/libs/headroom/0.9.3/headroom.min.js" /-->
   </option>
 
   <!-- social links -->
-  <option name="site.sociallinks">
-    <sociallink rel="license" href="//creativecommons.org/licenses/by/4.0/">fa-creative-commons</sociallink>
-    <sociallink href="//github.com/acch">fa-github</sociallink>
-    <sociallink href="//github.com/acch/feedback">fa-envelope</sociallink>
+  <option name="footer.sociallinks">
+    <link rel="license" href="//creativecommons.org/licenses/by/4.0/"><icon src="fa-creative-commons" /></link>
+    <link href="//github.com/acch"><icon src="fa-github" /></link>
+    <link href="//github.com/acch/feedback"><icon src="fa-envelope" /></link>
   </option>
+
 </options>

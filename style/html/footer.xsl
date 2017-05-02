@@ -50,17 +50,39 @@
     <div class="text-center">
 
       <!-- iterate over all social links -->
-      <xsl:for-each select="/site/options/option[@name = 'site.sociallinks']/sociallink">
+      <xsl:for-each select="/site/options/option[@name = 'footer.sociallinks']/link">
         <a class="x2b-alt-lnk">
 
           <!-- copy attributes from XML directly -->
           <xsl:copy-of select="@*" />
 
-          <!-- generate icon -->
-          <xsl:call-template name="element.icon">
-            <xsl:with-param name="icon" select="text()" />
-            <xsl:with-param name="size">fa-2x</xsl:with-param>
-          </xsl:call-template>
+          <xsl:choose>
+            <xsl:when test="icon">
+
+              <!-- generate icon -->
+              <xsl:call-template name="element.icon">
+                <xsl:with-param name="icon" select="icon/@src" />
+                <xsl:with-param name="size">fa-2x</xsl:with-param>
+              </xsl:call-template>
+
+            </xsl:when>
+            <xsl:when test="img">
+
+              <!-- generate (non-responsive) image -->
+              <xsl:call-template name="element.image">
+                <xsl:with-param name="img" select="img" />
+              </xsl:call-template>
+
+            </xsl:when>
+            <xsl:otherwise>
+
+              <!-- copy any other child nodes -->
+              <xsl:call-template name="copy.content">
+                <xsl:with-param name="content" select="current()" />
+              </xsl:call-template>
+
+            </xsl:otherwise>
+          </xsl:choose>
 
         </a>
       </xsl:for-each>

@@ -27,6 +27,7 @@
      - Icons (normal / in circle / in button)
      - Semantic data (microdata)
      - Responsive picture
+     - Non-responsive image
      - Anchored headings -->
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -348,6 +349,36 @@
 
       </xsl:otherwise><!-- /not(starts-with(@src, '//')) -->
     </xsl:choose>
+
+  </xsl:template>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Non-responsive image
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <!-- this template generates (non-responsive) images -->
+  <xsl:template name="element.image">
+    <xsl:param name="img" /><!-- node-set (with 'src' attribute) -->
+
+    <xsl:variable name="image" select="ext:node-set($img)" />
+
+    <!-- (non-responsive) image element -->
+    <img>
+      <xsl:attribute name="src">
+
+        <!-- site (static) URL -->
+        <xsl:value-of select="$site.assets.url" />
+
+        <!-- image resource -->
+        <xsl:value-of select="$image/@src" />
+
+      </xsl:attribute>
+
+      <!-- copy remaining image attributes -->
+      <xsl:apply-templates select="$image/@*[local-name() != 'src']" />
+
+    </img>
 
   </xsl:template>
 
