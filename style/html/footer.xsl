@@ -74,6 +74,12 @@
               </xsl:call-template>
 
             </xsl:when>
+            <xsl:when test="child::text()">
+
+              <!-- copy text -->
+              <span><xsl:copy-of select="child::text()" /></span>
+
+            </xsl:when>
             <xsl:otherwise>
 
               <!-- copy any other child nodes -->
