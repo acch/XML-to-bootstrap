@@ -11,32 +11,32 @@
 
 \* -------------------------------------------------------------------------- */
 
+// TODO: jshint task? (inkl. .jshintrc)
+// TODO: scsslint task?
+// TODO: uncss task?
+
 module.exports = function(grunt) {
   "use strict";
 
-  //TODO:
-  //  - jshint task? (inkl. .jshintrc)
-  //  - scsslint task?
-  //  - uncss task?
-
   // dependencies
   var path = require('path');
-
-  // path definitions
-  var pathdef = {
-    'anchor':          'lib/anchor-js',
-    'bootstrap':       'modules/bootstrap/dist',
-    'fontawesome':     'lib/font-awesome',
-    'headroom':        'lib/headroom.js',
-    'jquery':          'lib/jquery',
-    'photoswipe':      'lib/photoswipe',
-    'scrollposstyler': 'lib/scrollpos-styler',
-    'tether':          'lib/tether'
-  };
+  var parser = require('xml2json');
 
   // project configuration
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+
+    // path definitions
+    path: {
+      anchor:          'lib/anchor-js',
+      bootstrap:       'modules/bootstrap/dist',
+      fontawesome:     'lib/font-awesome',
+      headroom:        'lib/headroom.js',
+      jquery:          'lib/jquery',
+      photoswipe:      'lib/photoswipe',
+      scrollposstyler: 'lib/scrollpos-styler',
+      tether:          'lib/tether'
+    },
 
     clean: {
       publish: [
@@ -51,9 +51,9 @@ module.exports = function(grunt) {
     bower: {
       publish: {
         options: {
-          copy: true,
-          cleanTargetDir: true,
           cleanBowerDir: false,
+          cleanTargetDir: true,
+          copy: true,
           layout: 'byComponent'
         }
       }
@@ -66,7 +66,15 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: pathdef.bootstrap,
+            cwd: '<%= path.anchor %>',
+            src: '**/anchor.js',
+            dest: 'js/'
+          },
+          {
+            expand: true,
+            flatten: true,
+            nonull: true,
+            cwd: '<%= path.bootstrap %>',
             src: '**/bootstrap.min.css',
             dest: 'publish/css/'
           },
@@ -74,7 +82,7 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: pathdef.bootstrap,
+            cwd: '<%= path.bootstrap %>',
             src: '**/bootstrap.min.js',
             dest: 'publish/js/'
           },
@@ -82,7 +90,7 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: pathdef.fontawesome,
+            cwd: '<%= path.fontawesome %>',
             src: '**/font-awesome.min.css',
             dest: 'publish/css/'
           },
@@ -90,7 +98,7 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: pathdef.headroom,
+            cwd: '<%= path.headroom %>',
             src: '**/headroom.js',
             dest: 'js/'
           },
@@ -98,7 +106,7 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: pathdef.jquery,
+            cwd: '<%= path.jquery %>',
             src: '**/jquery.min.js',
             dest: 'publish/js/'
           },
@@ -106,15 +114,7 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: pathdef.tether,
-            src: '**/tether.min.js',
-            dest: 'publish/js/'
-          },
-          {
-            expand: true,
-            flatten: true,
-            nonull: true,
-            cwd: pathdef.photoswipe,
+            cwd: '<%= path.photoswipe %>',
             src: ['**/photoswipe.css', '**/default-skin.css'],
             dest: 'css/'
           },
@@ -122,7 +122,7 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: pathdef.photoswipe,
+            cwd: '<%= path.photoswipe %>',
             src: '**/photoswipe*.js',
             dest: 'js/'
           },
@@ -130,7 +130,7 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: pathdef.scrollposstyler,
+            cwd: '<%= path.scrollposstyler %>',
             src: '**/scrollPosStyler.js',
             dest: 'js/'
           },
@@ -138,9 +138,9 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: pathdef.anchor,
-            src: '**/anchor.js',
-            dest: 'js/'
+            cwd: '<%= path.tether %>',
+            src: '**/tether.min.js',
+            dest: 'publish/js/'
           }
         ]
       },
@@ -166,24 +166,22 @@ module.exports = function(grunt) {
         xinclude: true
       },
       dev: {
-        files: {
-          'publish/index.html': 'src/main.xml'
-        },
         options: {
           params: {
             'devmode': 'true()'
           }
-        }
+        },
+        src: 'src/main.xml',
+        dest: 'publish/index.html'
       },
       prod: {
-        files: {
-          'publish/index.html': 'src/main.xml'
-        },
         options: {
           params: {
             'devmode': 'false()'
           }
-        }
+        },
+        src: '<%= xsltproc.dev.src %>',
+        dest: '<%= xsltproc.dev.dest %>'
       }
     },
 
@@ -227,9 +225,8 @@ module.exports = function(grunt) {
         style: 'nested'
       },
       publish: {
-        files: {
-          'publish/css/style.css': 'sass/style.scss'
-        }
+        src: 'sass/style.scss',
+        dest: 'publish/css/style.css'
       }
     },
 
@@ -238,10 +235,7 @@ module.exports = function(grunt) {
 //        browsers: '> 1%, last 2 versions'
 //      },
       publish: {
-        files: {
-          'publish/css/style.css': 'publish/css/style.css',
-          'publish/css/gallery.css': 'publish/css/gallery.css'
-        }
+        src: ['publish/css/style.css', 'publish/css/gallery.css']
       }
     },
 
@@ -272,7 +266,11 @@ module.exports = function(grunt) {
           'The "banner" role is unnecessary for element "header".'
         ]
       },
-      publish: 'publish/**/*.html'
+      publish: {
+        expand: true,
+        nonull: true,
+        src: 'publish/**/*.html'
+      }
     },
 
     htmlmin: {
