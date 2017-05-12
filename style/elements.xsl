@@ -287,7 +287,7 @@
 
     <!-- check for internal-, or external URL -->
     <xsl:choose>
-      <xsl:when test="starts-with(@src, '//')">
+      <xsl:when test="starts-with(@src, '//') or starts-with(@src, 'http')">
 
         <!-- external resource - copy element as is -->
         <xsl:copy>
@@ -295,7 +295,7 @@
         </xsl:copy>
 
       </xsl:when>
-      <xsl:otherwise><!-- not(starts-with(@src, '//')) -->
+      <xsl:otherwise><!-- not(starts-with(@src, '//')) and not(starts-with(@src, 'http')) -->
 
         <!-- internal resource - compute base URL -->
         <xsl:variable name="baseurl">
