@@ -9,7 +9,7 @@
 
   <path>article/</path>
 
-  <article id="zweiter">
+  <article>
     <date>2015-01-12</date>
     <title>Second Entry</title>
     <subtitle>Better than the first one</subtitle>
@@ -30,7 +30,7 @@
     </content>
   </article>
 
-  <article id="erster">
+  <article>
     <date>2014-03-01</date>
     <title>First Entry</title>
     <subtitle>Bob <code>Dylan</code></subtitle>
@@ -52,7 +52,7 @@
     </content>
   </article>
 
-  <article id="dritter">
+  <article>
     <date>2015-02-27</date>
     <title>Entry Number Three</title>
     <subtitle>Even better than the second one</subtitle>

@@ -59,6 +59,18 @@
               </xsl:call-template>
             </xsl:variable>
 
+            <!-- compute id from filename unless explicitly specified -->
+            <xsl:variable name="id">
+              <xsl:choose>
+                <xsl:when test="@id">
+                  <xsl:value-of select="@id" />
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="$filename" />
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:variable>
+
             <!-- format date -->
             <xsl:variable name="date.formatted">
               <xsl:call-template name="format.date">
@@ -70,7 +82,7 @@
             <article>
 
               <!-- main title -->
-              <h2 id="{@id}">
+              <h2 id="{$id}">
                 <a class="x2b-alt-lnk" href="{$site.url}{$article.path}{$filename}.html">
                   <xsl:value-of select="title" />
                 </a>
@@ -147,11 +159,30 @@
         <section title="{text()}">
 
           <!-- find all articles from current year -->
-          <xsl:for-each select="ext:node-set($content)/article[@id][not(@draft)][starts-with(date, current())]">
+          <xsl:for-each select="ext:node-set($content)/article[not(@draft)][starts-with(date, current())]">
             <xsl:sort select="date" order="descending" />
 
+            <!-- format filename -->
+            <xsl:variable name="filename">
+              <xsl:call-template name="format.filename">
+                <xsl:with-param name="string" select="title" />
+              </xsl:call-template>
+            </xsl:variable>
+
+            <!-- compute id from filename unless explicitly specified -->
+            <xsl:variable name="id">
+              <xsl:choose>
+                <xsl:when test="@id">
+                  <xsl:value-of select="@id" />
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="$filename" />
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:variable>
+
             <!-- nav link -->
-            <link title="{title}" href="#{@id}" />
+            <link title="{title}" href="#{$id}" />
 
           </xsl:for-each>
         </section>
