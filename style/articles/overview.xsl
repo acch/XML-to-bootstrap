@@ -147,7 +147,7 @@
       <!-- find all years -->
       <xsl:variable name="years">
         <xsl:call-template name="date.years">
-          <xsl:with-param name="elements" select="ext:node-set($content)/article[@id][not(@draft)]" />
+          <xsl:with-param name="elements" select="ext:node-set($content)/article[not(@draft)]" />
         </xsl:call-template>
       </xsl:variable>
 
