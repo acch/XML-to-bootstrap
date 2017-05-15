@@ -127,7 +127,7 @@
             <xsl:call-template name="element.icon">
               <xsl:with-param name="icon">fa-arrow-left</xsl:with-param>
             </xsl:call-template>
-            <xsl:text>&#160;PREVIOUS</xsl:text>
+            <xsl:text>&#160;Previous</xsl:text>
             <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
           </a><!-- /prev -->
 
@@ -139,7 +139,7 @@
           <!-- next button -->
           <a class="[ btn btn-outline-primary ] ml-auto" rel="next" title="{$next.page/@title}" href="{$next.page/@href}" role="button">
             <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
-            <xsl:text>NEXT&#160;</xsl:text>
+            <xsl:text>Next&#160;</xsl:text>
             <xsl:call-template name="element.icon">
               <xsl:with-param name="icon">fa-arrow-right</xsl:with-param>
             </xsl:call-template>
