@@ -106,10 +106,10 @@ html {
    Navbar animation (headroom.js)
 \* ------------------------------ */
 
-.headroom--pinned {
+.headroom--pinned, .headroom--bottom {
   transform: translateY(0%);
 }
-.headroom--unpinned {
+.headroom--unpinned.headroom--not-bottom {
   box-shadow: none !important;
   transform: translateY(-100%);
 }
