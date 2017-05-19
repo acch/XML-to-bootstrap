@@ -128,15 +128,15 @@ html {
   }
 }
 .jumbotron::after {
-  content: " ";
-  display: block;
-  height: .5rem;
-
   background-image: $shadow-round;
 
   @include media-breakpoint-up(lg) {
     background-image: $shadow-linear;
   }
+
+  content: " ";
+  display: block;
+  height: .5rem;
 
   margin-bottom: (-$jumbotron-padding - .5rem);
   margin-top: ($jumbotron-padding);
@@ -218,8 +218,8 @@ footer {
 \* -------------------- */
 
 img {
-  width: 100%;
   margin-bottom: (1 * $spacer-y);
+  width: 100%;
 }
 
 
