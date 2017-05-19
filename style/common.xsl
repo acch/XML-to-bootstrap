@@ -32,7 +32,7 @@
   <!-- define letter case -->
   <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyz'" />
   <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
-  <xsl:variable name="specialcase" select="'@$:/\()#%'" />
+  <xsl:variable name="specialcase" select="'@$.,:;/\|()[]{}#%+*=?!`^~'" />
 
   <!-- define our grid layout -->
   <xsl:variable name="grid.maincolumn">col-12</xsl:variable>
