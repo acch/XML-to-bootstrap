@@ -6,15 +6,15 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get -qq update \
 && apt-get -qqy install \
   curl \
+  gnupg \
+&& curl -sL https://deb.nodesource.com/setup_7.x | bash - \
+&& apt-get -qqy install \
   git \
   graphicsmagick \
-  openjdk-8-jre \
   npm \
+  openjdk-8-jre \
   xsltproc \
-&& rm -rf /var/lib/apt/lists/* \
-&& ln -s /usr/bin/nodejs /usr/bin/node \
-&& npm install -g n \
-&& n -q stable  # update Nodejs to latest version
+&& rm -rf /var/lib/apt/lists/*
 
 # Create non-root user
 RUN useradd -d /build build \
