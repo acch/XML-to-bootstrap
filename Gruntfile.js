@@ -243,6 +243,7 @@ module.exports = function(grunt) {
       options: {
         'adjoining-classes': false,
         'compatible-vendor-prefixes': false,
+        'fallback-colors': false,
         'important': false
       },
       publish: {
