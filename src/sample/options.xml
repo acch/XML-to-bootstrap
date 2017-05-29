@@ -5,7 +5,7 @@
   <!-- side-wide options -->
   <option name="site.title">XML-to-Bootstrap</option>
   <option name="site.author">Achim Christ</option>
-  <option name="site.about">//github.com/acch/XML-to-bootstrap</option>
+  <option name="site.about">//github.com/acch/XML-to-bootstrap#readme</option>
 
   <option name="site.url" devmode="dev">//localhost:8000/</option>
   <option name="site.url" devmode="prod">//acch.github.io/XML-to-bootstrap/</option>
@@ -48,6 +48,7 @@
   <option name="footer.sociallinks">
     <link rel="license" href="//creativecommons.org/licenses/by/4.0/"><icon src="fa-creative-commons" /></link>
     <link href="//github.com/acch"><icon src="fa-github" /></link>
+    <link href="//ibm.com/developerWorks"><img src="dW_black.png" alt="developerWorks" width="62" height="30" /></link>
     <link href="//github.com/acch/feedback"><icon src="fa-envelope" /></link>
   </option>
 

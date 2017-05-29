@@ -221,6 +221,12 @@ img {
   margin-bottom: (1 * $spacer-y);
   width: 100%;
 }
+img.nonresponsive {
+  margin-bottom: unset;
+  margin-right: (.25 * $spacer-x);
+  vertical-align: sub;
+  width: unset;
+}
 
 
 /* -------------------- *\

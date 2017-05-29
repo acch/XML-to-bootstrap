@@ -364,7 +364,7 @@
     <xsl:variable name="image" select="ext:node-set($img)" />
 
     <!-- (non-responsive) image element -->
-    <img>
+    <img class="nonresponsive">
       <xsl:attribute name="src">
 
         <!-- site (static) URL -->
