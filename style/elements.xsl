@@ -308,8 +308,17 @@
             <xsl:with-param name="path" select="../../../path" />
           </xsl:call-template>
 
-          <!-- path of entry (id attribute of article|project|gallery) -->
-          <xsl:value-of select="../../@id" />
+          <!-- path of entry (id or filename of article|project|gallery) -->
+          <xsl:choose>
+            <xsl:when test="../../@id">
+              <xsl:value-of select="../../@id" />
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:call-template name="format.filename">
+                <xsl:with-param name="string" select="../../title" />
+              </xsl:call-template>
+            </xsl:otherwise>
+          </xsl:choose>
 
           <!-- slash if necessary -->
           <xsl:if test="not(starts-with(@src, '/'))">

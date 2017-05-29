@@ -159,32 +159,46 @@ Here are some popular characters to use:
 
 ### Image resources
 
-Image resources are stored in subdirectories underneath `src/img/`. You need to create a separate subdirectory for each article and for each project using images. The naming convention is `src/img/[article|project]/<id>`. Note that the directory name must match the *id* of the article / project (as defined with the `id` attribute), not its name. Here's an example:
+Image resources are stored in subdirectories underneath `src/img/`. You need to create a separate subdirectory for each article and for each project using images. The naming convention is `src/img/[article|project]/<id>/somepic.jpg`. Note that the directory name must match the *id* of the article / project (as defined by the `id` attribute). If no `id` attribute is defined then the path will be generated from the title - same as the article / project's *filename* (without extension).
+
+Here's an example:
 
 ```
 src/
 └── img/
     ├── article/
-    │   ├── first_article/
+    │   ├── first-article/
     │   │   └ somepic.jpg
-    │   ├── another_article/
+    │   ├── another-article/
     │   │   └ somepic.png
-    │   └── yet_another_article/
+    │   └── yet-another-article/
     │       ├ somepic.gif
     │       └ anotherpic.jpg
     └── project/
-        ├── project_one/
+        ├── project-one/
         │   └ goodpic.jpg
-        ├── project_two/
+        ├── project-two/
         │   └ betterpic.jpg
-        └── project_three/
+        └── project-three/
             └ bestpic.jpg
 ```
 
-When generating the HTML document, XML-to-Bootstrap will automatically append this path to the image's `src` attribute. This means that in the XML document you can simply use the following syntax to insert images:
+When generating the HTML document, XML-to-Bootstrap will automatically prepend the article / project's path to the image's `src` attribute. This means that in the XML document you can simply use the following syntax to insert images:
 
 ```
-<article id="first_article">
+<article id="first-article">
+  ...
+  <img src="somepic.jpg" />
+  ...
+</article>
+```
+
+Or alternatively, if no `id` attribute is defined:
+
+```
+<article>
+  ...
+  <title>First Article!</title>
   ...
   <img src="somepic.jpg" />
   ...
