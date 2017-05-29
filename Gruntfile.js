@@ -374,6 +374,22 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.registerTask('xmltest', function() {
+
+    // parse options.xml as object
+    var xmlopts = parser.toJson(grunt.file.read('src/options.xml'), {
+      coerce: true,
+      object: true
+    }).options;
+
+    console.log("%s", xmlopts.option.filter(function(o) {
+      return o.name == 'site.title';
+    })[0]['$t']);
+
+    // TODO: <jsonopts>
+    // TODO: <option name="responsive_image_sizes"><size breakpoint="lg" width="510" />...</option>
+  });
+
   // no minification but linting (use this for development)
   grunt.registerTask('debug', [
     'clean',

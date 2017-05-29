@@ -31,6 +31,7 @@
     "grunt-responsive-images": ">=1.10.1",
     "grunt-sass": ">=2.0.0",
     "grunt-xsltproc": ">=0.6.1",
-    "load-grunt-tasks": ">=3.5.2"
+    "load-grunt-tasks": ">=3.5.2",
+    "xml2json": ">=0.11.0"
   }
 }
