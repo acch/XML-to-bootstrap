@@ -363,22 +363,26 @@
 
     <xsl:variable name="image" select="ext:node-set($img)" />
 
-    <!-- (non-responsive) image element -->
-    <img class="nonresponsive">
-      <xsl:attribute name="src">
+    <!-- colorized overlay -->
+    <span class="x2b-clrzd">
 
-        <!-- site (static) URL -->
-        <xsl:value-of select="$site.assets.url" />
+      <!-- (non-responsive) image element -->
+      <img class="nonresponsive mx-1">
+        <xsl:attribute name="src">
 
-        <!-- image resource -->
-        <xsl:value-of select="$image/@src" />
+          <!-- site (static) URL -->
+          <xsl:value-of select="$site.assets.url" />
 
-      </xsl:attribute>
+          <!-- image resource -->
+          <xsl:value-of select="$image/@src" />
 
-      <!-- copy remaining image attributes -->
-      <xsl:apply-templates select="$image/@*[local-name() != 'src']" />
+        </xsl:attribute>
 
-    </img>
+        <!-- copy remaining image attributes -->
+        <xsl:apply-templates select="$image/@*[local-name() != 'src']" />
+      </img>
+
+    </span>
 
   </xsl:template>
 
