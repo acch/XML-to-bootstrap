@@ -7,12 +7,16 @@ RUN apt-get -qq update \
 && apt-get -qqy install \
   curl \
   gnupg \
-&& curl -sL https://deb.nodesource.com/setup_7.x | bash - \
+&& curl -sL https://deb.nodesource.com/setup_6.x | bash - \
 && apt-get -qqy install \
   git \
+  g++ \
+  gcc \
   graphicsmagick \
+  make \
   npm \
   openjdk-8-jre \
+  python \
   xsltproc \
 && rm -rf /var/lib/apt/lists/*
 
