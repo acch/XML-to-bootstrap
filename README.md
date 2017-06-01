@@ -10,7 +10,7 @@ The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), 
 
 ### Features
 
-Take a look at the [Demo](https://achim-christ.de/XML-to-bootstrap/) site to learn how generated pages look like.
+Take a look at the [Demo](http://achim-christ.de/XML-to-bootstrap/) site to learn how generated pages look like.
 
 - Produces clean, fast HTML5 code
 - Generates static web pages compatible with any web server
