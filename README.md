@@ -10,7 +10,7 @@ The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), 
 
 ### Features
 
-Take a look at the [Demo](https://acch.github.io/XML-to-bootstrap/) site to learn how generated pages look like.
+Take a look at the [Demo](https://achim-christ.de/XML-to-bootstrap/) site to learn how generated pages look like.
 
 - Produces clean, fast HTML5 code
 - Generates static web pages compatible with any web server
@@ -20,7 +20,7 @@ Take a look at the [Demo](https://acch.github.io/XML-to-bootstrap/) site to lear
 
 ### Differentiation and limitations
 
-XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https://jekyllrb.com/), [GitBook](https://www.gitbook.com/), or [Pelican](http://blog.getpelican.com/). But as opposed to these projects, which provide flexible general purpose tools, XML-to-Bootstrap (currently) focuses on a single, very specific use case. It only generates a certain type of web page. If you're looking for something more customizable then I strongly suggest to check out Jekyll or [the like](https://www.staticgen.com/).
+XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https://jekyllrb.com/), [Middleman](https://middlemanapp.com/), or [Pelican](http://blog.getpelican.com/). But as opposed to these projects, which provide flexible general purpose tools, XML-to-Bootstrap (currently) focuses on a single, very specific use case. It only generates a certain type of web page. If you're looking for something more customizable then I strongly suggest to check out Jekyll or [the like](https://www.staticgen.com/).
 
 ## Installation
 
@@ -186,6 +186,8 @@ src/
 When generating the HTML document, XML-to-Bootstrap will automatically prepend the article / project's path to the image's `src` attribute. This means that in the XML document you can simply use the following syntax to insert images:
 
 ```
+# articles.xml
+
 <article id="first-article">
   ...
   <img src="somepic.jpg" />
@@ -196,6 +198,8 @@ When generating the HTML document, XML-to-Bootstrap will automatically prepend t
 Or alternatively, if no `id` attribute is defined:
 
 ```
+# articles.xml
+
 <article>
   ...
   <title>First Article!</title>
@@ -207,11 +211,26 @@ Or alternatively, if no `id` attribute is defined:
 
 ### Publishing
 
-...TBD... explain `devmode` parameter and `site.url`,`site.static.url` options. explain `prod` grunt target.
+Generated static web pages end up in the `publish/` directory. During development you will most likely want to invoke `grunt connect` for running a local web server on http://localhost:8000. When publishing the final web pages the URLs used inside HTML documents need to be adjusted in order to reflect the address of the production web server. Use the `grunt prod` target for generating web pages with production URLs. These URLs are defined with the following options:
+
+```
+# options.xml
+
+<option name="site.url" devmode="dev">//localhost:8000/</option>
+<option name="site.url" devmode="prod">//achim-christ.de/XML-to-bootstrap/</option>
+<option name="site.assets.url" devmode="dev">//localhost:8000/assets/</option>
+<option name="site.assets.url" devmode="prod">//achim-christ.de/XML-to-bootstrap/assets/</option>
+```
+
+
 
 ### Custom Bootstrap theme
 
 ...TBD... explain `customvars.scss` and how it integrates into Bootstrap. note that users need to build their own Docker image to leverage custom Bootstrap themes.
+
+### Known problems
+
+...TBD... if Grunt complains about syntax errors during build: update to latest Node.js version via `npm install -g n && n stable`. Alternatively, use the [NodeSource](https://nodesource.com/) repository to install the latest Node.js version.
 
 ## Development and extension
 
