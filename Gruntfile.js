@@ -11,9 +11,9 @@
 
 \* -------------------------------------------------------------------------- */
 
+// TODO: uncss task?
 // TODO: jshint task? (inkl. .jshintrc)
 // TODO: scsslint task?
-// TODO: uncss task?
 
 module.exports = function(grunt) {
   "use strict";
@@ -296,17 +296,8 @@ module.exports = function(grunt) {
 
     responsive_images: {
       options: {
-        concurrency: 2,
-        sizes: [
-          {
-            name: '510',
-            width: 510
-          },
-          {
-            name: '730',
-            width: 730
-          }
-        ]
+        concurrency: 2
+        // sizes are defined by 'xmlopts' task
       },
       assets: {
         expand: true,
@@ -339,6 +330,49 @@ module.exports = function(grunt) {
 
   // load the plugin(s)
   require('load-grunt-tasks')(grunt);
+
+  // read options from XML
+  grunt.registerTask('xmlopts', function() {
+
+    // parse options.xml as object
+    var xmlopts = parser.toJson(grunt.file.read('src/options.xml'), {
+      coerce: true,
+      object: true
+    }).options;
+
+    // extract Grunt options
+    var gruntopts = xmlopts.export.filter(function(e) {
+      return e.type == 'grunt';
+    })[0].option;
+
+    // temp configuration object
+    var config = {
+      responsive_images: {
+        options: {
+          sizes: []
+        }
+      }
+    };
+
+    // iterate over Grunt options
+    for (var i = 0; gruntopts[i]; ++i) {
+      // add options to temp configuration object
+      switch (gruntopts[i].name) {
+        case 'responiveImageSize':
+          config.responsive_images.options.sizes.push({
+            name: gruntopts[i]['$t'],
+            width: gruntopts[i]['$t']
+          });
+          break;
+
+        // ...process further options...
+
+      }
+    }
+
+    // apply temp Grunt configuration
+    grunt.config.merge(config);
+  });
 
   // copy sample files
   grunt.registerTask('copy_samples', function() {
@@ -375,24 +409,9 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('xmltest', function() {
-
-    // parse options.xml as object
-    var xmlopts = parser.toJson(grunt.file.read('src/options.xml'), {
-      coerce: true,
-      object: true
-    }).options;
-
-    console.log("%s", xmlopts.option.filter(function(o) {
-      return o.name == 'site.title';
-    })[0]['$t']);
-
-    // TODO: <jsonopts>
-    // TODO: <option name="responsive_image_sizes"><size breakpoint="lg" width="510" />...</option>
-  });
-
   // no minification but linting (use this for development)
   grunt.registerTask('debug', [
+    'xmlopts',
     'clean',
     'bower',
     'copy:publish',
@@ -412,6 +431,7 @@ module.exports = function(grunt) {
 
   // no linting but minification (use this for development)
   grunt.registerTask('default', [
+    'xmlopts',
     'clean',
     'bower',
     'copy:publish',
@@ -431,6 +451,7 @@ module.exports = function(grunt) {
 
   // no linting but minification (use this for production)
   grunt.registerTask('prod', [
+    'xmlopts',
     'clean',
     'bower',
     'copy:publish',

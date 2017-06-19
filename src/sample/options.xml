@@ -12,12 +12,6 @@
   <option name="site.assets.url" devmode="dev">//localhost:8000/assets/</option>
   <option name="site.assets.url" devmode="prod">//achim-christ.de/XML-to-bootstrap/assets/</option>
 
-  <!-- the following options will be exported to JavaScript -->
-  <export type="js">
-    <option name="navbarOffset">300</option>
-    <option name="navbarTolerance">5</option>
-  </export>
-
   <!-- stylesheets to import -->
   <option name="cdn.stylesheets">
     <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -51,5 +45,18 @@
     <link href="//ibm.com/developerWorks"><img src="dW_black.png" alt="developerWorks" /></link>
     <link href="//github.com/acch/feedback"><icon src="fa-envelope" /></link>
   </option>
+
+  <!-- the following options will be exported to JavaScript (options.json) -->
+  <export type="json">
+    <option name="navbarOffset">300</option>
+    <option name="navbarTolerance">5</option>
+  </export>
+
+  <!-- the following options will be exported to Grunt -->
+  <export type="grunt">
+    <option name="responiveImageSize">390</option>
+    <option name="responiveImageSize">510</option>
+    <option name="responiveImageSize">730</option>
+  </export>
 
 </options>
