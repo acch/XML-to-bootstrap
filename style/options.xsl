@@ -31,23 +31,22 @@
       encoding="utf-8"
       indent="no">
 
-      <xsl:text>var Options = {</xsl:text>
+      <xsl:text>var Options = { </xsl:text>
 
+      <!-- compute object definition -->
       <xsl:for-each select="/site/options/export[@type = 'json']/option">
         <xsl:text>"</xsl:text>
         <xsl:value-of select="@name" />
         <xsl:text>": </xsl:text>
         <xsl:value-of select="current()" />
 
-        <xsl:choose>
-          <xsl:when test="position() != last()">
-            <xsl:text>,</xsl:text>
-          </xsl:when>
-        </xsl:choose>
+        <xsl:if test="position() != last()">
+          <xsl:text>, </xsl:text>
+        </xsl:if>
 
       </xsl:for-each>
 
-      <xsl:text>};</xsl:text>
+      <xsl:text> };</xsl:text>
     </ext:document>
 
   </xsl:template>
