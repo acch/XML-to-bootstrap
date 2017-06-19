@@ -23,18 +23,32 @@
        code. the options are defined in the XML document. -->
   <xsl:template name="options">
 
-    <!-- generate javascript options -->
+    <!-- generate JavaScript (.json) options -->
     <ext:document
       href="../js/options.json"
       method="text"
       omit-xml-declaration="yes"
       encoding="utf-8"
-      indent="no">var Options = {<xsl:for-each select="/site/options/export[@type = 'js']/option">
-  "<xsl:value-of select="@name" />": <xsl:value-of select="current()" /><xsl:choose>
-    <xsl:when test="position() != last()">,</xsl:when>
-  </xsl:choose>
-</xsl:for-each>
-};</ext:document>
+      indent="no">
+
+      <xsl:text>var Options = {</xsl:text>
+
+      <xsl:for-each select="/site/options/export[@type = 'json']/option">
+        <xsl:text>"</xsl:text>
+        <xsl:value-of select="@name" />
+        <xsl:text>": </xsl:text>
+        <xsl:value-of select="current()" />
+
+        <xsl:choose>
+          <xsl:when test="position() != last()">
+            <xsl:text>,</xsl:text>
+          </xsl:when>
+        </xsl:choose>
+
+      </xsl:for-each>
+
+      <xsl:text>};</xsl:text>
+    </ext:document>
 
   </xsl:template>
 
