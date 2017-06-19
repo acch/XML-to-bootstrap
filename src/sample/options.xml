@@ -56,7 +56,8 @@
   <export type="grunt">
     <option name="responiveImageSize">510</option>
     <option name="responiveImageSize">610</option>
-    <option name="responiveImageSize">730</option>
+    <!--option name="responiveImageSize">730</option-->
+    <option name="responiveImageSize">770</option>
   </export>
 
 </options>

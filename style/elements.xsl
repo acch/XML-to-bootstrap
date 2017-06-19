@@ -370,10 +370,15 @@
           <!-- responsive img 'sizes' attribute -->
           <xsl:attribute name="sizes">
 
-            <!-- breakpoint image sizes -->
-            <xsl:text>(min-width: 1200px) 730px, (min-width: 992px) 610px, (min-width: 768px) 450px, (min-width: 576px) 510px, 100vw</xsl:text>
-
-            <!-- TODO: add breakpoint image sizes w/o sidebar -->
+            <!-- breakpoint image sizes depending on sidebar -->
+            <xsl:choose>
+              <xsl:when test="../*[@id]">
+                <xsl:text>(min-width: 1200px) 730px, (min-width: 992px) 610px, (min-width: 768px) 450px, (min-width: 576px) 510px, 100vw</xsl:text>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>(min-width: 1200px) 730px, (min-width: 992px) 770px, (min-width: 768px) 690px, (min-width: 576px) 510px, 100vw</xsl:text>
+              </xsl:otherwise>
+            </xsl:choose>
 
           </xsl:attribute>
 
