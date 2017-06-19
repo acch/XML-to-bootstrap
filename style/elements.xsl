@@ -297,7 +297,12 @@
       </xsl:when>
       <xsl:otherwise><!-- not(starts-with(@src, '//')) and not(starts-with(@src, 'http')) -->
 
-        <!-- internal resource - compute base URL -->
+        <!-- internal resource -->
+
+        <!-- options -->
+        <xsl:variable name="sizes" select="/site/options/export[@type = 'grunt']/option[@name = 'responiveImageSize']" />
+
+        <!-- compute base URL -->
         <xsl:variable name="baseurl">
 
           <!-- site (static) URL -->
@@ -330,31 +335,61 @@
 
         </xsl:variable>
 
-        <!-- responsive picture element -->
-        <picture>
+        <!-- name suffix -->
+        <xsl:variable name="suffix">
+          <xsl:value-of select="substring-after(@src, '.')" />
+        </xsl:variable>
 
-          <!-- image resource for large screens -->
-          <source media="(min-width: 992px)"><!-- Bootstrap 'lg' breakpoint -->
-            <xsl:attribute name="srcset">
+        <!-- responsive image resources -->
+        <img>
+
+          <!-- responsive img 'srcset' attribute -->
+          <xsl:attribute name="srcset">
+
+            <!-- for all responsive image sizes -->
+            <xsl:for-each select="$sizes">
+
+              <!-- compute image names and width descriptors -->
               <xsl:value-of select="$baseurl" />
-              <xsl:text>-730.</xsl:text>
-              <xsl:value-of select="substring-after(@src, '.')" />
-            </xsl:attribute>
-          </source>
+              <xsl:text>-</xsl:text>
+              <xsl:value-of select="current()" />
+              <xsl:text>.</xsl:text>
+              <xsl:value-of select="$suffix" />
+              <xsl:text> </xsl:text>
+              <xsl:value-of select="current()" />
+              <xsl:text>w</xsl:text>
 
-          <!-- image resource for small screens (default) -->
-          <img>
-            <xsl:attribute name="src">
-              <xsl:value-of select="$baseurl" />
-              <xsl:text>-510.</xsl:text>
-              <xsl:value-of select="substring-after(@src, '.')" />
-            </xsl:attribute>
+              <xsl:if test="position() != last()">
+                <xsl:text>, </xsl:text>
+              </xsl:if>
 
-            <!-- copy remaining img attributes -->
-            <xsl:apply-templates select="@*[local-name() != 'src']" />
+            </xsl:for-each>
 
-          </img>
-        </picture>
+          </xsl:attribute>
+
+          <!-- responsive img 'sizes' attribute -->
+          <xsl:attribute name="sizes">
+
+            <!-- breakpoint image sizes -->
+            <xsl:text>(min-width: 1200px) 730px, (min-width: 992px) 610px, (min-width: 768px) 450px, (min-width: 576px) 510px, 100vw</xsl:text>
+
+            <!-- TODO: add breakpoint image sizes w/o sidebar -->
+
+          </xsl:attribute>
+
+          <!-- img (fallback) 'src' attribute -->
+          <xsl:attribute name="src">
+            <xsl:value-of select="$baseurl" />
+            <xsl:text>-</xsl:text>
+            <xsl:value-of select="$sizes[last()]" />
+            <xsl:text>.</xsl:text>
+            <xsl:value-of select="$suffix" />
+          </xsl:attribute>
+
+          <!-- copy remaining img attributes -->
+          <xsl:apply-templates select="@*[local-name() != 'src']" />
+
+        </img>
 
       </xsl:otherwise><!-- /not(starts-with(@src, '//')) -->
     </xsl:choose>

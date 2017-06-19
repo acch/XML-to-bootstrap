@@ -41,7 +41,7 @@
   <!-- social links -->
   <option name="footer.sociallinks">
     <link rel="license" href="//creativecommons.org/licenses/by/4.0/"><icon src="fa-creative-commons" /></link>
-    <link href="//github.com/acch"><icon src="fa-github" /></link>
+    <link href="//github.com"><icon src="fa-github" /></link>
     <link href="//ibm.com/developerWorks"><img src="dW_black.png" alt="developerWorks" /></link>
     <link href="//github.com/acch/feedback"><icon src="fa-envelope" /></link>
   </option>
@@ -54,8 +54,8 @@
 
   <!-- the following options will be exported to Grunt -->
   <export type="grunt">
-    <option name="responiveImageSize">390</option>
     <option name="responiveImageSize">510</option>
+    <option name="responiveImageSize">610</option>
     <option name="responiveImageSize">730</option>
   </export>
 
