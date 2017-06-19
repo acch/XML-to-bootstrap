@@ -300,7 +300,7 @@
         <!-- internal resource -->
 
         <!-- options -->
-        <xsl:variable name="sizes" select="/site/options/export[@type = 'grunt']/option[@name = 'responiveImageSize']" />
+        <xsl:variable name="sizes" select="/site/options/export[@type = 'grunt']/option[@name = 'responive_image.size']" />
 
         <!-- compute base URL -->
         <xsl:variable name="baseurl">
@@ -373,10 +373,10 @@
             <!-- breakpoint image sizes depending on sidebar -->
             <xsl:choose>
               <xsl:when test="../*[@id]">
-                <xsl:text>(min-width: 1200px) 730px, (min-width: 992px) 610px, (min-width: 768px) 450px, (min-width: 576px) 510px, 100vw</xsl:text>
+                <xsl:value-of select="$img.sizes.sidebar" />
               </xsl:when>
               <xsl:otherwise>
-                <xsl:text>(min-width: 1200px) 730px, (min-width: 992px) 770px, (min-width: 768px) 690px, (min-width: 576px) 510px, 100vw</xsl:text>
+                <xsl:value-of select="$img.sizes" />
               </xsl:otherwise>
             </xsl:choose>
 

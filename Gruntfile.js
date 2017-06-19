@@ -358,7 +358,8 @@ module.exports = function(grunt) {
     for (var i = 0; gruntopts[i]; ++i) {
       // add options to temp configuration object
       switch (gruntopts[i].name) {
-        case 'responiveImageSize':
+
+        case 'responive_image.size':
           config.responsive_images.options.sizes.push({
             name: gruntopts[i]['$t'],
             width: gruntopts[i]['$t']

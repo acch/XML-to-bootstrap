@@ -41,6 +41,8 @@
   <xsl:variable name="grid.textcolumn">col-12 col-lg-10 col-xl-8</xsl:variable>
   <xsl:variable name="grid.sidebar.textcolumn">col-12</xsl:variable>
   <xsl:variable name="grid.cardcolumn">col-12 col-md-6 col-lg-4</xsl:variable>
+  <xsl:variable name="img.sizes">(min-width: 1200px) 730px, (min-width: 992px) 770px, (min-width: 768px) 690px, (min-width: 576px) 510px, 100vw</xsl:variable>
+  <xsl:variable name="img.sizes.sidebar">(min-width: 1200px) 730px, (min-width: 992px) 610px, (min-width: 768px) 450px, (min-width: 576px) 510px, 100vw</xsl:variable>
 
   <!-- define meta tags -->
   <xsl:variable name="meta.noindex">

@@ -54,10 +54,10 @@
 
   <!-- the following options will be exported to Grunt -->
   <export type="grunt">
-    <option name="responiveImageSize">510</option>
-    <option name="responiveImageSize">610</option>
-    <!--option name="responiveImageSize">730</option-->
-    <option name="responiveImageSize">770</option>
+    <option name="responive_image.size">510</option>
+    <option name="responive_image.size">610</option>
+    <!--option name="responive_image.size">730</option-->
+    <option name="responive_image.size">770</option>
   </export>
 
 </options>
