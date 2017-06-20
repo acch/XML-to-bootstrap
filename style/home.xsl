@@ -18,7 +18,7 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <!-- this template generates HTML code for the start (home) page -->
-  
+
   <xsl:template name="home">
 
     <!-- generate home page -->
@@ -73,167 +73,212 @@
     </xsl:call-template>
 
     <!-- section cards -->
-    <div class="row text-center">
+    <div class="row text-sm-center">
 
       <!-- responsive column -->
       <div class="{$grid.cardcolumn}">
 
-        <!-- articles card -->
-        <div class="card card-block">
+        <!-- articles card as flexbox container -->
+        <div class="[ card card-block ] [ d-flex flex-row flex-sm-column justify-content-between align-items-center ]">
 
-          <!-- card heading -->
-          <h2 class="card-title">
-            <xsl:choose>
-              <xsl:when test="$articles">
-                <a class="x2b-alt-lnk" href="{$site.url}articles.html">
+          <!-- flexbox item -->
+          <div>
+
+            <!-- card heading -->
+            <h2 class="card-title">
+              <xsl:choose>
+                <xsl:when test="$articles">
+                  <a class="x2b-alt-lnk" href="{$site.url}articles.html">
+                    <xsl:value-of select="/site/articles/title" />
+                  </a>
+                </xsl:when>
+                <xsl:otherwise>
                   <xsl:value-of select="/site/articles/title" />
-                </a>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:value-of select="/site/articles/title" />
-              </xsl:otherwise>
-            </xsl:choose>
-          </h2>
+                </xsl:otherwise>
+              </xsl:choose>
+            </h2>
 
-          <!-- card body -->
-          <p class="card-text">
-            <xsl:choose>
-              <xsl:when test="$articles">
-                <xsl:value-of select="/site/articles/introduction" />
-              </xsl:when>
-              <xsl:otherwise>
-                <span class="text-muted">
-                  <xsl:text>Coming soon&#8230;</xsl:text>
-                </span>
-              </xsl:otherwise>
-            </xsl:choose>
-          </p>
+            <!-- card body -->
+            <p class="card-text">
+              <xsl:choose>
+                <xsl:when test="$articles">
+                  <xsl:value-of select="/site/articles/introduction" />
+                </xsl:when>
+                <xsl:otherwise>
+                  <span class="text-muted">
+                    <xsl:text>Coming soon&#8230;</xsl:text>
+                  </span>
+                </xsl:otherwise>
+              </xsl:choose>
+            </p>
 
-          <!-- icon -->
-          <xsl:call-template name="component.icon.button">
-            <xsl:with-param name="title">
-              <xsl:if test="$articles">
-                <xsl:value-of select="/site/articles/title" />
-              </xsl:if>
-            </xsl:with-param>
-            <xsl:with-param name="href">
-              <xsl:if test="$articles">
-                <xsl:value-of select="$site.url" />
-                <xsl:text>articles.html</xsl:text>
-              </xsl:if>
-            </xsl:with-param>
-            <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
-            <xsl:with-param name="size">fa-3x</xsl:with-param>
-            <xsl:with-param name="disabled" select="not($articles)" />
-          </xsl:call-template>
+          </div>
+
+          <!-- flexbox divider -->
+          <div class="m-2">
+            <xsl:text> </xsl:text><!-- prevent tag from collapsing -->
+          </div>
+
+          <!-- flexbox item -->
+          <div>
+
+            <!-- icon -->
+            <xsl:call-template name="component.icon.button">
+              <xsl:with-param name="title">
+                <xsl:if test="$articles">
+                  <xsl:value-of select="/site/articles/title" />
+                </xsl:if>
+              </xsl:with-param>
+              <xsl:with-param name="href">
+                <xsl:if test="$articles">
+                  <xsl:value-of select="$site.url" />
+                  <xsl:text>articles.html</xsl:text>
+                </xsl:if>
+              </xsl:with-param>
+              <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
+              <xsl:with-param name="size">fa-3x</xsl:with-param>
+              <xsl:with-param name="disabled" select="not($articles)" />
+            </xsl:call-template>
+
+          </div>
 
         </div><!-- /card -->
 
       </div><!-- /column -->
       <div class="{$grid.cardcolumn}">
 
-        <!-- projects card -->
-        <div class="card card-block">
+        <!-- projects card as flexbox container -->
+        <div class="[ card card-block ] [ d-flex flex-row flex-sm-column justify-content-between align-items-center ]">
 
-          <!-- card heading -->
-          <h2 class="card-title">
-            <xsl:choose>
-              <xsl:when test="$projects">
-                <a class="x2b-alt-lnk" href="{$site.url}projects.html">
+          <!-- flexbox item -->
+          <div>
+
+            <!-- card heading -->
+            <h2 class="card-title">
+              <xsl:choose>
+                <xsl:when test="$projects">
+                  <a class="x2b-alt-lnk" href="{$site.url}projects.html">
+                    <xsl:value-of select="/site/projects/title" />
+                  </a>
+                </xsl:when>
+                <xsl:otherwise>
                   <xsl:value-of select="/site/projects/title" />
-                </a>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:value-of select="/site/projects/title" />
-              </xsl:otherwise>
-            </xsl:choose>
-          </h2>
+                </xsl:otherwise>
+              </xsl:choose>
+            </h2>
 
-          <!-- card body -->
-          <p class="card-text">
-            <xsl:choose>
-              <xsl:when test="$projects">
-                <xsl:value-of select="/site/projects/introduction" />
-              </xsl:when>
-              <xsl:otherwise>
-                <span class="text-muted">
-                  <xsl:text>Coming soon&#8230;</xsl:text>
-                </span>
-              </xsl:otherwise>
-            </xsl:choose>
-          </p>
+            <!-- card body -->
+            <p class="card-text">
+              <xsl:choose>
+                <xsl:when test="$projects">
+                  <xsl:value-of select="/site/projects/introduction" />
+                </xsl:when>
+                <xsl:otherwise>
+                  <span class="text-muted">
+                    <xsl:text>Coming soon&#8230;</xsl:text>
+                  </span>
+                </xsl:otherwise>
+              </xsl:choose>
+            </p>
 
-          <!-- icon -->
-          <xsl:call-template name="component.icon.button">
-            <xsl:with-param name="title">
-              <xsl:if test="$projects">
-                <xsl:value-of select="/site/projects/title" />
-              </xsl:if>
-            </xsl:with-param>
-            <xsl:with-param name="href">
-              <xsl:if test="$projects">
-                <xsl:value-of select="$site.url" />
-                <xsl:text>projects.html</xsl:text>
-              </xsl:if>
-            </xsl:with-param>
-            <xsl:with-param name="icon">fa-rocket</xsl:with-param>
-            <xsl:with-param name="size">fa-3x</xsl:with-param>
-            <xsl:with-param name="disabled" select="not($projects)" />
-          </xsl:call-template>
+          </div>
+
+          <!-- flexbox divider -->
+          <div class="m-2">
+            <xsl:text> </xsl:text><!-- prevent tag from collapsing -->
+          </div>
+
+          <!-- flexbox item -->
+          <div>
+
+            <!-- icon -->
+            <xsl:call-template name="component.icon.button">
+              <xsl:with-param name="title">
+                <xsl:if test="$projects">
+                  <xsl:value-of select="/site/projects/title" />
+                </xsl:if>
+              </xsl:with-param>
+              <xsl:with-param name="href">
+                <xsl:if test="$projects">
+                  <xsl:value-of select="$site.url" />
+                  <xsl:text>projects.html</xsl:text>
+                </xsl:if>
+              </xsl:with-param>
+              <xsl:with-param name="icon">fa-rocket</xsl:with-param>
+              <xsl:with-param name="size">fa-3x</xsl:with-param>
+              <xsl:with-param name="disabled" select="not($projects)" />
+            </xsl:call-template>
+
+          </div>
 
         </div><!-- /card -->
 
       </div><!-- /column -->
       <div class="{$grid.cardcolumn}">
 
-        <!-- galleries card -->
-        <div class="card card-block">
+        <!-- galleries card as flexbox container -->
+        <div class="[ card card-block ] [ d-flex flex-row flex-sm-column justify-content-between align-items-center ]">
 
-          <!-- card heading -->
-          <h2 class="card-title">
-            <xsl:choose>
-              <xsl:when test="$galleries">
-                <a class="x2b-alt-lnk" href="{$site.url}galleries.html">
+          <!-- flex item -->
+          <div>
+
+            <!-- card heading -->
+            <h2 class="card-title">
+              <xsl:choose>
+                <xsl:when test="$galleries">
+                  <a class="x2b-alt-lnk" href="{$site.url}galleries.html">
+                    <xsl:value-of select="/site/galleries/title" />
+                  </a>
+                </xsl:when>
+                <xsl:otherwise>
                   <xsl:value-of select="/site/galleries/title" />
-                </a>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:value-of select="/site/galleries/title" />
-              </xsl:otherwise>
-            </xsl:choose>
-          </h2>
+                </xsl:otherwise>
+              </xsl:choose>
+            </h2>
 
-          <!-- card body -->
-          <p class="card-text">
-            <xsl:choose>
-              <xsl:when test="$galleries">
-                <xsl:value-of select="/site/galleries/introduction" />
-              </xsl:when>
-              <xsl:otherwise>
-                <span class="text-muted">
-                  <xsl:text>Coming soon&#8230;</xsl:text>
-                </span>
-              </xsl:otherwise>
-            </xsl:choose>
-          </p>
+            <!-- card body -->
+            <p class="card-text">
+              <xsl:choose>
+                <xsl:when test="$galleries">
+                  <xsl:value-of select="/site/galleries/introduction" />
+                </xsl:when>
+                <xsl:otherwise>
+                  <span class="text-muted">
+                    <xsl:text>Coming soon&#8230;</xsl:text>
+                  </span>
+                </xsl:otherwise>
+              </xsl:choose>
+            </p>
 
-          <!-- icon -->
-          <xsl:call-template name="component.icon.button">
-            <xsl:with-param name="title">
-              <xsl:if test="$galleries">
-                <xsl:value-of select="/site/galleries/title" />
-              </xsl:if>
-            </xsl:with-param>
-            <xsl:with-param name="href">
-              <xsl:if test="$galleries">
-                <xsl:value-of select="$site.url" />
-                <xsl:text>galleries.html</xsl:text>
-              </xsl:if>
-            </xsl:with-param>
-            <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
-            <xsl:with-param name="size">fa-3x</xsl:with-param>
-            <xsl:with-param name="disabled" select="not($galleries)" />
-          </xsl:call-template>
+          </div><!-- /flex item -->
+
+          <!-- flexbox divider -->
+          <div class="m-2">
+            <xsl:text> </xsl:text><!-- prevent tag from collapsing -->
+          </div>
+
+          <!-- flex item -->
+          <div>
+
+            <!-- icon -->
+            <xsl:call-template name="component.icon.button">
+              <xsl:with-param name="title">
+                <xsl:if test="$galleries">
+                  <xsl:value-of select="/site/galleries/title" />
+                </xsl:if>
+              </xsl:with-param>
+              <xsl:with-param name="href">
+                <xsl:if test="$galleries">
+                  <xsl:value-of select="$site.url" />
+                  <xsl:text>galleries.html</xsl:text>
+                </xsl:if>
+              </xsl:with-param>
+              <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
+              <xsl:with-param name="size">fa-3x</xsl:with-param>
+              <xsl:with-param name="disabled" select="not($galleries)" />
+            </xsl:call-template>
+
+          </div><!-- /flex item -->
 
         </div><!-- /card -->
 
