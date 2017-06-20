@@ -20,6 +20,7 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <!-- this template generates XML code for the sitemap -->
+  
   <xsl:template name="sitemap">
 
     <!-- generate sitemap.xml -->

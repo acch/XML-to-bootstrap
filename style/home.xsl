@@ -18,6 +18,7 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <!-- this template generates HTML code for the start (home) page -->
+  
   <xsl:template name="home">
 
     <!-- generate home page -->

@@ -21,6 +21,7 @@
 
   <!-- this template generates a JSON file holding options used in javascript
        code. the options are defined in the XML document. -->
+       
   <xsl:template name="options">
 
     <!-- generate JavaScript (.json) options -->
