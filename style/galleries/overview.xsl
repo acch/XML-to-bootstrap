@@ -25,8 +25,8 @@
 
   <xsl:template match="galleries">
 
-    <!-- navigation breadcrumbs -->
-    <xsl:call-template name="element.breadcrumbs">
+    <!-- navigation breadcrumb -->
+    <xsl:call-template name="component.breadcrumb">
       <xsl:with-param name="current" select="title" />
     </xsl:call-template>
 

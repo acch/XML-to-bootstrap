@@ -32,8 +32,8 @@
       </xsl:call-template>
     </xsl:variable>
 
-    <!-- navigation breadcrumbs -->
-    <xsl:call-template name="element.breadcrumbs">
+    <!-- navigation breadcrumb -->
+    <xsl:call-template name="component.breadcrumb">
       <xsl:with-param name="parent">
         <page title="{/site/galleries/title}" href="{$site.url}galleries.html" />
       </xsl:with-param>
@@ -47,7 +47,7 @@
     <article itemscope="itemscope" itemtype="http://schema.org/CreativeWork">
 
       <!-- add meta tags -->
-      <xsl:call-template name="element.data.meta">
+      <xsl:call-template name="component.microdata">
         <xsl:with-param name="title" select="title" />
         <xsl:with-param name="subtitle" select="subtitle" />
       </xsl:call-template>
@@ -95,7 +95,7 @@
     </xsl:variable>
 
     <!-- pager navigation -->
-    <xsl:call-template name="element.pager">
+    <xsl:call-template name="component.pager">
 
       <!-- previous gallery -->
       <xsl:with-param name="prev">

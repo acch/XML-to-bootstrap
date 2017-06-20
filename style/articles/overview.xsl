@@ -25,8 +25,8 @@
 
   <xsl:template match="articles">
 
-    <!-- navigation breadcrumbs -->
-    <xsl:call-template name="element.breadcrumbs">
+    <!-- navigation breadcrumb -->
+    <xsl:call-template name="component.breadcrumb">
       <xsl:with-param name="current" select="title" />
     </xsl:call-template>
 
@@ -118,7 +118,7 @@
                   <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
                   <xsl:value-of select="title" />
                   <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
-                  <xsl:call-template name="element.icon">
+                  <xsl:call-template name="component.icon">
                     <xsl:with-param name="icon">fa-arrow-right</xsl:with-param>
                   </xsl:call-template>
                 </a>

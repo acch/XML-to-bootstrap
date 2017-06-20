@@ -65,7 +65,7 @@
                 <a class="nav-link" href="{$site.url}articles.html">
 
                   <!-- icon and title -->
-                  <xsl:call-template name="element.icon">
+                  <xsl:call-template name="component.icon">
                     <xsl:with-param name="icon">fa-newspaper-o</xsl:with-param>
                   </xsl:call-template>
                   <xsl:text>&#160;</xsl:text>
@@ -93,7 +93,7 @@
                 <a class="nav-link" href="{$site.url}projects.html">
 
                   <!-- icon and title -->
-                  <xsl:call-template name="element.icon">
+                  <xsl:call-template name="component.icon">
                     <xsl:with-param name="icon">fa-rocket</xsl:with-param>
                   </xsl:call-template>
                   <xsl:text>&#160;</xsl:text>
@@ -121,7 +121,7 @@
                 <a class="nav-link" href="{$site.url}galleries.html">
 
                   <!-- icon and title -->
-                  <xsl:call-template name="element.icon">
+                  <xsl:call-template name="component.icon">
                     <xsl:with-param name="icon">fa-picture-o</xsl:with-param>
                   </xsl:call-template>
                   <xsl:text>&#160;</xsl:text>

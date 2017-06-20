@@ -20,7 +20,7 @@
   <!-- import all other templates -->
   <xsl:import href="common.xsl" />
   <xsl:import href="html.xsl" />
-  <xsl:import href="elements.xsl" />
+  <xsl:import href="components.xsl" />
 
   <xsl:import href="home.xsl" />
   <xsl:import href="articles.xsl" />

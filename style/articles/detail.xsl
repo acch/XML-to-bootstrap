@@ -32,8 +32,8 @@
       </xsl:call-template>
     </xsl:variable>
 
-    <!-- navigation breadcrumbs -->
-    <xsl:call-template name="element.breadcrumbs">
+    <!-- navigation breadcrumb -->
+    <xsl:call-template name="component.breadcrumb">
       <xsl:with-param name="parent">
         <page title="{/site/articles/title}" href="{$site.url}articles.html" />
       </xsl:with-param>
@@ -44,7 +44,7 @@
     <hr class="invisible" />
 
     <!-- put content inside a text column -->
-    <xsl:call-template name="element.textcolumn">
+    <xsl:call-template name="component.textcolumn">
       <xsl:with-param name="sidebar" select="content/*[@id]" />
       <xsl:with-param name="content">
 
@@ -52,7 +52,7 @@
         <article itemscope="itemscope" itemtype="http://schema.org/Article">
 
           <!-- add meta tags -->
-          <xsl:call-template name="element.data.meta">
+          <xsl:call-template name="component.microdata">
             <xsl:with-param name="title" select="title" />
             <xsl:with-param name="subtitle" select="subtitle" />
           </xsl:call-template>
@@ -97,7 +97,7 @@
         </xsl:variable>
 
         <!-- pager navigation -->
-        <xsl:call-template name="element.pager">
+        <xsl:call-template name="component.pager">
 
           <!-- previous article -->
           <xsl:with-param name="prev">

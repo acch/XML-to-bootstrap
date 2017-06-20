@@ -42,7 +42,7 @@
   <xsl:template match="home">
 
     <!-- put content inside a text column -->
-    <xsl:call-template name="element.textcolumn">
+    <xsl:call-template name="component.textcolumn">
       <xsl:with-param name="content">
 
         <!-- introduction -->
@@ -110,7 +110,7 @@
           </p>
 
           <!-- icon -->
-          <xsl:call-template name="element.icon.button">
+          <xsl:call-template name="component.icon.button">
             <xsl:with-param name="title">
               <xsl:if test="$articles">
                 <xsl:value-of select="/site/articles/title" />
@@ -164,7 +164,7 @@
           </p>
 
           <!-- icon -->
-          <xsl:call-template name="element.icon.button">
+          <xsl:call-template name="component.icon.button">
             <xsl:with-param name="title">
               <xsl:if test="$projects">
                 <xsl:value-of select="/site/projects/title" />
@@ -218,7 +218,7 @@
           </p>
 
           <!-- icon -->
-          <xsl:call-template name="element.icon.button">
+          <xsl:call-template name="component.icon.button">
             <xsl:with-param name="title">
               <xsl:if test="$galleries">
                 <xsl:value-of select="/site/galleries/title" />

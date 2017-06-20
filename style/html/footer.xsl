@@ -60,7 +60,7 @@
             <xsl:when test="icon">
 
               <!-- generate icon -->
-              <xsl:call-template name="element.icon">
+              <xsl:call-template name="component.icon">
                 <xsl:with-param name="icon" select="icon/@src" />
                 <xsl:with-param name="size">fa-2x</xsl:with-param>
               </xsl:call-template>
@@ -69,7 +69,7 @@
             <xsl:when test="img">
 
               <!-- generate (non-responsive) image -->
-              <xsl:call-template name="element.image">
+              <xsl:call-template name="component.image">
                 <xsl:with-param name="img" select="img" />
               </xsl:call-template>
 
