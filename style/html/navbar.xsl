@@ -18,6 +18,7 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <!-- this template generates HTML code for the fixed-top navbar -->
+
   <xsl:template name="html.navbar">
     <xsl:param name="title" /><!-- string -->
 
