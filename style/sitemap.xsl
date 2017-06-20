@@ -20,7 +20,7 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <!-- this template generates XML code for the sitemap -->
-  
+
   <xsl:template name="sitemap">
 
     <!-- generate sitemap.xml -->
@@ -41,88 +41,19 @@
           </loc>
         </url>
 
-        <!-- index article pages -->
+        <!-- index article pages if enabled -->
         <xsl:if test="$articles">
-          <xsl:for-each select="/site/articles/article[not(@draft)]">
-
-            <!-- format filename -->
-            <xsl:variable name="filename">
-              <xsl:call-template name="format.filename">
-                <xsl:with-param name="string" select="title" />
-              </xsl:call-template>
-            </xsl:variable>
-
-            <!-- article detail page URL -->
-            <url>
-              <loc>
-                <xsl:text>https:</xsl:text>
-                <xsl:value-of select="$site.url" />
-                <xsl:value-of select="$article.path" />
-                <xsl:value-of select="$filename" />
-                <xsl:text>.html</xsl:text>
-              </loc>
-              <lastmod>
-                <xsl:value-of select="date" />
-              </lastmod>
-            </url>
-
-          </xsl:for-each>
+          <xsl:call-template name="articles.sitemap" />
         </xsl:if>
 
-        <!-- index project pages -->
+        <!-- index project pages if enabled -->
         <xsl:if test="$projects">
-          <xsl:for-each select="/site/projects/project[not(@draft)]">
-
-            <!-- format filename -->
-            <xsl:variable name="filename">
-              <xsl:call-template name="format.filename">
-                <xsl:with-param name="string" select="title" />
-              </xsl:call-template>
-            </xsl:variable>
-
-            <!-- project detail page URL -->
-            <url>
-              <loc>
-                <xsl:text>https:</xsl:text>
-                <xsl:value-of select="$site.url" />
-                <xsl:value-of select="$project.path" />
-                <xsl:value-of select="$filename" />
-                <xsl:text>.html</xsl:text>
-              </loc>
-              <lastmod>
-                <xsl:value-of select="date" />
-              </lastmod>
-            </url>
-
-          </xsl:for-each>
+          <xsl:call-template name="projects.sitemap" />
         </xsl:if>
 
-        <!-- index gallery pages -->
+        <!-- index gallery pages if enabled -->
         <xsl:if test="$galleries">
-          <xsl:for-each select="/site/galleries/gallery[not(@draft)]">
-
-            <!-- format filename -->
-            <xsl:variable name="filename">
-              <xsl:call-template name="format.filename">
-                <xsl:with-param name="string" select="title" />
-              </xsl:call-template>
-            </xsl:variable>
-
-            <!-- article detail page URL -->
-            <url>
-              <loc>
-                <xsl:text>https:</xsl:text>
-                <xsl:value-of select="$site.url" />
-                <xsl:value-of select="$gallery.path" />
-                <xsl:value-of select="$filename" />
-                <xsl:text>.html</xsl:text>
-              </loc>
-              <lastmod>
-                <xsl:value-of select="date" />
-              </lastmod>
-            </url>
-
-          </xsl:for-each>
+          <xsl:call-template name="galleries.sitemap" />
         </xsl:if>
 
       </urlset>

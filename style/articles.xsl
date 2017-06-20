@@ -22,6 +22,7 @@
   <!-- import other article templates -->
   <xsl:import href="articles/overview.xsl" />
   <xsl:import href="articles/detail.xsl" />
+  <xsl:import href="articles/sitemap.xsl" />
 
   <!-- generate article path -->
   <xsl:variable name="article.path">

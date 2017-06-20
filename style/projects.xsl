@@ -22,6 +22,7 @@
   <!-- import other project templates -->
   <xsl:import href="projects/overview.xsl" />
   <xsl:import href="projects/detail.xsl" />
+  <xsl:import href="projects/sitemap.xsl" />
 
   <!-- generate project path -->
   <xsl:variable name="project.path">

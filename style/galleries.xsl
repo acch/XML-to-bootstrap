@@ -22,6 +22,7 @@
   <!-- import other gallery templates -->
   <xsl:import href="galleries/overview.xsl" />
   <xsl:import href="galleries/detail.xsl" />
+  <xsl:import href="galleries/sitemap.xsl" />
 
   <!-- generate gallery path -->
   <xsl:variable name="gallery.path">
