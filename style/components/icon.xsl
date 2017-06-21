@@ -77,7 +77,7 @@
     </xsl:variable>
 
     <!-- Bootstrap button with fontawesome icon inside -->
-    <a class="[ btn {$btn.class} ] mx-auto" role="button">
+    <a class="btn {$btn.class}" role="button">
 
       <!-- optional title -->
       <xsl:if test="$title != ''">
