@@ -295,7 +295,7 @@ img:not(.nonresponsive) {
 
 
 /* -------------------- *\
-       Anchor styles
+      Heading styles
 \* -------------------- */
 
 .anchorjs-link {
@@ -314,6 +314,14 @@ h6[id]::before {
   height: ($navbar-height + $spacer-y);
   margin-top: (-$navbar-height - $spacer-y);
   visibility: hidden;
+}
+
+h2:target,
+h3:target,
+h4:target,
+h5:target,
+h6:target, {
+  text-shadow: $shadow;
 }
 
 h2:not(:first-child) {
