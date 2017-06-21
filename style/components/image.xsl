@@ -158,6 +158,8 @@
 
       <!-- (non-responsive) image element -->
       <img class="nonresponsive mx-1">
+
+        <!-- img 'src' attribute -->
         <xsl:attribute name="src">
 
           <!-- site (static) URL -->
@@ -170,9 +172,10 @@
 
         <!-- copy remaining image attributes -->
         <xsl:apply-templates select="$image/@*[local-name() != 'src']" />
+
       </img>
 
-    </span>
+    </span><!-- /clrzd -->
 
   </xsl:template>
 

@@ -17,7 +17,7 @@
 
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-  <!-- replace headings with anchored equivalent -->
+<!-- replace headings with anchored equivalent -->
 
   <xsl:template match="h2|h3|h4|h5|h6">
 

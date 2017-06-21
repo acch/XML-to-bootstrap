@@ -19,12 +19,12 @@
 
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-  <!-- this template generates a JSON file holding options used in javascript
-       code. the options are defined in the XML document. -->
-       
+<!-- this template generates a JSON file holding options used in JavaScript
+     code. the options are defined in the XML document. -->
+
   <xsl:template name="options">
 
-    <!-- generate JavaScript (.json) options -->
+    <!-- generate JavaScript (JSON) file -->
     <ext:document
       href="../js/options.json"
       method="text"
@@ -32,10 +32,13 @@
       encoding="utf-8"
       indent="no">
 
+      <!-- options object -->
       <xsl:text>var Options = { </xsl:text>
 
-      <!-- compute object definition -->
+      <!-- for all JSON options -->
       <xsl:for-each select="/site/options/export[@type = 'json']/option">
+
+        <!-- compute definition -->
         <xsl:text>"</xsl:text>
         <xsl:value-of select="@name" />
         <xsl:text>": </xsl:text>

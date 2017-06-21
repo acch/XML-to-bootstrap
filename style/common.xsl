@@ -64,9 +64,7 @@
   <xsl:variable name="site.url">
 
     <!-- get base URL from options -->
-    <xsl:variable name="url">
-      <xsl:value-of select="/site/options/option[@name = 'site.url'][@devmode = $mode]" />
-    </xsl:variable>
+    <xsl:variable name="url" select="/site/options/option[@name = 'site.url'][@devmode = $mode]" />
 
     <!-- ensure URL has two leading slashes and one trailing slash -->
     <xsl:call-template name="format.url">
@@ -79,9 +77,7 @@
   <xsl:variable name="site.assets.url">
 
     <!-- get static URL from options -->
-    <xsl:variable name="url">
-      <xsl:value-of select="/site/options/option[@name = 'site.assets.url'][@devmode = $mode]" />
-    </xsl:variable>
+    <xsl:variable name="url" select="/site/options/option[@name = 'site.assets.url'][@devmode = $mode]" />
 
     <!-- ensure URL has two leading slashes and one trailing slash -->
     <xsl:call-template name="format.url">

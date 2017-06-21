@@ -30,7 +30,7 @@
     <!-- check if pager is necessary -->
     <xsl:if test="$next.page or $prev.page">
 
-      <!-- Bootstrap buttons used as pager -->
+      <!-- flexbox container -->
       <nav class="d-flex">
 
         <!-- check if there is a previous page -->
@@ -61,7 +61,7 @@
 
         </xsl:if>
 
-      </nav><!-- /d-flex -->
+      </nav>
 
     </xsl:if>
 

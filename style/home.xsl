@@ -17,7 +17,7 @@
 
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-  <!-- this template generates HTML code for the start (home) page -->
+<!-- this template generates HTML code for the start (home) page -->
 
   <xsl:template name="home">
 
@@ -112,7 +112,7 @@
               </xsl:choose>
             </p>
 
-          </div>
+          </div><!-- /flex item -->
 
           <!-- flexbox divider -->
           <div class="m-2">
@@ -140,7 +140,7 @@
               <xsl:with-param name="disabled" select="not($articles)" />
             </xsl:call-template>
 
-          </div>
+          </div><!-- /flex item -->
 
         </div><!-- /card -->
 
@@ -181,7 +181,7 @@
               </xsl:choose>
             </p>
 
-          </div>
+          </div><!-- /flex item -->
 
           <!-- flexbox divider -->
           <div class="m-2">
@@ -209,7 +209,7 @@
               <xsl:with-param name="disabled" select="not($projects)" />
             </xsl:call-template>
 
-          </div>
+          </div><!-- /flex item -->
 
         </div><!-- /card -->
 
