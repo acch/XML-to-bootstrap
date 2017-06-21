@@ -3,35 +3,35 @@
   <url>
     <loc>https://achim-christ.de/XML-to-bootstrap/</loc>
   </url>
-  <url>
+  <url xmlns="">
     <loc>https://achim-christ.de/XML-to-bootstrap/article/second-entry.html</loc>
     <lastmod>2015-01-12</lastmod>
   </url>
-  <url>
+  <url xmlns="">
     <loc>https://achim-christ.de/XML-to-bootstrap/article/first-entry.html</loc>
     <lastmod>2014-03-01</lastmod>
   </url>
-  <url>
+  <url xmlns="">
     <loc>https://achim-christ.de/XML-to-bootstrap/article/entry-number-three.html</loc>
     <lastmod>2015-02-27</lastmod>
   </url>
-  <url>
+  <url xmlns="">
     <loc>https://achim-christ.de/XML-to-bootstrap/article/the-fourth-entry.html</loc>
     <lastmod>2015-03-12</lastmod>
   </url>
-  <url>
+  <url xmlns="">
     <loc>https://achim-christ.de/XML-to-bootstrap/article/article-number-five.html</loc>
     <lastmod>2016-03-13</lastmod>
   </url>
-  <url>
+  <url xmlns="">
     <loc>https://achim-christ.de/XML-to-bootstrap/project/really-cool-project.html</loc>
     <lastmod>2013-06-19</lastmod>
   </url>
-  <url>
+  <url xmlns="">
     <loc>https://achim-christ.de/XML-to-bootstrap/project/another-cool-project.html</loc>
     <lastmod>2014-02-07</lastmod>
   </url>
-  <url>
+  <url xmlns="">
     <loc>https://achim-christ.de/XML-to-bootstrap/project/yet-another-project.html</loc>
     <lastmod>2014-07-02</lastmod>
   </url>
