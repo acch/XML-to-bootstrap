@@ -30,10 +30,26 @@
     <xsl:choose>
       <xsl:when test="starts-with(@src, '//') or starts-with(@src, 'http')">
 
-        <!-- external resource - copy element as is -->
-        <xsl:copy>
-          <xsl:apply-templates select="node()|@*" />
-        </xsl:copy>
+        <!-- external resource -->
+
+        <!-- copy img element -->
+        <img>
+
+          <!-- center img -->
+          <xsl:attribute name="class">
+            <xsl:text>d-block mx-auto</xsl:text>
+
+            <!-- copy remaining classes -->
+            <xsl:if test="@class">
+              <xsl:text> </xsl:text>
+              <xsl:value-of select="@class" />
+            </xsl:if>
+          </xsl:attribute>
+
+          <!-- copy remaining img attributes -->
+          <xsl:apply-templates select="@*[local-name() != 'class']" />
+
+        </img>
 
       </xsl:when>
       <xsl:otherwise><!-- not(starts-with(@src, '//')) and not(starts-with(@src, 'http')) -->
@@ -132,8 +148,19 @@
             <xsl:value-of select="$suffix" />
           </xsl:attribute>
 
+          <!-- center img -->
+          <xsl:attribute name="class">
+            <xsl:text>d-block mx-auto</xsl:text>
+
+            <!-- copy remaining classes -->
+            <xsl:if test="@class">
+              <xsl:text> </xsl:text>
+              <xsl:value-of select="@class" />
+            </xsl:if>
+          </xsl:attribute>
+
           <!-- copy remaining img attributes -->
-          <xsl:apply-templates select="@*[local-name() != 'src']" />
+          <xsl:apply-templates select="@*[local-name() != 'class' and local-name() != 'src']" />
 
         </img>
 
