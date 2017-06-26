@@ -218,6 +218,7 @@ footer {
 \* -------------------- */
 
 img:not(.nonresponsive) {
+  height: auto;
   margin-bottom: (1 * $spacer-y);
   width: 100%;
 }
@@ -321,7 +322,7 @@ h3:target,
 h4:target,
 h5:target,
 h6:target, {
-  text-shadow: $shadow;
+  color: $base-color-dark;
 }
 
 h2:not(:first-child) {
