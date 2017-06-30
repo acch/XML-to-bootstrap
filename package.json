@@ -1,10 +1,13 @@
 {
   "name": "XML-to-bootstrap",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Transforms a generic XML document into Bootstrap HTML pages",
   "author": "Achim Christ",
   "license": "MIT",
   "homepage": "https://github.com/acch/XML-to-bootstrap#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/acch/XML-to-bootstrap.git"
@@ -23,9 +26,9 @@
     "grunt-contrib-csslint": ">=2.0.0",
     "grunt-contrib-cssmin": ">=2.0.0",
     "grunt-contrib-htmlmin": ">=2.3.0",
-    "grunt-contrib-imagemin": ">=2.0.0",
+    "grunt-contrib-imagemin": ">=2.0.1",
     "grunt-contrib-uglify": ">=2.3.0",
-    "grunt-html": ">=8.4.0",
+    "grunt-html": ">=8.5.0",
     "grunt-newer": ">=1.3.0",
     "grunt-prettify": ">=0.4.0",
     "grunt-responsive-images": ">=1.10.1",
