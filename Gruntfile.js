@@ -38,6 +38,8 @@ module.exports = function(grunt) {
       tether:          'lib/tether'
     },
 
+    // TODO: init task (grunt_run: git submodule update --init)
+
     clean: {
       publish: [
         'css/*',
@@ -412,11 +414,11 @@ module.exports = function(grunt) {
 
   // no minification but linting (use this for development)
   grunt.registerTask('debug', [
+    'copy_samples',
     'xmlopts',
     'clean',
     'bower',
     'copy:publish',
-    'copy_samples',
     'xsltproc:dev',
     'concat',
     'sass',
@@ -432,11 +434,11 @@ module.exports = function(grunt) {
 
   // no linting but minification (use this for development)
   grunt.registerTask('default', [
+    'copy_samples',
     'xmlopts',
     'clean',
     'bower',
     'copy:publish',
-    'copy_samples',
     'xsltproc:dev',
     'concat',
     'uglify',
@@ -452,11 +454,11 @@ module.exports = function(grunt) {
 
   // no linting but minification (use this for production)
   grunt.registerTask('prod', [
+    'copy_samples',
     'xmlopts',
     'clean',
     'bower',
     'copy:publish',
-    'copy_samples',
     'xsltproc:prod',
     'concat',
     'uglify',
