@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "font-awesome": ">=4.7.0",
-    "headroom.js": "https://npmcdn.com/headroom.js@0.9.3/bower.zip",
+    "headroom.js": "https://github.com/WickyNilliams/headroom.js/files/950268/bower.zip",
     "jquery": ">=3.1.1",
     "tether": ">=1.4.0",
     "photoswipe": ">=4.1.1",
