@@ -426,6 +426,7 @@ module.exports = function(grunt) {
 
   // initialize submodules
   grunt.registerTask('init', [
+    'copy_samples',
     'exec:submodules',
     'subgrunt'
   ]);
