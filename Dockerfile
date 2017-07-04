@@ -44,9 +44,8 @@ COPY sass/customvars.scss /build/sass
 RUN grunt init
 
 # Populate and expose volumes
-COPY sass/ /build/sass
 COPY src/ /build/src
-VOLUME ["/build/src", "/build/sass", "/build/publish"]
+VOLUME ["/build/src", "/build/publish"]
 
 # Expose ports
 EXPOSE 8000
