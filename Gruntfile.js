@@ -41,8 +41,8 @@ module.exports = function(grunt) {
     exec: {
       submodules: {
         cmd: 'git submodule update --init \
-        && echo \'@import "customvars";\' >> modules/bootstrap/scss/_custom.scss \
-        && ln -s ../../../sass/customvars.scss modules/bootstrap/scss/'
+        && if ! grep -q customvars modules/bootstrap/scss/_custom.scss; then echo \'@import "customvars";\' >> modules/bootstrap/scss/_custom.scss; fi \
+        && ln -sf ../../../sass/customvars.scss modules/bootstrap/scss/'
       }
     },
 
