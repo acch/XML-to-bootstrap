@@ -40,8 +40,7 @@ RUN npm install \
 && bower install
 
 # Build custom Bootstrap theme
-COPY sass/sample/customvars.scss /build/sass/
-COPY sass/*.scss /build/sass/
+COPY sass/sample/customvars.scss sass/*.scss /build/sass/
 RUN grunt init
 
 # Populate and expose volumes
