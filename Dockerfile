@@ -18,6 +18,7 @@ RUN apt-get -qq update \
   openjdk-8-jre \
   python \
   xsltproc \
+&& npm install -g bower grunt-cli \
 && rm -rf /var/lib/apt/lists/*
 
 # Create non-root user
@@ -32,17 +33,15 @@ USER build
 WORKDIR /build
 
 # Get the code
-RUN git clone https://github.com/acch/XML-to-bootstrap.git . \
-&& git submodule update --init
-
-# TODO: optionally build custom bootstrap theme
-#RUN echo '@import "customvars";' >> modules/bootstrap/scss/_custom.scss \
-#&& ln -s ../../../sass/customvars.scss modules/bootstrap/scss/ \
-#&& npm install \
-#&& grunt dist
+RUN git clone https://github.com/acch/XML-to-bootstrap.git .
 
 # Install build tools
-RUN npm install
+RUN npm install \
+&& bower install
+
+# Build custom Bootstrap theme
+COPY sass/customvars.scss /build/sass
+RUN grunt init
 
 # Populate and expose volumes
 COPY sass/ /build/sass
@@ -53,5 +52,5 @@ VOLUME ["/build/src", "/build/sass", "/build/publish"]
 EXPOSE 8000
 
 # Declare Grunt as entrypoint
-ENTRYPOINT ["/build/node_modules/grunt/bin/grunt"]
+ENTRYPOINT ["grunt"]
 CMD ["default"]
