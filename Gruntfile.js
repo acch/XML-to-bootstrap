@@ -38,7 +38,19 @@ module.exports = function(grunt) {
       tether:          'lib/tether'
     },
 
-    // TODO: init task (grunt_run: git submodule update --init)
+    exec: {
+      submodules: {
+        cmd: 'git submodule update --init \
+        && echo '@import "customvars";' >> modules/bootstrap/scss/_custom.scss \
+        && ln -s ../../../sass/customvars.scss modules/bootstrap/scss/'
+      }
+    },
+
+    subgrunt: {
+      bootstrap: {
+        'modules/bootstrap': 'dist'
+      }
+    },
 
     clean: {
       publish: [
@@ -411,6 +423,13 @@ module.exports = function(grunt) {
       grunt.file.copy('src/sampleimg/', 'src/img/');
     }
   });
+
+  // initialize submodules
+  grunt.registerTask('init', [
+    'copy_samples',
+    'exec:submodules',
+    'subgrunt'
+  ]);
 
   // no minification but linting (use this for development)
   grunt.registerTask('debug', [

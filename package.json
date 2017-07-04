@@ -28,11 +28,13 @@
     "grunt-contrib-htmlmin": ">=2.3.0",
     "grunt-contrib-imagemin": ">=2.0.1",
     "grunt-contrib-uglify": ">=2.3.0",
+    "grunt-exec": ">=2.0.0",
     "grunt-html": ">=8.5.0",
     "grunt-newer": ">=1.3.0",
     "grunt-prettify": ">=0.4.0",
     "grunt-responsive-images": ">=1.10.1",
     "grunt-sass": ">=2.0.0",
+    "grunt-subgrunt": ">=1.2.0",
     "grunt-xsltproc": ">=0.6.1",
     "load-grunt-tasks": ">=3.5.2",
     "xml2json": ">=0.11.0"
