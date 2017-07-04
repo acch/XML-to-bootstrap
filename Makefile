@@ -7,7 +7,7 @@ default: build
 
 build:
 	$(DOCKER) pull $(DOCKER_BASE_NAME):$(DOCKER_BASE_VERSION)
-	$(DOCKER) build --no-cache -t $(DOCKER_IMAGE_NAME) .
+	$(DOCKER) build -t $(DOCKER_IMAGE_NAME) .
 
 push:
 	$(DOCKER) login
