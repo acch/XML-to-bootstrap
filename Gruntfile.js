@@ -29,7 +29,7 @@ module.exports = function(grunt) {
     // path definitions
     path: {
       anchor:          'lib/anchor-js',
-      bootstrap:       'modules/bootstrap/dist',
+      bootstrap:       'modules/bootstrap',
       fontawesome:     'lib/font-awesome',
       headroom:        'lib/headroom.js',
       jquery:          'lib/jquery',
@@ -41,8 +41,8 @@ module.exports = function(grunt) {
     exec: {
       submodules: {
         cmd: 'git submodule update --init \
-        && if ! grep -q customvars modules/bootstrap/scss/_custom.scss; then echo \'@import "customvars";\' >> modules/bootstrap/scss/_custom.scss; fi \
-        && ln -sf ../../../sass/customvars.scss modules/bootstrap/scss/'
+        && if ! grep -q customvars <%= path.bootstrap %>/scss/_custom.scss; then echo \'@import "customvars";\' >> <%= path.bootstrap %>/scss/_custom.scss; fi \
+        && ln -sf ../../../sass/customvars.scss <%= path.bootstrap %>/scss/'
       }
     },
 
@@ -88,7 +88,7 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: '<%= path.bootstrap %>',
+            cwd: '<%= path.bootstrap %>/dist',
             src: '**/bootstrap.min.css',
             dest: 'publish/css/'
           },
@@ -96,7 +96,7 @@ module.exports = function(grunt) {
             expand: true,
             flatten: true,
             nonull: true,
-            cwd: '<%= path.bootstrap %>',
+            cwd: '<%= path.bootstrap %>/dist',
             src: '**/bootstrap.min.js',
             dest: 'publish/js/'
           },
