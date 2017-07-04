@@ -41,7 +41,7 @@ module.exports = function(grunt) {
     exec: {
       submodules: {
         cmd: 'git submodule update --init \
-        && echo '@import "customvars";' >> modules/bootstrap/scss/_custom.scss \
+        && echo \'@import "customvars";\' >> modules/bootstrap/scss/_custom.scss \
         && ln -s ../../../sass/customvars.scss modules/bootstrap/scss/'
       }
     },
@@ -426,7 +426,6 @@ module.exports = function(grunt) {
 
   // initialize submodules
   grunt.registerTask('init', [
-    'copy_samples',
     'exec:submodules',
     'subgrunt'
   ]);
