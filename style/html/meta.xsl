@@ -55,12 +55,6 @@
         <xsl:if test="$page.title != ''">
           <xsl:value-of select="$page.title" />
 
-          <!-- optional subtitle -->
-          <xsl:if test="$page.subtitle != ''">
-            <xsl:text>: </xsl:text>
-            <xsl:value-of select="$page.subtitle" />
-          </xsl:if>
-
           <!-- separator -->
           <xsl:text> &#183; </xsl:text>
         </xsl:if>
@@ -71,7 +65,10 @@
       </title>
 
       <!-- generate meta elements -->
-      <xsl:call-template name="html.head.meta" />
+      <xsl:call-template name="html.head.meta">
+        <!-- subtitle as description -->
+        <xsl:with-param name="description" select="$page.subtitle" />
+      </xsl:call-template>
 
       <!-- copy additional meta tags directly -->
       <xsl:copy-of select="ext:node-set($meta)" />
@@ -100,12 +97,19 @@
 
   <!-- this template generates HTML code for meta elements in document head -->
   <xsl:template name="html.head.meta">
+    <xsl:param name="description" /><!-- string -->
 
     <!-- options -->
     <xsl:variable name="site.author" select="/site/options/option[@name = 'site.author']" />
 
     <!-- meta elements -->
     <meta charset="utf-8" />
+
+    <!-- optional description -->
+    <xsl:if test="$description != ''">
+      <meta name="description" content="{$description}" />
+    </xsl:if>
+
     <meta name="author" content="{$site.author}" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
