@@ -10,17 +10,19 @@ The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), 
 
 ### Features
 
-Take a look at the [Demo](http://achim-christ.de/XML-to-bootstrap/) site to learn how generated pages look like.
+Take a look at the [Demo](https://acch.github.io/XML-to-bootstrap/) site to learn how generated pages look like.
 
 - Produces clean, fast HTML5 code
 - Generates static web pages compatible with any web server
+- Compatible with [Netlify](https://www.netlify.com/) continuous deployment platform
 - Compatible with latest and greatest [Bootstrap](https://getbootstrap.com/) v4
 - Fully themable with custom Bootstrap builds
 - Uses [Schema.org](https://schema.org) microdata to optimize pages for search engines
+- Pre-built Docker images [available](https://hub.docker.com/r/acch/xml-to-bootstrap/) to get startet quickly
 
 ### Differentiation and limitations
 
-XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https://jekyllrb.com/), [Middleman](https://middlemanapp.com/), or [Pelican](http://blog.getpelican.com/). But as opposed to these projects, which provide flexible general purpose tools, XML-to-Bootstrap (currently) focuses on a single, very specific use case. It only generates a certain type of web page. If you're looking for something more customizable then I strongly suggest to check out Jekyll or [the like](https://www.staticgen.com/).
+XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https://jekyllrb.com/), [Middleman](https://middlemanapp.com/), or [Hugo](https://gohugo.io/). But as opposed to these projects, which provide flexible general purpose tools, XML-to-Bootstrap (currently) focuses on a single, very specific use case. It only generates a certain type of web page. If you're looking for something more customizable then I'd strongly suggest to check out Jekyll or [the like](https://www.staticgen.com/).
 
 ## Installation
 
@@ -52,20 +54,20 @@ XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https:/
    - Download the latest [release](https://github.com/acch/XML-to-bootstrap/releases/latest) and extract to a local directory
    - Clone the Git repository: `git clone https://github.com/acch/XML-to-bootstrap.git`
 
-3. Once code is downloaded, `cd` into the directory and install necessary prerequisites (including [Grunt](https://gruntjs.com/) and [Bower](https://bower.io/)):
+3. Once code is downloaded, `cd` into the directory and install necessary prerequisites (including [Grunt](https://gruntjs.com/)):
 
    ```
    # npm install
    # sudo npm install -g grunt-cli
    ```
 
-4. Bootstrap is integrated as a Git [submodule](https://git-scm.com/docs/git-submodule). Fetch it with the following command:
+4. Bootstrap is integrated as a Git [submodule](https://git-scm.com/docs/git-submodule). Fetch and build it with the following command:
 
    ```
-   # git submodule update --init
+   # grunt init
    ```
 
-5. With all prerequisites installed and submodules updated, build the project:
+5. With all prerequisites installed, build the project:
 
    ```
    # grunt
@@ -86,22 +88,16 @@ The installation can also be performed automatically by building a [Docker](http
    # cd XML-to-bootstrap && docker build -t x2b .
    ```
 
-2. The following command will run a container from the image, in turn building the project:
+2. The following command will run a container from the image, in turn building your project:
 
    ```
    # docker run --rm -v $(pwd)/src:/build/src -v $(pwd)/publish:/build/publish x2b
    ```
 
-   Any further arguments will be passed to Grunt directly. Thus, in order to build a debug version of the project simply run:
+   Any further arguments will be passed to Grunt directly. Thus, in order to build a debug version of your project simply run:
 
    ```
    # docker run --rm -v $(pwd)/src:/build/src -v $(pwd)/publish:/build/publish x2b debug
-   ```
-
-   If you've customized the Bootstrap theme then you need to make the `sass/` directory available to the container as well:
-
-   ```
-   # docker run --rm -v $(pwd)/src:/build/src -v $(pwd)/sass:/build/sass -v $(pwd)/publish:/build/publish x2b
    ```
 
    Grunt provides a minimal web server, which can be used to preview the results. To do so, run the following command and point your browser to [http://localhost:8000](http://localhost:8000):
@@ -111,6 +107,12 @@ The installation can also be performed automatically by building a [Docker](http
    ```
 
 3. After you've successfully built and run the demo pages you can get started with your own content. To do so, modify the XML files in the `src/` directory according to your needs. Your static web pages are available in the `publish/` directory after you've run a container to build them.
+
+4. Note that once you've customized the Bootstrap theme (by editing `sass/customvars.scss`) you'll need to (re-)build the image using:
+
+   ```
+   # docker build -t x2b .
+   ```
 
 ## Contents
 
@@ -141,13 +143,14 @@ The [Grunt](https://gruntjs.com/) task runner is used to build static web pages.
 
 Task | Description
 --- | ---
+init | Initializes Bootstrap submodule and build custom theme
 clean | Deletes previously generated output and temporary files
-default | Generates minified output with development URLs - use this for development
-debug | Skips minification and instead generates readable output - use this for development
-prod | Generates minified output with production URLs - use this for production
-connect | Start a minimal web server on port 8000 used for development
+default | Generates minified output with development URLs &mdash; use this for development
+debug | Skips minification and instead generates readable output &mdash; use this for development
+prod | Generates minified output with production URLs &mdash; use this for production
+connect | Start minimal web server on port 8000 used for development
 
-When populating the XML document with your own content, remember to use character entity numbers instead of names. Character entity names are not defined in XML. For example, `&nbsp;` will not work - you will need to use `&#160;` instead. Refer to the [HTML5 Reference](https://dev.w3.org/html5/html-author/charref) for a complete list with mappings.
+To get started with your own site simply modify the source files in `src/` directory. When populating the XML document with your own content, remember to use character entity numbers instead of names. Character entity names are not defined in XML. For example, `&nbsp;` will not work &mdash; you will need to use `&#160;` instead. Refer to the [HTML5 Reference](https://dev.w3.org/html5/html-author/charref) for a complete list with mappings.
 
 Here are some popular characters to use:
 
@@ -157,9 +160,26 @@ Here are some popular characters to use:
 &#8212; | &amp;mdash; | &amp;#8212; | Em dash
 &#8230; | &amp;hellip; | &amp;#8230; | Ellipsis
 
+### Publishing
+
+Generated static web pages end up in the `publish/` directory. During development you will most likely want to invoke `grunt connect` for running a local web server at http://localhost:8000. When publishing the final web pages then the URLs used inside HTML documents need to be adjusted in order to reflect the address of the production web server. Use the `grunt prod` target for generating web pages with production URLs. These URLs are defined with the following options:
+
+```
+# options.xml
+
+<option name="site.url" devmode="dev">//localhost:8000/</option>
+<option name="site.url" devmode="prod">//acch.github.io/XML-to-bootstrap/</option>
+<option name="site.assets.url" devmode="dev">//localhost:8000/assets/</option>
+<option name="site.assets.url" devmode="prod">//acch.github.io/XML-to-bootstrap/assets/</option>
+```
+
+### Sidebar
+
+...TBD... explain that sidebar appears if there are elements (typically h2-h6) with `id` attribute.
+
 ### Image resources
 
-Image resources are stored in subdirectories underneath `src/img/`. You need to create a separate subdirectory for each article and for each project using images. The naming convention is `src/img/[article|project]/<id>/somepic.jpg`. Note that the directory name must match the *id* of the article / project (as defined by the `id` attribute). If no `id` attribute is defined then the path will be generated from the title - same as the article / project's *filename* (without extension).
+Image resources are stored in subdirectories underneath `src/img/`. You need to create a separate subdirectory for each article and for each project using images. The naming convention is `src/img/[article|project]/<id>/somepic.jpg`. Note that the directory name must match the *id* of the article / project (as defined by the `id` attribute). If no `id` attribute is defined then the path will be generated from the title &mdash; same as the article / project's *filename* (without extension).
 
 Here's an example:
 
@@ -209,24 +229,17 @@ Or alternatively, if no `id` attribute is defined:
 </article>
 ```
 
-### Publishing
-
-Generated static web pages end up in the `publish/` directory. During development you will most likely want to invoke `grunt connect` for running a local web server on http://localhost:8000. When publishing the final web pages the URLs used inside HTML documents need to be adjusted in order to reflect the address of the production web server. Use the `grunt prod` target for generating web pages with production URLs. These URLs are defined with the following options:
-
-```
-# options.xml
-
-<option name="site.url" devmode="dev">//localhost:8000/</option>
-<option name="site.url" devmode="prod">//achim-christ.de/XML-to-bootstrap/</option>
-<option name="site.assets.url" devmode="dev">//localhost:8000/assets/</option>
-<option name="site.assets.url" devmode="prod">//achim-christ.de/XML-to-bootstrap/assets/</option>
-```
-
-
-
 ### Custom Bootstrap theme
 
-...TBD... explain `customvars.scss` and how it integrates into Bootstrap. note that users need to build their own Docker image to leverage custom Bootstrap themes.
+The file `sass/customvars.scss` can be used to override Bootstrap variables, resulting in a custom Bootstrap theme. Add any Sass variables you wish to override to this file. Note that Bootstrap needs to be rebuilt after making changes to `customvars.scss` &mdash; use the `grunt init` task for that purpose.
+
+For more information on Bootstrap's customization refer to the [documentation](https://v4-alpha.getbootstrap.com/getting-started/options/) or simply read the definitions and comments in `modules/bootstrap/scss/_variables.scss`.
+
+As the Bootstrap theme is included in the Docker image you will *not* be able to use the pre-built image [acch/xml-to-bootstrap](https://hub.docker.com/r/acch/xml-to-bootstrap/), but instead need to build your own image. Furthermore, the Docker image needs to be rebuilt every time after making changes to `customvars.scss`. Use the following command for that purpose:
+
+```
+docker build -t x2b .
+```
 
 ### Known problems
 
@@ -234,7 +247,7 @@ Generated static web pages end up in the `publish/` directory. During developmen
 
 ## Development and extension
 
-You have a question, found a bug, or have an idea how to make this tool better? Great - your feedback is highly appreciated! Please use the [issue tracker](https://github.com/acch/XML-to-bootstrap/issues) to get in touch.
+You have a question, found a bug, or have an idea how to make this tool better? Great &mdash; your feedback is highly appreciated! Please use the [issue tracker](https://github.com/acch/XML-to-bootstrap/issues) to get in touch.
 
 Please consider making your modifications and extensions available to others. Refer to the [CONTRIBUTING](CONTRIBUTING.md) document for details.
 
