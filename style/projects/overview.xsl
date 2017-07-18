@@ -106,7 +106,7 @@
                 </a>
 
                 <!-- project button -->
-                <nav class="d-flex mt-3">
+                <div class="d-flex mt-3">
                   <a class="[ btn btn-outline-primary ] ml-auto" title="{title}" href="{$site.url}{$project.path}{$filename}.html" role="button">
                     <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
                     <xsl:value-of select="title" />
@@ -115,7 +115,7 @@
                       <xsl:with-param name="icon">fa-arrow-right</xsl:with-param>
                     </xsl:call-template>
                   </a>
-                </nav>
+                </div>
 
               </article><!-- /card -->
 
