@@ -18,7 +18,7 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <!-- this template generates (invisible) meta tags with semantic
-     information -->
+     information (Schema.org microdata) -->
 
   <xsl:template name="component.microdata">
     <xsl:param name="title" /><!-- string-->
@@ -28,25 +28,20 @@
     <xsl:variable name="author" select="/site/options/option[@name = 'site.author']" />
     <xsl:variable name="publisher" select="/site/options/option[@name = 'site.title']" />
 
-    <!-- Schema.org microdata -->
-    <meta itemprop="name headline">
-      <xsl:attribute name="content">
+    <!-- optional title -->
+    <xsl:if test="$title != ''">
+      <meta itemprop="name" content="{$title}" />
+    </xsl:if>
 
-        <!-- page title -->
-        <xsl:value-of select="$title" />
-
-        <!-- optional subtitle -->
-        <xsl:if test="$subtitle != ''">
-          <xsl:text>: </xsl:text>
-          <xsl:value-of select="subtitle" />
-        </xsl:if>
-
-      </xsl:attribute>
-    </meta>
+    <!-- optional subtitle -->
+    <xsl:if test="$subtitle != ''">
+      <meta itemprop="headline" content="{substring($subtitle,1,110)}" />
+    </xsl:if>
 
     <div itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="{$author}" />
     </div>
+
     <div itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="{$publisher}" />
     </div>
