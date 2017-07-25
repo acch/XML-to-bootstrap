@@ -35,7 +35,19 @@
 
     <!-- optional subtitle -->
     <xsl:if test="$subtitle != ''">
-      <meta itemprop="headline" content="{substring($subtitle,1,110)}" />
+      <meta itemprop="headline">
+        <xsl:attribute name="content">
+
+          <!-- limit subtitle to 110 chars -->
+          <xsl:value-of select="substring($subtitle,1,109)" />
+
+          <!-- abbreviate longer subtitles -->
+          <xsl:if test="string-length($subtitle) > 109">
+            <xsl:text>&#8230;</xsl:text>
+          </xsl:if>
+
+        </xsl:attribute>
+      </meta>
     </xsl:if>
 
     <div itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
