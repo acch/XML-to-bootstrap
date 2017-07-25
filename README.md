@@ -6,29 +6,29 @@ Transforms a generic XML document into Bootstrap HTML pages.
 
 XML-to-Bootstrap is a set of tools to generate static web pages.
 Input is defined in the form of an *Extensible Markup Language* ([XML](https://en.wikipedia.org/wiki/XML)) document.
-The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) and [JavaScript](https://en.wikipedia.org/wiki/JavaScript) files. The transformation is performed by using *Extensible Stylesheet Language Transformations* ([XSLT](https://en.wikipedia.org/wiki/XSLT)), as well as several JavaScript utilities invoked as [Grunt](https://gruntjs.com/) tasks.
+The output is a web page comprising [HTML](https://en.wikipedia.org/wiki/HTML), [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) and [JavaScript](https://en.wikipedia.org/wiki/JavaScript) files. The transformation is performed by using *Extensible Stylesheet Language Transformations* ([XSLT](https://en.wikipedia.org/wiki/XSLT)), as well as several JavaScript utilities invoked as [Grunt](https://gruntjs.com) tasks.
 
 ### Features
 
 Take a look at the [Demo](https://acch.github.io/XML-to-bootstrap/) site to learn how generated pages look like.
 
-- Produces clean, fast HTML5 code
+- Produces clean, fast, accessible HTML5 code
 - Generates static web pages compatible with any web server
-- Compatible with [Netlify](https://www.netlify.com/) continuous deployment platform
-- Compatible with latest and greatest [Bootstrap](https://getbootstrap.com/) v4
+- Compatible with [Netlify](https://www.netlify.com) continuous deployment platform
+- Compatible with latest and greatest [Bootstrap](https://getbootstrap.com) v4
 - Fully themable with custom Bootstrap builds
 - Uses [Schema.org](https://schema.org) microdata to optimize pages for search engines
-- Pre-built Docker images [available](https://hub.docker.com/r/acch/xml-to-bootstrap/) to get startet quickly
+- Pre-built [Docker](https://www.docker.com) image [available](https://hub.docker.com/r/acch/xml-to-bootstrap) to get you started quickly
 
 ### Differentiation and limitations
 
-XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https://jekyllrb.com/), [Middleman](https://middlemanapp.com/), or [Hugo](https://gohugo.io/). But as opposed to these projects, which provide flexible general purpose tools, XML-to-Bootstrap (currently) focuses on a single, very specific use case. It only generates a certain type of web page. If you're looking for something more customizable then I'd strongly suggest to check out Jekyll or [the like](https://www.staticgen.com/).
+XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https://jekyllrb.com), [Middleman](https://middlemanapp.com), or [Hugo](https://gohugo.io). But as opposed to these projects, which provide flexible general purpose tools, XML-to-Bootstrap (currently) focuses on a single, very specific use case. It only generates a certain type of web page. If you're looking for something more customizable then I'd strongly suggest to check out Jekyll or [the like](https://www.staticgen.com).
 
 ## Installation
 
 ### Manual installation
 
-1. XML-to-Bootstrap requires an XSLT processor such as [xsltproc](http://xmlsoft.org/XSLT/xsltproc2.html), [GraphicsMagick](http://www.graphicsmagick.org/), as well as [Node.js](https://www.nodejs.org/):
+1. XML-to-Bootstrap requires an XSLT processor such as [xsltproc](http://xmlsoft.org/XSLT/xsltproc2.html), [GraphicsMagick](http://www.graphicsmagick.org), as well as [Node.js](https://www.nodejs.org):
 
    On RedHat-like Linux:
 
@@ -54,7 +54,7 @@ XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https:/
    - Download the latest [release](https://github.com/acch/XML-to-bootstrap/releases/latest) and extract to a local directory
    - Clone the Git repository: `git clone https://github.com/acch/XML-to-bootstrap.git`
 
-3. Once code is downloaded, `cd` into the directory and install necessary prerequisites (including [Grunt](https://gruntjs.com/)):
+3. Once code is downloaded, `cd` into the directory and install necessary prerequisites (including [Grunt](https://gruntjs.com)):
 
    ```
    # npm install
@@ -75,11 +75,17 @@ XML-to-Bootstrap is a static site generator, similar to popular [Jekyll](https:/
 
 6. If all goes well you end up with a set of static web pages in the `publish/` directory. Transfer them to your web server and enjoy!
 
-To get started with your own content simply modify the source files in `src/` directory and rebuild using `grunt`. Don't worry, your modifications will not be overwritten by future updates of XML-to-Bootstrap.
+7. Grunt provides a minimal web server, which can be used to preview the results. To do so, run the following command and point your browser to http://localhost:8000:
+
+   ```
+   # grunt connect
+   ```
+
+To get started with your own content simply modify the source files in the `src/` directory and rebuild using `grunt`. Don't worry, your modifications will not be overwritten by future updates of XML-to-Bootstrap.
 
 ### Container deployment
 
-The installation can also be performed automatically by building a [Docker](https://www.docker.com/) image and running a container from it. You can simply use the pre-built image [acch/xml-to-bootstrap](https://hub.docker.com/r/acch/xml-to-bootstrap/), unless you want to customize the Bootstrap theme. For custom Boootstrap builds you will need to build your own Docker image as explained below.
+The installation can also be performed automatically by building a [Docker](https://www.docker.com) image and running a container from it. You can simply use the pre-built image [acch/xml-to-bootstrap](https://hub.docker.com/r/acch/xml-to-bootstrap), unless you want to customize the Bootstrap theme. For custom Boootstrap builds you will need to build your own Docker image as explained below.
 
 1. Use the following commands to build a Docker image. This will download the necessary code, compile Bootstrap, and install all prerequisites necessary to build the project. Be patient, this may take a while.
 
@@ -100,13 +106,13 @@ The installation can also be performed automatically by building a [Docker](http
    # docker run --rm -v $(pwd)/src:/build/src -v $(pwd)/publish:/build/publish x2b debug
    ```
 
-   Grunt provides a minimal web server, which can be used to preview the results. To do so, run the following command and point your browser to [http://localhost:8000](http://localhost:8000):
+   Grunt provides a minimal web server, which can be used to preview the results. To do so, run the following command and point your browser to http://localhost:8000:
 
    ```
    # docker run -d -v $(pwd)/publish:/build/publish -p 8000:8000 x2b connect
    ```
 
-3. After you've successfully built and run the demo pages you can get started with your own content. To do so, modify the XML files in the `src/` directory according to your needs. Your static web pages are available in the `publish/` directory after you've run a container to build them.
+3. After you've successfully built and run the demo pages you can get started with your own content. To do so, modify the source files in the `src/` directory according to your needs. Your static web pages are available in the `publish/` directory after you've run a container to build them.
 
 4. Note that once you've customized the Bootstrap theme (by editing `sass/customvars.scss`) you'll need to (re-)build the image using:
 
@@ -139,18 +145,18 @@ XML-to-bootstrap/       Contains build instructions and documentation
 
 ## Usage
 
-The [Grunt](https://gruntjs.com/) task runner is used to build static web pages. The following Grunt tasks are available:
+The [Grunt](https://gruntjs.com) task runner is used to build static web pages. The following Grunt tasks are available:
 
 Task | Description
 --- | ---
-init | Initializes Bootstrap submodule and build custom theme
+init | Initializes Bootstrap submodule and builds custom theme
 clean | Deletes previously generated output and temporary files
-default | Generates minified output with development URLs &mdash; use this for development
-debug | Skips minification and instead generates readable output &mdash; use this for development
-prod | Generates minified output with production URLs &mdash; use this for production
+default | Generates minified output with development URLs &mdash; use this for *development*
+debug | Skips minification and instead generates readable output &mdash; use this for *development*
+prod | Generates minified output with production URLs &mdash; use this for *production*
 connect | Start minimal web server on port 8000 used for development
 
-To get started with your own site simply modify the source files in `src/` directory. When populating the XML document with your own content, remember to use character entity numbers instead of names. Character entity names are not defined in XML. For example, `&nbsp;` will not work &mdash; you will need to use `&#160;` instead. Refer to the [HTML5 Reference](https://dev.w3.org/html5/html-author/charref) for a complete list with mappings.
+To get started with your own site simply modify the source files in the `src/` directory. When populating the XML document with your own content, remember to use character entity numbers instead of names. Character entity names are not defined in XML. For example, `&nbsp;` will not work &mdash; you will need to use `&#160;` instead. Refer to the [HTML5 Character Reference](https://dev.w3.org/html5/html-author/charref) for a complete list with mappings.
 
 Here are some popular characters to use:
 
@@ -175,7 +181,7 @@ Generated static web pages end up in the `publish/` directory. During developmen
 
 ### Sidebar
 
-...TBD... explain that sidebar appears if there are elements (typically h2-h6) with `id` attribute.
+XML-to-bootstrap can automatically generate a navigation sidebar for your pages. This happens if you equip your elements (typically headings) with an `id` attribute. Thus, if you use `<h2>`&ndash;`<h6>` tags with a unique `id` attribute to group your content into sections then a sidebar will be generated with links to these anchors. If you skip the `id` attribute then no sidebar will show up.
 
 ### Image resources
 
@@ -233,9 +239,9 @@ Or alternatively, if no `id` attribute is defined:
 
 The file `sass/customvars.scss` can be used to override Bootstrap variables, resulting in a custom Bootstrap theme. Add any Sass variables you wish to override to this file. Note that Bootstrap needs to be rebuilt after making changes to `customvars.scss` &mdash; use the `grunt init` task for that purpose.
 
-For more information on Bootstrap's customization refer to the [documentation](https://v4-alpha.getbootstrap.com/getting-started/options/) or simply read the definitions and comments in `modules/bootstrap/scss/_variables.scss`.
+For more information on Bootstrap's customization options refer to the [documentation](https://v4-alpha.getbootstrap.com/getting-started/options) or simply read the definitions and comments in `modules/bootstrap/scss/_variables.scss`.
 
-As the Bootstrap theme is included in the Docker image you will *not* be able to use the pre-built image [acch/xml-to-bootstrap](https://hub.docker.com/r/acch/xml-to-bootstrap/), but instead need to build your own image. Furthermore, the Docker image needs to be rebuilt every time after making changes to `customvars.scss`. Use the following command for that purpose:
+As the Bootstrap theme is included in the Docker image you will *not* be able to use the pre-built image [acch/xml-to-bootstrap](https://hub.docker.com/r/acch/xml-to-bootstrap), but instead need to build your own image. Furthermore, the Docker image needs to be rebuilt every time after making changes to `customvars.scss`. Use the following command for that purpose:
 
 ```
 docker build -t x2b .
@@ -243,7 +249,7 @@ docker build -t x2b .
 
 ### Known problems
 
-...TBD... if Grunt complains about syntax errors during build: update to latest Node.js version via `npm install -g n && n stable`. Alternatively, use the [NodeSource](https://nodesource.com/) repository to install the latest Node.js version.
+If Grunt complains about JavaScript syntax errors during build then update to the latest version of [Node.js](https://nodejs.org) via `npm install -g n && n stable`. Alternatively, use the [NodeSource](https://nodesource.com) repository to install the latest Node.js version for your platform.
 
 ## Development and extension
 
