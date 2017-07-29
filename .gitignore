@@ -6,5 +6,3 @@ js/*
 !js/headings.js
 lib
 node_modules
-publish/*
-!publish/.gitkeep
