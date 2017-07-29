@@ -8,6 +8,3 @@ lib
 node_modules
 publish/*
 !publish/.gitkeep
-sass/customvars.scss
-src/*.xml
-src/img
