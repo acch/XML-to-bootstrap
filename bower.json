@@ -11,13 +11,13 @@
     "url": "git+https://github.com/acch/XML-to-bootstrap.git"
   },
   "devDependencies": {
-    "font-awesome": ">=4.7.0",
+    "font-awesome": "^4.7.0",
     "headroom.js": "https://github.com/WickyNilliams/headroom.js/files/950268/bower.zip",
-    "jquery": ">=3.1.1",
-    "tether": ">=1.4.0",
-    "photoswipe": ">=4.1.1",
-    "scrollpos-styler": ">=0.6.1",
-    "anchor-js": ">=3.2.2"
+    "jquery": "^3.2.1",
+    "tether": "^1.4.0",
+    "photoswipe": "^4.1.2",
+    "scrollpos-styler": "^0.7.0",
+    "anchor-js": "^3.2.2"
   },
   "exportsOverride": {
     "font-awesome": {
