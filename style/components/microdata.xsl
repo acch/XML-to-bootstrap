@@ -28,32 +28,32 @@
     <xsl:variable name="author" select="/site/options/option[@name = 'site.author']" />
     <xsl:variable name="publisher" select="/site/options/option[@name = 'site.title']" />
 
-    <!-- optional title -->
+    <!-- optional title (name) -->
     <xsl:if test="$title != ''">
       <meta itemprop="name" content="{$title}" />
     </xsl:if>
 
-    <!-- optional subtitle -->
+    <!-- optional subtitle (headline) -->
     <xsl:if test="$subtitle != ''">
       <meta itemprop="headline">
         <xsl:attribute name="content">
 
           <!-- limit subtitle to 110 chars -->
-          <xsl:value-of select="substring($subtitle,1,109)" />
-
-          <!-- abbreviate longer subtitles -->
-          <xsl:if test="string-length($subtitle) > 109">
-            <xsl:text>&#8230;</xsl:text>
-          </xsl:if>
+          <xsl:call-template name="string.shorten">
+            <xsl:with-param name="string" select="$subtitle" />
+            <xsl:with-param name="length" select="110" />
+          </xsl:call-template>
 
         </xsl:attribute>
       </meta>
     </xsl:if>
 
+    <!-- author -->
     <div itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="{$author}" />
     </div>
 
+    <!-- publisher -->
     <div itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="{$publisher}" />
     </div>

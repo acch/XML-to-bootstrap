@@ -245,6 +245,36 @@
 
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Shorten strings
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <!-- shorten string to given length -->
+  <xsl:template name="string.shorten">
+    <xsl:param name="string" /><!-- string -->
+    <xsl:param name="length" /><!-- number -->
+
+    <xsl:choose>
+
+      <!-- check if string is longer than length -->
+      <xsl:when test="string-length($string) > $length">
+        <!-- shorten string -->
+        <xsl:value-of select="substring($string,1,$length - 1)" />
+        <xsl:text>&#8230;</xsl:text>
+      </xsl:when>
+
+      <!-- string is shorter than length -->
+      <xsl:otherwise>
+        <!-- copy string as-is -->
+        <xsl:value-of select="$string" />
+      </xsl:otherwise>
+
+    </xsl:choose>
+
+
+  </xsl:template>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      Find distinct years
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
