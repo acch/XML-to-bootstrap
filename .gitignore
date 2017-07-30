@@ -1,6 +1,6 @@
 bower_components
 css
-img
+/img
 js/*
 !js/navbar.js
 !js/headings.js
