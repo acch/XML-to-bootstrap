@@ -487,7 +487,7 @@ module.exports = function(grunt) {
     'htmlmin',
     'copy:assets_pre',
     'responsive_images',
-    'newer:imagemin',
+    'imagemin',
     'copy:assets_post'
   ]);
 
