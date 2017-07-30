@@ -58,10 +58,7 @@ module.exports = function(grunt) {
         'js/*',
         '!js/headings.js',
         '!js/navbar.js',
-        'publish/assets/*',
-        '!publish/assets/.gitkeep',
-        'publish/*',
-        '!publish/assets'
+        'publish/*'
       ]
     },
 
