@@ -128,7 +128,7 @@
     <xsl:param name="url" /><!-- string -->
 
     <!-- prepend leading slashes if necessary -->
-    <xsl:if test="not(starts-with($url, '//'))">
+    <xsl:if test="not(starts-with($url, '/')) and not(starts-with(@src, 'http'))">
       <xsl:text>//</xsl:text>
     </xsl:if>
 
