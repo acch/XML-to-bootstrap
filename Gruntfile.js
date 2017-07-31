@@ -313,7 +313,8 @@ module.exports = function(grunt) {
 
     responsive_images: {
       options: {
-        concurrency: 2
+        concurrency: 2,
+        quality: 85
         // sizes are defined by 'xmlopts' task
       },
       assets: {
