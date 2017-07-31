@@ -9,4 +9,5 @@ node_modules
 publish/*
 !publish/.gitkeep
 !publish/_headers
+!publish/google*.html
 !publish/robots.txt
