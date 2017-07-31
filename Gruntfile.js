@@ -58,7 +58,10 @@ module.exports = function(grunt) {
         'js/*',
         '!js/headings.js',
         '!js/navbar.js',
-        'publish/*'
+        'publish/*',
+        '!publish/_headers',
+        '!publish/google*.html',
+        '!publish/robots.txt'
       ]
     },
 
