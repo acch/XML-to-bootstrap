@@ -8,3 +8,5 @@ lib
 node_modules
 publish/*
 !publish/.gitkeep
+!publish/_headers
+!publish/robots.txt
