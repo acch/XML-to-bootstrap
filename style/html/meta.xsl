@@ -207,8 +207,8 @@
 
             </xsl:attribute>
 
-            <!-- copy subresource integrity attributes -->
-            <xsl:copy-of select="@integrity|@crossorigin" />
+            <!-- copy remaining script attributes -->
+            <xsl:copy-of select="@*[local-name() != 'src']" />
 
             <!-- prevent tag from collapsing -->
             <xsl:text> </xsl:text>
