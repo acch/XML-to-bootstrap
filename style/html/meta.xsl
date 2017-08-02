@@ -235,7 +235,7 @@
     </xsl:for-each>
 
     <!-- custom script -->
-    <script src="{$site.url}js/script.js">
+    <script async="async" src="{$site.url}js/script.js">
       <xsl:text> </xsl:text><!-- prevent tag from collapsing -->
     </script>
 

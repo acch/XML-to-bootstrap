@@ -23,19 +23,15 @@
 
   <!-- scripts to import -->
   <option name="cdn.scripts">
-    <!--script src="js/jquery.min.js" /-->
-    <script src="//code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous" />
+    <!--script async="async" src="js/jquery.min.js" /-->
+    <script async="async" src="//code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous" />
     <!--script><![CDATA[window.jQuery || document.write('<script src="SITE.URLjs/jquery.min.js"><\/script>')]]></script--><!-- unsafe inline JavaScript -->
 
-    <!--script src="js/tether.min.js" /-->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous" />
+    <!--script async="async" src="js/tether.min.js" /-->
+    <script async="async" src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous" />
 
-    <!--script src="js/bootstrap.min.js" /-->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous" />
-
-    <!-- the following scripts are installed via bower and compiled into the main script.js file -->
-    <!--script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.2/anchor.min.js /-->
-    <!--script src="//cdnjs.cloudflare.com/ajax/libs/headroom/0.9.3/headroom.min.js" /-->
+    <!--script async="async" src="js/bootstrap.min.js" /-->
+    <script async="async" src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous" />
   </option>
 
   <!-- social links -->
