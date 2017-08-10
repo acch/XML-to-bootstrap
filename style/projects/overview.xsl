@@ -48,7 +48,7 @@
       <xsl:otherwise>
 
         <!-- project cards -->
-        <div class="row">
+        <main class="row">
 
           <!-- iterate over all projects -->
           <xsl:for-each select="project[not(@draft)]">
@@ -123,7 +123,7 @@
 
           </xsl:for-each>
 
-        </div><!-- /project cards -->
+        </main><!-- /project cards -->
 
       </xsl:otherwise>
     </xsl:choose>

@@ -46,7 +46,7 @@
 
       </xsl:when>
       <xsl:otherwise>
-        <div><!-- articles -->
+        <main><!-- articles -->
 
           <!-- iterate over all articles -->
           <xsl:for-each select="article[not(@draft)]">
@@ -128,7 +128,8 @@
 
           </xsl:for-each>
 
-        </div><!-- /articles -->
+        </main><!-- /articles -->
+
       </xsl:otherwise>
     </xsl:choose>
 
