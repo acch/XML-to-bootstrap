@@ -177,6 +177,7 @@ footer {
   display: block;
   height: 0;
   margin-bottom: $spacer-y;
+  outline: none;
   overflow: hidden;
   transition: height .35s ease;
 }
