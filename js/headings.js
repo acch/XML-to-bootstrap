@@ -13,11 +13,27 @@
 
 (function() {
 
-  // add anchors on DOMContentLoaded
-  document.addEventListener("DOMContentLoaded", function() {
+  // check if document is already loaded
+  if (document.readyState !== "loading") {
 
-    // choose elements to add anchors to
-    anchors.add('.anchored');
+    // add anchors immediately
+    window.setTimeout(function() {
 
-  });
+      // choose elements to add anchors to
+      anchors.add('.anchored');
+
+    }, 1);
+
+  } else {
+
+    // add anchors on DOMContentLoaded
+    document.addEventListener("DOMContentLoaded", function() {
+
+      // choose elements to add anchors to
+      anchors.add('.anchored');
+
+    });
+
+  }
+
 })();

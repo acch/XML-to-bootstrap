@@ -22,31 +22,48 @@
   // initialize Headroom
   headroom.init();
 
-  // add click events on DOMContentLoaded
-  document.addEventListener("DOMContentLoaded", function() {
+  // private function to add click event to elements
+  function addClickEvent(elements) {
 
-    // private function to add click event to elements
-    function addClickEvent(elements) {
+    // iterate over elements
+    for (var i = 0; elements[i]; ++i) {
 
-      // iterate over elements
-      for (var i = 0; elements[i]; ++i) {
+      // add click event
+      elements[i].addEventListener("click", function() {
 
-        // add click event
-        elements[i].addEventListener("click", function() {
+        // fudge scroll position to make Headroom pin
+        headroom.lastKnownScrollY = headroom.getScrollerHeight();
 
-          // fudge scroll position to make Headroom pin
-          headroom.lastKnownScrollY = headroom.getScrollerHeight();
+        // make Headroom pin even if scroll position has not changed
+        window.requestAnimationFrame(function() { headroom.pin() });
 
-          // make Headroom pin even if scroll position has not changed
-          window.requestAnimationFrame(function() { headroom.pin() });
+      });
+    }
+  };
 
-        });
-      }
-    };
+  // check if document is already loaded
+  if (document.readyState !== "loading") {
 
-    // choose elements to add click event to
-    addClickEvent(document.getElementsByClassName("js-sdbr-itm"));
-    addClickEvent(document.getElementsByClassName("anchorjs-link"));
+    // add click events immediately
+    window.setTimeout(function() {
 
-  });
+      // choose elements to add click event to
+      addClickEvent(document.getElementsByClassName("js-sdbr-itm"));
+      addClickEvent(document.getElementsByClassName("anchorjs-link"));
+
+    }, 1);
+
+  } else {
+
+    // add click events on DOMContentLoaded
+    document.addEventListener("DOMContentLoaded", function() {
+
+      // choose elements to add click event to
+      addClickEvent(document.getElementsByClassName("js-sdbr-itm"));
+      addClickEvent(document.getElementsByClassName("anchorjs-link"));
+
+    });
+
+  }
+
 })();
