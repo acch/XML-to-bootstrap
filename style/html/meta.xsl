@@ -107,7 +107,7 @@
 
     <!-- optional description -->
     <xsl:if test="$description != ''">
-      <meta name="description" content="{$description}" />
+      <meta name="description" itemprop="description" content="{$description}" />
     </xsl:if>
 
     <meta name="author" content="{$site.author}" />
