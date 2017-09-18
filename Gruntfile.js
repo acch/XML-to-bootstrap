@@ -287,7 +287,7 @@ module.exports = function(grunt) {
       publish: {
         expand: true,
         nonull: true,
-        src: 'publish/**/*.html'
+        src: ['publish/**/*.html', '!publish/**/google*.html']
       }
     },
 
