@@ -67,17 +67,17 @@
 
           <!-- path of category (articles|projects|galleries) -->
           <xsl:call-template name="format.path">
-            <xsl:with-param name="path" select="../../../path" />
+            <xsl:with-param name="path" select="ancestor::content/../../path" />
           </xsl:call-template>
 
           <!-- path of entry (id or filename of article|project|gallery) -->
           <xsl:choose>
-            <xsl:when test="../../@id">
-              <xsl:value-of select="../../@id" />
+            <xsl:when test="ancestor::content/../@id">
+              <xsl:value-of select="ancestor::content/../@id" />
             </xsl:when>
             <xsl:otherwise>
               <xsl:call-template name="format.filename">
-                <xsl:with-param name="string" select="../../title" />
+                <xsl:with-param name="string" select="ancestor::content/../title" />
               </xsl:call-template>
             </xsl:otherwise>
           </xsl:choose>
@@ -129,7 +129,7 @@
 
             <!-- breakpoint image sizes depending on sidebar -->
             <xsl:choose>
-              <xsl:when test="../*[@id]">
+              <xsl:when test="ancestor::content/*[@id]">
                 <xsl:value-of select="$img.sizes.sidebar" />
               </xsl:when>
               <xsl:otherwise>
