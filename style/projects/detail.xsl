@@ -57,18 +57,16 @@
             <xsl:with-param name="subtitle" select="subtitle" />
           </xsl:call-template>
 
-          <!-- project introduction -->
-          <header itemprop="description"><p>
-            <time class="text-muted" itemprop="datePublished dateModified" datetime="{date}">
-              <xsl:text>//&#160;</xsl:text>
-              <xsl:value-of select="$date.formatted" />
-            </time>
+          <!-- project release date -->
+          <time class="text-muted" itemprop="datePublished dateModified" datetime="{date}">
+            <xsl:text>//&#160;</xsl:text>
+            <xsl:value-of select="$date.formatted" />
+          </time>
 
-            <xsl:if test="short">
-              <br />
-              <strong><xsl:value-of select="short" /></strong>
-            </xsl:if>
-          </p></header><!-- /description -->
+          <!-- invisible project description -->
+          <xsl:if test="short">
+            <meta itemprop="description" content="{short}" />
+          </xsl:if>
 
           <!-- copy actual content from XML -->
           <xsl:call-template name="copy.content">
