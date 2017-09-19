@@ -140,7 +140,7 @@
 
     <!-- concatenate site URL and page URL -->
     <link rel="canonical" href="https:{$site.url}{$pageurl}" />
-    <link itemprop="url" href="https:{$site.url}{$pageurl}" />
+    <meta itemprop="url" content="https:{$site.url}{$pageurl}" />
 
   </xsl:template>
 
