@@ -46,9 +46,9 @@
       <xsl:with-param name="content">
 
         <!-- introduction -->
-        <main class="text-center">
+        <main role="main" class="text-center" itemprop="description">
 
-          <!-- copy introduction from XML directly, excluding collapsed text -->
+          <!-- copy introduction from XML, excluding collapsed text -->
           <xsl:call-template name="copy.content">
             <xsl:with-param name="content" select="introduction" />
             <xsl:with-param name="exclude">collapse</xsl:with-param>
@@ -56,7 +56,7 @@
 
           <!-- collapsed section -->
           <div class="collapse" id="intrdctn">
-            <!-- copy collapsed introduction text from XML directly -->
+            <!-- copy collapsed introduction from XML -->
             <xsl:call-template name="copy.content">
               <xsl:with-param name="content" select="introduction/collapse" />
             </xsl:call-template>
@@ -73,7 +73,7 @@
     </xsl:call-template>
 
     <!-- section cards -->
-    <div class="row text-sm-center">
+    <div role="navigation" class="row text-sm-center" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
 
       <!-- responsive column -->
       <div class="{$grid.cardcolumn}">

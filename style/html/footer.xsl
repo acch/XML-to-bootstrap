@@ -28,7 +28,7 @@
     <xsl:call-template name="html.sociallinks" />
 
     <!-- credits -->
-    <footer role="contentinfo">
+    <footer role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
 
       <!-- centered -->
       <div class="text-center text-muted">

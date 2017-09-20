@@ -30,12 +30,12 @@
 
     <!-- optional title (name) -->
     <xsl:if test="$title != ''">
-      <meta itemprop="name" content="{$title}" />
+      <meta itemprop="headline" content="{$title}" />
     </xsl:if>
 
     <!-- optional subtitle (headline) -->
     <xsl:if test="$subtitle != ''">
-      <meta itemprop="headline">
+      <meta itemprop="alternativeHeadline">
         <xsl:attribute name="content">
 
           <!-- limit subtitle to 110 chars -->
@@ -49,12 +49,12 @@
     </xsl:if>
 
     <!-- author -->
-    <div itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+    <div itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="{$author}" />
     </div>
 
     <!-- publisher -->
-    <div itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization">
+    <div itemscope="itemscope" itemprop="publisher" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="{$publisher}" />
     </div>
 

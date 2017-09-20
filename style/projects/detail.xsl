@@ -25,6 +25,9 @@
 
   <xsl:template match="project">
 
+    <!-- options -->
+    <xsl:variable name="author" select="/site/options/option[@name = 'site.author']" />
+
     <!-- format date -->
     <xsl:variable name="date.formatted">
       <xsl:call-template name="format.date">
@@ -48,32 +51,40 @@
       <xsl:with-param name="sidebar" select="content/*[@id]" />
       <xsl:with-param name="content">
 
-        <!-- semantic vocabulary 'CreativeWork' -->
-        <article itemscope="itemscope" itemtype="http://schema.org/CreativeWork">
+        <!-- project -->
+        <main role="main"><article itemprop="mainEntityOfPage" itemscope="itemscope" itemtype="http://schema.org/CreativeWork">
 
           <!-- add meta tags -->
-          <xsl:call-template name="component.microdata">
+          <!--xsl:call-template name="component.microdata">
             <xsl:with-param name="title" select="title" />
             <xsl:with-param name="subtitle" select="subtitle" />
-          </xsl:call-template>
+          </xsl:call-template-->
 
-          <!-- project release date -->
-          <time class="text-muted" itemprop="datePublished dateModified" datetime="{date}">
-            <xsl:text>//&#160;</xsl:text>
-            <xsl:value-of select="$date.formatted" />
-          </time>
+          <!-- project intoduction -->
+          <header><p>
+            <time class="text-muted" itemprop="datePublished dateModified" datetime="{date}">
+              <xsl:text>//&#160;</xsl:text>
+              <xsl:value-of select="$date.formatted" />
+            </time>
 
-          <!-- invisible project description -->
-          <xsl:if test="short">
-            <meta itemprop="description" content="{short}" />
-          </xsl:if>
+            <span itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+              <span class="text-muted float-right" itemprop="name">
+                <xsl:value-of select="$author" />
+              </span>
+            </span>
+          </p></header><!-- /introduction -->
 
           <!-- copy actual content from XML -->
           <xsl:call-template name="copy.content">
             <xsl:with-param name="content" select="content" />
           </xsl:call-template>
 
-        </article>
+          <!-- link buttons -->
+          <xsl:for-each select="links/link">
+            <p><xsl:value-of select="@title" /></p>
+          </xsl:for-each>
+
+        </article></main>
 
         <!-- spacing -->
         <hr class="invisible" />

@@ -27,24 +27,24 @@
     <xsl:variable name="parent.page" select="ext:node-set($parent)/page" />
 
     <!-- Bootstrap breadcrumb -->
-    <nav class="breadcrumb">
+    <div role="navigation" class="breadcrumb" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
 
       <!-- home -->
-      <a class="breadcrumb-item" href="{$site.url}">Home</a>
+      <a class="breadcrumb-item" href="{$site.url}" title="Home">Home</a>
 
       <!-- optional category page -->
       <xsl:if test="$parent.page">
-        <a class="breadcrumb-item" href="{$parent.page/@href}">
+        <a class="breadcrumb-item" href="{$parent.page/@href}" title="{$parent.page/@title}">
           <xsl:value-of select="$parent.page/@title" />
         </a>
       </xsl:if>
 
       <!-- current page -->
-      <span class="breadcrumb-item active">
+      <span class="breadcrumb-item active" title="{$current}">
         <xsl:value-of select="$current" />
       </span>
 
-    </nav><!-- /breadcrumb -->
+    </div><!-- /breadcrumb -->
 
   </xsl:template>
 

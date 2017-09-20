@@ -31,13 +31,13 @@
     <xsl:if test="$next.page or $prev.page">
 
       <!-- flexbox container -->
-      <nav class="d-flex">
+      <div role="navigation" class="d-flex" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
 
         <!-- check if there is a previous page -->
         <xsl:if test="$prev.page">
 
           <!-- previous button -->
-          <a class="btn btn-outline-primary" rel="prev" title="{$prev.page/@title}" href="{$prev.page/@href}" role="button">
+          <a role="button" class="btn btn-outline-primary" rel="prev" title="{$prev.page/@title}" href="{$prev.page/@href}">
             <xsl:call-template name="component.icon">
               <xsl:with-param name="icon">fa-arrow-left</xsl:with-param>
             </xsl:call-template>
@@ -51,7 +51,7 @@
         <xsl:if test="$next.page">
 
           <!-- next button -->
-          <a class="[ btn btn-outline-primary ] ml-auto" rel="next" title="{$next.page/@title}" href="{$next.page/@href}" role="button">
+          <a role="button" class="[ btn btn-outline-primary ] ml-auto" rel="next" title="{$next.page/@title}" href="{$next.page/@href}">
             <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
             <xsl:text>Next&#160;</xsl:text>
             <xsl:call-template name="component.icon">
@@ -61,7 +61,7 @@
 
         </xsl:if>
 
-      </nav>
+      </div>
 
     </xsl:if>
 

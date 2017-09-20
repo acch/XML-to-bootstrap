@@ -72,10 +72,10 @@
             <div class="{$grid.cardcolumn}">
 
               <!-- gallery card -->
-              <article class="card card-block">
+              <article class="card card-block" itemscope="itemscope" itemtype="http://schema.org/CreativeWork">
 
                 <!-- gallery title -->
-                <h2 class="card-title">
+                <h2 class="card-title" itemprop="headline">
                   <a class="x2b-alt-lnk" href="{$site.url}{$gallery.path}{$filename}.html">
                     <xsl:value-of select="title" />
                   </a>
@@ -86,17 +86,31 @@
                   <!-- gallery description -->
                   <p class="card-text">
                     <xsl:if test="short">
-                      <xsl:value-of select="short" />
+                      <span itemprop="description">
+                        <xsl:value-of select="short" />
+                      </span>
                       <xsl:text> </xsl:text>
                     </xsl:if>
 
-                    <time class="text-muted" datetime="{date}">
+                    <time class="text-muted" itemprop="datePublished dateModified" datetime="{date}">
                       <xsl:text>//&#160;</xsl:text>
                       <xsl:value-of select="$date.formatted" />
                     </time>
                   </p>
 
                 </a>
+
+                <!-- gallery button -->
+                <div class="d-flex mt-3">
+                  <a class="[ btn btn-outline-primary ] ml-auto" title="View..." href="{$site.url}{$gallery.path}{$filename}.html" role="button">
+                    <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
+                    <xsl:value-of select="title" />
+                    <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
+                    <xsl:call-template name="component.icon">
+                      <xsl:with-param name="icon">fa-arrow-right</xsl:with-param>
+                    </xsl:call-template>
+                  </a>
+                </div>
 
               </article><!-- /card -->
 

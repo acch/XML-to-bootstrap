@@ -25,6 +25,9 @@
 
   <xsl:template match="gallery">
 
+    <!-- options -->
+    <xsl:variable name="author" select="/site/options/option[@name = 'site.author']" />
+
     <!-- format date -->
     <xsl:variable name="date.formatted">
       <xsl:call-template name="format.date">
@@ -43,37 +46,40 @@
     <!-- spacing -->
     <hr class="invisible" />
 
-    <!-- semantic vocabulary 'CreativeWork' -->
-    <article itemscope="itemscope" itemtype="http://schema.org/CreativeWork">
+    <!-- gallery -->
+    <main role="main"><article itemprop="mainEntityOfPage" itemscope="itemscope" itemtype="http://schema.org/CreativeWork">
 
       <!-- add meta tags -->
-      <xsl:call-template name="component.microdata">
+      <!--xsl:call-template name="component.microdata">
         <xsl:with-param name="title" select="title" />
         <xsl:with-param name="subtitle" select="subtitle" />
-      </xsl:call-template>
+      </xsl:call-template-->
 
       <!-- gallery introduction -->
-      <header itemprop="description"><p>
+      <header><p>
         <time class="text-muted" itemprop="datePublished dateModified" datetime="{date}">
           <xsl:text>//&#160;</xsl:text>
           <xsl:value-of select="$date.formatted" />
         </time>
 
+        <span itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+          <span class="text-muted float-right" itemprop="name">
+            <xsl:value-of select="$author" />
+          </span>
+        </span>
+
         <xsl:if test="short">
           <br />
-
-          <strong>
-            <xsl:value-of select="short" />
-          </strong>
+          <strong itemprop="description"><xsl:value-of select="short" /></strong>
         </xsl:if>
       </p></header><!-- /description -->
 
-      <!-- copy content from XML directly -->
+      <!-- copy actual content from XML -->
       <xsl:call-template name="copy.content">
         <xsl:with-param name="content" select="content" />
       </xsl:call-template>
 
-    </article>
+    </article></main>
 
     <!-- spacing -->
     <hr class="invisible" />

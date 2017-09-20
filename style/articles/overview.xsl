@@ -46,7 +46,9 @@
 
       </xsl:when>
       <xsl:otherwise>
-        <main><!-- articles -->
+
+        <!-- articles -->
+        <main role="main">
 
           <!-- iterate over all articles -->
           <xsl:for-each select="article[not(@draft)]">
@@ -79,10 +81,10 @@
             </xsl:variable>
 
             <!-- article entry -->
-            <article>
+            <article itemscope="itemscope" itemtype="http://schema.org/Article">
 
               <!-- main title -->
-              <h2 id="{$id}">
+              <h2 id="{$id}" itemprop="headline">
                 <a class="x2b-alt-lnk" href="{$site.url}{$article.path}{$filename}.html">
                   <xsl:value-of select="title" />
                 </a>
@@ -92,7 +94,7 @@
 
                 <!-- optional subtitle -->
                 <xsl:if test="subtitle">
-                  <p><strong>
+                  <p><strong itemprop="alternativeHeadline">
                     <xsl:value-of select="subtitle" />
                   </strong></p>
                 </xsl:if>
@@ -100,11 +102,13 @@
                 <!-- article description -->
                 <p>
                   <xsl:if test="short">
-                    <xsl:value-of select="short" />
+                    <span itemprop="description">
+                      <xsl:value-of select="short" />
+                    </span>
                     <xsl:text> </xsl:text>
                   </xsl:if>
 
-                  <time class="text-muted" datetime="{date}">
+                  <time class="text-muted" itemprop="datePublished dateModified" datetime="{date}">
                     <xsl:text>//&#160;</xsl:text>
                     <xsl:value-of select="$date.formatted" />
                   </time>
@@ -114,7 +118,7 @@
 
               <!-- article button -->
               <div class="d-flex">
-                <a class="[ btn btn-outline-primary ] ml-auto" title="{title}" href="{$site.url}{$article.path}{$filename}.html" role="button">
+                <a class="[ btn btn-outline-primary ] ml-auto" title="Read more..." href="{$site.url}{$article.path}{$filename}.html" role="button">
                   <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
                   <xsl:value-of select="title" />
                   <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>

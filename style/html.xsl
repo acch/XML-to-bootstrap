@@ -63,7 +63,7 @@
       </xsl:call-template>
 
       <!-- document body -->
-      <body>
+      <body itemscope="itemscope" itemtype="http://schema.org/WebPage">
 
         <!-- navbar -->
         <xsl:call-template name="html.navbar">
@@ -104,14 +104,14 @@
 
             <xsl:if test="$sidebar">
               <!-- sidebar column -->
-              <aside class="{$grid.sidebar.sidecolumn}">
+              <div class="{$grid.sidebar.sidecolumn}">
 
                 <!-- sidebar -->
                 <xsl:call-template name="html.sidebar">
                   <xsl:with-param name="content" select="ext:node-set($content.sidebar)" />
                 </xsl:call-template>
 
-              </aside><!-- /sidebar column -->
+              </div><!-- /sidebar column -->
             </xsl:if>
 
           </div><!-- /row -->

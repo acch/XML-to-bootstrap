@@ -280,8 +280,11 @@ module.exports = function(grunt) {
     htmllint: {
       options: {
         ignore: [
-          'The "contentinfo" role is unnecessary for element "footer".',
-          'The "banner" role is unnecessary for element "header".'
+          'The "navigation" role is unnecessary for element "nav".',
+          'The "banner" role is unnecessary for element "header".',
+          'The "main" role is unnecessary for element "main".',
+          'The "complementary" role is unnecessary for element "aside".',
+          'The "contentinfo" role is unnecessary for element "footer".'
         ]
       },
       publish: {

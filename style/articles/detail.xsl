@@ -25,6 +25,9 @@
 
   <xsl:template match="article">
 
+    <!-- options -->
+    <xsl:variable name="author" select="/site/options/option[@name = 'site.author']" />
+
     <!-- format date -->
     <xsl:variable name="date.formatted">
       <xsl:call-template name="format.date">
@@ -48,34 +51,45 @@
       <xsl:with-param name="sidebar" select="content/*[@id]" />
       <xsl:with-param name="content">
 
-        <!-- semantic vocabulary 'Article' -->
-        <article itemscope="itemscope" itemtype="http://schema.org/Article">
+        <!-- article -->
+        <main role="main"><article itemprop="mainEntityOfPage" itemscope="itemscope" itemtype="http://schema.org/Article">
 
           <!-- add meta tags -->
-          <xsl:call-template name="component.microdata">
+          <!--xsl:call-template name="component.microdata">
             <xsl:with-param name="title" select="title" />
             <xsl:with-param name="subtitle" select="subtitle" />
-          </xsl:call-template>
+          </xsl:call-template-->
 
           <!-- article introduction -->
-          <header itemprop="description"><p>
-            <time class="text-muted" itemprop="datePublished dateModified" datetime="{date}">
-              <xsl:text>//&#160;</xsl:text>
-              <xsl:value-of select="$date.formatted" />
-            </time>
+          <header>
+
+            <p>
+              <time class="text-muted" itemprop="datePublished dateModified" datetime="{date}">
+                <xsl:text>//&#160;</xsl:text>
+                <xsl:value-of select="$date.formatted" />
+              </time>
+
+              <span itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+                <span class="text-muted float-right" itemprop="name">
+                  <xsl:value-of select="$author" />
+                </span>
+              </span>
+            </p>
 
             <xsl:if test="short">
-              <br />
-              <strong><xsl:value-of select="short" /></strong>
+              <p class="text-justify"><strong itemprop="description">
+                <xsl:value-of select="short" />
+              </strong></p>
             </xsl:if>
-          </p></header><!-- /description -->
+
+          </header><!-- /introduction -->
 
           <!-- copy actual content from XML -->
           <xsl:call-template name="copy.content">
             <xsl:with-param name="content" select="content" />
           </xsl:call-template>
 
-        </article>
+        </article></main>
 
         <!-- spacing -->
         <hr class="invisible" />

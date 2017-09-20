@@ -18,7 +18,7 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <!-- this template generates HTML code for the top banner jumbotron -->
-  
+
   <xsl:template name="html.banner">
     <xsl:param name="title" /><!-- string -->
     <xsl:param name="subtitle" /><!-- string -->
@@ -33,17 +33,17 @@
     </xsl:variable>
 
     <!-- Bootstrap jumbotron -->
-    <header class="[ jumbotron jumbotron-fluid ]{$style.class}" role="banner">
+    <header role="banner" class="[ jumbotron jumbotron-fluid ]{$style.class}" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
       <div class="container">
 
         <!-- main title -->
-        <h1 class="display-3 x2b-shdw">
+        <h1 class="display-3 x2b-shdw" itemprop="headline">
           <xsl:value-of select="$title" />
         </h1>
 
         <!-- optional subtitle -->
         <xsl:if test="$subtitle">
-          <p class="lead">
+          <p class="lead" itemprop="alternativeHeadline">
             <xsl:value-of select="$subtitle" />
           </p>
         </xsl:if>

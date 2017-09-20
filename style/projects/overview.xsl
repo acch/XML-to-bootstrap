@@ -72,10 +72,10 @@
             <div class="{$grid.cardcolumn}">
 
               <!-- project card -->
-              <article class="card card-block">
+              <article class="card card-block" itemscope="itemscope" itemtype="http://schema.org/CreativeWork">
 
                 <!-- main title -->
-                <h2 class="card-title">
+                <h2 class="card-title" itemprop="headline">
                   <a class="x2b-alt-lnk" href="{$site.url}{$project.path}{$filename}.html">
                     <xsl:value-of select="title" />
                   </a>
@@ -85,23 +85,23 @@
 
                   <!-- optional subtitle -->
                   <xsl:if test="subtitle">
-                    <p class="card-text"><strong>
+                    <p class="card-text"><strong itemprop="alternativeHeadline">
                       <xsl:value-of select="subtitle" />
                     </strong></p>
                   </xsl:if>
 
                   <!-- project description -->
-                  <p class="card-text">
-                    <xsl:if test="short">
+                  <xsl:if test="short">
+                    <p class="card-text" itemprop="description">
                       <xsl:value-of select="short" />
-                    </xsl:if>
-                  </p>
+                    </p>
+                  </xsl:if>
 
                 </a>
 
                 <!-- project button -->
                 <div class="d-flex mt-3">
-                  <a class="[ btn btn-outline-primary ] ml-auto" title="{title}" href="{$site.url}{$project.path}{$filename}.html" role="button">
+                  <a class="[ btn btn-outline-primary ] ml-auto" title="Read more..." href="{$site.url}{$project.path}{$filename}.html" role="button">
                     <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
                     <xsl:value-of select="title" />
                     <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>

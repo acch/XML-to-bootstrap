@@ -20,15 +20,15 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <!-- this template generates HTML code for the fixed sidebar -->
-  
+
   <xsl:template name="html.sidebar">
     <xsl:param name="content" /><!-- node-set (nav) -->
 
     <!-- convert parameter to node-set -->
     <xsl:variable name="content.nav" select="ext:node-set($content)/nav" />
 
-    <!-- Bootstrap card component -->
-    <nav class="[ card card-block ] x2b-stcky">
+    <!-- Bootstrap card -->
+    <aside role="complementary" class="[ card card-block ] x2b-stcky" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
 
       <!-- top-level nav links -->
       <ul class="nav flex-column">
@@ -94,7 +94,7 @@
 
       </ul><!-- /top-level nav links -->
 
-    </nav><!-- /card -->
+    </aside><!-- /card -->
 
   </xsl:template>
 

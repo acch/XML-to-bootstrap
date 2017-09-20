@@ -28,7 +28,7 @@
     <xsl:variable name="site.about" select="/site/options/option[@name = 'site.about']" />
 
     <!-- Bootstrap navbar -->
-    <nav class="[ navbar navbar-toggleable-sm fixed-top navbar-light ] js-nvbr [ sps sps--abv ] headroom--pinned">
+    <nav role="navigation" class="[ navbar navbar-toggleable-sm fixed-top navbar-light ] js-nvbr [ sps sps--abv ] headroom--pinned" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
       <div class="container">
 
         <!-- toggler -->
@@ -40,7 +40,7 @@
         </button>
 
         <!-- site title -->
-        <a class="navbar-brand" href="{$site.url}">
+        <a class="navbar-brand" href="{$site.url}" title="Home">
           <xsl:value-of select="$site.title" />
         </a>
 
@@ -63,7 +63,7 @@
               </xsl:variable>
 
               <li class="[ nav-item{$active} ] mx-2">
-                <a class="nav-link" href="{$site.url}articles.html">
+                <a class="nav-link" href="{$site.url}articles.html" title="{/site/articles/title}">
 
                   <!-- icon and title -->
                   <xsl:call-template name="component.icon">
@@ -91,7 +91,7 @@
               </xsl:variable>
 
               <li class="[ nav-item{$active} ] mx-2">
-                <a class="nav-link" href="{$site.url}projects.html">
+                <a class="nav-link" href="{$site.url}projects.html" title="{/site/projects/title}">
 
                   <!-- icon and title -->
                   <xsl:call-template name="component.icon">
@@ -119,7 +119,7 @@
               </xsl:variable>
 
               <li class="[ nav-item{$active} ] mx-2">
-                <a class="nav-link" href="{$site.url}galleries.html">
+                <a class="nav-link" href="{$site.url}galleries.html" title="{/site/galleries/title}">
 
                   <!-- icon and title -->
                   <xsl:call-template name="component.icon">
@@ -140,7 +140,7 @@
             <!-- optional about link -->
             <xsl:if test="$site.about">
               <li class="nav-item hidden-sm-down ml-auto">
-                <a class="nav-link" href="{$site.about}">About</a>
+                <a class="nav-link" href="{$site.about}" title="About">About</a>
               </li>
             </xsl:if>
 
