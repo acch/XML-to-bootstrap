@@ -44,28 +44,27 @@
 
     <!-- options -->
     <xsl:variable name="site.title" select="/site/options/option[@name = 'site.title']" />
+    <xsl:variable name="doc.title">
+
+      <!-- optional page title -->
+      <xsl:if test="$page.title != ''">
+        <xsl:value-of select="$page.title" />
+
+        <!-- separator -->
+        <xsl:text> &#183; </xsl:text>
+      </xsl:if>
+
+      <!-- site title -->
+      <xsl:value-of select="$site.title" />
+
+    </xsl:variable>
 
     <!-- document head -->
-    <head itemscope="itemscope" itemtype="http://schema.org/WebSite">
-
-      <!-- document title -->
-      <title itemprop="name">
-
-        <!-- optional page title -->
-        <xsl:if test="$page.title != ''">
-          <xsl:value-of select="$page.title" />
-
-          <!-- separator -->
-          <xsl:text> &#183; </xsl:text>
-        </xsl:if>
-
-        <!-- site title -->
-        <xsl:value-of select="$site.title" />
-
-      </title>
+    <head>
 
       <!-- generate meta elements -->
       <xsl:call-template name="html.head.meta">
+        <xsl:with-param name="title" select="$doc.title" />
         <!-- subtitle as description -->
         <xsl:with-param name="description" select="$page.subtitle" />
       </xsl:call-template>
@@ -97,6 +96,7 @@
 
   <!-- this template generates HTML code for meta elements in document head -->
   <xsl:template name="html.head.meta">
+    <xsl:param name="title" /><!-- string -->
     <xsl:param name="description" /><!-- string -->
 
     <!-- options -->
@@ -105,12 +105,22 @@
     <!-- meta elements -->
     <meta charset="utf-8" />
 
+    <!-- TODO: configurable dns-prefetch via options -->
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com" />
+    <link rel="dns-prefetch" href="//code.jquery.com" />
+
+    <!-- document title -->
+    <title>
+      <xsl:value-of select="$title" />
+    </title>
+
     <!-- optional description -->
     <xsl:if test="$description != ''">
       <meta name="description" content="{$description}" />
-      <meta itemprop="description" content="{$description}" />
     </xsl:if>
 
+    <!-- more meta elements -->
     <meta name="author" content="{$site.author}" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -140,7 +150,6 @@
 
     <!-- concatenate site URL and page URL -->
     <link rel="canonical" href="https:{$site.url}{$pageurl}" />
-    <meta itemprop="url" content="https:{$site.url}{$pageurl}" />
 
   </xsl:template>
 
