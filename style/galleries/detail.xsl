@@ -49,12 +49,6 @@
     <!-- gallery -->
     <main role="main"><article itemprop="mainEntityOfPage" itemscope="itemscope" itemtype="http://schema.org/CreativeWork">
 
-      <!-- add meta tags -->
-      <!--xsl:call-template name="component.microdata">
-        <xsl:with-param name="title" select="title" />
-        <xsl:with-param name="subtitle" select="subtitle" />
-      </xsl:call-template-->
-
       <!-- gallery introduction -->
       <header>
 
@@ -70,13 +64,13 @@
               <xsl:value-of select="$author" />
             </span>
           </span>
-
-          <xsl:if test="short">
-            <p class="text-justify font-weight-bold" itemprop="description">
-              <xsl:value-of select="short" />
-            </p>
-          </xsl:if>
         </p>
+
+        <xsl:if test="short">
+          <p class="text-justify font-weight-bold" itemprop="description">
+            <xsl:value-of select="short" />
+          </p>
+        </xsl:if>
 
       </header><!-- /introduction -->
 

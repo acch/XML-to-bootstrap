@@ -54,12 +54,6 @@
         <!-- project -->
         <main role="main"><article itemprop="mainEntityOfPage" itemscope="itemscope" itemtype="http://schema.org/CreativeWork">
 
-          <!-- add meta tags -->
-          <!--xsl:call-template name="component.microdata">
-            <xsl:with-param name="title" select="title" />
-            <xsl:with-param name="subtitle" select="subtitle" />
-          </xsl:call-template-->
-
           <!-- project intoduction -->
           <header><p class="text-muted">
             <xsl:text>//&#160;</xsl:text>

@@ -54,12 +54,6 @@
         <!-- article -->
         <main role="main"><article itemprop="mainEntityOfPage" itemscope="itemscope" itemtype="http://schema.org/Article">
 
-          <!-- add meta tags -->
-          <!--xsl:call-template name="component.microdata">
-            <xsl:with-param name="title" select="title" />
-            <xsl:with-param name="subtitle" select="subtitle" />
-          </xsl:call-template-->
-
           <!-- article introduction -->
           <header>
 
