@@ -56,23 +56,29 @@
       </xsl:call-template-->
 
       <!-- gallery introduction -->
-      <header><p>
-        <time class="text-muted" itemprop="datePublished dateModified" datetime="{date}">
+      <header>
+
+        <p class="text-muted">
           <xsl:text>//&#160;</xsl:text>
-          <xsl:value-of select="$date.formatted" />
-        </time>
+          <time itemprop="datePublished dateModified" datetime="{date}">
+            <xsl:value-of select="$date.formatted" />
+          </time>
 
-        <span itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
-          <span class="text-muted float-right" itemprop="name">
-            <xsl:value-of select="$author" />
+          <span class="float-right" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+            <xsl:text>By </xsl:text>
+            <span itemprop="name">
+              <xsl:value-of select="$author" />
+            </span>
           </span>
-        </span>
 
-        <xsl:if test="short">
-          <br />
-          <strong itemprop="description"><xsl:value-of select="short" /></strong>
-        </xsl:if>
-      </p></header><!-- /description -->
+          <xsl:if test="short">
+            <p class="text-justify font-weight-bold" itemprop="description">
+              <xsl:value-of select="short" />
+            </p>
+          </xsl:if>
+        </p>
+
+      </header><!-- /introduction -->
 
       <!-- copy actual content from XML -->
       <xsl:call-template name="copy.content">

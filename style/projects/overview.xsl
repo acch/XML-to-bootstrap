@@ -40,9 +40,9 @@
     <xsl:choose>
       <xsl:when test="not(project[not(@draft)])">
 
-        <p><strong>
+        <p class="font-weight-bold">
           There are no projects, yet. Why don't you create one?
-        </strong></p>
+        </p>
 
       </xsl:when>
       <xsl:otherwise>
@@ -58,13 +58,6 @@
             <xsl:variable name="filename">
               <xsl:call-template name="format.filename">
                 <xsl:with-param name="string" select="title" />
-              </xsl:call-template>
-            </xsl:variable>
-
-            <!-- format date -->
-            <xsl:variable name="date.formatted">
-              <xsl:call-template name="format.date">
-                <xsl:with-param name="date" select="date" />
               </xsl:call-template>
             </xsl:variable>
 
@@ -85,9 +78,9 @@
 
                   <!-- optional subtitle -->
                   <xsl:if test="subtitle">
-                    <p class="card-text"><strong itemprop="alternativeHeadline">
+                    <p class="card-text font-weight-bold" itemprop="alternativeHeadline">
                       <xsl:value-of select="subtitle" />
-                    </strong></p>
+                    </p>
                   </xsl:if>
 
                   <!-- project description -->
@@ -101,7 +94,7 @@
 
                 <!-- project button -->
                 <div class="d-flex mt-3">
-                  <a class="[ btn btn-outline-primary ] ml-auto" title="Read more..." href="{$site.url}{$project.path}{$filename}.html" role="button">
+                  <a role="button" class="[ btn btn-outline-primary ] ml-auto" title="Read more..." href="{$site.url}{$project.path}{$filename}.html">
                     <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
                     <xsl:value-of select="title" />
                     <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>

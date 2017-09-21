@@ -77,7 +77,7 @@
     </xsl:variable>
 
     <!-- Bootstrap button with fontawesome icon inside -->
-    <a class="btn {$btn.class}" role="button">
+    <a role="button" class="btn {$btn.class}">
 
       <!-- optional title -->
       <xsl:if test="$title != ''">

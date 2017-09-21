@@ -61,14 +61,15 @@
           </xsl:call-template-->
 
           <!-- project intoduction -->
-          <header><p>
-            <time class="text-muted" itemprop="datePublished dateModified" datetime="{date}">
-              <xsl:text>//&#160;</xsl:text>
+          <header><p class="text-muted">
+            <xsl:text>//&#160;</xsl:text>
+            <time itemprop="datePublished dateModified" datetime="{date}">
               <xsl:value-of select="$date.formatted" />
             </time>
 
-            <span itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
-              <span class="text-muted float-right" itemprop="name">
+            <span class="float-right" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+              <xsl:text>By </xsl:text>
+              <span itemprop="name">
                 <xsl:value-of select="$author" />
               </span>
             </span>

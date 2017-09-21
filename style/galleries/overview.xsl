@@ -40,9 +40,9 @@
     <xsl:choose>
       <xsl:when test="not(gallery[not(@draft)])">
 
-        <p><strong>
+        <p class="font-weight-bold">
           There are no galleries, yet. Why don't you create one?
-        </strong></p>
+        </p>
 
       </xsl:when>
       <xsl:otherwise>
@@ -88,21 +88,23 @@
                     <xsl:if test="short">
                       <span itemprop="description">
                         <xsl:value-of select="short" />
+                        <xsl:text> </xsl:text>
                       </span>
-                      <xsl:text> </xsl:text>
                     </xsl:if>
 
-                    <time class="text-muted" itemprop="datePublished dateModified" datetime="{date}">
+                    <span class="text-muted">
                       <xsl:text>//&#160;</xsl:text>
-                      <xsl:value-of select="$date.formatted" />
-                    </time>
+                      <time itemprop="datePublished dateModified" datetime="{date}">
+                        <xsl:value-of select="$date.formatted" />
+                      </time>
+                    </span>
                   </p>
 
                 </a>
 
                 <!-- gallery button -->
                 <div class="d-flex mt-3">
-                  <a class="[ btn btn-outline-primary ] ml-auto" title="View..." href="{$site.url}{$gallery.path}{$filename}.html" role="button">
+                  <a role="button" class="[ btn btn-outline-primary ] ml-auto" title="View..." href="{$site.url}{$gallery.path}{$filename}.html">
                     <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
                     <xsl:value-of select="title" />
                     <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>

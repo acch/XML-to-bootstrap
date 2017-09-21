@@ -40,9 +40,9 @@
     <xsl:choose>
       <xsl:when test="not(article[not(@draft)])">
 
-        <p><strong>
+        <p class="font-weight-bold">
           There are no articles, yet. Why don't you create one?
-        </strong></p>
+        </p>
 
       </xsl:when>
       <xsl:otherwise>
@@ -94,9 +94,9 @@
 
                 <!-- optional subtitle -->
                 <xsl:if test="subtitle">
-                  <p><strong itemprop="alternativeHeadline">
+                  <p class="font-weight-bold" itemprop="alternativeHeadline">
                     <xsl:value-of select="subtitle" />
-                  </strong></p>
+                  </p>
                 </xsl:if>
 
                 <!-- article description -->
@@ -104,21 +104,23 @@
                   <xsl:if test="short">
                     <span itemprop="description">
                       <xsl:value-of select="short" />
+                      <xsl:text> </xsl:text>
                     </span>
-                    <xsl:text> </xsl:text>
                   </xsl:if>
 
-                  <time class="text-muted" itemprop="datePublished dateModified" datetime="{date}">
+                  <span class="text-muted">
                     <xsl:text>//&#160;</xsl:text>
-                    <xsl:value-of select="$date.formatted" />
-                  </time>
+                    <time itemprop="datePublished dateModified" datetime="{date}">
+                      <xsl:value-of select="$date.formatted" />
+                    </time>
+                  </span>
                 </p>
 
               </a>
 
               <!-- article button -->
               <div class="d-flex">
-                <a class="[ btn btn-outline-primary ] ml-auto" title="Read more..." href="{$site.url}{$article.path}{$filename}.html" role="button">
+                <a role="button" class="[ btn btn-outline-primary ] ml-auto" title="Read more..." href="{$site.url}{$article.path}{$filename}.html">
                   <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
                   <xsl:value-of select="title" />
                   <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
