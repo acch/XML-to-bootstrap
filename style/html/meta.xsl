@@ -44,6 +44,9 @@
 
     <!-- options -->
     <xsl:variable name="site.title" select="/site/options/option[@name = 'site.title']" />
+    <xsl:variable name="site.description" select="/site/options/option[@name = 'site.description']" />
+
+    <!-- document title -->
     <xsl:variable name="doc.title">
 
       <!-- optional page title -->
@@ -59,28 +62,40 @@
 
     </xsl:variable>
 
+    <!-- document description -->
+    <xsl:variable name="doc.description">
+      <xsl:choose>
+        <xsl:when test="$page.subtitle != ''">
+
+          <!-- subtitle as description -->
+          <xsl:value-of select="$page.subtitle" />
+
+        </xsl:when>
+        <xsl:otherwise>
+
+          <!-- site description -->
+          <xsl:value-of select="$site.description" />
+
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
     <!-- document head -->
     <head>
 
       <!-- generate meta elements -->
       <xsl:call-template name="html.head.meta">
         <xsl:with-param name="title" select="$doc.title" />
-        <!-- subtitle as description -->
-        <xsl:with-param name="description" select="$page.subtitle" />
+        <xsl:with-param name="description" select="$doc.description" />
       </xsl:call-template>
 
       <!-- copy additional meta tags directly -->
       <xsl:copy-of select="ext:node-set($meta)" />
 
-      <!-- check page URL -->
-      <xsl:if test="$page.url">
-
-        <!-- generate canonical link -->
-        <xsl:call-template name="html.head.canonical">
-          <xsl:with-param name="page.url" select="$page.url" />
-        </xsl:call-template>
-
-      </xsl:if>
+      <!-- generate canonical link -->
+      <xsl:call-template name="html.head.canonical">
+        <xsl:with-param name="page.url" select="$page.url" />
+      </xsl:call-template>
 
       <!-- generate stylesheet links -->
       <xsl:call-template name="html.head.link" />

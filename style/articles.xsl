@@ -52,7 +52,6 @@
       <xsl:call-template name="html.page">
         <xsl:with-param name="title" select="/site/articles/title" />
         <xsl:with-param name="subtitle" select="/site/articles/subtitle" />
-        <xsl:with-param name="head.subtitle" select="false()" /><!-- don't promote subtitle in head -->
         <xsl:with-param name="content" select="/site/articles" />
         <xsl:with-param name="content.sidebar">
           <xsl:call-template name="articles.sidebar">

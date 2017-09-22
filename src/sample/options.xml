@@ -4,6 +4,7 @@
 
   <!-- side-wide options -->
   <option name="site.title">XML-to-Bootstrap</option>
+  <option name="site.description">Lorem Ipsum demo pages for XML-to-Bootstrap: Articles, project descriptions and galleries</option>
   <option name="site.author">Achim Christ</option>
   <option name="site.about">//github.com/acch/XML-to-bootstrap#readme</option>
 
