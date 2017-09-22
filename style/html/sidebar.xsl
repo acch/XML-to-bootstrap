@@ -19,8 +19,7 @@
 
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-  <!-- this template generates HTML code for the fixed sidebar -->
-
+  <!-- this template generates HTML code for the sticky sidebar -->
   <xsl:template name="html.sidebar">
     <xsl:param name="content" /><!-- node-set (nav) -->
 

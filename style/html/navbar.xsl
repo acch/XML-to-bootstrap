@@ -18,7 +18,6 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <!-- this template generates HTML code for the fixed-top navbar -->
-
   <xsl:template name="html.navbar">
     <xsl:param name="title" /><!-- string -->
 
@@ -40,7 +39,7 @@
         </button>
 
         <!-- site title -->
-        <a class="navbar-brand" href="{$site.url}" title="Home">
+        <a class="navbar-brand" title="Home" href="{$site.url}">
           <xsl:value-of select="$site.title" />
         </a>
 
@@ -63,7 +62,7 @@
               </xsl:variable>
 
               <li class="[ nav-item{$active} ] mx-2">
-                <a class="nav-link" href="{$site.url}articles.html" title="{/site/articles/title}">
+                <a class="nav-link" href="{$site.url}articles.html">
 
                   <!-- icon and title -->
                   <xsl:call-template name="component.icon">
@@ -91,7 +90,7 @@
               </xsl:variable>
 
               <li class="[ nav-item{$active} ] mx-2">
-                <a class="nav-link" href="{$site.url}projects.html" title="{/site/projects/title}">
+                <a class="nav-link" href="{$site.url}projects.html">
 
                   <!-- icon and title -->
                   <xsl:call-template name="component.icon">
@@ -119,7 +118,7 @@
               </xsl:variable>
 
               <li class="[ nav-item{$active} ] mx-2">
-                <a class="nav-link" href="{$site.url}galleries.html" title="{/site/galleries/title}">
+                <a class="nav-link" href="{$site.url}galleries.html">
 
                   <!-- icon and title -->
                   <xsl:call-template name="component.icon">
@@ -140,7 +139,7 @@
             <!-- optional about link -->
             <xsl:if test="$site.about">
               <li class="nav-item hidden-sm-down ml-auto">
-                <a class="nav-link" href="{$site.about}" title="About">About</a>
+                <a class="nav-link" href="{$site.about}">About</a>
               </li>
             </xsl:if>
 

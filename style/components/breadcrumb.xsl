@@ -19,6 +19,7 @@
 
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+  <!-- this template generates HTML code for the navigation breadcrumb -->
   <xsl:template name="component.breadcrumb">
     <xsl:param name="parent" /><!-- node-set (page) -->
     <xsl:param name="current" /><!-- string -->
@@ -30,17 +31,17 @@
     <div role="navigation" class="breadcrumb" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
 
       <!-- home -->
-      <a class="breadcrumb-item" href="{$site.url}" title="Home">Home</a>
+      <a class="breadcrumb-item" href="{$site.url}">Home</a>
 
       <!-- optional category page -->
       <xsl:if test="$parent.page">
-        <a class="breadcrumb-item" href="{$parent.page/@href}" title="{$parent.page/@title}">
+        <a class="breadcrumb-item" href="{$parent.page/@href}">
           <xsl:value-of select="$parent.page/@title" />
         </a>
       </xsl:if>
 
       <!-- current page -->
-      <span class="breadcrumb-item active" title="{$current}">
+      <span class="breadcrumb-item active">
         <xsl:value-of select="$current" />
       </span>
 

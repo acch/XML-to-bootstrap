@@ -18,7 +18,6 @@
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
   <!-- this template generates HTML code for the top banner jumbotron -->
-
   <xsl:template name="html.banner">
     <xsl:param name="title" /><!-- string -->
     <xsl:param name="subtitle" /><!-- string -->

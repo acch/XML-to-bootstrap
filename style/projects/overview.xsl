@@ -94,7 +94,7 @@
 
                 <!-- project button -->
                 <div class="d-flex mt-3">
-                  <a role="button" class="[ btn btn-outline-primary ] ml-auto" title="Read more..." href="{$site.url}{$project.path}{$filename}.html">
+                  <a role="button" class="[ btn btn-outline-primary ] ml-auto" href="{$site.url}{$project.path}{$filename}.html">
                     <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>
                     <xsl:value-of select="title" />
                     <xsl:text disable-output-escaping="yes">&amp;#160;</xsl:text>

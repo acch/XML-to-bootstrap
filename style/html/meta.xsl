@@ -35,7 +35,7 @@
      HTML head elements
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-  <!-- this template generates HTML code for document head -->
+  <!-- this template generates HTML code for the document head -->
   <xsl:template name="html.head">
     <xsl:param name="page.title" /><!-- string -->
     <xsl:param name="page.subtitle" /><!-- string -->

@@ -19,8 +19,8 @@
 
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<!-- this template generates XML code for the sitemap -->
-
+  <!-- this template generates XML code for the sitemap, and calls other
+       templates as required -->
   <xsl:template name="sitemap">
 
     <!-- generate sitemap.xml -->

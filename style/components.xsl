@@ -17,14 +17,12 @@
 
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<!-- templates herein generate various components which can (optionally) be used
-     on pages -->
-
+  <!-- templates herein generate various components which can (optionally) be
+       used on pages -->
   <xsl:import href="components/anchor.xsl" />
   <xsl:import href="components/breadcrumb.xsl" />
   <xsl:import href="components/icon.xsl" />
   <xsl:import href="components/image.xsl" />
-  <xsl:import href="components/microdata.xsl" />
   <xsl:import href="components/pager.xsl" />
   <xsl:import href="components/textcolumn.xsl" />
 

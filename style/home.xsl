@@ -17,8 +17,7 @@
 
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<!-- this template generates HTML code for the start (home) page -->
-
+  <!-- this template generates HTML code for the start (home) page -->
   <xsl:template name="home">
 
     <!-- generate home page -->
@@ -29,7 +28,7 @@
       <xsl:with-param name="head.subtitle" select="false()" /><!-- don't promote subtitle in head -->
       <xsl:with-param name="content" select="/site/home" />
       <xsl:with-param name="banner.style">text-center</xsl:with-param>
-      <xsl:with-param name="uri">/</xsl:with-param>
+      <xsl:with-param name="url">/</xsl:with-param>
     </xsl:call-template>
 
   </xsl:template>
@@ -63,7 +62,7 @@
           </div>
 
           <!-- link to expand collapsed section -->
-          <a class="x2b-expnd collapsed" data-toggle="collapse" href="#intrdctn" aria-expanded="false" aria-controls="intrdctn">
+          <a class="x2b-expnd collapsed" data-toggle="collapse" title="Toggle description" href="#intrdctn" aria-controls="intrdctn" aria-expanded="false" aria-label="Toggle description">
             <xsl:text>More&#8230;</xsl:text>
           </a>
 

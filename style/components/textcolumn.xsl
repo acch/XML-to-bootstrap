@@ -19,6 +19,7 @@
 
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+  <!-- this template generates HTML code for the text column -->
   <xsl:template name="component.textcolumn">
     <xsl:param name="content" /><!-- node-set -->
     <xsl:param name="exclude" /><!-- string -->

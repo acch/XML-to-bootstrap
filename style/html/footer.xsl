@@ -44,7 +44,7 @@
   </xsl:template>
 
 
-  <!-- social links -->
+  <!-- this template generates HTML code for social links -->
   <xsl:template name="html.sociallinks">
 
     <!-- centered -->

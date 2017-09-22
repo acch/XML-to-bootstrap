@@ -19,6 +19,7 @@
 
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+  <!-- this template generates HTML code for the navigation pager -->
   <xsl:template name="component.pager">
     <xsl:param name="next" /><!-- node-set (page) -->
     <xsl:param name="prev" /><!-- node-set (page) -->
