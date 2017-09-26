@@ -83,6 +83,12 @@
     <!-- document head -->
     <head>
 
+      <!-- file encoding -->
+      <meta charset="utf-8" />
+
+      <!-- generate dns-prefetch links -->
+      <xsl:call-template name="html.head.dns" />
+
       <!-- generate meta elements -->
       <xsl:call-template name="html.head.meta">
         <xsl:with-param name="title" select="$doc.title" />
@@ -109,6 +115,30 @@
      HTML meta elements
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+  <!-- this template generates HTML code for dns-prefetch links in document
+       head -->
+  <xsl:template name="html.head.dns">
+
+    <!-- external scripts from options (CDN) -->
+    <xsl:for-each select="/site/options/option[@name = 'cdn.scripts']/script[@src]">
+
+      <!-- extract domain from URL -->
+      <xsl:variable name="domain">
+        <xsl:call-template name="format.domain">
+          <xsl:with-param name="url" select="@src" />
+        </xsl:call-template>
+      </xsl:variable>
+
+      <!-- generate dns-prefetch link for domain -->
+      <xsl:if test="$domain != ''">
+        <link rel="dns-prefetch" href="//{$domain}" />
+      </xsl:if>
+
+    </xsl:for-each>
+
+  </xsl:template>
+
+
   <!-- this template generates HTML code for meta elements in document head -->
   <xsl:template name="html.head.meta">
     <xsl:param name="title" /><!-- string -->
@@ -116,14 +146,6 @@
 
     <!-- options -->
     <xsl:variable name="site.author" select="/site/options/option[@name = 'site.author']" />
-
-    <!-- meta elements -->
-    <meta charset="utf-8" />
-
-    <!-- TODO: configurable dns-prefetch via options -->
-    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
-    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com" />
-    <link rel="dns-prefetch" href="//code.jquery.com" />
 
     <!-- document title -->
     <title>
@@ -185,7 +207,7 @@
         <xsl:attribute name="href">
 
           <!-- prepend base URL if necessary -->
-          <xsl:if test="not(starts-with(@href, '//'))">
+          <xsl:if test="not(starts-with(@href, '//')) and not(starts-with(@href, 'http'))">
             <xsl:value-of select="$site.url" />
           </xsl:if>
 
@@ -224,7 +246,7 @@
             <xsl:attribute name="src">
 
               <!-- prepend base URL if necessary -->
-              <xsl:if test="not(starts-with(@src, '//'))">
+              <xsl:if test="not(starts-with(@src, '//')) and not(starts-with(@src, 'http'))">
                 <xsl:value-of select="$site.url" />
               </xsl:if>
 

@@ -143,6 +143,22 @@
 
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Domain format
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <!-- extract domain from URL -->
+  <xsl:template name="format.domain">
+    <xsl:param name="url" /><!-- string -->
+
+    <!-- only process external URLs -->
+    <xsl:if test="starts-with($url, '//') or starts-with($url, 'http')">
+      <xsl:value-of select="substring-before(substring-after($url, '//'), '/')" />
+    </xsl:if>
+
+  </xsl:template>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      Path format
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
@@ -257,15 +273,19 @@
 
       <!-- check if string is longer than length -->
       <xsl:when test="string-length($string) > $length">
+
         <!-- shorten string -->
         <xsl:value-of select="substring($string,1,$length - 1)" />
         <xsl:text>&#8230;</xsl:text>
+
       </xsl:when>
 
       <!-- string is shorter than length -->
       <xsl:otherwise>
+
         <!-- copy string as-is -->
         <xsl:value-of select="$string" />
+
       </xsl:otherwise>
 
     </xsl:choose>
