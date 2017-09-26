@@ -164,7 +164,7 @@
 
         </img>
 
-      </xsl:otherwise><!-- /not(starts-with(@src, '//')) -->
+      </xsl:otherwise><!-- /not(starts-with(@src, '//')) and not(starts-with(@src, 'http')) -->
     </xsl:choose>
 
   </xsl:template>
