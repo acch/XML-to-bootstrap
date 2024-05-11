@@ -1,3 +1,10 @@
+
+---
+
+> **IMPORTANT**: Unfortunately, this project is no longer actively maintained by its original creator(s). While it may no longer receive updates or support, the codebase remains accessible and available for anyone interested in continuing its development.
+
+---
+
 # XML-to-Bootstrap
 
 Transforms a generic XML document into Bootstrap HTML pages.
